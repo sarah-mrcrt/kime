@@ -69760,8 +69760,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 
-__webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.js");
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -69888,8 +69886,8 @@ function Home() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/brieuc/projets/kime/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/brieuc/projets/kime/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\fresn\Desktop\projets\kime\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\fresn\Desktop\projets\kime\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
