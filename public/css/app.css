@@ -10933,3 +10933,36 @@ a.text-dark:focus {
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.welcome {
+  background: #fff;
+}
+
+.welcome__img {
+  width: 100%;
+}
+
+.welcome__title {
+  text-align: center;
+}
+
+.welcome__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome__cta {
+  margin-left: 30px;
+}
+
+.welcome__cta:first-child {
+  margin-left: 0;
+}
+

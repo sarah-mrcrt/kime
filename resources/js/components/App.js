@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
-import Home from './Home.js';
+
+import Welcome from './Welcome.js';
 
 function App() {
     return (
@@ -9,7 +10,7 @@ function App() {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact={true} path="/" component={Home} />
+              <Route exact={true} path="/" component={Welcome} />
 
               <Route path="*" component={() => <p>Page Not Found</p>} />
             </Switch>
@@ -21,4 +22,4 @@ function App() {
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('app'));
