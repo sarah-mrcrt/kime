@@ -9,15 +9,43 @@
 
 * {
     box-sizing: border-box;
-  }
-  
-html {
-    font-size: 62.5%;
+}
+
+.form {
+    &__row {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        display: block;
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 2px;
+        border: 1.5px solid $light-gray;
+    }
+}
+ 
+.btn-red {
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+
+    &--fill {
+        background: $red;
+        color: $white;
+    }
+    &--stroke {
+        border: 2px solid $red;
+        color: $red;
+    }
 }
 
 .welcome {
-
     background: #fff;
+
     &__img {
         width: 100%;
     }
@@ -36,5 +64,46 @@ html {
         &:first-child {
             margin-left: 0;
         }
+    }
+}
+
+.login {
+    &__header {
+        background: $red;
+        color: $white;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 10px 10px 20px;
+    }
+
+    &__header-text {
+
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__img {
+        width: 40vw;
+        position: relative;
+        bottom: -20vw;
+        z-index: 1;
+    }
+
+    &__body {
+        background: #fff;
+        position: relative;
+        top: -18px;
+        border-radius: 18px 18px 0 0;
+        padding: 80px 10px 10px 10px;
+    }
+
+    &__forgot-pwd {
+        display: block;
+        margin-top: 10px;
+        color: $red;
+        text-align: right;
+        text-decoration: none;
     }
 }

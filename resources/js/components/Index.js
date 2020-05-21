@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 
-import Welcome from './Welcome.js';
+import Welcome from '../views/Welcome.js';
+import Login from '../views/Login.js';
 
-function App() {
+function Index() {
     return (
       <div>
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact={true} path="/" component={Welcome} />
+              <Route exact={true} path="/" component={Login} />
 
               <Route path="*" component={() => <p>Page Not Found</p>} />
             </Switch>
@@ -20,6 +21,6 @@ function App() {
     );
 }
 
-export default App;
+export default Index;
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('app'));
