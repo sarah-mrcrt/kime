@@ -9,16 +9,13 @@ function Register() {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
-    const [redirection, setRedirection] = useState(false);
     
-    let appState = localStorage.getItem('appState');
+    let state = localStorage.getItem('appState');
 
-    if(appState && appState.isRegistered) {
-        setRedirection(true);
-    }
-
-    if(redirection) {
-        return <Redirect to='/accueil'/>
+    if(state != null) {
+        let appState = JSON.parse(state)
+        if(appState.isLoggedIn || appState.isRegistered)
+            return <Redirect to='/accueil'/>;
     }
 
     const handleSubmit = (e) => {
@@ -50,7 +47,7 @@ function Register() {
                 localStorage.setItem('appState', JSON.stringify(appState));
 
                 console.log("succesfully registered user");
-                setRedirection(true);
+                return <Redirect to='/accueil'/>;
 
             } else {
                 console.log("Couldn't register: \n");

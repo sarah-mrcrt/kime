@@ -70023,19 +70023,11 @@ function Login() {
       error = _useState6[0],
       setError = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      redirection = _useState8[0],
-      setRedirection = _useState8[1];
+  var state = localStorage.getItem('appState');
 
-  var appState = localStorage.getItem('appState');
-
-  if (appState && appState.isLoggedIn) {
-    setRedirection(true);
-  }
-
-  if (redirection) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+  if (state != null) {
+    var appState = JSON.parse(state);
+    if (appState.isLoggedIn || appState.isRegistered) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/accueil"
     });
   }
@@ -70060,9 +70052,10 @@ function Login() {
           user: userData
         };
         localStorage.setItem('appState', JSON.stringify(_appState));
-        console.log(localStorage.getItem('appState'));
         console.log("succesfully logged in");
-        setRedirection(true);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/accueil"
+        });
       } else {
         alert("Connexion impossible: identifiants erron\xE9s");
       }
@@ -70256,19 +70249,11 @@ function Register() {
       adminPassword = _useState10[0],
       setAdminPassword = _useState10[1];
 
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState12 = _slicedToArray(_useState11, 2),
-      redirection = _useState12[0],
-      setRedirection = _useState12[1];
+  var state = localStorage.getItem('appState');
 
-  var appState = localStorage.getItem('appState');
-
-  if (appState && appState.isRegistered) {
-    setRedirection(true);
-  }
-
-  if (redirection) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+  if (state != null) {
+    var appState = JSON.parse(state);
+    if (appState.isLoggedIn || appState.isRegistered) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/accueil"
     });
   }
@@ -70297,7 +70282,9 @@ function Register() {
         };
         localStorage.setItem('appState', JSON.stringify(_appState));
         console.log("succesfully registered user");
-        setRedirection(true);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/accueil"
+        });
       } else {
         console.log("Couldn't register: \n");
         console.log(json.data.error);

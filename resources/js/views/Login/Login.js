@@ -7,16 +7,13 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [redirection, setRedirection] = useState(false);
 
-    let appState = localStorage.getItem('appState');
+    let state = localStorage.getItem('appState');
 
-    if(appState && appState.isLoggedIn) {
-        setRedirection(true);
-    }
-
-    if(redirection) {
-        return <Redirect to='/accueil'/>
+    if(state != null) {
+        let appState = JSON.parse(state)
+        if(appState.isLoggedIn || appState.isRegistered)
+            return <Redirect to='/accueil'/>;
     }
 
     const handleSubmit = (e) => {
@@ -44,10 +41,9 @@ function Login() {
                 }
 
                 localStorage.setItem('appState', JSON.stringify(appState));
-                console.log(localStorage.getItem('appState'));
 
                 console.log("succesfully logged in");
-                setRedirection(true);
+                return <Redirect to='/accueil'/>;
             } 
             else {
                 alert(`Connexion impossible: identifiants erronés`);
