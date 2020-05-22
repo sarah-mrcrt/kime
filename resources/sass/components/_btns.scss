@@ -1,0 +1,14 @@
+.btn-red {
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+
+    &--fill {
+        background: $red;
+        color: $white;
+    }
+    &--stroke {
+        border: 2px solid $red;
+        color: $red;
+    }
+}

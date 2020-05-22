@@ -12,7 +12,10 @@ class KidController extends Controller
     public function get(Request $req)
     {
         if( !$req->validate(['id' => 'required|integer']) ) {
-            return response()->json(['error' => 'ID non renseignée ou invalide']);      
+            return response()->json([
+                'success' => false,
+                'error' => 'ID non renseignée ou invalide'
+            ]);      
         }
 
         $k = Kid::find($req->id);
@@ -35,7 +38,10 @@ class KidController extends Controller
         ]);
 
         if ($validator->fails()) { 
-            return response()->json(['error' => $validator->errors()]);            
+            return response()->json([
+                'success' => false,
+                'error' => $validator->errors()
+            ]);            
         }
 
         $k = new Kid();
@@ -58,7 +64,10 @@ class KidController extends Controller
     public function delete(Request $request)
     {
         if( !$req->validate(['id' => 'required|integer']) ) {
-            return response()->json(['error' => 'ID non renseignée ou invalide']);      
+            return response()->json([
+                'success' => false,
+                'error' => 'ID non renseignée ou invalide'
+            ]);      
         }
 
         $k = Kid::find($req->id);

@@ -1,0 +1,20 @@
+.form {
+    &__row {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        display: block;
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 2px;
+        border: 1.5px solid $light-gray;
+    }
+
+    &__checkbox {
+        margin-right: .5rem;
+    }
+}
