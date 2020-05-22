@@ -10953,6 +10953,10 @@ a.text-dark:focus {
   border: 1.5px solid #969696;
 }
 
+.form__checkbox {
+  margin-right: 0.5rem;
+}
+
 .btn-red {
   border-radius: 20px;
   border: none;
@@ -10994,7 +10998,7 @@ a.text-dark:focus {
   margin-left: 0;
 }
 
-.login__header {
+.page-header {
   background: #C54141;
   color: #FFFFFF;
   display: flex;
@@ -11002,11 +11006,11 @@ a.text-dark:focus {
   padding: 30px 10px 10px 20px;
 }
 
-.login__title {
+.page-header__title {
   margin: 0;
 }
 
-.login__img {
+.page-header__img {
   width: 40vw;
   position: relative;
   bottom: -20vw;
@@ -11022,10 +11026,31 @@ a.text-dark:focus {
 }
 
 .login__forgot-pwd {
-  display: block;
   margin-top: 10px;
   color: #C54141;
-  text-align: right;
   text-decoration: none;
+  float: right;
+}
+
+.login__forgot-pwd:hover {
+  color: #C54141;
+  text-decoration: underline;
+}
+
+.login__bottom {
+  text-align: center;
+}
+
+.login__submit-container {
+  text-align: center;
+}
+
+.login__separator {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.login__remember {
+  clear: both;
 }
 

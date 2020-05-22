@@ -20,8 +20,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app"></div>
+    <h1>Page de tests</h1>
     
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    @if (Auth::check())
+     L'utilisateur est connecté.
+    @endif
+    
 </body>
 </html>

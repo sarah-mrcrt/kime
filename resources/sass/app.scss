@@ -26,6 +26,10 @@
         border-radius: 2px;
         border: 1.5px solid $light-gray;
     }
+
+    &__checkbox {
+        margin-right: .5rem;
+    }
 }
  
 .btn-red {
@@ -67,18 +71,12 @@
     }
 }
 
-.login {
-    &__header {
-        background: $red;
-        color: $white;
-        display: flex;
-        justify-content: space-between;
-        padding: 30px 10px 10px 20px;
-    }
-
-    &__header-text {
-
-    }
+.page-header {
+    background: $red;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10px 10px 20px;
 
     &__title {
         margin: 0;
@@ -90,7 +88,9 @@
         bottom: -20vw;
         z-index: 1;
     }
+}
 
+.login {
     &__body {
         background: #fff;
         position: relative;
@@ -100,10 +100,31 @@
     }
 
     &__forgot-pwd {
-        display: block;
         margin-top: 10px;
         color: $red;
-        text-align: right;
         text-decoration: none;
+        float: right;
+
+        &:hover {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+
+    &__bottom {
+        text-align: center;
+    }
+
+    &__submit-container {
+        text-align: center;
+    }
+
+    &__separator {
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    &__remember {
+        clear: both;
     }
 }
