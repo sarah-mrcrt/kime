@@ -69915,7 +69915,6 @@ __webpack_require__.r(__webpack_exports__);
 
 function Home() {
   var appState = localStorage.getItem('appState');
-  console.log(appState);
 
   if (appState == null || appState != null && appState.isLoggedIn == false) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {

@@ -4,7 +4,6 @@ import {Redirect} from 'react-router-dom';
 function Home() {
 
     let appState = localStorage.getItem('appState');
-    console.log(appState);
     if(appState == null || (appState != null && appState.isLoggedIn == false)) {
         return <Redirect to="/connexion" />;
     }
