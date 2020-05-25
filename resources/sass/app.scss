@@ -1,8 +1,24 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Variables
 @import 'variables';
+
+// Layout
+@import 'base/normalize';
+@import 'base/reset';
+
+@import 'base/body';
+@import 'base/container';
+
+@import 'base/alignements';
+@import 'base/headings';
+@import 'base/blocks';
+@import 'base/links';
 
 // Components
 @import 'components/btns';
@@ -10,9 +26,6 @@
 // Layout
 @import 'layout/forms';
 @import 'layout/navigation';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 * {
     box-sizing: border-box;

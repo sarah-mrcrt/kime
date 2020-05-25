@@ -1,0 +1,28 @@
+////
+/// Container
+///
+////
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+.content {
+  width: 100%;
+  padding: 3rem;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+.scroll-y {
+  overflow-y: auto;
+}
+
+section {
+  display: block;
+  margin: 8rem auto;
+  border: none;
+}

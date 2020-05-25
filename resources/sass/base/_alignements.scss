@@ -1,0 +1,29 @@
+////
+/// Alignements
+///
+////
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-justify { text-align: justify; }
+
+.table { 
+    display : table; 
+}
+
+.flex { 
+    display: flex; 
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: repeat(2, calc(100% / 2));
+}
+.g3 {
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
+}
+.g4 {
+  display: grid;
+  grid-template-columns: repeat(4, calc(100% / 4));
+}

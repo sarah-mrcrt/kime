@@ -1,0 +1,22 @@
+////
+/// Body
+///
+////
+
+/// Text default font and color
+body { 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100vh;
+
+    color: $black; 
+    font-family: $font-family-sans-serif; 
+    font-weight: normal; 
+
+    font-size: 1rem;  
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
