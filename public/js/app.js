@@ -69984,6 +69984,165 @@ function Navigation(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/RoundBackground.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/RoundBackground.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function RoundBackground(props) {
+  var colorClass = "red";
+
+  switch (props.color) {
+    case 'red':
+      colorClass = "red";
+      break;
+
+    case 'yellow':
+      colorClass = "yellow";
+      break;
+
+    case 'blue':
+      colorClass = "blue";
+      break;
+
+    default:
+      colorClass = "red";
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "round-background " + colorClass,
+    "enable-background": "new 0 0 240 240",
+    version: "1.1",
+    viewBox: "0 0 240 240",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+    type: "text/css"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+    className: "st0",
+    cx: "120",
+    cy: "120",
+    r: "120"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ellipse", {
+    className: "st1",
+    cx: "120",
+    cy: "120",
+    rx: "98.4",
+    ry: "98.4"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+    className: "st2",
+    cx: "120",
+    cy: "120",
+    r: "79.8"
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RoundBackground);
+
+/***/ }),
+
+/***/ "./resources/js/components/StepBar.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/StepBar.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+function StepBar(props) {
+  var lineClass = "";
+  var nb = props.nbStep;
+  var n = 0; // /!\ Ne fonctionne qu'avec 3 étapes actuellement
+
+  switch (nb) {
+    case 2:
+      lineClass = "half";
+      break;
+
+    case 3:
+      lineClass = "whole";
+      break;
+
+    default:
+      lineClass = "";
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "step-bar g3"
+  }, props.steps.map(function (step, index) {
+    var checkedClass = "";
+    var selectedNameClass = ""; // Si l'étape est celle actuelle ou une étape précédente
+
+    if (index + 1 <= nb) {
+      checkedClass = "selected";
+    } // Si l'étape est celle actuelle uniquement
+
+
+    if (index + 1 == nb) {
+      selectedNameClass = "selected";
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "step-bar__step " + checkedClass,
+      key: index
+    }, index + 1 <= nb ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+      id: "step" + index,
+      className: "step-bar__step__svg",
+      enableBackground: "new 0 0 32 32",
+      version: "1.1",
+      viewBox: "0 0 32 32",
+      xmlSpace: "preserve",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      className: "st0",
+      d: "M32,16c0,8.8-7.2,16-16,16S0,24.8,0,16S7.2,0,16,0S32,7.2,32,16z"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      className: "st1",
+      d: "m20.7 11.3c0.1 0.1 0.2 0.2 0.2 0.3s0.1 0.3 0.1 0.4 0 0.3-0.1 0.4c0 0.1-0.1 0.2-0.2 0.3l-7.3 10c-0.1 0.1-0.2 0.2-0.3 0.2-0.1 0.1-0.2 0.1-0.3 0.1s-0.2 0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2l-4.8-5.3c-0.2-0.2-0.3-0.4-0.3-0.7s0.1-0.5 0.3-0.7 0.4-0.3 0.6-0.3 0.5 0.1 0.6 0.3l4.2 4.6 6.7-9.3c0.1-0.1 0.2-0.2 0.3-0.2 0.1-0.1 0.3-0.1 0.4-0.1s0.2 0 0.4 0.1l0.2 0.2z"
+    })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+      id: "step" + index,
+      className: "step-bar__step__svg",
+      enableBackground: "new 0 0 32 32",
+      version: "1.1",
+      viewBox: "0 0 32 32",
+      xmlSpace: "preserve",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+      className: "st0",
+      cx: "16",
+      cy: "16",
+      r: "15.3"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      className: "st1",
+      d: "M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.5C8,1.5,1.5,8,1.5,16S8,30.5,16,30.5  S30.5,24,30.5,16S24,1.5,16,1.5z"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "step-bar__step__name " + selectedNameClass
+    }, step));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "step-bar__line"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "step-bar__line__progression " + lineClass
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (StepBar);
+
+/***/ }),
+
 /***/ "./resources/js/views/Home/Home.js":
 /*!*****************************************!*\
   !*** ./resources/js/views/Home/Home.js ***!
@@ -70457,12 +70616,29 @@ function Register() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Navigation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Navigation.js */ "./resources/js/components/Navigation.js");
+/* harmony import */ var _components_RoundBackground_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/RoundBackground.js */ "./resources/js/components/RoundBackground.js");
+/* harmony import */ var _components_StepBar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/StepBar.js */ "./resources/js/components/StepBar.js");
+
 
 
 
 function Test() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, "test", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navigation_js__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  /* // STEP BAR
+    let steps = ["Informations", "Compagnon", "Activités"];
+    return (
+      <div className="content">
+          <StepBar steps={steps} nbStep={3} />
+      </div>
+  )
+  */
+
+  /* // ROUND BACKGROUND
+  return (
+      <div className="content">
+          <RoundBackground color="yellow" />
+      </div>
+  )
+  */
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Test);
