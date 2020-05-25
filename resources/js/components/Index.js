@@ -7,6 +7,7 @@ import Login from '../views/Login/Login.js';
 import Register from '../views/Register/Register.js';
 import Home from '../views/Home/Home.js';
 import Profil from '../views/Profil/Profil.js';
+import Test from '../views/Test/Test.js';
 
 
 function Index() {
@@ -24,6 +25,7 @@ function Index() {
               <Route exact={true} path='/inscription' component={Register} />
               <Route exact={true} path="/accueil" component={Home} />
               <Route exact={true} path="/profil" component={Profil} />
+              <Route exact={true} path="/test" component={Test} />
 
               <Route path="*" component={() => <p>Page Not Found</p>} />
             </Switch>
