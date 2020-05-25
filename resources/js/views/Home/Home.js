@@ -11,8 +11,8 @@ function Home() {
 
     return (
         <div>
-            <div class="content">Hello from Home page: liste des activités etc</div>
-            <Navigation />
+            <div className="content">Hello from Home page: liste des activités etc</div>
+            <Navigation page="home" />
         </div>
     )
 }

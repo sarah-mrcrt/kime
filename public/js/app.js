@@ -69913,31 +69913,65 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Navigation() {
+function Navigation(props) {
+  var homeClass = "";
+  var tropheeClass = "";
+  var profileClass = "";
+  var homeImg = "/icons/icon-home.png";
+  var tropheeImg = "/icons/icon-trophy.png";
+  var profileImg = "/icons/icon-profile.png";
+
+  switch (props.page) {
+    case 'home':
+      homeClass = "selected";
+      homeImg = "/icons/icon-home.png";
+      break;
+
+    case 'trophee':
+      tropheeClass = "selected";
+      tropheeImg = "/icons/icon-trophy.png";
+      break;
+
+    case 'profile':
+      profileClass = "selected";
+      profileImg = "/icons/icon-profile.png";
+      break;
+
+    default:
+      homeClass = "selected";
+      homeImg = "/icons/icon-home.png";
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "menu-bar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "menu-bar__link",
+    className: "menu-bar__link " + homeClass,
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "menu-bar__icon",
-    src: "/icons/icon-home.png",
+    src: homeImg,
     alt: "Accueil"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "menu-bar__link",
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "menu-bar__text"
+  }, "Accueil")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "menu-bar__link " + tropheeClass,
     to: "/trophees"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "menu-bar__icon",
-    src: "/icons/icon-trophy.png",
-    alt: "Accueil"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "menu-bar__link",
-    to: "/"
+    src: tropheeImg,
+    alt: "Troph\xE9s"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "menu-bar__text"
+  }, "Troph\xE9s")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "menu-bar__link " + profileClass,
+    to: "/profil"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "menu-bar__icon",
-    src: "/icons/icon-profile.png",
-    alt: "Accueil"
-  })));
+    src: profileImg,
+    alt: "Profil"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "menu-bar__text"
+  }, "Profil")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Navigation);
@@ -69970,7 +70004,11 @@ function Home() {
     });
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hello from Home page: liste des activit\xE9s etc", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navigation_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "content"
+  }, "Hello from Home page: liste des activit\xE9s etc"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navigation_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    page: "home"
+  }));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);

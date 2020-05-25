@@ -11933,6 +11933,62 @@ a:hover {
   color: #C54141;
 }
 
+.btn-primary {
+  border-radius: 1.5rem;
+  border: none;
+  padding: 0.8rem 1rem;
+}
+
+.btn-primary--red--fill {
+  background: #C54141;
+  color: #FFFFFF;
+}
+
+.btn-primary--red--stroke {
+  border: 2px solid #C54141;
+  color: #C54141;
+}
+
+.btn-primary--blue--fill {
+  background: #013183;
+  color: #FFFFFF;
+}
+
+.btn-primary--blue--stroke {
+  border: 2px solid #013183;
+  color: #013183;
+}
+
+.btn-primary--yellow--fill {
+  background: #FEBA1B;
+  color: #FFFFFF;
+}
+
+.btn-primary--yellow--stroke {
+  border: 2px solid #FEBA1B;
+  color: #FEBA1B;
+}
+
+.btn-primary--black--fill {
+  background: #000;
+  color: #FFFFFF;
+}
+
+.btn-primary--black--stroke {
+  border: 2px solid #000;
+  color: #000;
+}
+
+.btn-primary--white--fill {
+  background: #FFFFFF;
+  color: inherit;
+}
+
+.btn-primary--white--stroke {
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+}
+
 .form__row {
   margin-bottom: 20px;
 }

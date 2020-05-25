@@ -12,3 +12,60 @@
         color: $red;
     }
 }
+
+.btn-primary {
+    border-radius: 1.5rem;
+    border: none;
+    padding: 0.8rem 1rem;
+
+    &--red {
+        &--fill {
+            background: $red;
+            color: $white;
+        }
+        &--stroke {
+            border: 2px solid $red;
+            color: $red;
+        }
+    }
+    &--blue {
+        &--fill {
+            background: $blue;
+            color: $white;
+        }
+        &--stroke {
+            border: 2px solid $blue;
+            color: $blue;
+        }
+    }
+    &--yellow {
+        &--fill {
+            background: $yellow;
+            color: $white;
+        }
+        &--stroke {
+            border: 2px solid $yellow;
+            color: $yellow;
+        }
+    }
+    &--black {
+        &--fill {
+            background: $black;
+            color: $white;
+        }
+        &--stroke {
+            border: 2px solid $black;
+            color: $black;
+        }
+    }
+    &--white {
+        &--fill {
+            background: $white;
+            color: inherit;
+        }
+        &--stroke {
+            border: 2px solid $white;
+            color: $white;
+        }
+    }
+}
