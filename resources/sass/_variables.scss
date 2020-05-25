@@ -7,6 +7,7 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 
+
 // Main colors
 $blue: #013183;
 $red: #C54141;
@@ -15,6 +16,7 @@ $yellow: #FEBA1B;
 $dark-yellow: #F19D06;
 $white: #FFFFFF;
 $light-gray: #969696;
+$black: #000;
 
 // Other colors
 $indigo: #6574cd;
@@ -24,3 +26,8 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $orange: #f6993f;
+
+
+/// Functionnal colors
+$color-kid : $yellow;
+$color-parent: $red;
