@@ -12023,9 +12023,27 @@ a:hover {
   background-color: #FFFFFF;
 }
 
+.menu-bar__link {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-bar__link.selected .menu-bar__text {
+  display: block;
+}
+
 .menu-bar__icon {
   width: 25px;
   height: auto;
+  margin: auto;
+}
+
+.menu-bar__text {
+  display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #FEBA1B;
 }
 
 * {
