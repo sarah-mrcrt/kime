@@ -1,0 +1,64 @@
+///
+/// Categories Grid
+/// 
+/// 
+
+.categories-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, calc((100% / 2) - 1rem));
+    gap: 2rem;
+    z-index: 0;
+
+    &__category {
+        position: relative;
+
+        &__name {
+            margin: 0;
+            margin-top: .5rem;
+            padding: 0;
+            font-size: 1rem;
+            text-align: center;
+            color: $white;
+        }
+
+        &__img {
+            position: relative;
+            top: .5rem;
+        }
+
+        &__check {
+            display: none;
+            position: absolute;
+            top: -1rem;
+            right: calc(10% - 1rem);
+            width: 2rem;
+            border-radius: 50%;
+            background-color: $blue;
+            box-shadow: $black-shadow 0 .2rem .5rem;
+
+            &.selected {
+                display: block;
+            }
+        }
+    
+        &__background {
+            position: absolute;
+            width: 80%;
+            top: 0;
+            bottom: 0;
+            left: 10%;
+            z-index: -20;
+            border-radius: 1rem;
+            background-color: $yellow;
+
+            &.selected {
+                background-color: $blue;
+            }
+        }
+    
+        &__checkbox {
+            display: none;
+        }
+    }
+}

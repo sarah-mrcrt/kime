@@ -1,0 +1,24 @@
+////
+/// Round Backgrounds
+///
+////
+
+.round-background {
+    width: 100%;
+
+    &.red {
+        .st0{fill:$red;}
+        .st1{fill:#D84E4E;}
+        .st2{fill:#FF6060;}
+    }
+    &.blue {
+        .st0{fill:$blue;}
+        .st1{fill:#0645B0;}
+        .st2{fill:#105FE4;}
+    }
+    &.yellow {
+        .st0{fill:$yellow;}
+        .st1{fill:#FED063;}
+        .st2{fill:#FFE4B2;}
+    }
+}
