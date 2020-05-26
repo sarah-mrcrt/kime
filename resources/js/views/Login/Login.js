@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import { AuthDataContext } from '../../components/AuthDataProvider.js';
+import { AuthDataContext } from '../../components/AuthDataProvider';
 
 function Login(props) {
 

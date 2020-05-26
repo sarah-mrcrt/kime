@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import axios from 'axios';
-import { AuthDataContext } from '../../components/AuthDataProvider.js';
-import Navigation from '../../components/Navigation.js';
+import { AuthDataContext } from '../../components/AuthDataProvider';
+import Navigation from '../../components/Navigation';
 
 function Profil(props) {
 
