@@ -11775,7 +11775,7 @@ textarea {
 body {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow: hidden;
   min-height: 100vh;
   color: #000;
   font-family: "Montserrat", sans-serif;

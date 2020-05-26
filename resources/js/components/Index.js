@@ -1,18 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import AuthDataProvider from './AuthDataProvider.js';
-import Router from './Router.js';
+import Welcome from '../views/Welcome.js';
+import Login from '../views/Login/Login.js';
+import Register from '../views/Register/Register.js';
+import Home from '../views/Home/Home.js';
+import Profil from '../views/Profil/Profil.js';
+import Test from '../views/Test/Test.js';
 
-function Index(props) {
+
+function Index() {
+
+    const [currentUser, setCurrentUser] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
       <div>
         <BrowserRouter>
-          <AuthDataProvider>
-            <Router/>
-          </AuthDataProvider>
+          <div>
+            <Switch>
+              <Route exact={true} path="/" component={Login} />
+              <Route exact={true} path="/connexion" component={Login} />
+              <Route exact={true} path='/inscription' component={Register} />
+              <Route exact={true} path="/accueil" component={Home} />
+              <Route exact={true} path="/profil" component={Profil} />
+              <Route exact={true} path="/test" component={Test} />
+
+              <Route path="*" component={() => <p>Page Not Found</p>} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </div>
     );
