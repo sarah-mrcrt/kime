@@ -69738,6 +69738,94 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/animations.js":
+/*!************************************!*\
+  !*** ./resources/js/animations.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Tiny jQuery Plugin
+// by Chris Goodchild
+$.fn.exists = function (callback) {
+  var args = [].slice.call(arguments, 1);
+
+  if (this.length) {
+    callback.call(this, args);
+  }
+
+  return this;
+};
+
+$(document).ready(function () {
+  // Fonctionnement Categories Grid Checkbox
+  $('body').on('click', '.categories-grid__category', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var category = e.currentTarget;
+    var checkbox = category.children[4];
+    var background = category.children[3];
+    var check = category.children[2];
+
+    if (checkbox.checked === true) {
+      console.log('checked -> uncheck ' + checkbox.checked);
+      checkbox.checked = false;
+      background.classList.remove("selected");
+      check.classList.remove("selected");
+      return true;
+    } else if (checkbox.checked === false) {
+      console.log('unchecked -> check ' + checkbox.checked);
+      checkbox.checked = true;
+      background.classList.add("selected");
+      check.classList.add("selected");
+      return true;
+    }
+    /*if(e.target.parentNode.parentNode.className != "audio_actu audio_playlist") {
+      e.preventDefault();
+      let url = $(this).attr('data-file');
+      let audio = $('#audio');
+      audio[0].src = url;
+      audio[0].play();
+      $('#player').css({"display" : "grid"});
+          let parent = e.target.parentNode.parentNode;
+          let audio_img = parent.children[0];
+      let img = audio_img.children[1];
+          let audio_actions = parent.children[1];
+      let aimer = audio_actions.children[1];
+      let aimer_nb = aimer.children[0];
+      let aimer_icon = aimer.children[1];
+          // Si l'utilisateur peut supprimer une chanson / est le créateur de la chanson
+      if(audio_actions.children[2]) {
+          let sup = audio_actions.children[2];
+          document.getElementById('audio_actions').children[1].style.display = "flex";
+          document.getElementById('audio_actions').children[1].href = sup.href;
+      } else {
+          document.getElementById('audio_actions').children[1].style.display = "none";
+      }
+          let audio_infos = parent.children[2];
+      let title = audio_infos.children[0];
+      let infos_all = audio_infos.children[1];
+      let infos1 = infos_all.children[0];
+      let infos2 = infos_all.children[1];
+      let genre = audio_infos.children[2];
+          document.getElementById('audio_img').children[0].src = img.src;
+          document.getElementById('audio_actions').children[0].className = aimer.className;
+      document.getElementById('audio_actions').children[0].href = aimer.href;
+      document.getElementById('audio_actions').children[0].children[0].innerHTML = aimer_nb.innerHTML;
+      document.getElementById('audio_actions').children[0].children[1].className = aimer_icon.className;
+          document.getElementById('audio_infos_title').innerHTML = title.innerHTML;
+      document.getElementById('audio_infos_style').innerHTML = genre.innerHTML;
+      document.getElementById('audio_infos1').innerHTML = infos1.innerHTML;
+      document.getElementById('audio_infos2').innerHTML = infos2.innerHTML;
+          document.getElementById('audio_actu').style.opacity = 1;
+      document.getElementById('audio').style.opacity = 1;
+    }*/
+
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -69751,6 +69839,8 @@ module.exports = function(module) {
  * building robust, powerful web applications using React + Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./animations */ "./resources/js/animations.js");
 /**
  * Next, we will create a fresh React component instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -69811,6 +69901,63 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CategoriesGrid.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/CategoriesGrid.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function CategoriesGrid(props) {
+  console.log(props.categories);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "categories-grid"
+  }, props.categories.map(function (category, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "categories-grid__category",
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "categories-grid__category__name"
+    }, category.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "categories-grid__category__img",
+      src: category.img,
+      alt: category.name
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+      id: "step" + index,
+      className: "categories-grid__category__check svg__blue-check",
+      enableBackground: "new 0 0 32 32",
+      version: "1.1",
+      viewBox: "0 0 32 32",
+      xmlSpace: "preserve",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      className: "st0",
+      d: "M32,16c0,8.8-7.2,16-16,16S0,24.8,0,16S7.2,0,16,0S32,7.2,32,16z"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      className: "st1",
+      d: "m20.7 11.3c0.1 0.1 0.2 0.2 0.2 0.3s0.1 0.3 0.1 0.4 0 0.3-0.1 0.4c0 0.1-0.1 0.2-0.2 0.3l-7.3 10c-0.1 0.1-0.2 0.2-0.3 0.2-0.1 0.1-0.2 0.1-0.3 0.1s-0.2 0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2l-4.8-5.3c-0.2-0.2-0.3-0.4-0.3-0.7s0.1-0.5 0.3-0.7 0.4-0.3 0.6-0.3 0.5 0.1 0.6 0.3l4.2 4.6 6.7-9.3c0.1-0.1 0.2-0.2 0.3-0.2 0.1-0.1 0.3-0.1 0.4-0.1s0.2 0 0.4 0.1l0.2 0.2z"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "categories-grid__category__background"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "categories-grid__category__checkbox",
+      type: "checkbox",
+      name: "categories[]",
+      id: "category" + category.id,
+      value: category.id
+    }));
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CategoriesGrid);
 
 /***/ }),
 
@@ -70059,8 +70206,6 @@ function RoundBackground(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 
 
 function StepBar(props) {
@@ -70101,7 +70246,7 @@ function StepBar(props) {
       key: index
     }, index + 1 <= nb ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
       id: "step" + index,
-      className: "step-bar__step__svg",
+      className: "step-bar__step__svg  svg__blue-check",
       enableBackground: "new 0 0 32 32",
       version: "1.1",
       viewBox: "0 0 32 32",
@@ -70115,7 +70260,7 @@ function StepBar(props) {
       d: "m20.7 11.3c0.1 0.1 0.2 0.2 0.2 0.3s0.1 0.3 0.1 0.4 0 0.3-0.1 0.4c0 0.1-0.1 0.2-0.2 0.3l-7.3 10c-0.1 0.1-0.2 0.2-0.3 0.2-0.1 0.1-0.2 0.1-0.3 0.1s-0.2 0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2l-4.8-5.3c-0.2-0.2-0.3-0.4-0.3-0.7s0.1-0.5 0.3-0.7 0.4-0.3 0.6-0.3 0.5 0.1 0.6 0.3l4.2 4.6 6.7-9.3c0.1-0.1 0.2-0.2 0.3-0.2 0.1-0.1 0.3-0.1 0.4-0.1s0.2 0 0.4 0.1l0.2 0.2z"
     })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
       id: "step" + index,
-      className: "step-bar__step__svg",
+      className: "step-bar__step__svg svg__yellow-stroke-circle",
       enableBackground: "new 0 0 32 32",
       version: "1.1",
       viewBox: "0 0 32 32",
@@ -70618,6 +70763,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_RoundBackground_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/RoundBackground.js */ "./resources/js/components/RoundBackground.js");
 /* harmony import */ var _components_StepBar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/StepBar.js */ "./resources/js/components/StepBar.js");
+/* harmony import */ var _components_CategoriesGrid_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/CategoriesGrid.js */ "./resources/js/components/CategoriesGrid.js");
+
 
 
 
@@ -70639,6 +70786,30 @@ function Test() {
       </div>
   )
   */
+  // CATEGORIES GRID
+  var categories = [{
+    id: 2,
+    name: "Cuisine",
+    img: "/img/category-03.svg"
+  }, {
+    id: 7,
+    name: "Créativité",
+    img: "/img/category-02.svg"
+  }, {
+    id: 0,
+    name: "Jardin",
+    img: "/img/category-05.svg"
+  }, {
+    id: 10,
+    name: "Jeux",
+    img: "/img/category-04.svg"
+  }]; // /!\ Penser à ajouter un forumlaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CategoriesGrid_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    categories: categories
+  }));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Test);

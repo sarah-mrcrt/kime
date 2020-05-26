@@ -11795,7 +11795,7 @@ body {
 
 .content {
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .scroll-x {
@@ -11862,6 +11862,11 @@ h6 {
   font-weight: bold;
 }
 
+h1 {
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
 ul {
   list-style: none;
 }
@@ -11915,6 +11920,28 @@ a {
 button:hover,
 a:hover {
   text-decoration: none;
+}
+
+.svg__blue-check .st0 {
+  fill: #013183;
+}
+
+.svg__blue-check .st1 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #FFFFFF;
+  stroke: #FFFFFF;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svg__yellow-stroke-circle .st0 {
+  fill: #FFF;
+}
+
+.svg__yellow-stroke-circle .st1 {
+  fill: #FED063;
 }
 
 .btn-red {
@@ -12077,26 +12104,64 @@ a:hover {
   width: 2rem;
 }
 
-.step-bar__step__svg .st0 {
-  fill: #FFF;
+.categories-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, calc((100% / 2) - 1rem));
+  gap: 2rem;
+  z-index: 0;
 }
 
-.step-bar__step__svg .st1 {
-  fill: #FED063;
+.categories-grid__category {
+  position: relative;
 }
 
-.step-bar__step.selected .step-bar__step__svg .st0 {
-  fill: #013183;
+.categories-grid__category__name {
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: #FFFFFF;
 }
 
-.step-bar__step.selected .step-bar__step__svg .st1 {
-  fill-rule: evenodd;
-  clip-rule: evenodd;
-  fill: #FFFFFF;
-  stroke: #FFFFFF;
-  stroke-width: 0.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.categories-grid__category__img {
+  position: relative;
+  top: 0.5rem;
+}
+
+.categories-grid__category__check {
+  display: none;
+  position: absolute;
+  top: -1rem;
+  right: calc(10% - 1rem);
+  width: 2rem;
+  border-radius: 50%;
+  background-color: #013183;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.2rem 0.5rem;
+}
+
+.categories-grid__category__check.selected {
+  display: block;
+}
+
+.categories-grid__category__background {
+  position: absolute;
+  width: 80%;
+  top: 0;
+  bottom: 0;
+  left: 10%;
+  z-index: -20;
+  border-radius: 1rem;
+  background-color: #FEBA1B;
+}
+
+.categories-grid__category__background.selected {
+  background-color: #013183;
+}
+
+.categories-grid__category__checkbox {
+  display: none;
 }
 
 .form__row {
