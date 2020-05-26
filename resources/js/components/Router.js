@@ -3,15 +3,14 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 
 import { AuthDataContext, useAuthDataContext } from './AuthDataProvider.js';
 
-import Login from '../views/Login/Login.js';
-import Register from '../views/Register/Register.js';
-import Home from '../views/Home/Home.js';
-import Profil from '../views/Profil/Profil.js';
-import Test from '../views/Test/Test.js';
+import Login from '../views/Login/Login';
+import Register from '../views/Register/Register';
+import Home from '../views/Home/Home';
+import Profil from '../views/Profil/Profil';
+import Test from '../views/Test/Test';
 
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
-    console.log(authData);
 
     const finalComponent = Object.keys(authData).length > 0 ? component : Login;
   

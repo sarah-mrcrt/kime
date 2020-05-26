@@ -1,0 +1,18 @@
+.page-header {
+    background: $red;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10px 10px 20px;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__img {
+        width: 40vw;
+        position: relative;
+        bottom: -20vw;
+        z-index: 1;
+    }
+}

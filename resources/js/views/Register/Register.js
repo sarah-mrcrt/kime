@@ -1,6 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import { AuthDataContext } from '../../components/AuthDataProvider.js';
+import { AuthDataContext } from '../../components/AuthDataProvider';
+
+import Header from '../../components/Header';
 
 function Register(props) {
 
@@ -73,13 +75,7 @@ function Register(props) {
 
     return (
         <div className="login">
-            <div className="page-header">
-                <div className="page-header__text">
-                    <h1 className="page-header__title">Bienvenue!</h1>
-                    <div className="page-header__subtitle">Content de vous rencontrer</div>
-                </div>
-                <img className="page-header__img" src="/img/login-img.png"/>
-            </div>
+            <Header title="Bienvenue" subtitle="Content de vous rencontrer"/>
             <div className="login__body">
                 <form method="post" onSubmit={handleSubmit} className="form login__form">
                     <div className="form__row">
