@@ -20,8 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h1>Page de tests</h1>
-    
+    <h2>Page de tests</h2>
     @if (Auth::check())
      L'utilisateur est connecté.
     @endif
@@ -31,7 +30,10 @@
         @csrf
         <input type="text" name="name" value='{{old('name')}}' required />
         <input type="text" name="age"  value='{{old('age')}}' required />
-        <input type="file" name="avatar" value='{{old('avatar')}}' accept="image/*" />
+        <input type="text" name="avatar"  value='{{old('avatar')}}' required />
+        <input type="checkbox" name="categories[]" value="Cuisine">
+        <input type="checkbox" name="categories[]" value="Jeux">
+
         <input type="submit" value="Submit" />
     </form>
     

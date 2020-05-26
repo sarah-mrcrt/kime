@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Kid;
+use App\User;
 
 class KidController extends Controller
 {
@@ -35,7 +36,8 @@ class KidController extends Controller
             'id' => $k->id,
             'name' => $k->name,
             'age' => $k->age,
-            'avatar' => $k->avatar
+            'avatar' => $k->avatar,
+            'categories' => $k->categories
         ], 201);
     }
 
@@ -44,7 +46,8 @@ class KidController extends Controller
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
             'age' => 'required|integer',
-            'avatar' => 'required|file',
+            'avatar' => 'required',
+            'categories' => 'required|min:1'
         ]);
 
         if ($validator->fails()) { 
@@ -55,9 +58,10 @@ class KidController extends Controller
         }
 
         $k = new Kid();
-        $k->name = $req->name;
-        $k->age = $req->age;
-        $k->avatar = $req->avatar;
+        $k->name = $req->input('name');
+        $k->age = $req->input('age');
+        $k->avatar = $req->input('avatar');
+        $k->categories = implode(',', $req->categories);
         $k->user_id = Auth::id();
 
         $k->save();
@@ -67,7 +71,8 @@ class KidController extends Controller
             'id' => $k->id,
             'name' => $k->name,
             'age' => $k->age,
-            'avatar' => $k->avatar
+            'avatar' => $k->avatar,
+            'categories' => $k->categories
         ], 201);
     }
 
