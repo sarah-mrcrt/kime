@@ -1,33 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import axios from 'axios';
+import { AuthDataContext } from '../../components/AuthDataProvider.js';
 
-function Register() {
+function Register(props) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
-    
-    let state = localStorage.getItem('appState');
 
-    if(state != null) {
-        let appState = JSON.parse(state)
-        if(appState.isLoggedIn || appState.isRegistered)
-            return <Redirect to='/accueil'/>;
+    const { authData } = useContext(AuthDataContext);
+    
+    if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
+        return <Redirect to="/accueil"/>;
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        axios.post("/api/auth/register", {
-            'name': name,
-            'email': email,
-            'password': password,
-            'c_password': passwordConfirm,
-            'admin_password': adminPassword
-        })
+    function register(values) {
+        axios.post("/api/auth/register", values)
         .then(response => {
             return response;
         }).then(json => {
@@ -39,14 +29,15 @@ function Register() {
                     activation_token: json.data.activation_tokon
                 };
 
-                let appState = {
+                let authData = {
                     isRegistered: true,
                     user: userData
                 }
 
-                localStorage.setItem('appState', JSON.stringify(appState));
+                localStorage.setItem('authData', JSON.stringify(authData));
 
                 console.log("succesfully registered user");
+
                 return <Redirect to='/accueil'/>;
 
             } else {
@@ -60,6 +51,20 @@ function Register() {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let userData = {
+            'name': name,
+            'email': email,
+            'password': password,
+            'c_password': passwordConfirm,
+            'admin_password': adminPassword
+        }
+
+        register(userData);     
+    }
+
     return (
         <div className="login">
             <div className="page-header">
@@ -70,7 +75,7 @@ function Register() {
                 <img className="page-header__img" src="/img/login-img.png"/>
             </div>
             <div className="login__body">
-                <form method="post" onSubmit={(e) => {handleSubmit(e)}} className="form login__form">
+                <form method="post" onSubmit={handleSubmit} className="form login__form">
                     <div className="form__row">
                         <label className="form__label" htmlFor="email">Nom</label>
                         <input className="form__input" onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="Votre nom"/>
