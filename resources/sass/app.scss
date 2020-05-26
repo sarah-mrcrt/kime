@@ -19,9 +19,13 @@
 @import 'base/headings';
 @import 'base/blocks';
 @import 'base/links';
+@import 'base/svgs';
 
 // Components
 @import 'components/btns';
+@import 'components/round-background';
+@import 'components/step-bar';
+@import 'components/categories-grid';
 
 // Layout
 @import 'layout/forms';
