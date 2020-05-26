@@ -14,14 +14,7 @@ class KidController extends Controller
     {
         $k = Kid::all();
         
-        return response()->json([
-            'success' => true,
-            'id' => $k->id,
-            'name' => $k->name,
-            'age' => $k->age,
-            'avatar' => $k->avatar,
-            'user_id' => $k->user_id
-        ], 201);
+        return response('Hello World', 200);
     }
 
     public function show($id)
