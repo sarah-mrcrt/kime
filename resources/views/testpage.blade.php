@@ -26,16 +26,18 @@
     @endif
 
     <h2>Formulaire test</h2>
-    <form action="/kid/create" enctype="multipart/form-data" method="post">
+    <form action="/activity/create" enctype="multipart/form-data" method="post">
         @csrf
         <input type="text" name="name" value='{{old('name')}}' required />
-        <input type="text" name="age"  value='{{old('age')}}' required />
-        <input type="text" name="avatar"  value='{{old('avatar')}}' required />
-        <input type="checkbox" name="categories[]" value="Cuisine">
-        <input type="checkbox" name="categories[]" value="Jeux">
-
+        <input type="text" name="img"  value='{{old('img')}}' required />
+        <input type="text" name="txt_choice"  value='{{old('txt_choice')}}' required />
+        <input type="text" name="txt_win"  value='{{old('txt_win')}}' required />
+        <input type="submit" value="Submit" />
         <input type="submit" value="Submit" />
     </form>
+    <input type="hidden" name="_method" value="PUT">
+
+    <a href="/activity/update/1">xx</a>
     
 </body>
 </html>

@@ -15,7 +15,10 @@ class KidController extends Controller
     {
         $k = Kid::all();
         
-        return response('Hello World', 200);
+         return response()->json([
+             "message" => "success",
+             "data" => $k
+         ]);
     }
 
     public function show($id)
@@ -78,11 +81,18 @@ class KidController extends Controller
 
     public function update(Request $req, $id)
     {
+        $req->validate([
+            'name' => 'required|min:3|max:255',
+            'age' => 'required|integer',
+            'avatar' => 'required',
+            'categories' => 'required|min:1'
+        ]);
+
         $k = Kid::findOrFail($id);
-        // $k->update($req->all());
-        $k->name = $req->input('name');
         $k->name = $req->input('name');
         $k->age = $req->input('age');
+        $k->avatar = $req->input('avatar');
+        $k->categories = implode(',', $req->categories);
 
         $k->save();
 
