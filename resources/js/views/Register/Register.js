@@ -16,8 +16,9 @@ function Register(props) {
         return <Redirect to="/accueil"/>;
     }
 
-    function register(values) {
-        axios.post("/api/auth/register", values)
+    function register(formdata) {
+
+        axios.post("/api/auth/register", formdata)
         .then(response => {
             return response;
         }).then(json => {

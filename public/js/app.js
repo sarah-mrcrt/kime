@@ -70717,8 +70717,8 @@ function Register(props) {
     });
   }
 
-  function register(values) {
-    axios.post("/api/auth/register", values).then(function (response) {
+  function register(formdata) {
+    axios.post("/api/auth/register", formdata).then(function (response) {
       return response;
     }).then(function (json) {
       if (json.data.success) {
