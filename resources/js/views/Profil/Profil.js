@@ -1,34 +1,36 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { AuthDataContext } from '../../components/AuthDataProvider.js';
+import Navigation from '../../components/Navigation.js';
 
-function Profil() {
+function Profil(props) {
 
-    let appState = localStorage.getItem('appState');
-    if(appState == null || (appState != null && appState.isLoggedIn == false)) {
-        return <Redirect to="/connexion" />;
-    }
+    const [redirect, setRedirect] = useState(false);
+    const { onLogout } = useContext(AuthDataContext);
 
     function logout() {
         axios.post("/api/auth/logout",{})
         .then(json => {
-            appState = JSON.parse(appState);
-            appState.isLoggedIn = false;
-            localStorage.setItem('appState', JSON.stringify(appState));
+            let authData = {};
+            localStorage.setItem('authData', JSON.stringify(authData));
             console.log(json.data.message);
-            return <Redirect to="/connexion"/>;
-        }).catch(error => {
+
+        }).then(onLogout)
+        .catch(error => {
             console.log(error);
         });
+
+        setRedirect(true);
     }
 
     return (
         <div>
             Hello from Profil
             <button onClick={logout}>Déconnexion</button>
-
+            <Navigation page="home" />
         </div>
     )
+
 }
 
 export default Profil;

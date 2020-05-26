@@ -1,28 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import axios from 'axios';
+import { AuthDataContext } from '../../components/AuthDataProvider.js';
 
-function Login() {
+function Login(props) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
-    let state = localStorage.getItem('appState');
-
-    if(state != null) {
-        let appState = JSON.parse(state)
-        if(appState.isLoggedIn || appState.isRegistered)
-            return <Redirect to='/accueil'/>;
+    const { authData, onLogin } = useContext(AuthDataContext);
+    
+    if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
+        return <Redirect to="/accueil"/>;
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    if(redirect) {
+        return <Redirect to="/accueil"/>;
+    }
 
-        axios.post("/api/auth/login", {
-            'email': email,
-            'password': password
-        })
+    function login(values) {
+
+        axios.post("/api/auth/login", values)
         .then(response => {
             return response;
         }).then(json => {
@@ -35,23 +33,36 @@ function Login() {
                     activation_token: json.data.activation_token
                 };
 
-                let appState = {
+                let newAuthData = {
                     isLoggedIn: true,
                     user: userData
                 }
 
-                localStorage.setItem('appState', JSON.stringify(appState));
+                // Storing authData in Local Storage
+                localStorage.setItem('authData', JSON.stringify(newAuthData));
 
                 console.log("succesfully logged in");
-                return <Redirect to='/accueil'/>;
-            } 
-            else {
+
+                setRedirect(true);
+            } else {
                 alert(`Connexion impossible: identifiants erronés`);
             }
-        }).catch(error => {
+        }).then(onLogin)
+        .catch(error => {
             console.log(error);
         });
+        
+    }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let credentials = {
+            'email': email,
+            'password': password
+        }
+
+        login(credentials);
     }
 
     return (
@@ -64,7 +75,7 @@ function Login() {
                 <img className="page-header__img" src="/img/login-img.png"/>
             </div>
             <div className="login__body">
-                <form method="post" onSubmit={(e) => {handleSubmit(e)}} className="form login__form">
+                <form method="post" onSubmit={handleSubmit} className="form login__form">
                     <div className="form__row">
                         <label className="form__label" htmlFor="email">Adresse e-mail</label>
                         <input className="form__input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="adresse@mail.com"/>
