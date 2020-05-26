@@ -25,6 +25,15 @@
     @if (Auth::check())
      L'utilisateur est connecté.
     @endif
+
+    <h2>Formulaire test</h2>
+    <form action="/kid/create" enctype="multipart/form-data" method="post">
+        @csrf
+        <input type="text" name="name" value='{{old('name')}}' required />
+        <input type="text" name="age"  value='{{old('age')}}' required />
+        <input type="file" name="avatar" value='{{old('avatar')}}' accept="image/*" />
+        <input type="submit" value="Submit" />
+    </form>
     
 </body>
 </html>

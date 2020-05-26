@@ -9,16 +9,33 @@ use App\Kid;
 
 class KidController extends Controller
 {
-    public function get(Request $req)
+    
+    public function index()
     {
-        if( !$req->validate(['id' => 'required|integer']) ) {
-            return response()->json([
-                'success' => false,
-                'error' => 'ID non renseignée ou invalide'
-            ]);      
-        }
+        $k = Kid::all();
+        
+        return response()->json([
+            'success' => true,
+            'id' => $k->id,
+            'name' => $k->name,
+            'age' => $k->age,
+            'avatar' => $k->avatar,
+            'user_id' => $k->user_id
+        ], 201);
+    }
 
-        $k = Kid::find($req->id);
+    public function show($id)
+    {
+        // if( !$req->validate(['id' => 'required|integer']) ) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'error' => 'ID non renseignée ou invalide'
+        //     ]);      
+        // }
+    
+
+        // $k = Kid::find($req->id);
+        $k = Kid::findOrFail($id);
 
         return response()->json([
             'success' => true,
@@ -31,7 +48,7 @@ class KidController extends Controller
 
     public function create(Request $req) 
     {
-        $validator = Validator::make($request->all(), [ 
+        $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
             'age' => 'required|integer',
             'avatar' => 'required|file',
@@ -61,16 +78,30 @@ class KidController extends Controller
         ], 201);
     }
 
-    public function delete(Request $request)
+    public function update(Request $req, $id)
     {
-        if( !$req->validate(['id' => 'required|integer']) ) {
-            return response()->json([
-                'success' => false,
-                'error' => 'ID non renseignée ou invalide'
-            ]);      
-        }
+        $k = Kid::findOrFail($id);
+        // $k->update($req->all());
+        $k->name = $req->input('name');
+        $k->name = $req->input('name');
+        $k->age = $req->input('age');
 
-        $k = Kid::find($req->id);
+        $k->save();
+
+        return response()->json($k, 200);
+    }
+
+    public function delete($id)
+    {
+        // if( !$req->validate(['id' => 'required|integer']) ) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'error' => 'ID non renseignée ou invalide'
+        //     ]);      
+        // }
+
+        $k = Kid::findOrFail($id);
+        // $k = Kid::find($req->id);
         $k->delete();
 
         return response()->json([
