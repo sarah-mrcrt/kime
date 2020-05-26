@@ -16,7 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{path?}', 'app');
 Route::view('/test/test', 'testpage');
 
+// User
 Route::post('/api/auth/login', 'API\UserController@login');
 Route::post('/api/auth/register', 'API\UserController@register');
 Route::post('/api/auth/logout', 'API\UserController@logout');
 Route::post('/api/auth/user', 'API\UserController@details');
+
+// Kids
+Route::get('/kids','KidController@index');
+Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
+Route::post('/kid/create','KidController@create')->where('id', '[0-9]+');
+Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
+Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
+
+// Activities
+Route::get('/activities', 'ActivitiesController@showAll');
+
+
+// Trophies
