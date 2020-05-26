@@ -9,11 +9,16 @@ function Register(props) {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
     const { authData } = useContext(AuthDataContext);
     
     if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
         return <Redirect to="/accueil"/>;
+    }
+
+    if(redirect) {
+        return <Redirect to="/connexion"/>;
     }
 
     function register(formdata) {
@@ -27,7 +32,7 @@ function Register(props) {
                     id: json.data.id,
                     name: json.data.name,
                     email: json.data.email,
-                    activation_token: json.data.activation_tokon
+                    activation_token: json.data.activation_token
                 };
 
                 let authData = {
@@ -39,7 +44,7 @@ function Register(props) {
 
                 console.log("succesfully registered user");
 
-                return <Redirect to='/accueil'/>;
+                setRedirect(true);
 
             } else {
                 console.log("Couldn't register: \n");

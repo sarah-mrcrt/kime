@@ -70708,12 +70708,23 @@ function Register(props) {
       adminPassword = _useState10[0],
       setAdminPassword = _useState10[1];
 
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      redirect = _useState12[0],
+      setRedirect = _useState12[1];
+
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_components_AuthDataProvider_js__WEBPACK_IMPORTED_MODULE_2__["AuthDataContext"]),
       authData = _useContext.authData;
 
   if (Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/accueil"
+    });
+  }
+
+  if (redirect) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+      to: "/connexion"
     });
   }
 
@@ -70726,7 +70737,7 @@ function Register(props) {
           id: json.data.id,
           name: json.data.name,
           email: json.data.email,
-          activation_token: json.data.activation_tokon
+          activation_token: json.data.activation_token
         };
         var _authData = {
           isRegistered: true,
@@ -70734,9 +70745,7 @@ function Register(props) {
         };
         localStorage.setItem('authData', JSON.stringify(_authData));
         console.log("succesfully registered user");
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          to: "/accueil"
-        });
+        setRedirect(true);
       } else {
         console.log("Couldn't register: \n");
         console.log(json.data.error);
@@ -70948,8 +70957,8 @@ function Test() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\kime\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\kime\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/brieuc/projets/kime/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/brieuc/projets/kime/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
