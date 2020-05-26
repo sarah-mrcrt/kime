@@ -11,7 +11,6 @@ import Test from '../views/Test/Test.js';
 
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
-    console.log(authData);
 
     const finalComponent = Object.keys(authData).length > 0 ? component : Login;
   
