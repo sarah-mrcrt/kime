@@ -40,7 +40,7 @@ const Conditions = props => {
                 {!error.length > 0 &&
                     <div className="error">{error}</div>
                 }
-                <div onClick={handleClick} className="btn-primary btn-primary--red--fill" to="/conditions">Continuer</div>
+                <a onClick={handleClick} className="btn-primary btn-primary--red--fill" to="/conditions">Continuer</a>
             </div>
 
             <RegisterStepBar/>
