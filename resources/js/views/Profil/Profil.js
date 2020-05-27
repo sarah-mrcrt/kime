@@ -24,10 +24,14 @@ function Profil(props) {
     }
 
     return (
-        <div>
-            Hello from Profil
-            <button onClick={logout}>Déconnexion</button>
-            <Navigation page="home" />
+        <div className="container background">
+            <div className="container__body">
+                <div className="content">
+                        Hello from Profil
+                        <button className="btn-common btn-common__red__fill" onClick={logout}>Déconnexion</button>
+                        <Navigation page="home" />
+                </div>
+            </div>
         </div>
     )
 

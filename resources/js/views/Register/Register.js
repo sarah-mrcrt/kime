@@ -75,7 +75,7 @@ function Register(props) {
     }
 
     return (
-        <div className="container red">
+        <div className="container red background">
             <Header title="Bienvenue" subtitle="Content de vous rencontrer" imageUrl="/img/login-img.png"/>
             <div className="container__body">
                 <div className="content">
