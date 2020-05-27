@@ -18,6 +18,7 @@ function RoundBackground(props) {
             colorClass = "red";
     }
     return (
+
         <div className="round-background">
             <svg className={"round-background__img " + colorClass} enableBackground="new 0 0 240 240" version="1.1" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
                 <style type="text/css">
@@ -29,6 +30,7 @@ function RoundBackground(props) {
             {props.children}
         </div>
     );
+
 }
 
 export default RoundBackground;
