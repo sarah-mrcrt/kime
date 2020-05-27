@@ -10,6 +10,18 @@ $.fn.exists = function(callback) {
   
     return this;
 };
+
+function addcl(target){
+	let parent = target.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(target){
+	let parent = target.parentNode.parentNode;
+	if(target.value == ""){
+		parent.classList.remove("focus");
+	}
+}
   
 
   $(document).ready(function () {
@@ -57,5 +69,17 @@ $.fn.exists = function(callback) {
               background.classList.add("selected");
           }
         })
+
+        $('body').on('focus','.input', function (e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          addcl(e.currentTarget);
+        })
+        $('body').on('blur','.input', function (e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          remcl(e.currentTarget);
+        })
+        
 
   })
