@@ -21,6 +21,10 @@
       background-color: $red;
     }
 
+    &.background {
+      min-height: 100vh;
+    }
+
     &__body {
         display: flex;
         flex-direction: column;

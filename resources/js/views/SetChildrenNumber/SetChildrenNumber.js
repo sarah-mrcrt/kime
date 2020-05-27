@@ -57,17 +57,59 @@ const SetChildrenNumber = props => {
     }
 
     return (
-        <div className="children-number">
-            <h1 className="children-number__title">Combien d'enfants avez-vous ?</h1>
-            <img className="childre-number__img" alt="Enfants" src="/img/children_number.png" />
-            <div className="children-number__selector">
-                <span className="children-number__nb">1</span>
-                <span className="children-number__nb">2</span>
-                <span className="children-number__nb">3</span>
-                <span className="children-number__nb">4</span>
-                <span className="children-number__nb">5</span>
+        <div className="container yellow background">
+
+            <div className="set-children-number content central-content">
+                <h1 className="set-children-number__title">Combien d'enfants avez-vous ?</h1>
+                <img className="set-childre-number__img" alt="Enfants" src="/img/children_number.png" />
             </div>
-            <span onClick={handleSubmit} to="/children/1" className="btn-primary btn-primary--blue--fill">Continuer</span>
+
+            <div className="set-children-number__selector">
+                <div className="set-children-number__nb selected">
+                    <span>1</span>
+                    <input type="radio" name="childrensNb[]" value={1}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>2</span>
+                    <input type="radio" name="childrensNb[]" value={2}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>3</span>
+                    <input type="radio" name="childrensNb[]" value={3}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>4</span>
+                    <input type="radio" name="childrensNb[]" value={4}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>5</span>
+                    <input type="radio" name="childrensNb[]" value={5}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>6</span>
+                    <input type="radio" name="childrensNb[]" value={6}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>7</span>
+                    <input type="radio" name="childrensNb[]" value={7}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>8</span>
+                    <input type="radio" name="childrensNb[]" value={8}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>9</span>
+                    <input type="radio" name="childrensNb[]" value={9}/>
+                </div>
+                <div className="set-children-number__nb">
+                    <span>10</span>
+                    <input type="radio" name="childrensNb[]" value={10}/>
+                </div>
+            </div>
+                
+            <div className="set-children-number content central-content">
+                <span onClick={handleSubmit} to="/children/1" className="btn-common btn-common__blue__fill">Continuer</span>
+            </div>
         </div>
     );
 }

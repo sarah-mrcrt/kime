@@ -1,0 +1,40 @@
+// 
+/// 
+/// 
+
+.set-children-number {
+
+    &__selector {
+        position: relative;
+        left: calc(100%/3);
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(10, calc(100% / 3));
+    }
+
+    &__nb {
+        display: flex;
+
+        & span {
+            display: block;
+            margin: auto;
+            color: $white;
+            opacity: .7;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        & input[type="radio"] {
+            display: none;
+        }
+
+        &.selected {
+            & span {
+                opacity: 1;
+                font-size: 3.5rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+}
