@@ -5,6 +5,9 @@ import RoundBackground from './RoundBackground.js';
 function Header(props) {
     return (
         <div className="page-header g2">
+            { props.title &&
+             <h1 className="page-header__title">{props.title}</h1>
+            }
             <div className="page-header__text">
                 <h1 className="page-header__title">{props.title}</h1>
                 <div className="page-header__subtitle">{props.subtitle}</div>
