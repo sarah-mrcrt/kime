@@ -3,16 +3,29 @@
     color: $white;
     display: flex;
     justify-content: space-between;
-    padding: 30px 10px 10px 20px;
+    align-items: flex-start;
+    padding: 0 10px 10px 20px;
+
+    &__title, &__subtitle {
+        position: relative;
+        bottom: -25vw;
+    }
 
     &__title {
         margin: 0;
+        font-size: 3.2rem;
+        line-height: 3.4rem;
+    }
+
+    &__subtitle {
+        font-size: 1.7rem;
     }
 
     &__img {
-        width: 40vw;
-        position: relative;
-        bottom: -20vw;
-        z-index: 1;
+        position: absolute;
+        right: 0; left: 0; bottom: 0;
+        width: 50%;
+        margin: auto;
+        height: auto;
     }
 }

@@ -69,9 +69,7 @@ function Login(props) {
 
     return (
         <div className="login">
-            <div className="page-header">
-                <Header title="Bienvenue" subtitle="Content de vous revoir"/>
-            </div>
+            <Header title="Bienvenue" subtitle="Content de vous revoir" imageUrl="/img/login-img.png"/>
             <div className="login__body">
                 <form method="post" onSubmit={handleSubmit} className="form login__form">
                     <div className="form__row">
