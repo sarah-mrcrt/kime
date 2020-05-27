@@ -29,6 +29,7 @@ class ActivitiesController extends Controller
             'img' => $a->img,
             'txt_choice' => $a->txt_choice,
             'txt_win' => $a->txt_win,
+            'category_id' => $a->category_id,
             'trophie_id' => $a->trophie_id
         ], 201);
     }
@@ -56,6 +57,7 @@ class ActivitiesController extends Controller
             'img' => $a->img,
             'txt_choice' => $a->txt_choice,
             'txt_win' => $a->txt_win,
+            'category_id' => $a->category_id,
             'trophie_id' => $a->trophie_id
         ], 201);
     }
