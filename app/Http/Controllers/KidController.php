@@ -40,7 +40,9 @@ class KidController extends Controller
             'name' => $k->name,
             'age' => $k->age,
             'avatar' => $k->avatar,
-            'categories' => $k->categories
+            'categories' => $k->categories,
+            'created_at' => $k->created_at,
+            'updated_at' => $k->updated_at
         ], 201);
     }
 
