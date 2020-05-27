@@ -38,7 +38,7 @@ function Register(props) {
                 };
 
                 let authData = {
-                    isLoggedIn: true,
+                    isRegistered: true,
                     user: userData
                 }
 
@@ -75,40 +75,71 @@ function Register(props) {
     }
 
     return (
-        <div className="login">
+        <div className="container red">
             <Header title="Bienvenue" subtitle="Content de vous rencontrer" imageUrl="/img/login-img.png"/>
-            <div className="login__body">
-                <form method="post" onSubmit={handleSubmit} className="form login__form">
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="email">Nom</label>
-                        <input className="form__input" onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="Votre nom"/>
+            <div className="container__body">
+                <div className="content">
+
+                    <form method="post" onSubmit={handleSubmit} className="form form-auth">
+                        
+                        <div className="form-auth__input-div one">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                                <label className="form__label" htmlFor="email">Nom</label>
+                                <input className="input" onChange={(e) => setName(e.target.value)} type="text" name="name"/>
+                            </div>
+                        </div>
+                        
+                        <div className="form-auth__input-div pass">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                                <label className="form__label" htmlFor="email">Adresse e-mail</label>
+                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email"/>
+                            </div>
+                        </div>
+                        <div className="form-auth__input-div pass">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                            <label className="form__label" htmlFor="password">Mot de passe</label>
+                            <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password"/>
+                            </div>
+                        </div>
+                        <div className="form-auth__input-div pass">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                            <label className="form__label" htmlFor="password">Confirmez le mot de passe</label>
+                            <input className="input" onChange={(e) => setPasswordConfirm(e.target.value)} type="password" name="c_password"/>
+                            </div>
+                        </div>
+                        <div className="form-auth__input-div pass">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                            <label className="form__label" htmlFor="password">Mot de passe de sécurité</label>
+                            <input className="input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password"/>
+                            </div>
+                        </div>
+                        <div className="form-auth__submit-container">
+                            <input className="btn-common btn-common__red__fill" type="submit" value="Inscription"/>
+                        </div>
+
+                    </form>
+                    <div className="form-auth__bottom">
+                        <div className="form-auth__separator">ou</div>
+                        <Link className="btn-common btn-common__red__stroke" to="/connexion">Connexion</Link>
                     </div>
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="email">Adresse e-mail</label>
-                        <input className="form__input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="adresse@mail.com"/>
-                    </div>
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="password">Mot de passe</label>
-                        <input className="form__input" onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Mot de passe"/>
-                    </div>
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="password">Confirmez le mot de passe</label>
-                        <input className="form__input" onChange={(e) => setPasswordConfirm(e.target.value)} type="password" name="c_password" placeholder="Confirmez le mot de passe"/>
-                    </div>
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="password">Mot de passe de contrôle parental</label>
-                        <input className="form__input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password" placeholder="Mot de passe de contrôle"/>
-                    </div>
-                    <div className="login__submit-container">
-                        <input className="btn-red btn-red--fill" type="submit" value="Inscription"/>
-                    </div>
-                </form>
-                <div className="login__bottom">
-                    <div className="login__separator">ou</div>
-                    <Link className="btn-red btn-red--stroke" to="/connexion">Connexion</Link>
+
                 </div>
             </div>
-            
         </div>
     )
 }
