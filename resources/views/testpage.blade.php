@@ -24,6 +24,8 @@
     @if (Auth::check())
      L'utilisateur est connecté.
     @endif
+    
+        <a href="/deconnexion" class="button">Déconnexion</a>
 
     <h2>Formulaire test</h2>
     <form action="/activity/create" enctype="multipart/form-data" method="post">
