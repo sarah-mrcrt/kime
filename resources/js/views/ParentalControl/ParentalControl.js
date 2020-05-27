@@ -17,7 +17,7 @@ const ParentalControl = props => {
                             <Link className="btn-common btn-common__red__fill" to="/conditions">Continuer</Link>
                         </div>
 
-                        <RegisterStepBar/>
+                        <RegisterStepBar nb={3} actualStep={1}/>
                     </div>
                 </div>
             </div>

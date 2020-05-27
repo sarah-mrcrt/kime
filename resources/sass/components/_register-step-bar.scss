@@ -1,0 +1,21 @@
+/// 
+/// 
+/// 
+
+.register-step-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    & div {
+        width: 1rem;
+        height: 1rem;
+        background-color: $red;
+        border-radius: 1rem;
+        margin-left: .5rem;
+
+        &.selected {
+            width: 2rem;
+        }
+    }
+}
