@@ -24,7 +24,7 @@ function AuthDataProvider(props) {
   
     const onLogin = () => setData();
   
-    return <AuthDataContext.Provider value={{ authData, onLogin, onLogout, onRegister }} {...props} />;
+    return <AuthDataContext.Provider value={{ authData, onLogin, onLogout }} {...props} />;
   };
   
   export const useAuthDataContext = () => {

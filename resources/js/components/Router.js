@@ -23,6 +23,7 @@ const PrivateRoute = ({ component, ...options }) => {
         <Redirect exact={true} from="/" to="/accueil"/>
         <PrivateRoute exact={true} path="/accueil" component={Home} />
         <PrivateRoute exact={true} path="/profil" component={Profil} />
+        <PrivateRoute exact={true} path="/parental-control" component={ParentalControl} />
 
         <Route exact={true} path="/connexion" component={Login} />
         <Route exact={true} path='/inscription' component={Register} />
