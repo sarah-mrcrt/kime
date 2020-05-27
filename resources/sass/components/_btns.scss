@@ -6,28 +6,28 @@
     line-height: normal !important;
 
     &__red {
-        &__fill, &__fill:hover {
+        &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {
             background: $red;
             color: $white;
             &:hover{
                 background-color: $red;
             }
         }
-        &__stroke, &__stroke:hover {
+        &__stroke, &__stroke:hover, &__stroke:not([href]), &__stroke:hover:not([href]) {
             border: 2px solid $red;
             color: $red;
             background: transparent;
         }
     }
     &__blue {
-        &__fill, &__fill:hover {
+        &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {
             background: $blue;
             color: $white;
             &:hover{
                 background-color: $blue;
             }
         }
-        &__stroke, &__stroke:hover {
+        &__stroke, &__stroke:hover, &__stroke:not([href]), &__stroke:hover:not([href]) {
             border: 2px solid $blue;
             color: $blue;
             background: transparent;
@@ -37,14 +37,14 @@
         }
     }
     &__yellow {
-        &__fill, &__fill:hover {
+        &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {
             background: $yellow;
             color: $white;
             &:hover{
                 background-color: $blue;
             }
         }
-        &__stroke, &__stroke:hover {
+        &__stroke, &__stroke:hover, &__stroke:not([href]), &__stroke:hover:not([href]) {
             border: 2px solid $yellow;
             color: $yellow;
             background: transparent;
@@ -54,14 +54,14 @@
         }
     }
     &__black {
-        &__fill {
+        &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {
             background: $black;
             color: $white;
             &:hover{
                 background-color: inherit;
             }
         }
-        &__stroke {
+        &__stroke, &__stroke:hover, &__stroke:not([href]), &__stroke:hover:not([href]) {
             border: 2px solid $black;
             color: $black;
             background: transparent;
@@ -71,11 +71,11 @@
         }
     }
     &__white {
-        &__fill {
+        &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {
             background: $white;
             color: inherit;
         }
-        &__stroke {
+        &__stroke, &__stroke:hover, &__stroke:not([href]), &__stroke:hover:not([href]) {
             border: 2px solid $white;
             color: $white;
             background: transparent;
