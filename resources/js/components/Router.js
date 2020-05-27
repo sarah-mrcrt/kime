@@ -10,6 +10,7 @@ import Profil from '../views/Profil/Profil';
 import Test from '../views/Test/Test';
 import ParentalControl from '../views/ParentalControl/ParentalControl';
 import Conditions from '../views/Conditions/Conditions';
+import LaunchRegistration from '../views/LaunchRegistration/LaunchRegistration';
 
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
@@ -26,6 +27,8 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute exact={true} path="/profil" component={Profil} />
         <PrivateRoute exact={true} path="/parental-control" component={ParentalControl} />
         <PrivateRoute exact={true} path="/conditions" component={Conditions} />
+        <PrivateRoute exact={true} path="/launch-registration" component={LaunchRegistration} />
+
 
 
         <Route exact={true} path="/connexion" component={Login} />
