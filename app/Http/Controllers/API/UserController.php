@@ -55,6 +55,9 @@ class UserController extends Controller
         $user->fill($input);
         $user->save();
 
+        $success['token'] =  $user->createToken('Kime')->accessToken; 
+        $success['name'] =  $user->name;
+
         return response()->json([
             'success' => true,
             'id' => $user->id,
