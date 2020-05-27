@@ -13,14 +13,14 @@ function Register(props) {
     const [adminPassword, setAdminPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
 
-    const { authData } = useContext(AuthDataContext);
+    const { authData, onLogin } = useContext(AuthDataContext);
     
     if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
         return <Redirect to="/accueil"/>;
     }
 
     if(redirect) {
-        return <Redirect to="/connexion"/>;
+        return <Redirect to="/accueil"/>;
     }
 
     function register(formdata) {
@@ -52,7 +52,8 @@ function Register(props) {
                 console.log("Couldn't register: \n");
                 console.log(json.data.error);
             }
-        }).catch(error => {
+        }).then(onLogin)
+        .catch(error => {
             console.log(error);
             console.log(error.response);
             alert('Cette adresse e-mail est déjà utilisée.');
