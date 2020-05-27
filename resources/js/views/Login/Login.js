@@ -86,12 +86,12 @@ function Login(props) {
                         <label htmlFor="remember_me">Se souvenir de moi</label>
                     </div>
                     <div className="login__submit-container">
-                        <input className="btn-red btn-red--fill" type="submit" value="Connexion"/>
+                        <input className="btn-primary btn-primary__red__fill" type="submit" value="Connexion"/>
                     </div>
                 </form>
                 <div className="login__bottom">
                     <div className="login__separator">ou</div>
-                    <Link className="btn-red btn-red--stroke" to="/inscription">Inscription</Link>
+                    <Link className="btn-primary btn-primary__red__stroke" to="/inscription">Inscription</Link>
                 </div>
             </div>
             
