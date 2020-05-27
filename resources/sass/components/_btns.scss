@@ -1,71 +1,63 @@
-.btn-red {
-    border-radius: 20px;
-    border: none;
-    padding: 10px 15px;
-
-    &--fill {
-        background: $red;
-        color: $white;
-    }
-    &--stroke {
-        border: 2px solid $red;
-        color: $red;
-    }
-}
-
 .btn-primary {
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     border: none;
-    padding: 0.8rem 1rem;
+    padding: 0.5rem .8rem;
+    font-size: 1rem;
+    line-height: normal !important;
 
-    &--red {
-        &--fill {
+    &__red {
+        &__fill {
             background: $red;
             color: $white;
         }
-        &--stroke {
+        &__stroke {
             border: 2px solid $red;
             color: $red;
+            background: transparent;
         }
     }
-    &--blue {
-        &--fill {
+    &__blue {
+        &__fill {
             background: $blue;
             color: $white;
         }
-        &--stroke {
+        &__stroke {
             border: 2px solid $blue;
             color: $blue;
+            background: transparent;
         }
     }
-    &--yellow {
-        &--fill {
+    &__yellow {
+        &__fill {
             background: $yellow;
             color: $white;
         }
-        &--stroke {
+        &__stroke {
             border: 2px solid $yellow;
             color: $yellow;
+            background: transparent;
         }
     }
-    &--black {
-        &--fill {
+    &__black {
+        &__fill {
             background: $black;
             color: $white;
         }
-        &--stroke {
+        &__stroke {
             border: 2px solid $black;
             color: $black;
+            background: transparent;
         }
     }
-    &--white {
-        &--fill {
+    &__white {
+        &__fill {
             background: $white;
             color: inherit;
         }
-        &--stroke {
+        &__stroke {
             border: 2px solid $white;
             color: $white;
+            background: transparent;
         }
     }
 }
