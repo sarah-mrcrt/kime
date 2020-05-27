@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Kids extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class Kids extends Migration
      */
     public function up()
     {
-        Schema::create('kids', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('age');
-            $table->string('avatar')->default('/avatars/avatar01.svg');
-            $table->string('categories');
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('img');
+            $table->longText('txt_choice');
+            $table->text('txt_win');
+            // $table->integer('trophie_id')->default(1);
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class Kids extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('activities');
     }
 }

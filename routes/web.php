@@ -30,7 +30,13 @@ Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
 Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
 // Activities
-Route::get('/activities', 'ActivitiesController@showAll');
+Route::get('/activities', 'ActivitiesController@index');
+Route::get('/activity/{id}', 'ActivitiesController@show')->where('id', '[0-9]+');
+Route::post('/activity/create', 'ActivitiesController@create');
+Route::put('/activity/update/{id}','ActivitiesController@update')->where('id', '[0-9]+');
+Route::get('/activity/delete/{id}','ActivitiesController@delete')->where('id', '[0-9]+');
+
+// Steps
 
 
 // Trophies
