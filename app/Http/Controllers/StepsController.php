@@ -9,30 +9,13 @@ use App\Activities;
 
 class StepsController extends Controller
 {
-    // public function show($id)
-    // {
-    //     $k = Kid::findOrFail($id);
-        
-    //     return response()->json([
-    //         'success' => true,
-    //         'id' => $k->id,
-    //         'name' => $k->name,
-    //         'age' => $k->age,
-    //         'avatar' => $k->avatar
-    //     ], 201);
-    // }
 
     public function show($idA, $idS){
+        // $a = Activities::findOrFail($idA)->steps()->get();
+        // $a = Activities::findOrFail($idA)->join('steps', 'steps.activity_id', '=', 'activities.id')->where('activity_id','=',$idA)->get();
         $a = Activities::findOrFail($idA);
         $s = Steps::findOrFail($idS);
-        // ->sortBy('ordre');     
-        
-// $project = Project::where('id',$id);
 
-        // if(Steps::all()->id != Activities::all()->id){
-        //     abort(404);
-        // }
-        
         return response()->json([
             'success' => true,
             'id' => $s->id,
@@ -41,7 +24,7 @@ class StepsController extends Controller
             'img' => $s->img,
             'title' => $s->title,
             'text' => $s->text,
-            'activities_id' => $s->activities_id
+            'activity_id' => $s->activity_id
         ], 201);
     }
 }
