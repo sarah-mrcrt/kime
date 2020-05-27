@@ -69780,47 +69780,21 @@ $(document).ready(function () {
       check.classList.add("selected");
       return true;
     }
-    /*if(e.target.parentNode.parentNode.className != "audio_actu audio_playlist") {
-      e.preventDefault();
-      let url = $(this).attr('data-file');
-      let audio = $('#audio');
-      audio[0].src = url;
-      audio[0].play();
-      $('#player').css({"display" : "grid"});
-          let parent = e.target.parentNode.parentNode;
-          let audio_img = parent.children[0];
-      let img = audio_img.children[1];
-          let audio_actions = parent.children[1];
-      let aimer = audio_actions.children[1];
-      let aimer_nb = aimer.children[0];
-      let aimer_icon = aimer.children[1];
-          // Si l'utilisateur peut supprimer une chanson / est le créateur de la chanson
-      if(audio_actions.children[2]) {
-          let sup = audio_actions.children[2];
-          document.getElementById('audio_actions').children[1].style.display = "flex";
-          document.getElementById('audio_actions').children[1].href = sup.href;
-      } else {
-          document.getElementById('audio_actions').children[1].style.display = "none";
-      }
-          let audio_infos = parent.children[2];
-      let title = audio_infos.children[0];
-      let infos_all = audio_infos.children[1];
-      let infos1 = infos_all.children[0];
-      let infos2 = infos_all.children[1];
-      let genre = audio_infos.children[2];
-          document.getElementById('audio_img').children[0].src = img.src;
-          document.getElementById('audio_actions').children[0].className = aimer.className;
-      document.getElementById('audio_actions').children[0].href = aimer.href;
-      document.getElementById('audio_actions').children[0].children[0].innerHTML = aimer_nb.innerHTML;
-      document.getElementById('audio_actions').children[0].children[1].className = aimer_icon.className;
-          document.getElementById('audio_infos_title').innerHTML = title.innerHTML;
-      document.getElementById('audio_infos_style').innerHTML = genre.innerHTML;
-      document.getElementById('audio_infos1').innerHTML = infos1.innerHTML;
-      document.getElementById('audio_infos2').innerHTML = infos2.innerHTML;
-          document.getElementById('audio_actu').style.opacity = 1;
-      document.getElementById('audio').style.opacity = 1;
-    }*/
+  }); // Fonctionnement Categories Grid Checkbox
 
+  $('body').on('click', '.avatars-grid__avatar.unlocked', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var avatar = e.currentTarget;
+    var radio = avatar.children[2];
+    var background = avatar.children[1];
+
+    if (radio.checked === false) {
+      console.log('unchecked -> check ' + radio.checked);
+      radio.checked = true;
+      $('.avatars-grid__avatar__background.selected').removeClass("selected");
+      background.classList.add("selected");
+    }
   });
 });
 
@@ -69904,6 +69878,44 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/components/ActivitiesGrid.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ActivitiesGrid.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function ActivitiesGrid(props) {
+  console.log(props.activities);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "activities-grid"
+  }, props.activities.map(function (activity, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "activities-grid__activity",
+      href: "/activity/" + activity.id,
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "activities-grid__activity__name"
+    }, activity.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "activities-grid__activity__img",
+      src: activity.img,
+      alt: activity.name
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "activities-grid__activity__background " + activity.color
+    }));
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ActivitiesGrid);
+
+/***/ }),
+
 /***/ "./resources/js/components/AuthDataProvider.js":
 /*!*****************************************************!*\
   !*** ./resources/js/components/AuthDataProvider.js ***!
@@ -69980,6 +69992,59 @@ var useAuthDataContext = function useAuthDataContext() {
 
 /***/ }),
 
+/***/ "./resources/js/components/AvatarsGrid.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/AvatarsGrid.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _RoundBackground_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RoundBackground.js */ "./resources/js/components/RoundBackground.js");
+
+
+
+function AvatarsGrid(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "avatars-grid"
+  }, props.avatars.map(function (avatar, index) {
+    var unlockedClass = "locked";
+
+    if (avatar.minScore <= props.score) {
+      unlockedClass = "unlocked";
+    } else if (props.displayUnlocked == false) {
+      unlockedClass = "deleted";
+    }
+
+    console.log(unlockedClass);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "avatars-grid__avatar " + unlockedClass,
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "avatars-grid__avatar__img",
+      src: avatar.img,
+      alt: avatar.name
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "avatars-grid__avatar__background"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RoundBackground_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      color: "blue"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "avatars-grid__avatar__radio",
+      type: "radio",
+      name: "avatars[]",
+      id: "avatar" + avatar.id,
+      value: avatar.id
+    }));
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AvatarsGrid);
+
+/***/ }),
+
 /***/ "./resources/js/components/CategoriesGrid.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/CategoriesGrid.js ***!
@@ -70049,6 +70114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _RoundBackground_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoundBackground.js */ "./resources/js/components/RoundBackground.js");
+
 
 
 
@@ -70061,10 +70128,12 @@ function Header(props) {
     className: "page-header__title"
   }, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page-header__subtitle"
-  }, props.subtitle)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, props.subtitle)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RoundBackground_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    color: "red"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "page-header__img",
-    src: "/img/login-img.png"
-  }));
+    src: props.imageUrl
+  })));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -70182,6 +70251,29 @@ function Navigation(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/RegisterStepBar.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/RegisterStepBar.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var RegisterStepBar = function RegisterStepBar(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "register-step-bar"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dark Red Rounded rectangle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Faded Red Circle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Faded Red Circle"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RegisterStepBar);
+
+/***/ }),
+
 /***/ "./resources/js/components/RoundBackground.js":
 /*!****************************************************!*\
   !*** ./resources/js/components/RoundBackground.js ***!
@@ -70215,9 +70307,11 @@ function RoundBackground(props) {
       colorClass = "red";
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
-    className: "round-background " + colorClass,
-    "enable-background": "new 0 0 240 240",
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "round-background"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "round-background__img " + colorClass,
+    enableBackground: "new 0 0 240 240",
     version: "1.1",
     viewBox: "0 0 240 240",
     xmlns: "http://www.w3.org/2000/svg"
@@ -70239,7 +70333,7 @@ function RoundBackground(props) {
     cx: "120",
     cy: "120",
     r: "79.8"
-  }));
+  })), props.children);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RoundBackground);
@@ -70264,11 +70358,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Home_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/Home/Home */ "./resources/js/views/Home/Home.js");
 /* harmony import */ var _views_Profil_Profil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/Profil/Profil */ "./resources/js/views/Profil/Profil.js");
 /* harmony import */ var _views_Test_Test__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/Test/Test */ "./resources/js/views/Test/Test.js");
+/* harmony import */ var _views_ParentalControl_ParentalControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/ParentalControl/ParentalControl */ "./resources/js/views/ParentalControl/ParentalControl.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -70550,12 +70646,11 @@ function Login(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "login"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "page-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Bienvenue",
-    subtitle: "Content de vous revoir"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    subtitle: "Content de vous revoir",
+    imageUrl: "/img/login-img.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "login__body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     method: "post",
@@ -70616,6 +70711,39 @@ function Login(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Login);
+
+/***/ }),
+
+/***/ "./resources/js/views/ParentalControl/ParentalControl.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/views/ParentalControl/ParentalControl.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Header */ "./resources/js/components/Header.js");
+/* harmony import */ var _components_RegisterStepBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/RegisterStepBar */ "./resources/js/components/RegisterStepBar.js");
+
+
+
+
+var ParentalControl = function ParentalControl(props) {
+  var steps = ["Contrôle Parental", "Compagnon", "Activités"];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "parental-control"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "parental-control__header",
+    imageUrl: "/img/login-img.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "parental-control__body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Contr\xF4le Parental"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RegisterStepBar__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ParentalControl);
 
 /***/ }),
 
@@ -70804,7 +70932,8 @@ function Register(props) {
     className: "login"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Bienvenue",
-    subtitle: "Content de vous rencontrer"
+    subtitle: "Content de vous rencontrer",
+    imageUrl: "/img/login-img.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "login__body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -70910,6 +71039,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RoundBackground_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/RoundBackground.js */ "./resources/js/components/RoundBackground.js");
 /* harmony import */ var _components_StepBar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/StepBar.js */ "./resources/js/components/StepBar.js");
 /* harmony import */ var _components_CategoriesGrid_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/CategoriesGrid.js */ "./resources/js/components/CategoriesGrid.js");
+/* harmony import */ var _components_ActivitiesGrid_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/ActivitiesGrid.js */ "./resources/js/components/ActivitiesGrid.js");
+/* harmony import */ var _components_AvatarsGrid_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/AvatarsGrid.js */ "./resources/js/components/AvatarsGrid.js");
+
+
 
 
 
@@ -70932,29 +71065,80 @@ function Test() {
       </div>
   )
   */
-  // CATEGORIES GRID
-  var categories = [{
+
+  /*
+      // CATEGORIES GRID
+  
+      let categories = [
+          {id:2, name:"Cuisine", img:"/img/category-03.svg"}, 
+          {id:7, name:"Créativité", img:"/img/category-02.svg"}, 
+          {id:0, name:"Jardin", img:"/img/category-05.svg"},
+          {id:10, name:"Jeux", img:"/img/category-04.svg"}
+      ];
+  
+      // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
+  
+      return (
+          <div className="content">
+              <CategoriesGrid categories={categories} />
+          </div>
+      )
+  */
+
+  /*
+      // ACTIVITIES GRID
+  
+      let activities = [
+          {id:2, name:"Cuisine", img:"/icons/icon-activity-02.svg", color:"yellow"}, 
+          {id:7, name:"Dessin", img:"/icons/icon-activity-03.svg", color:"blue"}, 
+          {id:0, name:"Jeux d'équilibres", img:"/icons/icon-activity-02.svg", color:"red"},
+          {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
+      ];
+  
+      // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
+  
+      return (
+          <div className="content">
+              <ActivitiesGrid activities={activities} />
+          </div>
+      )
+      */
+  // AVATARS GRID
+  var kidScore = 0;
+  var avatars = [{
     id: 2,
-    name: "Cuisine",
-    img: "/img/category-03.svg"
+    img: "/img/avatar-11.svg",
+    minScore: 0
   }, {
     id: 7,
-    name: "Créativité",
-    img: "/img/category-02.svg"
+    img: "/img/avatar-10.svg",
+    minScore: 0
   }, {
     id: 0,
-    name: "Jardin",
-    img: "/img/category-05.svg"
+    img: "/img/avatar-08.svg",
+    minScore: 0
+  }, {
+    id: 7,
+    img: "/img/avatar-03.svg",
+    minScore: 2
   }, {
     id: 10,
-    name: "Jeux",
-    img: "/img/category-04.svg"
-  }]; // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
+    img: "/img/avatar-07.svg",
+    minScore: 0
+  }]; // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des radios "avatars[]"
+
+  /* PROPS 
+   * avatars : tableau comprenant les avatars de la BDD
+   * score : score actuel de l'enfant (si nouveau = 0)
+   * displayUnlocked : afficher (true) ou non (false) les avatars bloqués
+  */
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CategoriesGrid_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    categories: categories
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AvatarsGrid_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    avatars: avatars,
+    score: kidScore,
+    displayUnlocked: true
   }));
 }
 
@@ -70980,8 +71164,8 @@ function Test() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\kime\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\kime\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/brieuc/projets/kime/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/brieuc/projets/kime/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
