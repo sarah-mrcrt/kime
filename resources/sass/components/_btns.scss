@@ -1,4 +1,4 @@
-.btn-primary {
+.btn-common {
     border-radius: 2rem;
     border: none;
     padding: 0.5rem .8rem;
@@ -6,47 +6,68 @@
     line-height: normal !important;
 
     &__red {
-        &__fill {
+        &__fill, &__fill:hover {
             background: $red;
             color: $white;
+            &:hover{
+                background-color: $red;
+            }
         }
-        &__stroke {
+        &__stroke, &__stroke:hover {
             border: 2px solid $red;
             color: $red;
             background: transparent;
         }
     }
     &__blue {
-        &__fill {
+        &__fill, &__fill:hover {
             background: $blue;
             color: $white;
+            &:hover{
+                background-color: $blue;
+            }
         }
-        &__stroke {
+        &__stroke, &__stroke:hover {
             border: 2px solid $blue;
             color: $blue;
             background: transparent;
+            &:hover{
+                background-color: transparent;
+            }
         }
     }
     &__yellow {
-        &__fill {
+        &__fill, &__fill:hover {
             background: $yellow;
             color: $white;
+            &:hover{
+                background-color: $blue;
+            }
         }
-        &__stroke {
+        &__stroke, &__stroke:hover {
             border: 2px solid $yellow;
             color: $yellow;
             background: transparent;
+            &:hover{
+                background-color: transparent;
+            }
         }
     }
     &__black {
         &__fill {
             background: $black;
             color: $white;
+            &:hover{
+                background-color: inherit;
+            }
         }
         &__stroke {
             border: 2px solid $black;
             color: $black;
             background: transparent;
+            &:hover{
+                background-color: inherit;
+            }
         }
     }
     &__white {

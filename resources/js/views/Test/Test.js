@@ -4,6 +4,7 @@ import StepBar from '../../components/StepBar.js';
 import CategoriesGrid from '../../components/CategoriesGrid.js';
 import ActivitiesGrid from '../../components/ActivitiesGrid.js';
 import AvatarsGrid from '../../components/AvatarsGrid.js';
+import Header from '../../components/Header.js';
 
 function Test() {
 
@@ -61,6 +62,7 @@ function Test() {
         </div>
     )
     */
+   /*
 
     // AVATARS GRID
 
@@ -75,15 +77,33 @@ function Test() {
 
     // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des radios "avatars[]"
 
-    /* PROPS 
-     * avatars : tableau comprenant les avatars de la BDD
-     * score : score actuel de l'enfant (si nouveau = 0)
-     * displayUnlocked : afficher (true) ou non (false) les avatars bloqués
-    */
+    // PROPS 
+    // avatars : tableau comprenant les avatars de la BDD
+    // score : score actuel de l'enfant (si nouveau = 0)
+    // displayUnlocked : afficher (true) ou non (false) les avatars bloqués
+    //
+   
     return (
         <div className="content">
             <AvatarsGrid avatars={avatars} score={kidScore} displayUnlocked={true} />
         </div>
+    )
+    */
+
+    // HEADER
+    
+    // PROPS 
+    // title* : titre
+    // subtitle* : souttitre
+    // imageUrl : URL du png/SVG à afficher devant le fond
+    // color : couleur du fond RoundBackground ("yellow", "red", "blue")
+    // align* [si title & subtitle ne sont pas utilisé] : "left" ou "right" (centré par défaut)
+    // * éléments facultatifs
+
+    return (
+        <>
+        <Header align="left" color="blue" imageUrl="/img/login-img.png"/>
+        </>
     )
     
 

@@ -68,30 +68,46 @@ function Login(props) {
     }
 
     return (
-        <div className="login">
-            <Header title="Bienvenue" subtitle="Content de vous revoir" imageUrl="/img/login-img.png"/>
-            <div className="login__body">
-                <form method="post" onSubmit={handleSubmit} className="form login__form">
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="email">Adresse e-mail</label>
-                        <input className="form__input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="adresse@mail.com"/>
+        <div className="container red">
+            <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img.png"/>
+            <div className="container__body">
+                <div className="content">
+                    <form method="post" onSubmit={handleSubmit} className="form form-auth">
+
+                        
+                    <div className="form-auth__input-div one">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                                <label className="form__label" htmlFor="email">Adresse e-mail</label>
+                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email"/>
+                            </div>
+                        </div>
+                        <div className="form-auth__input-div one">
+                            <div className="i">
+                                <i className="fas fa-user"></i>
+                            </div>
+                            <div className="div">
+                                <label className="form__label" htmlFor="password">Mot de passe</label>
+                                <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password"/>
+                            </div>
+                        </div>
+                        <div className="form__row">
+                            <Link to="/forgot-password" className="form-auth__forgot-pwd">Mot de passe oublié ?</Link>
+                        </div>
+                        <div className="form__row form-auth__remember">
+                            <input className="form__checkbox" type="checkbox" name="remember_me" defaultChecked/>
+                            <label className="form__label" htmlFor="remember_me">Se souvenir de moi</label>
+                        </div>
+                        <div className="form-auth__submit-container">
+                            <input className="btn-common btn-common__red__fill" type="submit" value="Connexion"/>
+                        </div>
+                    </form>
+                    <div className="form-auth__bottom">
+                        <div className="form-auth__separator">ou</div>
+                        <Link className="btn-common btn-common__red__stroke" to="/inscription">Inscription</Link>
                     </div>
-                    <div className="form__row">
-                        <label className="form__label" htmlFor="password">Mot de passe</label>
-                        <input className="form__input" onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Mot de passe"/>
-                        <Link to="/forgot-password" className="login__forgot-pwd">Mot de passe oublié ?</Link>
-                    </div>
-                    <div className="form__row login__remember">
-                        <input className="form__checkbox" type="checkbox" name="remember_me" defaultChecked/>
-                        <label htmlFor="remember_me">Se souvenir de moi</label>
-                    </div>
-                    <div className="login__submit-container">
-                        <input className="btn-primary btn-primary__red__fill" type="submit" value="Connexion"/>
-                    </div>
-                </form>
-                <div className="login__bottom">
-                    <div className="login__separator">ou</div>
-                    <Link className="btn-primary btn-primary__red__stroke" to="/inscription">Inscription</Link>
                 </div>
             </div>
             
