@@ -12,16 +12,24 @@ li {
 }
 p { 
     margin: 1.5rem 0; 
+    &.center {
+        text-align: center;
+    }
 }
 p, li, td, th, textarea, caption, pre, blockquote, label, input, select, textarea { font-size: 1.4rem; line-height: 1.6; }
 td p, td .bodytext { 
     margin: 0;
     line-height: normal;
     letter-spacing: normal; 
+    font-size: 1rem !important;
 }
 strong, optgroup { font-weight: bold; }
 
 img {
     width: 100%;
     height: auto;
+}
+
+.content p {
+    font-size: 1rem;
 }

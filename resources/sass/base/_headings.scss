@@ -7,9 +7,28 @@
     line-height: normal;
     letter-spacing: normal;
     font-weight: bold; 
+
+    &.red {
+      color: $red;
+    }
+    &.yellow {
+      color: $yellow;
+    }
+    &.blue {
+      color: $blue;
+    }
   }
 
   h1 {
     font-weight: bold;
     color: $white;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1rem;
   }

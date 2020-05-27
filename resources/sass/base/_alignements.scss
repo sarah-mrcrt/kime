@@ -27,3 +27,13 @@
   display: grid;
   grid-template-columns: repeat(4, calc(100% / 4));
 }
+
+.central-content {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
