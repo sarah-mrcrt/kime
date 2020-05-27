@@ -69971,6 +69971,10 @@ function AuthDataProvider(props) {
     return setAuthData(initialAuthData);
   };
 
+  var onRegister = function onRegister() {
+    return setData();
+  };
+
   var onLogin = function onLogin() {
     return setData();
   };
@@ -69979,7 +69983,8 @@ function AuthDataProvider(props) {
     value: {
       authData: authData,
       onLogin: onLogin,
-      onLogout: onLogout
+      onLogout: onLogout,
+      onRegister: onRegister
     }
   }, props));
 }

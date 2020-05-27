@@ -21,10 +21,12 @@ function AuthDataProvider(props) {
     }, []);
   
     const onLogout = () => setAuthData(initialAuthData);
+
+    const onRegister = () => setData();
   
     const onLogin = () => setData();
   
-    return <AuthDataContext.Provider value={{ authData, onLogin, onLogout }} {...props} />;
+    return <AuthDataContext.Provider value={{ authData, onLogin, onLogout, onRegister }} {...props} />;
   };
   
   export const useAuthDataContext = () => {
