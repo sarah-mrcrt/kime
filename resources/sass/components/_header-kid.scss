@@ -1,0 +1,52 @@
+.page-header-kid {
+    color: $white;
+    display: flex;
+    padding: 0 10px 10px 20px;
+
+    &.g2 {
+        display: grid;
+        grid-template-columns: 35% 65%;
+
+        & .page-header-kid__text {
+            padding-left: 1rem;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 1.5rem;
+        }
+    
+        & .page-header-kid__title {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 2.1rem;
+            text-align: left;
+        }
+    
+        & .page-header-kid__subtitle {
+            margin-top: auto;
+            font-size: 1.2rem;
+            text-align: left;
+            color: $black;
+        }
+    
+        & .page-header-kid__background {
+            width: 100%;
+            margin: 0;
+            align-self: stretch;
+            position: relative;
+            padding-right: 0;
+            z-index: 200;
+            transform: translateY(50%);
+        }
+    
+        & .page-header-kid__img {
+            position: absolute;
+            right: 0; 
+            left: 0; 
+            bottom: 1rem;
+            width: 100%;
+            margin: auto;
+            height: auto;
+        }
+    }
+}

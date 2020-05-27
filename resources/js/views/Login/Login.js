@@ -68,7 +68,7 @@ function Login(props) {
     }
 
     return (
-        <div className="container red">
+        <div className="container red background">
             <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img.png"/>
             <div className="container__body">
                 <div className="content">

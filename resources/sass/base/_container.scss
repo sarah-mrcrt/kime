@@ -23,6 +23,23 @@
 
     &.background {
       min-height: 100vh;
+
+      & .container__body {
+        flex-grow: 1;
+
+        &.none {
+          background-color: transparent;
+        }
+
+        & .btn-common {
+          margin: 0 auto;
+          margin-top: auto;
+
+          &+ .register-step-bar {
+            margin-top: 2rem;
+          }
+        }
+      }
     }
 
     &__body {

@@ -28,26 +28,23 @@ const Conditions = props => {
     }
 
     return (
-        <div className="container red">
-            <div className="conditions">
-                <Header className="conditions__header" imageUrl="/img/login-img.png"/>
+        <div className="container red background">
+            <Header className="conditions__header" imageUrl="/img/login-img.png"/>
 
-                <div className="container__body">
-                    <div className="conditions__body">
-                        <div className="content central-content">
-                            <h1 className="red">Conditions d'utilisation</h1>
-                            <p className="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.</p>
-                            <CheckboxSimple checkBoxName="accept_conditions" checkboxOnChange={handleChange} text="J'accepte les conditions d'utilisation"/>
-                            {!error.length > 0 &&
-                                <div className="error">{error}</div>
-                            }
-                            <a onClick={handleClick} className="btn-common btn-common__red__fill" to="/conditions">Continuer</a>
-                        </div>
-
+            <div className="container__body">
+                <div className="conditions__body">
+                    <div className="content central-content">
+                        <h1 className="red">Conditions d'utilisation</h1>
+                        <p className="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.</p>
+                        <CheckboxSimple checkBoxName="accept_conditions" checkboxOnChange={handleChange} text="J'accepte les conditions d'utilisation"/>
+                        {!error.length > 0 &&
+                            <div className="error">{error}</div>
+                        }
                     </div>
-
-                    <RegisterStepBar nb={3} actualStep={2}/>
                 </div>
+
+                <a onClick={handleClick} className="btn-common btn-common__red__fill" to="/conditions">Continuer</a>
+                <RegisterStepBar nb={3} actualStep={2}/>
             </div>
         </div>
     );

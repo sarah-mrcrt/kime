@@ -54,7 +54,6 @@ function Test() {
         {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
     ];
 
-    // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
 
     return (
         <div className="content">
