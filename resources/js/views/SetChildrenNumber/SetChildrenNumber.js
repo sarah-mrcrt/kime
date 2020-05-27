@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../components/Header';
 import {Link} from 'react-router-dom';
 
+import LocalStorageManager from '../../util/localStorage';
 import RoundBackground from '../../components/RoundBackground';
 
 const SetChildrenNumber = props => {

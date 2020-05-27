@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import LocalStorageManager from '../util/localStorage';
 
 export const AuthDataContext = createContext();
 
@@ -7,13 +8,10 @@ function AuthDataProvider(props) {
     const [authData, setAuthData] = useState(initialAuthData);
 
     const setData = () => {
-      let currentAuthData = localStorage.getItem('authData');
+      let currentAuthData = LocalStorageManager.getItem('authData');
 
       if (currentAuthData) {
-        currentAuthData = JSON.parse(currentAuthData);
-        
         setAuthData(currentAuthData);
-        
       }
     }
   
@@ -24,7 +22,9 @@ function AuthDataProvider(props) {
     const onLogout = () => setAuthData(initialAuthData);
   
     const onLogin = () => setData();
+
     console.log(authData);
+
     return <AuthDataContext.Provider value={{ authData, onLogin, onLogout }} {...props} />;
   };
   
