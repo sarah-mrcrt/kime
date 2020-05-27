@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import RegisterStepBar from '../../components/RegisterStepBar';
+import CheckboxSimple from '../../components/CheckboxSimple';
 import { Redirect } from 'react-router-dom';
 
 const Conditions = props => {
@@ -36,11 +37,7 @@ const Conditions = props => {
                         <div className="content central-content">
                             <h1 className="red">Conditions d'utilisation</h1>
                             <p className="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.</p>
-                            <div className="conditions__accept red-check">
-                                <input type="checkbox" name="accept_conditions" onChange={handleChange} />
-                                <div className="red-check__check"></div>
-                                <label className="red-check__label" htmlFor="accept_conditions">J'accepte les conditions d'utilisation</label>
-                            </div>
+                            <CheckboxSimple checkBoxName="accept_conditions" checkboxOnChange={handleChange} text="J'accepte les conditions d'utilisation"/>
                             {!error.length > 0 &&
                                 <div className="error">{error}</div>
                             }
