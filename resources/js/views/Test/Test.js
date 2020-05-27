@@ -2,6 +2,8 @@ import React from 'react';
 import RoundBackground from '../../components/RoundBackground.js';
 import StepBar from '../../components/StepBar.js';
 import CategoriesGrid from '../../components/CategoriesGrid.js';
+import ActivitiesGrid from '../../components/ActivitiesGrid.js';
+import AvatarsGrid from '../../components/AvatarsGrid.js';
 
 function Test() {
 
@@ -23,7 +25,7 @@ function Test() {
         </div>
     )
     */
-
+/*
     // CATEGORIES GRID
 
     let categories = [
@@ -38,6 +40,49 @@ function Test() {
     return (
         <div className="content">
             <CategoriesGrid categories={categories} />
+        </div>
+    )
+*/
+/*
+    // ACTIVITIES GRID
+
+    let activities = [
+        {id:2, name:"Cuisine", img:"/icons/icon-activity-02.svg", color:"yellow"}, 
+        {id:7, name:"Dessin", img:"/icons/icon-activity-03.svg", color:"blue"}, 
+        {id:0, name:"Jeux d'équilibres", img:"/icons/icon-activity-02.svg", color:"red"},
+        {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
+    ];
+
+    // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des checkbox "categories[]"
+
+    return (
+        <div className="content">
+            <ActivitiesGrid activities={activities} />
+        </div>
+    )
+    */
+
+    // AVATARS GRID
+
+    let kidScore = 0;
+    let avatars = [
+        {id:2, img:"/img/avatar-11.svg", minScore: 0}, 
+        {id:7, img:"/img/avatar-10.svg", minScore: 0}, 
+        {id:0, img:"/img/avatar-08.svg", minScore: 0},
+        {id:7, img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:10, img:"/img/avatar-07.svg", minScore: 0}
+    ];
+
+    // /!\ Penser à ajouter un formulaire autour du composant pour récupérer les valeurs des radios "avatars[]"
+
+    /* PROPS 
+     * avatars : tableau comprenant les avatars de la BDD
+     * score : score actuel de l'enfant (si nouveau = 0)
+     * displayUnlocked : afficher (true) ou non (false) les avatars bloqués
+    */
+    return (
+        <div className="content">
+            <AvatarsGrid avatars={avatars} score={kidScore} displayUnlocked={true} />
         </div>
     )
     

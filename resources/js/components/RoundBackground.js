@@ -18,7 +18,7 @@ function RoundBackground(props) {
             colorClass = "red";
     }
     return (
-        <svg className={"round-background " + colorClass} enable-background="new 0 0 240 240" version="1.1" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <svg className={"round-background " + colorClass} enableBackground="new 0 0 240 240" version="1.1" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
             <style type="text/css">
             </style>
             <circle className="st0" cx="120" cy="120" r="120"/>

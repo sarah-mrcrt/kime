@@ -1,0 +1,52 @@
+///
+/// Avatars Grid
+/// 
+/// 
+
+.avatars-grid {
+    position: relative;
+    display: grid;
+    padding-top: 1rem;
+    grid-template-columns: repeat(2, calc((100% / 2) - .5rem));
+    row-gap: 2rem;
+    column-gap: 1rem;
+    z-index: 0;
+
+    &__avatar {
+        position: relative;
+        display: flex;
+        min-height: 3.5rem;
+
+        &__img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 1rem;
+            width: 100%;
+        }
+    
+        &__background {
+            display: block;
+            position: relative;
+            width: 90%;
+            margin: 5%;
+            z-index: -20;
+            opacity: 0;
+
+            &.selected {
+                opacity: 1;
+            }
+        }
+
+        &__radio {
+            display: none;
+        }
+
+        &.deleted {
+            display: none;
+        }
+        &.locked {
+            opacity: .5;
+        }
+    }
+}
