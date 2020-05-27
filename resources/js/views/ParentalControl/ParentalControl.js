@@ -4,8 +4,6 @@ import RegisterStepBar from '../../components/RegisterStepBar';
 import {Link} from 'react-router-dom';
 
 const ParentalControl = props => {
-    let steps = ["Contrôle Parental", "Compagnon", "Activités"];
-
     return (
         <div className="parental-control">
             <Header className="parental-control__header" imageUrl="/img/login-img.png"/>
