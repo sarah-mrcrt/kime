@@ -15,7 +15,7 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
-            $table->integer('ordre');
+            $table->integer('position');
             $table->string('name');
             $table->string('img');
             $table->string('title');
