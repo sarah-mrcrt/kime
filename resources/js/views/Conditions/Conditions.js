@@ -46,7 +46,7 @@ const Conditions = props => {
 
                     </div>
 
-                    <RegisterStepBar/>
+                    <RegisterStepBar nb={3} actualStep={2}/>
                 </div>
             </div>
         </div>

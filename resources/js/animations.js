@@ -104,5 +104,39 @@ function remcl(target){
           }
         })
         
+        // Animation des checkbox simples rouges stylisées
+        $('body').on('click','.set-children-number__nb:not(.selected)', function (e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          let newNumber = e.currentTarget;
+          let parent = $('.set-children-number__selector');
+          let selected = $('.set-children-number__nb.selected');
+          let radio = newNumber.children[1];
+
+          let clicX = e.pageX;
+          let xCenter = $(window).width() / 2;
+
+          let left = parent.css("left")
+          let step = newNumber.offsetWidth;
+          let leftTab = left.split('px');
+          left = leftTab[0];
+          left = parseInt(left);
+  
+          if(clicX > xCenter) {
+              radio.checked = true;
+              parent.css( "left", left - step );
+              selected.removeClass("selected");
+              newNumber.classList.add("selected");
+              console.log('NEXT checked '+ radio.checked);
+              
+          } else if (clicX < xCenter) {
+              radio.checked = true;
+              parent.css( "left", left + step );
+              selected.removeClass("selected");
+              newNumber.classList.add("selected");
+              console.log('PREV checked '+ radio.checked);
+          }
+        })
+        
 
   })
