@@ -5,16 +5,22 @@ import {Link} from 'react-router-dom';
 
 const ParentalControl = props => {
     return (
-        <div className="parental-control">
-            <Header className="parental-control__header" imageUrl="/img/login-img.png"/>
+        <div className="container red">
+            <div className="parental-control">
+                <Header className="parental-control__header" imageUrl="/img/login-img.png"/>
 
-            <div className="parental-control__body">
-                <h1>Contrôle Parental</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.</p>
-                <Link className="btn-primary btn-primary--red--fill" to="/conditions">Continuer</Link>
+                <div className="container__body">
+                    <div className="parental-control__body">
+                        <div className="content central-content">
+                            <h1 className="red">Contrôle Parental</h1>
+                            <p className="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.</p>
+                            <Link className="btn-common btn-common__red__fill" to="/conditions">Continuer</Link>
+                        </div>
+
+                        <RegisterStepBar/>
+                    </div>
+                </div>
             </div>
-
-            <RegisterStepBar/>
         </div>
     );
 }
