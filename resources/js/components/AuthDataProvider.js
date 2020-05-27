@@ -13,7 +13,7 @@ function AuthDataProvider(props) {
         currentAuthData = JSON.parse(currentAuthData);
         
         setAuthData(currentAuthData);
-        console.log(authData);
+        
       }
     }
   
@@ -24,7 +24,7 @@ function AuthDataProvider(props) {
     const onLogout = () => setAuthData(initialAuthData);
   
     const onLogin = () => setData();
-  
+    console.log(authData);
     return <AuthDataContext.Provider value={{ authData, onLogin, onLogout }} {...props} />;
   };
   
