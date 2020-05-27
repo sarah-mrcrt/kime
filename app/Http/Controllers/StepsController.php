@@ -10,16 +10,15 @@ use App\Activities;
 class StepsController extends Controller
 {
 
-    public function show($idA, $idS){
-        // $a = Activities::findOrFail($idA)->steps()->get();
-        // $a = Activities::findOrFail($idA)->join('steps', 'steps.activity_id', '=', 'activities.id')->where('activity_id','=',$idA)->get();
-        $a = Activities::findOrFail($idA);
-        $s = Steps::findOrFail($idS);
+    public function show($idActivity, $position){
+        // $a = Activities::findOrFail($idA);
+        // $s = Steps::where('position', '=', $position)->firstOrFail();
+        $s = Steps::where([['position', '=', $position],['activity_id', '=', $idActivity]])->firstOrFail();;
 
         return response()->json([
             'success' => true,
             'id' => $s->id,
-            'ordre' => $s->ordre,
+            'position' => $s->position,
             'name' => $s->name,
             'img' => $s->img,
             'title' => $s->title,

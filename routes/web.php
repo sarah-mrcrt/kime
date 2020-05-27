@@ -42,9 +42,11 @@ Route::put('/activity/update/{id}','ActivitiesController@update')->where('id', '
 Route::get('/activity/delete/{id}','ActivitiesController@delete')->where('id', '[0-9]+');
 
 // Steps
-Route::get('/activity/{idA}/{idS}', 'StepsController@show')->where(['idA' => '[0-9]+', 'idS' => '[0-9]+']);
-//modifier
-//supprimer
-//ajouter
+Route::get('/activity/{idActivity}/{position}', 'StepsController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
+//modifier, supprimer, ajouter
 
 // Trophies
+
+
+// Categories
+Route::get('/categories', 'CategoriesController@index');
