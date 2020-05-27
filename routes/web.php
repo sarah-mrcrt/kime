@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/{path?}', 'app');
 Route::view('/test/test', 'testpage');
+Route::get('/deconnexion', 'API\UserController@deconnexion');
 
 // User
 Route::post('/api/auth/login', 'API\UserController@login');
@@ -41,6 +42,9 @@ Route::put('/activity/update/{id}','ActivitiesController@update')->where('id', '
 Route::get('/activity/delete/{id}','ActivitiesController@delete')->where('id', '[0-9]+');
 
 // Steps
-
+Route::get('/activity/{idA}/{idS}', 'StepsController@show')->where(['idA' => '[0-9]+', 'idS' => '[0-9]+']);
+//modifier
+//supprimer
+//ajouter
 
 // Trophies

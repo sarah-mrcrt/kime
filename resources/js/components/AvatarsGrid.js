@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RoundBackground from './RoundBackground.js';
 
 function AvatarsGrid(props) {
-    return (
 
+    const [avatar, setAvatar] = useState('');
+
+    return (
         <section className="avatars-grid">
             {props.avatars.map((avatar,index) => {
 

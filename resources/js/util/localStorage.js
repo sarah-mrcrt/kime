@@ -4,10 +4,11 @@ export default class LocalStorageManager {
         localStorage.setItem(item, JSON.stringify(data));
     }
 
-    static getRawItem(item) {
+    static getStringifiedItem(item) {
         let data = localStorage.getItem(item);
 
-        data ? data : {};
+        
+        data ? data=data : data={}; // We return an empty object if item is not found
 
         return data;
     }
@@ -15,7 +16,7 @@ export default class LocalStorageManager {
     static getItem(item) {
         let data = localStorage.getItem(item);
 
-        data ? data = JSON.parse(data) : data = {};
+        data ? data = JSON.parse(data) : data = {}; // Samesies
 
         return data;
     }
