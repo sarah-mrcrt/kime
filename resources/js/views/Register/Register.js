@@ -75,7 +75,7 @@ function Register(props) {
 
     return (
         <div className="login">
-            <Header title="Bienvenue" subtitle="Content de vous rencontrer"/>
+            <Header title="Bienvenue" subtitle="Content de vous rencontrer" imageUrl="/img/login-img.png"/>
             <div className="login__body">
                 <form method="post" onSubmit={handleSubmit} className="form login__form">
                     <div className="form__row">

@@ -8,6 +8,7 @@ import Register from '../views/Register/Register';
 import Home from '../views/Home/Home';
 import Profil from '../views/Profil/Profil';
 import Test from '../views/Test/Test';
+import ParentalControl from '../views/ParentalControl/ParentalControl';
 
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
