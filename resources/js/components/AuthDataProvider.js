@@ -21,8 +21,6 @@ function AuthDataProvider(props) {
     }, []);
   
     const onLogout = () => setAuthData(initialAuthData);
-
-    const onRegister = () => setData();
   
     const onLogin = () => setData();
   

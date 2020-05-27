@@ -69971,10 +69971,6 @@ function AuthDataProvider(props) {
     return setAuthData(initialAuthData);
   };
 
-  var onRegister = function onRegister() {
-    return setData();
-  };
-
   var onLogin = function onLogin() {
     return setData();
   };
@@ -70878,7 +70874,8 @@ function Register(props) {
       setRedirect = _useState12[1];
 
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_components_AuthDataProvider__WEBPACK_IMPORTED_MODULE_2__["AuthDataContext"]),
-      authData = _useContext.authData;
+      authData = _useContext.authData,
+      onLogin = _useContext.onLogin;
 
   if (Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
@@ -70914,7 +70911,7 @@ function Register(props) {
         console.log("Couldn't register: \n");
         console.log(json.data.error);
       }
-    })["catch"](function (error) {
+    }).then(onLogin)["catch"](function (error) {
       console.log(error);
       console.log(error.response);
       alert('Cette adresse e-mail est déjà utilisée.');
