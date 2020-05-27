@@ -19,7 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->string('img')->default(NULL);
             $table->longText('txt_choice');
             $table->text('txt_win');
-            $table->integer('category_id');
+            $table->integer('category_id')->default(1);
             $table->integer('trophie_id')->default(1);
             $table->timestamps();
         });

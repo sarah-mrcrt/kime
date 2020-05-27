@@ -10,15 +10,11 @@ class Activities extends Model
 
     public function steps() {
         // 1 activité a plsr étapes
-        return $this->hasMany("App\Steps", "activities_id");
+        return $this->hasMany("App\Steps", "activity_id");
     }
-    // public function stepss() {
-    //     // Plsr étapes € a une activité
-    //     return $this->belongsToMany('App\Steps', 'steps', 'activities_id', 'id');
-    // }
 
-    // public function chansons() {
-    //     // Association chanson avec un utilisateur
-    //     return $this->hasMany("App\Chanson", "utilisateur_id");
-    // }
+    public function category() {
+        // Plsr activitiés € a une catégory
+        return $this->belongsToMany('App\Category', 'activity_id');
+    }
 }
