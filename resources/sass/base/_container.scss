@@ -43,6 +43,7 @@
     }
 
     &__body {
+        width: 100%;
         display: flex;
         flex-direction: column;
         background: #fff;
@@ -58,6 +59,7 @@
   flex-direction: column;
   width: 100%;
   padding: 2rem;
+  flex-grow: 1;
 }
 
 .scroll-x {
