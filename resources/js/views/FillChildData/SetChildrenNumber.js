@@ -18,15 +18,9 @@ const SetChildrenNumber = props => {
         
         // Storing children count. 
         // Can't select children number as of now, so we just store 1 by default
-        
-        let data = {
-            count: selectedNb,
-            children: {}
-        };
-
-        localStorage.setItem('childrenData', JSON.stringify(data));
-
-        setRedirect(true);
+        console.log(selectedNb);
+        props.setChildrenNumber(selectedNb)
+        props.nextStep();
     }
 
     const handleSwipe = evt => {
@@ -56,6 +50,44 @@ const SetChildrenNumber = props => {
         // then in jsx: item prop: onTouchStart={this.onDragStartTouch}
     }
 
+    const toggleSelected = e => {
+        e.preventDefault();
+
+        // Moving selected number to center of the screen
+        if(!$(e.target).hasClass('selected')); {
+            let newNumber = e.currentTarget;
+            let parent = $('.set-children-number__selector');
+            let selected = $('.set-children-number__nb.selected');
+            let radio = newNumber.children[1];
+
+            // Setting state value
+            setSelectedNb(parseInt(radio.value));
+    
+            let clicX = e.pageX;
+            let xCenter = $(window).width() / 2;
+    
+            let left = parent.css("left")
+            let step = newNumber.offsetWidth;
+
+            left = left.split('px')[0];
+            left = parseInt(left);
+    
+            if(clicX > xCenter) {
+                parent.css( "left", left - step );
+                console.log('Next number selected');
+                
+            } else if (clicX < xCenter) {
+                parent.css( "left", left + step );
+                console.log('Previous number selected');
+            }
+
+            selected.removeClass("selected");
+            newNumber.classList.add("selected");
+            radio.checked = true;
+        }
+
+    }
+
     return (
         <div className="container yellow background">
             <div className="container__body none">
@@ -66,43 +98,43 @@ const SetChildrenNumber = props => {
                 </div>
 
                 <div className="set-children-number__selector">
-                    <div className="set-children-number__nb selected">
+                    <div className="set-children-number__nb selected" onClick={toggleSelected} >
                         <span>1</span>
                         <input type="radio" name="childrensNb[]" value={1}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>2</span>
                         <input type="radio" name="childrensNb[]" value={2}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>3</span>
                         <input type="radio" name="childrensNb[]" value={3}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>4</span>
                         <input type="radio" name="childrensNb[]" value={4}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>5</span>
                         <input type="radio" name="childrensNb[]" value={5}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>6</span>
                         <input type="radio" name="childrensNb[]" value={6}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>7</span>
                         <input type="radio" name="childrensNb[]" value={7}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>8</span>
                         <input type="radio" name="childrensNb[]" value={8}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>9</span>
                         <input type="radio" name="childrensNb[]" value={9}/>
                     </div>
-                    <div className="set-children-number__nb">
+                    <div className="set-children-number__nb" onClick={toggleSelected}>
                         <span>10</span>
                         <input type="radio" name="childrensNb[]" value={10}/>
                     </div>

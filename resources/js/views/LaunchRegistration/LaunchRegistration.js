@@ -8,7 +8,7 @@ const LaunchRegistration = props => {
     return (
         <div className="launch-registration">
             <h1>C'est parti !</h1>
-            <Link to="/children-number">
+            <Link to="/register-children">
                 <RoundBackground color="red">
                     <img className="launch-registration__img" src="img/launch_img.png" alt="C'est parti"/>
                 </RoundBackground>
