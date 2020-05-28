@@ -11,9 +11,7 @@ class TrophyController extends Controller
 {
     public function unlock($idKid,$idTrophy){
         $kid = Kid::findOrFail($idKid);
-        // if($kid->user_id != Auth::id() ){
-        //     abort(404);
-        // }
+
         $kid->trophies()->syncWithoutDetaching($idTrophy);
         
         return response()->json([
