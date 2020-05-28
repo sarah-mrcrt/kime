@@ -13,11 +13,11 @@ function Login(props) {
     const { authData, onLogin } = useContext(AuthDataContext);
     
     if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
-        return <Redirect to="/accueil"/>;
+        return <Redirect to="/welcome"/>;
     }
 
     if(redirect) {
-        return <Redirect to="/accueil"/>;
+        return <Redirect to="/welcome"/>;
     }
 
     function login(values) {
