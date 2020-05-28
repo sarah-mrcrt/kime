@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
 import Navigation from '../../components/Navigation';
-import AvatarsGrid from '../../components/AvatarsGrid.js';
+import TrophiesGrid from '../../components/TrophiesGrid.js';
 
 function Trophies() {
     let kidScore = 0;
-    let avatars = [
+    let trophies = [
         {id:2, img:"/img/avatar-11.svg", minScore: 0}, 
         {id:7, img:"/img/avatar-10.svg", minScore: 0}, 
         {id:0, img:"/img/avatar-08.svg", minScore: 0},
@@ -17,7 +17,7 @@ function Trophies() {
             <div className="container__body">
                 <div className="content">
                         Hello from Trophies
-                        <AvatarsGrid avatars={avatars} score={kidScore} displayUnlocked={true} />
+                        <TrophiesGrid trophies={trophies} score={kidScore} displayUnlocked={true} />
                         <Navigation page="home" />
                 </div>
             </div>
