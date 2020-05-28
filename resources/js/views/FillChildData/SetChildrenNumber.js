@@ -1,27 +1,6 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header';
-import { Redirect } from 'react-router-dom';
-
-import LocalStorageManager from '../../util/localStorage';
-import RoundBackground from '../../components/RoundBackground';
 
 const SetChildrenNumber = props => {
-
-    const [selectedNb, setSelectedNb] = useState(1);
-    const [redirect, setRedirect] = useState(false);
-
-    if(redirect) {
-        return <Redirect to="/register-child/1" />;
-    }
-
-    const handleSubmit = evt => {
-        
-        // Storing children count. 
-        // Can't select children number as of now, so we just store 1 by default
-        console.log(selectedNb);
-        props.setChildrenNumber(selectedNb)
-        props.nextStep();
-    }
 
     const handleSwipe = evt => {
 
@@ -50,9 +29,20 @@ const SetChildrenNumber = props => {
         // then in jsx: item prop: onTouchStart={this.onDragStartTouch}
     }
 
+    const [selectedNb, setSelectedNb] = useState(1);
+
+    const handleSubmit = evt => {
+        
+        // Storing children count. 
+        // Can't select children number as of now, so we just store 1 by default
+        props.setChildrenNumber(selectedNb)
+        console.log("selected children number: " + selectedNb);
+        props.nextStep();
+    }
+
     const toggleSelected = e => {
         e.preventDefault();
-
+        
         // Moving selected number to center of the screen
         if(!$(e.target).hasClass('selected')); {
             let newNumber = e.currentTarget;
@@ -60,27 +50,30 @@ const SetChildrenNumber = props => {
             let selected = $('.set-children-number__nb.selected');
             let radio = newNumber.children[1];
 
-            // Setting state value
+            // Set state value
             setSelectedNb(parseInt(radio.value));
     
+            // Get= click x position and center of screen
             let clicX = e.pageX;
             let xCenter = $(window).width() / 2;
     
+            // Get "left" property of number container and offset between numbers
             let left = parent.css("left")
             let step = newNumber.offsetWidth;
-
             left = left.split('px')[0];
             left = parseInt(left);
     
-            if(clicX > xCenter) {
+            // Check direction in which the number will be moved
+            if(clicX > xCenter) { // Click left = move left
                 parent.css( "left", left - step );
                 console.log('Next number selected');
                 
-            } else if (clicX < xCenter) {
+            } else if (clicX < xCenter) { // Click right = move right
                 parent.css( "left", left + step );
                 console.log('Previous number selected');
             }
 
+            // Set css class
             selected.removeClass("selected");
             newNumber.classList.add("selected");
             radio.checked = true;
