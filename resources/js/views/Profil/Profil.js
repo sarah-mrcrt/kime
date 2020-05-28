@@ -28,7 +28,7 @@ function Profil(props) {
             <div className="container__body">
                 <div className="content">
                         Hello from Profil
-                        <button className="btn-common btn-common__red__fill" onClick={logout}>Déconnexion</button>
+                        <button className="btn-common noMargin btn-common__red__fill" onClick={logout}>Déconnexion</button>
                         <Navigation page="home" />
                 </div>
             </div>

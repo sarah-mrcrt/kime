@@ -35,6 +35,10 @@
           margin: 0 auto;
           margin-top: auto;
 
+          &.noMargin {
+            margin-top: 0;
+          }
+
           &+ .register-step-bar {
             margin-top: 2rem;
           }
