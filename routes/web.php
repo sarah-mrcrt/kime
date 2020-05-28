@@ -23,30 +23,40 @@ Route::post('/api/auth/register', 'API\UserController@register');
 Route::post('/api/auth/logout', 'API\UserController@logout');
 Route::post('/api/auth/user', 'API\UserController@details');
 
-// Kids
+// Route::group(['middleware' => 'auth:api'],
 
-// Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth'], function () {
+    // Kids
     Route::get('/kids','KidController@index');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
     Route::post('/kid/create','KidController@create')->where('id', '[0-9]+');
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
     Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
-// });
 
+    // Kid profile
+    Route::get('/profile', 'CreationController@index');
+    Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
+    Route::post('/creation/create', 'CreationController@create');
+    Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
 
-// Activities
-Route::get('/activities', 'ActivitiesController@index');
-Route::get('/activity/{id}', 'ActivitiesController@show')->where('id', '[0-9]+');
-Route::post('/activity/create', 'ActivitiesController@create');
-Route::put('/activity/update/{id}','ActivitiesController@update')->where('id', '[0-9]+');
-Route::get('/activity/delete/{id}','ActivitiesController@delete')->where('id', '[0-9]+');
+    // Activities
+    Route::get('/activities', 'ActivityController@index');
+    Route::get('/activity/{id}', 'ActivityController@show')->where('id', '[0-9]+');
+    Route::post('/activity/create', 'ActivityController@create');
+    Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
+    Route::get('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
 
-// Steps
-Route::get('/activity/{idActivity}/{position}', 'StepsController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
-//modifier, supprimer, ajouter
+    // Steps
+    Route::get('/activity/{idActivity}/{position}', 'StepController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
+    //modifier, supprimer, ajouter
 
-// Trophies
+    // Trophies
+    Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['idKid' => '[0-9]+', 'idTrophy' => '[0-9]+']);
 
+    // Categories
+    Route::get('/categories', 'CategoryController@index');
+    
+});
 
-// Categories
-Route::get('/categories', 'CategoriesController@index');
+// Parent profile
+// afficher toutes les créations de tous les enfants + update profile

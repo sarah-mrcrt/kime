@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activities extends Model
+class Activity extends Model
 {
     protected $table = 'activities';
 
     public function steps() {
         // 1 activité a plsr étapes
-        return $this->hasMany("App\Steps", "activity_id");
+        return $this->hasMany("App\Step", "activity_id");
     }
 
     public function category() {

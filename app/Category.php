@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class Category extends Model
 {
     public function activities() {
         // 1 catégorie a plsr activitiés
-        return $this->hasMany("App\Activities", "category_id");
+        return $this->hasMany("App\Activity", "category_id");
     }
 }
