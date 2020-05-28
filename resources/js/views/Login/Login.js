@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { AuthDataContext } from '../../components/AuthDataProvider';
 
 import Header from '../../components/Header';
@@ -11,6 +11,21 @@ function Login(props) {
     const [redirect, setRedirect] = useState(false);
 
     const { authData, onLogin } = useContext(AuthDataContext);
+
+    const emailField = useRef();
+    const passwordField = useRef();
+
+    useEffect(() => {
+        // Fixing autofill problems by deactivating it:
+        let interval = setInterval(() => {
+          if (emailField.current) {
+            setEmail(emailField.current.value)
+            setPassword(passwordField.current.value);
+            //do the same for all autofilled fields
+            clearInterval(interval)
+          }
+        }, 100)
+    })
     
     if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
         return <Redirect to="/welcome"/>;
@@ -19,6 +34,7 @@ function Login(props) {
     if(redirect) {
         return <Redirect to="/welcome"/>;
     }
+      
 
     function login(values) {
 
@@ -79,7 +95,14 @@ function Login(props) {
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
-                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
+                                <input
+                                    className="input"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    type="email"
+                                    ref={emailField}
+                                    name="email"
+                                    value={email}
+                                />
                             </div>
                         </div>
                         <div className="form-auth__input-div one">
@@ -88,7 +111,14 @@ function Login(props) {
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="password">Mot de passe</label>
-                                <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
+                                <input
+                                    className="input"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    type="password"
+                                    ref={passwordField}
+                                    name="password"
+                                    value={password}
+                                />
                             </div>
                         </div>
                         <div className="form__row">
