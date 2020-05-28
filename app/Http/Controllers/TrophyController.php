@@ -9,6 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class TrophyController extends Controller
 {
+        public function index()
+    {
+        $t = Trophy::all();
+
+        return response()->json([
+             "data" => $t
+         ]);
+    }
+
+    public function show($id)
+    {
+        $t = Trophy::findOrFail($id);
+    
+        return response()->json([
+            'data' => $t
+        ], 201);
+    }
+
     public function unlock($idKid,$idTrophy){
         $kid = Kid::findOrFail($idKid);
 

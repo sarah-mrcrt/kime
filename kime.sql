@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 28 mai 2020 à 13:52
+-- Généré le :  jeu. 28 mai 2020 à 14:54
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
 
 INSERT INTO `activities` (`id`, `name`, `img`, `txt_choice`, `txt_win`, `category_id`, `trophy_id`, `created_at`, `updated_at`) VALUES
 (1, 'Cookie', 'Cookie.svg', 'cuisine', 'cuisine', 1, 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(2, 'Muffin', 'Muffin.svg', 'Muffin', 'Muffin', 1, 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(2, 'Muffin', 'Muffin.svg', 'Muffin', 'Muffin', 2, 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,13 @@ CREATE TABLE IF NOT EXISTS `oauth_access_tokens` (
   KEY `oauth_access_tokens_user_id_index` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('0052415011002f47451a350c9cd7cdf521775d6db344f529c32e0afa8b5c1462bfc3945544b4b8a0', 1, 1, 'Kime', '[]', 0, '2020-05-28 12:50:48', '2020-05-28 12:50:48', '2021-05-28 14:50:48');
+
 -- --------------------------------------------------------
 
 --
@@ -230,7 +237,15 @@ CREATE TABLE IF NOT EXISTS `oauth_clients` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `oauth_clients_user_id_index` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Kime Personal Access Client', 'S0byZjKeMCBZDCGM2TaJlyXBMsbOovQHX6efPpoW', NULL, 'http://localhost', 1, 0, 0, '2020-05-28 12:50:13', '2020-05-28 12:50:13'),
+(2, NULL, 'Kime Password Grant Client', 'S7HCbVFzmF0lTsJHWQhUceSAw2MlvmuNPGD8XQ2y', 'users', 'http://localhost', 0, 1, 0, '2020-05-28 12:50:13', '2020-05-28 12:50:13');
 
 -- --------------------------------------------------------
 
@@ -245,7 +260,14 @@ CREATE TABLE IF NOT EXISTS `oauth_personal_access_clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2020-05-28 12:50:13', '2020-05-28 12:50:13');
 
 -- --------------------------------------------------------
 
@@ -301,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `steps` (
 --
 
 INSERT INTO `steps` (`id`, `position`, `name`, `img`, `title`, `text`, `activity_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Matériaux', 'Loremipsum.svg', 'Lorem ipsum', 'Lorem ipsum', 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 2, 'Matériaux', 'Loremipsum.svg', 'Lorem ipsum', 'Lorem ipsum', 2, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
 
 -- --------------------------------------------------------
 

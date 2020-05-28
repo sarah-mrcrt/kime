@@ -50,6 +50,8 @@ Route::get('/activity/{idActivity}/{position}', 'StepController@show')->where(['
 //modifier, supprimer, ajouter
 
 // Trophies
+Route::get('/trophies', 'TrophyController@index');
+Route::get('/trophy/{id}','TrophyController@show')->where('id', '[0-9]+');
 Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['idKid' => '[0-9]+', 'idTrophy' => '[0-9]+']);
 
 // Categories
