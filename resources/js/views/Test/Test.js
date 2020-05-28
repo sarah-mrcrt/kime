@@ -61,7 +61,7 @@ function Test() {
         </div>
     )
     */
-   /*
+   
 
     // AVATARS GRID
 
@@ -87,7 +87,6 @@ function Test() {
             <AvatarsGrid avatars={avatars} score={kidScore} displayUnlocked={true} />
         </div>
     )
-    */
 
     /*
     // HEADER
@@ -106,15 +105,6 @@ function Test() {
         </>
     )
     */
-
-    // WELCOME.JS
-
-    return (
-        <div className="container red background">
-            <div className="container__body">
-            </div>
-        </div>
-    )
 
 
 }

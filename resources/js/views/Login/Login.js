@@ -69,7 +69,7 @@ function Login(props) {
 
     return (
         <div className="container red background">
-            <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img.png"/>
+            <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img-01.svg"/>
             <div className="container__body">
                 <div className="content">
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  

@@ -30,7 +30,7 @@ function Trophies() {
 
     return (
         <div className="container yellow background nav">
-            <Header title="Trophées" subtitle="Toutes tes victoires !" color="yellow" imageUrl="/img/login-img.png"/>
+            <Header title="Trophées" subtitle="Toutes tes victoires !" color="yellow" imageUrl="/img/trophies-img-01.svg"/>
 
             <div className="container__body">
                 <div className="content">
