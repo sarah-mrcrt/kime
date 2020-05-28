@@ -15,7 +15,7 @@ function Navigation(props) {
             homeClass = "selected";
             homeImg = "/icons/icon-home.png";
             break;
-        case 'trophee':
+        case 'trophies':
             tropheeClass = "selected";
             tropheeImg = "/icons/icon-trophy.png";
             break;
@@ -34,7 +34,7 @@ function Navigation(props) {
                 <img className="menu-bar__icon" src={homeImg} alt="Accueil"/>
                 <p className="menu-bar__text">Accueil</p>
             </Link>
-            <Link className={"menu-bar__link " + tropheeClass } to="/trophees">
+            <Link className={"menu-bar__link " + tropheeClass } to="/trophies">
                 <img className="menu-bar__icon" src={tropheeImg} alt="Trophés"/>
                 <p className="menu-bar__text">Trophés</p>
             </Link>

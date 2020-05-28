@@ -19,6 +19,13 @@
         border: .5rem solid $white;
         box-shadow: 0 .2rem .2rem $black-shadow;
 
+        &.deleted {
+            display: none;
+        }
+        &.locked {
+            opacity: .5;
+        }
+            
         &__infos {
             display: none;
         }
