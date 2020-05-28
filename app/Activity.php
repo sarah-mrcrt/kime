@@ -13,6 +13,10 @@ class Activity extends Model
         return $this->hasMany("App\Step", "activity_id");
     }
 
+    public function trophy() { 
+        return $this->hasOne("App\Trophy", "trophy_id");
+    }
+
     public function category() {
         // Plsr activitiés € a une catégory
         return $this->belongsToMany('App\Category', 'activity_id');

@@ -12,4 +12,8 @@ class Category extends Model
         // 1 catégorie a plsr activitiés
         return $this->hasMany("App\Activity", "category_id");
     }
+
+    public function kids() {
+        return $this->belongsToMany('App\Kid');
+    }
 }
