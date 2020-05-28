@@ -26,7 +26,7 @@ class UserController extends Controller
                 'expires_at' => Carbon::parse(
                     $tokenResult->token->expires_at
                 )->toDateTimeString()
-            ]);
+            ], 200);
 
         } else { 
             return response()->json(['error'=>'Wrong credentials']); 
