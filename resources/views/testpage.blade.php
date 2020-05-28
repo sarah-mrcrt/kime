@@ -35,8 +35,6 @@
             <input type="checkbox" name="categories[]"  value="Jeux"/> jeux
             <input type="submit" value="Submit" />
         </form>
-
-        <a href="">Add trophy</a>
     @endif
 
     <br/>
