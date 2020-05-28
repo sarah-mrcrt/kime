@@ -16,7 +16,7 @@ class Kids extends Migration
         Schema::create('kids', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('age');
+            $table->string('date_of_birth');
             $table->string('avatar')->default('/avatars/avatar01.svg');
             $table->string('categories');
             $table->integer('user_id');

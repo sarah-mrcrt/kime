@@ -29,7 +29,7 @@
         <form action="/kid/create" enctype="multipart/form-data" method="post">
             @csrf
             <input type="text" name="name" value='{{old('name')}}' required />
-            <input type="text" name="age"  value='{{old('age')}}' required />
+            <input type="date" name="date_of_birth"  value='{{old('date_of_birth')}}' required />
             <input type="text" name="avatar"  value='{{old('avatar')}}' required />
             <input type="checkbox" name="categories[]"  value="Cuisine"/> cuisine
             <input type="checkbox" name="categories[]"  value="Jeux"/> jeux
@@ -38,9 +38,7 @@
     @endif
 
     <br/>
-    <h2>Formulaires</h2>
-
-
+    <h2>Ajout d'une activité</h2>
     <form action="/activity/create" enctype="multipart/form-data" method="post">
         @csrf
         <input type="text" name="name" value='{{old('name')}}' required />
@@ -48,11 +46,10 @@
         <input type="text" name="txt_choice"  value='{{old('txt_choice')}}' required />
         <input type="text" name="txt_win"  value='{{old('txt_win')}}' required />
         <input type="submit" value="Submit" />
-        <input type="submit" value="Submit" />
     </form>
-    <input type="hidden" name="_method" value="PUT">
+    
+    <h2>Ajout d'une étape</h2>
 
-    <a href="/activity/update/1">xx</a>
     
 </body>
 </html>
