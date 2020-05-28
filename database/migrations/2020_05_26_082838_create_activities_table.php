@@ -19,10 +19,10 @@ class CreateActivitiesTable extends Migration
             $table->string('img')->default(NULL);
             $table->longText('txt_choice');
             $table->text('txt_win');
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->unsigned()->default(1);
             $table->foreign('category_id')->references('id')->on('categories');
-            
-            $table->integer('trophie_id')->default(1);
+            $table->integer('trophy_id')->unsigned()->default(1);
+            $table->foreign('trophy_id')->references('id')->on('trophies');
             $table->timestamps();
         });
     }

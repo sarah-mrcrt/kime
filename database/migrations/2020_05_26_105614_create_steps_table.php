@@ -17,10 +17,11 @@ class CreateStepsTable extends Migration
             $table->id();
             $table->integer('position');
             $table->string('name');
-            $table->string('img');
+            $table->string('img')->default(NULL);
             $table->string('title');
             $table->longText('text');
-            $table->integer('activity_id');
+            $table->integer('activity_id')->unsigned();
+            $table->foreign('activity_id')->references('id')->on('activities');
             $table->timestamps();
         });
     }
