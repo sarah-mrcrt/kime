@@ -22,11 +22,27 @@
 <body>
     <h2>Page de tests</h2>
     @if (Auth::check())
-     L'utilisateur est connecté.
-     <a href="/deconnexion" class="button">Déconnexion</a>
+        <h3>L'utilisateur est connecté.</h3>
+        <a href="/deconnexion" class="button">Déconnexion</a>
+
+        <h3>Add kid</h3>
+        <form action="/kid/create" enctype="multipart/form-data" method="post">
+            @csrf
+            <input type="text" name="name" value='{{old('name')}}' required />
+            <input type="text" name="age"  value='{{old('age')}}' required />
+            <input type="text" name="avatar"  value='{{old('avatar')}}' required />
+            <input type="checkbox" name="categories[]"  value="Cuisine"/> cuisine
+            <input type="checkbox" name="categories[]"  value="Jeux"/> jeux
+            <input type="submit" value="Submit" />
+        </form>
+
+        <a href="">Add trophy</a>
     @endif
 
-    <h2>Formulaire test</h2>
+    <br/>
+    <h2>Formulaires</h2>
+
+
     <form action="/activity/create" enctype="multipart/form-data" method="post">
         @csrf
         <input type="text" name="name" value='{{old('name')}}' required />
