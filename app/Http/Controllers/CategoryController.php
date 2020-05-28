@@ -21,7 +21,9 @@ class CategoryController extends Controller
         // dd($slug);
         $c = Category::where('slug', '=', $slug) ->firstOrFail();
 
-        return response()->json([ $c ], 201);
+        return response()->json([ 
+            // "Category data" => $c,
+            "Activities from the category" => $c->activities ], 201);
     }
 
 
