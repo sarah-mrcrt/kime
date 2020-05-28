@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const ParentalControl = props => {
     return (
         <div className="container red background">
-            <Header className="parental-control__header" imageUrl="/img/login-img.png"/>
+            <Header className="parental-control__header" imageUrl="/img/control-parental-img-01.svg"/>
 
             <div className="container__body">
                 <div className="parental-control__body">
