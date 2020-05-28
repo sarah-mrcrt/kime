@@ -13,11 +13,13 @@
     background-color: $dark-yellow-opacity;
     z-index: 1000;
 
+    /*
     &.locked {
         & #info-bubble__img {
             opacity: .7;
         }
     }
+    */
 
     &__close {
         position: absolute;

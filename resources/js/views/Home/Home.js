@@ -7,8 +7,8 @@ import HeaderKid from '../../components/HeaderKid.js';
 function Home() {
 
     let activities = [
-        {id:2, name:"Cuisine", img:"/icons/icon-activity-02.svg", color:"yellow"}, 
-        {id:7, name:"Dessin", img:"/icons/icon-activity-03.svg", color:"blue"}, 
+        {id:2, name:"Gâteaux", img:"/icons/icon-activity-01.svg", color:"blue"}, 
+        {id:7, name:"Dessin", img:"/icons/icon-activity-03.svg", color:"yellow"}, 
         {id:0, name:"Jeux d'équilibres", img:"/icons/icon-activity-02.svg", color:"red"},
         {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
     ];
@@ -19,7 +19,6 @@ function Home() {
             <HeaderKid kid={kid} />
             <div className="container__body">
                 <div className="content">
-                    Hello from Home page: liste des activités etc
                     <ActivitiesGrid activities={activities} />
                 </div>
             </div>
