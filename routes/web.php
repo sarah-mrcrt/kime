@@ -33,10 +33,10 @@ Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
 Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
 // Kid profile
-Route::get('/profile', 'CreationController@index');
-Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
-Route::post('/creation/create', 'CreationController@create');
-Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
+// Route::get('/profile', 'CreationController@index');
+// Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
+// Route::post('/creation/create', 'CreationController@create');
+// Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
 
 // Activities
 Route::get('/activities', 'ActivityController@index');
@@ -57,7 +57,9 @@ Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['
 // Categories
 Route::get('/categories', 'CategoryController@index');
 Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '[a-z]+');
-    
+
+// Sub catégories
+
 // });
 
 // Parent profile
