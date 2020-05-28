@@ -38,7 +38,7 @@ class KidController extends Controller
             'success' => true,
             'id' => $k->id,
             'name' => $k->name,
-            'age' => $k->age,
+            'date_of_birth' => $k->date_of_birth,
             'avatar' => $k->avatar,
             'categories' => $k->categories,
             'created_at' => $k->created_at,
@@ -50,11 +50,12 @@ class KidController extends Controller
     {
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
-            'age' => 'required|integer',
+            'date_of_birth' => 'required|before:3y|date_format:Y-m-d',
             'avatar' => 'required',
             'categories' => 'required|min:1'
         ]);
 
+        // dd($req->date_of_birth);
         if ($validator->fails()) { 
             return response()->json([
                 'success' => false,
@@ -64,7 +65,7 @@ class KidController extends Controller
 
         $k = new Kid();
         $k->name = $req->input('name');
-        $k->age = $req->input('age');
+        $k->date_of_birth = $req->input('date_of_birth');
         $k->avatar = $req->input('avatar');
         $k->categories = implode(',', $req->categories);
         $k->user_id = Auth::id();
@@ -75,7 +76,7 @@ class KidController extends Controller
             'success' => true,
             'id' => $k->id,
             'name' => $k->name,
-            'age' => $k->age,
+            'date_of_birth' => $k->date_of_birth,
             'avatar' => $k->avatar,
             'categories' => $k->categories
         ], 201);
@@ -85,14 +86,14 @@ class KidController extends Controller
     {
         $req->validate([
             'name' => 'required|min:3|max:255',
-            'age' => 'required|integer',
+            'date_of_birth' => 'required|before:3y|date_format:Y-m-d',
             'avatar' => 'required',
             'categories' => 'required|min:1'
         ]);
 
         $k = Kid::findOrFail($id);
         $k->name = $req->input('name');
-        $k->age = $req->input('age');
+        $k->date_of_birth = $req->input('date_of_birth');
         $k->avatar = $req->input('avatar');
         $k->categories = implode(',', $req->categories);
 
