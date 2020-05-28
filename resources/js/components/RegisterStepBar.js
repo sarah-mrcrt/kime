@@ -10,7 +10,7 @@ function RegisterStepBar(props) {
                     if(i === props.actualStep) {
                         steps.push(<div className="selected" key={i}></div>);
                     } else {
-                        steps.push(<div></div>);
+                        steps.push(<div key={i}></div>);
                     }
                 }
 

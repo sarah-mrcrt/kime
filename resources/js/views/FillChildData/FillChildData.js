@@ -3,12 +3,19 @@ import FillChildInfo from './FillChildInfo';
 import AvatarsGrid from '../../components/AvatarsGrid';
 import CategoriesGrid from '../../components/CategoriesGrid';
 import StepBar from '../../components/StepBar';
+import SetChildrenNumber from './SetChildrenNumber';
 
 
 function FillChildData(props) {
     
     const [currentPage, setCurrentPage]= useState(0);
+    const [childrenNumber, setChildrenNumber] = useState(1);
     const [avatar, setAvatar] = useState();
+
+    // Go to next page
+    const nextStep = () => {
+        setCurrentPage(currentPage+1);
+    }
 
     // CategoriesGrid props
     const categories = [
@@ -30,10 +37,14 @@ function FillChildData(props) {
 
     // Pages
     const pages = [
+        <SetChildrenNumber setChildrenNumber={setChildrenNumber} nextStep={nextStep}/>,
+
         <form action="#" method="post">
             <AvatarsGrid avatars={avatars}/>
         </form>,
+
         <FillChildInfo/>,
+
         <CategoriesGrid categories={categories}/>
     ];
 
@@ -43,25 +54,25 @@ function FillChildData(props) {
     // Current page component
     let component = pages[currentPage];
     console.log("currentPage: "+currentPage);
-
-    // Go to next page
-    const nextStep = () => {
-        setCurrentPage(currentPage+1);
-    }
+    
+    if(currentPage <= 1) {
+        {component}
+    } else {
 
     return (
-        <div className="fill-child-data">
-            <div className="fill-child-data__header">
-                <h1 className="fill-child-data__title">Profil</h1>
-                <p className="fill-child-data__subtitle">Créez le profil de votre premier enfant</p>
+            <div className="fill-child-data">
+                <div className="fill-child-data__header">
+                    <h1 className="fill-child-data__title">Profil</h1>
+                    <p className="fill-child-data__subtitle">Créez le profil de votre premier enfant</p>
+                </div>
+                <StepBar steps={steps} nbStep={3} />
+                <div className="fill-child-data__body">
+                    {component}
+                </div>
+                
             </div>
-            <StepBar steps={steps} nbStep={3} />
-            <div className="fill-child-data__body">
-                {component}
-            </div>
-            
-        </div>
-    );
+        );
+    }
 }
 
 export default FillChildData;
