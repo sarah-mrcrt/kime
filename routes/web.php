@@ -23,9 +23,7 @@ Route::post('/api/auth/register', 'API\UserController@register');
 Route::post('/api/auth/logout', 'API\UserController@logout');
 Route::post('/api/auth/user', 'API\UserController@details');
 
-// Route::group(['middleware' => 'auth:api'],
-
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth:api'], function () {
     // Kids
     Route::get('/kids','KidController@index');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
@@ -56,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Categories
     Route::get('/categories', 'CategoryController@index');
     
-});
+// });
 
 // Parent profile
 // afficher toutes les créations de tous les enfants + update profile
