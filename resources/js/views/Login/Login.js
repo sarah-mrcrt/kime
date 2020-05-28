@@ -79,7 +79,7 @@ function Login(props) {
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
-                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email"/>
+                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
                             </div>
                         </div>
                         <div className="form-auth__input-div one">
@@ -88,7 +88,7 @@ function Login(props) {
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="password">Mot de passe</label>
-                                <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password"/>
+                                <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
                             </div>
                         </div>
                         <div className="form__row">

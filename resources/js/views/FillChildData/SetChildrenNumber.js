@@ -36,7 +36,6 @@ const SetChildrenNumber = props => {
         // Storing children count. 
         // Can't select children number as of now, so we just store 1 by default
         props.setChildrenNumber(selectedNb)
-        console.log("selected children number: " + selectedNb);
         props.nextStep();
     }
 
@@ -64,14 +63,7 @@ const SetChildrenNumber = props => {
             left = parseInt(left);
     
             // Check direction in which the number will be moved
-            if(clicX > xCenter) { // Click left = move left
-                parent.css( "left", left - step );
-                console.log('Next number selected');
-                
-            } else if (clicX < xCenter) { // Click right = move right
-                parent.css( "left", left + step );
-                console.log('Previous number selected');
-            }
+            clicX > xCenter ? parent.css( "left", left - step ) : parent.css( "left", left + step );
 
             // Set css class
             selected.removeClass("selected");

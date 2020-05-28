@@ -22,37 +22,9 @@ function FillChildData(props) {
     const [childInfo, setChildInfo] = useState({});
     const [avatar, setAvatar] = useState('');
 
-    // Go to next page
-    const nextStep = () => {
-        setCurrentPage(currentPage+1);
-    }
-
-    // Store current childInfo in childrenInfo array, then go to next page
-    const storeChildInfo = () => {
-        let tmp = childrenInfo;
-        tmp.push(childInfo);
-        nextStep();
-
-        console.log('childrenInfo:');
-        console.log(childrenInfo);
-    }
-
-    // Set array of pages components
-    const pages = [
-        <SetChildrenNumber setChildrenNumber={setChildrenNumber} nextStep={nextStep}/>,
-
-        <FillChildInfo setChildInfo={setChildInfo} nextStep={storeChildInfo}/>,
-
-        <form action="#" method="post">
-            <AvatarsGrid avatars={availableAvatars}/>
-        </form>,
-
-        <CategoriesGrid categories={categories}/>
-    ];
-
-    // Current page component
-    let component = pages[currentPage];
-    console.log("currentPage: " + currentPage);
+    /*
+    *  DATA PROPS 
+    */
 
     // CategoriesGrid props
     const categories = [
@@ -74,8 +46,63 @@ function FillChildData(props) {
 
     // StepBar props
     const steps = ["Informations", "Compagnon", "Activités"];
+
+
+    /*
+    *  FUNCTIONS 
+    */
+
+    // Go to next page
+    const nextStep = () => {
+        setCurrentPage(currentPage+1);
+
+        console.log('childrenNumber: ' + childrenNumber + '\n');
+    }
+
+    // Store childInfo in childrenInfo,  go to next page
+    const storeChildInfo = () => {
+        let tmp = childrenInfo;
+        tmp.push(childInfo);
+        nextStep();
+
+        console.log('childrenInfo:');
+        console.log(tmp + '\n');
+    }
+
+    // Store current avatar in avatars, go to next page
+    const storeAvatar = () => {
+        let tmp = avatars;
+        tmp.push(avatar);
+        nextStep();
+
+        console.log('avatars:');
+        console.log(tmp + '\n');
+    }
+
+    /*
+    *  PAGES SETUP
+    */
+
+    // Set array of pages components
+    const pages = [
+        <SetChildrenNumber setChildrenNumber={setChildrenNumber} nextStep={nextStep}/>,
+
+        <FillChildInfo setChildInfo={setChildInfo} nextStep={storeChildInfo}/>,
+
+        <AvatarsGrid avatars={availableAvatars} nextStep={storeAvatar}/>,
+
+        <CategoriesGrid categories={categories}/>
+    ];
+
+    // Current page component
+    let component = pages[currentPage];
+    console.log("currentPage: " + currentPage);
+
+    /*
+    *  RENDER
+    */
     
-    // SetChildrenNumber is rendered separately as layout is different
+    // SetChildrenNumber component is rendered separately as layout is different
     if(currentPage < 1) {
         return (
             <div>
@@ -97,8 +124,8 @@ function FillChildData(props) {
                 
             </div>
         );
-    } else { // When all children data is filled, redirect to /accueil
-        return <Redirect to="/" />
+    } else { // When all data is filled, redirect to /accueil
+        return <Redirect to="/accueil" />
     }
 }
 
