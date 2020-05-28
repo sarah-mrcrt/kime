@@ -21,7 +21,7 @@ class ActivityController extends Controller
     public function show($id)
     {
         $a = Activity::findOrFail($id);
-
+    
         return response()->json([
             'success' => true,
             'id' => $a->id,
@@ -30,7 +30,7 @@ class ActivityController extends Controller
             'txt_choice' => $a->txt_choice,
             'txt_win' => $a->txt_win,
             'category_id' => $a->category_id,
-            'trophie_id' => $a->trophie_id
+            'trophie_id' => $a->trophie_id,
         ], 201);
     }
 
