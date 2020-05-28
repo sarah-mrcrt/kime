@@ -43,13 +43,15 @@ Route::post('/api/auth/user', 'API\UserController@details');
     // Activities
     Route::get('/activities', 'ActivityController@index');
     Route::get('/activity/{id}', 'ActivityController@show')->where('id', '[0-9]+');
-    Route::post('/activity/create', 'ActivityController@create');
-    Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
-    Route::get('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+    Route::middleware('admin')->group(function () {
+        Route::post('/activity/create', 'ActivityController@create');
+        Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
+        Route::get('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+    });
 
     // Steps
     Route::get('/activity/{idActivity}/{position}', 'StepController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
-    //modifier, supprimer, ajouter
+        //modifier, supprimer, ajouter + protection admin
 
     // Trophies
     Route::get('/trophies', 'TrophyController@index');

@@ -14,6 +14,10 @@ class KidController extends Controller
     public function index()
     {
         $k = Kid::all();
+
+        if($k->user_id != Auth::id()){
+            abort(404);
+        }
         
          return response()->json([
              "message" => "success",
@@ -29,10 +33,12 @@ class KidController extends Controller
         //         'error' => 'ID non renseignée ou invalide'
         //     ]);      
         // }
-    
 
         // $k = Kid::find($req->id);
         $k = Kid::findOrFail($id);
+        if($k->user_id != Auth::id()){
+            abort(404);
+        }
 
         return response()->json([
             'success' => true,
@@ -112,6 +118,10 @@ class KidController extends Controller
         // }
 
         $k = Kid::findOrFail($id);
+        if($k->user_id != Auth::id()){
+            abort(404);
+        }
+            
         // $k = Kid::find($req->id);
         $k->delete();
 
