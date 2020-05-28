@@ -89,6 +89,7 @@ function Test() {
     )
     */
 
+    /*
     // HEADER
     
     // PROPS 
@@ -104,7 +105,16 @@ function Test() {
         <Header align="left" color="blue" imageUrl="/img/login-img.png"/>
         </>
     )
-    
+    */
+
+    // WELCOME.JS
+
+    return (
+        <div className="container red background">
+            <div className="container__body">
+            </div>
+        </div>
+    )
 
 
 }
