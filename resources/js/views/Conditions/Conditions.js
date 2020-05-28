@@ -29,7 +29,7 @@ const Conditions = props => {
 
     return (
         <div className="container red background">
-            <Header className="conditions__header" imageUrl="/img/login-img.png"/>
+            <Header className="conditions__header" imageUrl="/img/conditions-img-01.svg"/>
 
             <div className="container__body">
                 <div className="conditions__body">
