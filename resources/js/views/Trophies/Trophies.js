@@ -1,26 +1,44 @@
 import React, {useState, useContext} from 'react';
 import Navigation from '../../components/Navigation';
-import AvatarsGrid from '../../components/AvatarsGrid.js';
+import TrophiesGrid from '../../components/TrophiesGrid.js';
+import InfoBubble from '../../components/InfoBubble.js';
+import Header from '../../components/Header.js';
 
 function Trophies() {
     let kidScore = 0;
-    let avatars = [
-        {id:2, img:"/img/avatar-11.svg", minScore: 0}, 
-        {id:7, img:"/img/avatar-10.svg", minScore: 0}, 
-        {id:0, img:"/img/avatar-08.svg", minScore: 0},
-        {id:7, img:"/img/avatar-03.svg", minScore: 2}, 
-        {id:10, img:"/img/avatar-07.svg", minScore: 0}
+    let trophies = [
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-11.svg", minScore: 0}, 
+        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-10.svg", minScore: 0}, 
+        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-08.svg", minScore: 0},
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
+        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
+        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
+        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
+        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
+        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
+        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
+        {id:10, name:"Aventurier", text:"Lorem aventurier ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-07.svg", minScore: 0}
     ];
 
     return (
-        <div className="container background">
+        <div className="container yellow background nav">
+            <Header title="Trophées" subtitle="Toutes tes victoires !" color="yellow" imageUrl="/img/login-img.png"/>
+
             <div className="container__body">
                 <div className="content">
-                        Hello from Trophies
-                        <AvatarsGrid avatars={avatars} score={kidScore} displayUnlocked={true} />
-                        <Navigation page="home" />
+                    <TrophiesGrid trophies={trophies} score={kidScore} displayUnlocked={true} />
+                    <Navigation page="trophies" />
                 </div>
             </div>
+            <InfoBubble />
         </div>
     )
 
