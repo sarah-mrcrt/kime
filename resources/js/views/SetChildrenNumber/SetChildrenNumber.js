@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
-import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import LocalStorageManager from '../../util/localStorage';
 import RoundBackground from '../../components/RoundBackground';
@@ -11,7 +11,7 @@ const SetChildrenNumber = props => {
     const [redirect, setRedirect] = useState(false);
 
     if(redirect) {
-        return <Redirect to="/registerChild/1" />;
+        return <Redirect to="/register-child/1" />;
     }
 
     const handleSubmit = evt => {
