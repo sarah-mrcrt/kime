@@ -14,6 +14,7 @@ import LaunchRegistration from '../views/LaunchRegistration/LaunchRegistration';
 import SetChildrenNumber from '../views/SetChildrenNumber/SetChildrenNumber';
 import FillChildData from '../views/FillChildData/FillChildData';
 import Welcome from '../views/Welcome/Welcome';
+import Trophies from '../views/Trophies/Trophies';
 
 
 
@@ -36,6 +37,7 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute exact={true} path="/children-number" component={SetChildrenNumber} />
         <PrivateRoute path="/register-child/:id" component={FillChildData} />
         <PrivateRoute path="/welcome" component={Welcome} />
+        <PrivateRoute path="/trophies" component={Trophies} />
 
         <Route exact={true} path="/connexion" component={Login} />
         <Route exact={true} path='/inscription' component={Register} />
