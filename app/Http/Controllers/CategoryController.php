@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     public function index(){
         $c = Category::all();

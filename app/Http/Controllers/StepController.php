@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Steps;
-use App\Activities;
+use App\Step;
+use App\Activity;
 // use Illuminate\Database\Eloquent\Collection;
 
-class StepsController extends Controller
+class StepController extends Controller
 {
 
     public function show($idActivity, $position){
-        // $a = Activities::findOrFail($idA);
-        // $s = Steps::where('position', '=', $position)->firstOrFail();
-        $s = Steps::where([['position', '=', $position],['activity_id', '=', $idActivity]])->firstOrFail();;
+        // $a = Activity::findOrFail($idA);
+        // $s = Step::where('position', '=', $position)->firstOrFail();
+        $s = Step::where([['position', '=', $position],['activity_id', '=', $idActivity]])->firstOrFail();;
 
         return response()->json([
             'success' => true,

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Activities;
+use App\Activity;
 use Validator;
 
-class ActivitiesController extends Controller
+class ActivityController extends Controller
 {
     public function index()
     {
-        $a = Activities::all();
+        $a = Activity::all();
 
         return response()->json([
              "message" => "success",
@@ -20,7 +20,7 @@ class ActivitiesController extends Controller
 
     public function show($id)
     {
-        $a = Activities::findOrFail($id);
+        $a = Activity::findOrFail($id);
 
         return response()->json([
             'success' => true,
@@ -43,7 +43,7 @@ class ActivitiesController extends Controller
             'txt_win' => 'required',
         ]);
 
-        $a = new Activities();
+        $a = new Activity();
         $a->name = $req->input('name');
         $a->img = $req->input('img');
         $a->txt_choice = $req->input('txt_choice');
@@ -71,7 +71,7 @@ class ActivitiesController extends Controller
         //     'txt_win' => 'required',
         // ]);
 
-        $a = Activities::findOrFail($id);
+        $a = Activity::findOrFail($id);
         $a->name = $req->input('name');
         $a->img = $req->input('img');
         $a->txt_choice = $req->input('txt_choice');
@@ -83,7 +83,7 @@ class ActivitiesController extends Controller
 
     public function delete($id)
     {
-        $k = Kid::findOrFail($id);
+        $k = Activity::findOrFail($id);
         $k->delete();
 
         return response()->json([
