@@ -83,28 +83,6 @@ function remcl(target){
         })
         
         // Animation des checkbox simples rouges stylisées
-        $('body').on('click','.red-check', function (e){
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          let parent = e.currentTarget;
-  
-          let checkbox = parent.children[0];
-          let check = parent.children[1];
-  
-          if(checkbox.checked === true) {
-              console.log('checked -> uncheck ' + checkbox.checked);
-              checkbox.checked = false;
-              check.classList.remove("selected");
-              
-          } else if (checkbox.checked === false) {
-              console.log('unchecked -> check ' + checkbox.checked);
-              checkbox.checked = true;
-              check.classList.add("selected");
-              
-          }
-        })
-        
-        // Animation des checkbox simples rouges stylisées
         $('body').on('click','.set-children-number__nb:not(.selected)', function (e){
           e.preventDefault();
           e.stopImmediatePropagation();

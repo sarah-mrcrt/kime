@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import FillChildInfo from './FillChildInfo';
-import SetChildAvatar from './SetChildAvatar';
 import AvatarsGrid from '../../components/AvatarsGrid';
-import ActivitiesGrid from '../../components/ActivitiesGrid';
+import CategoriesGrid from '../../components/CategoriesGrid';
 import StepBar from '../../components/StepBar';
 
 
 function FillChildData(props) {
     
-    const [currentPage, setCurrentPage]= useState(1);
+    const [currentPage, setCurrentPage]= useState(0);
     const [avatar, setAvatar] = useState();
 
-    const pages = [FillChildInfo, AvatarsGrid, ActivitiesGrid];
-
-    const steps = ["Informations", "Compagnon", "Activités"];
-
+    // CategoriesGrid props
     const categories = [
         {id: 2,  name:"Cuisine",    img: "/img/category-03.svg"}, 
         {id: 7,  name:"Créativité", img: "/img/category-02.svg"}, 
@@ -22,11 +18,36 @@ function FillChildData(props) {
         {id: 10, name:"Jeux",       img: "/img/category-04.svg"}
     ];
 
+    // AvatarsGrid props
+    let kidScore = 0;
+    const avatars = [
+        {id:2, img:"/img/avatar-11.svg", minScore: 0}, 
+        {id:7, img:"/img/avatar-10.svg", minScore: 0}, 
+        {id:0, img:"/img/avatar-08.svg", minScore: 0},
+        {id:7, img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:10, img:"/img/avatar-07.svg", minScore: 0}
+    ];
+
+    // Pages
+    const pages = [
+        <form action="#" method="post">
+            <AvatarsGrid avatars={avatars}/>
+        </form>,
+        <FillChildInfo/>,
+        <CategoriesGrid categories={categories}/>
+    ];
+
+    // StepBar props
+    const steps = ["Informations", "Compagnon", "Activités"];
+
+    // Current page component
+    let component = pages[currentPage];
+    console.log("currentPage: "+currentPage);
+
+    // Go to next page
     const nextStep = () => {
         setCurrentPage(currentPage+1);
     }
-
-    let component = pages[currentPage];
 
     return (
         <div className="fill-child-data">
@@ -35,8 +56,10 @@ function FillChildData(props) {
                 <p className="fill-child-data__subtitle">Créez le profil de votre premier enfant</p>
             </div>
             <StepBar steps={steps} nbStep={3} />
-
-            {component}
+            <div className="fill-child-data__body">
+                {component}
+            </div>
+            
         </div>
     );
 }
