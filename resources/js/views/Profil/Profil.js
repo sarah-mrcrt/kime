@@ -29,7 +29,7 @@ function Profil(props) {
                 <div className="content">
                         Hello from Profil
                         <button className="btn-common noMargin btn-common__red__fill" onClick={logout}>Déconnexion</button>
-                        <Navigation page="home" />
+                        <Navigation page="profile" />
                 </div>
             </div>
         </div>
