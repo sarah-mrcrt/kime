@@ -20,7 +20,7 @@ function Register(props) {
     }
 
     if(redirect) {
-        return <Redirect to="/accueil"/>;
+        return <Redirect to="/launch-registration"/>;
     }
 
     function register(formdata) {

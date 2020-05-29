@@ -187,7 +187,7 @@ function FillChildData(props) {
             </div>
         );
     } else { // When all data is filled, redirect to /accueil
-        return <Redirect to="/accueil" />
+        return <Redirect to="/end-registration" />
     }
 }
 
