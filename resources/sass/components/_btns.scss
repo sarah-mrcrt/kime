@@ -4,6 +4,9 @@
     padding: 0.5rem .8rem;
     font-size: 1rem;
     line-height: normal !important;
+    &.noMargin {
+        margin: auto;
+    }
 
     &__red {
         &__fill, &__fill:hover, &__fill:not([href]), &__fill:hover:not([href]) {

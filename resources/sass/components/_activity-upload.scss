@@ -1,0 +1,20 @@
+/// 
+/// ACTIVITY UPLOAD
+/// 
+
+.activity-upload {
+
+    & .content {
+        margin: auto 0;
+    }
+    
+    &__input-file {
+        display: none;
+    }
+    &__input-img {
+        margin: auto 0;
+
+        & img {
+        }
+    }
+}

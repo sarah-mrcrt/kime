@@ -20,6 +20,12 @@ class Activity extends Model
 
     public function kids() {
         // Récuperer les enfants appartenant à la même catégorie
-        return $this->belongsToMany('App\Kids', '');
+        // return $this->belongsToMany('App\Kid', 'kids')
+        // ->withPivot('link_kids_categories', 'link_kids_categories','kid_id','category_id');
+
+        return $this->model->with('kids', 'category_id', 'bookable')->find($id);
+
     }
+
+    
 }
