@@ -11,10 +11,18 @@ class AvatarSeeder extends Seeder
      */
     public function run()
     {
-        $avatar = new \App\Avatar();
-        $avatar->name = "Slouch";
-        $avatar->img = "Slouch";
-        $avatar->color = "blue";
-        $avatar->save();
+
+        $avatars = ['Bob','Teddy','Ricky','Gloupy','Digo'];
+
+        for ($item=0; $item < count($avatars); $item++){ 
+            foreach ($avatars as $avatar) {
+                $avatar = new \App\Avatar();
+                $avatar->name = $avatars[$item];
+                $avatar->img = "avatar-".$item.".svg";
+                $avatar->color = "blue";
+                $avatar->save();
+                $item+=1;
+            }
+        }
     }
 }

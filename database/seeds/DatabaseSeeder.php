@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ActivitySeeder::class);
         $this->call(StepSeeder::class);
         $this->call(TrophySeeder::class);
+        $this->call(AvatarSeeder::class);
     }
 }

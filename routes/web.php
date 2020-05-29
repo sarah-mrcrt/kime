@@ -37,7 +37,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     // Kid profile
     Route::get('/creations/all', 'CreationController@index');
     Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
-    Route::post('/creation/create', 'CreationController@create');
+    Route::post('{idKid}/{idActivity}/creation/create', 'CreationController@create');
     // Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
 
     // Activities

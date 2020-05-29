@@ -19,6 +19,10 @@ class Kid extends Model  {
         return $this->belongsToMany("App\Trophy", 'link_kids_trophies', 'kid_id', 'trophy_id');
     }
 
+    public function creations() {
+        return $this->hasMany("App\Creation", "kid_id");
+    }
+
     public function categories() {
         return $this->belongsToMany("App\Category", 'link_kids_categories','kid_id','category_id');
     }

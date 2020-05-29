@@ -39,32 +39,37 @@ class CreationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function create(Request $req, $activity_id, $kid_id)
-    // {
-    //     $kid = Kid::findOrFail($kid_id);
-    //     $activity = Activity::findOrFail($activity_id);
+    public function create(Request $req, $idKid, $idActivity)
+    {
+        // $kid = Kid::all()->where('id', '=', $idKid);
         
-    //     $validator = Validator::make($req->all(), [ 
-    //         'img' => 'file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
-    //     ]);
+        $validator = Validator::make($req->all(), [ 
+            'img' => 'required|file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
+        ]);
 
-    //     if($req->file('img') != null){
-    //         $name = $req->file('img')->hashName();
-    //         $req->file('img')->move("uploads/".Auth::id()."/".$kid, $name);
-    //     }
+        $kid = Kid::findOrFail($idKid);
+        $activity = Activity::findOrFail($idActivity);
 
-    //     $c = new Creation();
-    //     $c->img = $req->input('img');
-    //     $c->user_id = $kid;
-    //     //$comment->project_id = $project->id;
-    //     $c->activity_id = $activity;
+        if($req->file('img') != null){
+            $name = $req->file('img')->hashName();
+            $req->file('img')->move("uploads/".Auth::id(), $name);
+        }
 
-    //     $c->save();
+        $c = new Creation();
+        if($req->file('img') != null){
+            $c->img = ('/uploads/'.Auth::id().'/'.$name);
+        }
+        // $c->img = $req->input('img');
+        // $c->kid_id = $kid;
+        //$comment->project_id = $project->id;
+        // $c->activity_id = $activity;
 
-    //     return reponse()->json([
-    //         'data' => $c
-    //     ]);
-    // }
+        $c->save();
+
+         return response()->json([
+            "data" => $c
+        ], 200);
+    }
 
     /**
      * Update the specified resource in storage.
