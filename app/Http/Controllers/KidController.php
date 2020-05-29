@@ -85,6 +85,7 @@ class KidController extends Controller
         $k->categories()->attach($req->categories);
 
         return response()->json([
+            'success' => 'Kid created successfully',
             "data" => $k
         ], 200);
     }
