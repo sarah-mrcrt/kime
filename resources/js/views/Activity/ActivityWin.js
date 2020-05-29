@@ -5,8 +5,6 @@ function ActivityWin(props) {
     let kid = {name:"Jérôme", avatar:"/img/avatar-01.svg"}
     let activity = {name:"Dessin"}
 
-    // récupérer l'input type="file" name="upload-file"
-
     return (
 
         <div className="container yellow background activity-win">

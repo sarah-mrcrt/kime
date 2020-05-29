@@ -174,16 +174,19 @@ function FillChildData(props) {
 
     } else if (currentChildIndex < childrenNumber) {
         return (
-            <div className="fill-child-data">
-                <div className="fill-child-data__header">
-                    <h1 className="fill-child-data__title">Profil</h1>
-                    <p className="fill-child-data__subtitle">Créez le profil de votre premier enfant</p>
-                </div>
-                <StepBar steps={steps} nbStep={3} />
-                <div className="fill-child-data__body">
-                    {component}
-                </div>
+            <div className="container yellow background fill-child-data">
+                <div className="container__body none content">
+
+                    <div className="fill-child-data__header">
+                        <h1 className="fill-child-data__title">Profil</h1>
+                        <p className="fill-child-data__subtitle">Créez le profil de votre premier enfant</p>
+                        <StepBar steps={steps} nbStep={currentPage} />
+                    </div>
+                    <div className="fill-child-data__body">
+                        {component}
+                    </div>
                 
+                </div>
             </div>
         );
     } else { // When all data is filled, redirect to /accueil

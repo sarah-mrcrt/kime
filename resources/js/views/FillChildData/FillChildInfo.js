@@ -27,16 +27,25 @@ function FillChildInfo(props) {
     }
 
     return (
-        <div className="fill-child-info">
-            <form method="post" onSubmit={handleSubmit} className="form">
-                <div className="form__row">
-                    <label className="form__label">Prénom</label>
-                    <input className="formm_input" type="text" placeholder="Jérôme" value={name} onChange={(e) => setName(e.target.value)} name="name" />
-
+        <div className="container__body none fill-child-info">
+            <form method="post" onSubmit={handleSubmit} className="form form-auth">
+                <div className="form-auth__input-div one">
+                    <div className="i">
+                        <i className="fas fa-user"></i>
+                    </div>
+                    <div className="div">
+                        <label className="form__label">Prénom</label>
+                        <input className="input" type="text" value={name} onChange={(e) => setName(e.target.value)} name="name" />
+                    </div>
                 </div>
-                <div className="form__row">
-                    <label className="form__label">Date de naissance</label>
-                    <input className="form_input" type="date" placeholder="MM/DD/YYYY"  value={birthdate} onChange={(e) => setBirthdate(e.target.value)} name="birthdate" />
+                <div className="form-auth__input-div pass focus">
+                    <div className="i">
+                        <i className="fas fa-user"></i>
+                    </div>
+                    <div className="div">
+                        <label className="form__label">Date de naissance</label>
+                        <input className="input" type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} name="birthdate" />
+                    </div>
                 </div>
             </form>
             <a className="btn-common btn-common__blue__fill" onClick={handleSubmit}>Suivant</a>
