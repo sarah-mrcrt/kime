@@ -46,10 +46,11 @@ class KidController extends Controller
             'id' => $k->id,
             'name' => $k->name,
             'date_of_birth' => $k->date_of_birth,
-            'avatar' => $k->avatar,
+            'avatar_id' => $k->avatar_id,
             'categories' => $k->categories,
             'created_at' => $k->created_at,
-            'updated_at' => $k->updated_at
+            'updated_at' => $k->updated_at,
+            'Avatar informations' => $k->avatar
         ], 201);
     }
 
@@ -57,8 +58,8 @@ class KidController extends Controller
     {
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
-            'birthdate' => 'required',
-            'avatar' => 'required',
+            'date_of_birth' => 'required|before:3y|date_format:Y-m-d',
+            'avatar_id' => 'required',
             'categories' => 'required'
         ]);
 
@@ -72,11 +73,10 @@ class KidController extends Controller
 
         $categories = $req->input('categories');
 
-
         $k = new Kid();
         $k->name = $req->input('name');
-        $k->date_of_birth = $req->input('birthdate');
-        $k->avatar = $req->input('avatar');
+        $k->date_of_birth = $req->input('date_of_birth');
+        $k->avatar_id = $req->input('avatar_id');
         $k->categories = implode(',', $req->categories);
         $k->user_id = Auth::id();
 
@@ -95,14 +95,15 @@ class KidController extends Controller
         $req->validate([
             'name' => 'required|min:3|max:255',
             'date_of_birth' => 'required|before:3y|date_format:Y-m-d',
-            'avatar' => 'required',
+            'avatar_id' => 'required|min:1',
             'categories' => 'required|min:1'
         ]);
 
+        
         $k = Kid::findOrFail($id);
         $k->name = $req->input('name');
         $k->date_of_birth = $req->input('date_of_birth');
-        $k->avatar = $req->input('avatar');
+        $k->avatar_id = $req->input('avatar_id');
         $k->categories = implode(',', $req->categories);
 
         $k->save();

@@ -13,7 +13,7 @@ class AvatarSeeder extends Seeder
     {
         $avatar = new \App\Avatar();
         $avatar->name = "Slouch";
-        $avatar->img = "avatar01.svg";
+        $avatar->img = "Slouch";
         $avatar->color = "blue";
         $avatar->save();
     }
