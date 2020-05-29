@@ -19,7 +19,8 @@ class CreateLinkKidsCategoriesTable extends Migration
             $table->integer('kid_id');
             // $table->foreign('kid_id')->references('id')->on('kids');
 
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id');
+            //->unsigned();
             // $table->foreign('category_id')->references('id')->on('categories');
         });
     }
