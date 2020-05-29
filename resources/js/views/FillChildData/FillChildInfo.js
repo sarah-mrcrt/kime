@@ -27,8 +27,8 @@ function FillChildInfo(props) {
     }
 
     return (
-        <div className="container__body none fill-child-info">
-            <form method="post" onSubmit={handleSubmit} className="form form-auth">
+        <div className="fill-child-info flex-y">
+            <form method="post" onSubmit={handleSubmit} className="container__body none form form-auth">
                 <div className="form-auth__input-div one">
                     <div className="i">
                         <i className="fas fa-user"></i>

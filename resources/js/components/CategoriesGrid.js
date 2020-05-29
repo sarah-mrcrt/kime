@@ -58,7 +58,7 @@ function CategoriesGrid(props) {
 
     return (
 
-        <form onSubmit={handleSubmit}>
+        <form className="flex-grow flex-y" onSubmit={handleSubmit}>
             <section className="categories-grid">
                 {props.categories.map((category,index) => {
 

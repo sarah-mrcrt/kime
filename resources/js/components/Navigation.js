@@ -30,7 +30,7 @@ function Navigation(props) {
 
     return (
         <div className="menu-bar">
-            <Link className={"menu-bar__link " + homeClass } to="/">
+            <Link className={"menu-bar__link " + homeClass } to="/accueil">
                 <img className="menu-bar__icon" src={homeImg} alt="Accueil"/>
                 <p className="menu-bar__text">Accueil</p>
             </Link>

@@ -7,7 +7,7 @@ const Welcome = props => {
     return (
         <div className="container background page-welcome">
             <div className="container__body none">
-                <div className="content">
+                <div className="content  flex-grow">
                     <img className="page-welcome__img" src="/img/welcome-img.svg" alt="Welcome"/>
                     <div className="page-welcome__text">
                         <h1 className="page-welcome__title black">Bonjour,</h1>

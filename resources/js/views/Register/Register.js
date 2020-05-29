@@ -82,50 +82,50 @@ function Register(props) {
 
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">
                         
-                        <div className="form-auth__input-div one">
+                        <div className={name === '' ? ("form-auth__input-div one") : ("form-auth__input-div one focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Nom</label>
-                                <input className="input" onChange={(e) => setName(e.target.value)} type="text" name="name"/>
+                                <input className="input" onChange={(e) => setName(e.target.value)} type="text" name="name" value={name}/>
                             </div>
                         </div>
                         
-                        <div className="form-auth__input-div pass">
+                        <div className={email === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
-                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email"/>
+                                <input className="input" onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
                             </div>
                         </div>
-                        <div className="form-auth__input-div pass">
+                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Mot de passe</label>
-                            <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password"/>
+                            <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
                             </div>
                         </div>
-                        <div className="form-auth__input-div pass">
+                        <div className={passwordConfirm === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Confirmez le mot de passe</label>
-                            <input className="input" onChange={(e) => setPasswordConfirm(e.target.value)} type="password" name="c_password"/>
+                            <input className="input" onChange={(e) => setPasswordConfirm(e.target.value)} type="password" name="c_password" value={passwordConfirm}/>
                             </div>
                         </div>
-                        <div className="form-auth__input-div pass">
+                        <div className={adminPassword === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Mot de passe de sécurité</label>
-                            <input className="input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password"/>
+                            <input className="input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password" value={adminPassword}/>
                             </div>
                         </div>
                         <div className="form-auth__submit-container">
