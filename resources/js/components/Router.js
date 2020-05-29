@@ -32,7 +32,7 @@ const PrivateRoute = ({ component, ...options }) => {
   
   const Router = () => (
     <Switch>
-        <Redirect exact={true} from="/" to="/accueil"/>
+        <Redirect exact={true} from="/" to="/welcome"/>
         <PrivateRoute exact={true} path="/accueil" component={Home} />
         <PrivateRoute exact={true} path="/profil" component={Profil} />
         <PrivateRoute exact={true} path="/parental-control" component={ParentalControl} />
