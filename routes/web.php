@@ -41,7 +41,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     // Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
 
     // Activities
-    Route::get('/activities', 'ActivityController@index');
+    Route::get('/activity/all', 'ActivityController@index');
     Route::get('/activity/{id}', 'ActivityController@show')->where('id', '[0-9]+');
     Route::middleware('admin')->group(function () {
         Route::post('/activity/create', 'ActivityController@create');

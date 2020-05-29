@@ -13,9 +13,11 @@ class ActivityController extends Controller
         $a = Activity::all();
 
         return response()->json([
-             "message" => "success",
-             "data" => $a
-         ]);
+            'success' => true,
+            "data" => $a
+        ], 201);
+
+
     }
 
     public function show($id)

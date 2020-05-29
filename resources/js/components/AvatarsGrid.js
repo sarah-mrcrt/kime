@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RoundBackground from './RoundBackground.js';
 
 function AvatarsGrid(props) {
@@ -6,6 +6,11 @@ function AvatarsGrid(props) {
     // Props: score, avatars, setAvatar()
 
     const [avatar, setAvatar] = useState('');
+    const [avatars, setAvatars] = useState({})
+
+    useEffect(() => {
+        
+    });
 
     const handleClick = e => {
         e.preventDefault();
