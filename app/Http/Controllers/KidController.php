@@ -38,15 +38,10 @@ class KidController extends Controller
         }
 
         return response()->json([
-            'success' => true,
-            'id' => $k->id,
-            'name' => $k->name,
-            'date_of_birth' => $k->date_of_birth,
-            'avatar_id' => $k->avatar_id,
-            'categories' => $k->categories,
-            'created_at' => $k->created_at,
-            'updated_at' => $k->updated_at,
-            'Avatar informations' => $k->avatar
+            // 'success' => true,
+            // 'data' => $k,
+            // 'Avatar informations' => $k->avatar,
+            "Kid's creations informations" => $k->creations
         ], 201);
     }
 

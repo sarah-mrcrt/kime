@@ -41,18 +41,18 @@ class CreationController extends Controller
      */
     public function create(Request $req, $idKid, $idActivity)
     {
-        // $kid = Kid::all()->where('id', '=', $idKid);
+        $kid = Kid::all()->where('id', '=', $idKid);
         
         $validator = Validator::make($req->all(), [ 
             'img' => 'required|file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
         ]);
 
-        $kid = Kid::findOrFail($idKid);
+        // $kid = Kid::findOrFail($idKid);
         $activity = Activity::findOrFail($idActivity);
 
         if($req->file('img') != null){
             $name = $req->file('img')->hashName();
-            $req->file('img')->move("uploads/".Auth::id(), $name);
+            $req->file('img')->move("uploads/".Auth::id()."/".$kid, $name);
         }
 
         $c = new Creation();

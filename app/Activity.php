@@ -15,15 +15,15 @@ class Activity extends Model
 
     public function category() {
         // Plsr activitiés € a une catégory
-        return $this->hasOne('App\Category', 'id');
+        return $this->hasOne('App\Category', 'id', 'category_id');
     }
 
     public function kids() {
-        // Récuperer les enfants appartenant à la même catégorie
-        return $this->belongsToMany('App\Kid', 'link_kids_categories', 'kid_id','category_id');
-        // ->withPivot('link_kids_categories', 'link_kids_categories','kid_id','category_id');
-        // return $this->model->with('x', 'x', 'x')->find($id);
+        // Récuperer les enfants appartenant à la même catégorie que l'activité
+        return $this->belongsToMany('App\Kid', 'link_kids_categories', 'category_id')
+        ->join('categories', 'categories.id', '=', 'link_kids_categories.category_id')
+        ->join('activities', 'activities.category_id', '=', 'categories.id');
+        // Possible de le faire dans le front : 
+        //if(kids.category_id == activities.category_id)
     }
-
-    
 }
