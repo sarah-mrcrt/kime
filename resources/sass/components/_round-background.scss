@@ -5,26 +5,40 @@
 
 .round-background {
     position: relative;
-    bottom: -25vw;
-    z-index: 2;
+    z-index: 0;
+    border-radius: 50%;
 
     &__img {
         width: 100%;
-        &.red {
+    }
+
+    &.red {
+        background-color: $red;
+        & .round-background__img {
             .st0{fill:$red;}
             .st1{fill:#D84E4E;}
             .st2{fill:#FF6060;}
         }
-        &.blue {
+    }
+    &.blue {
+        background-color: $blue;
+        & .round-background__img {
             .st0{fill:$blue;}
             .st1{fill:#0645B0;}
             .st2{fill:#105FE4;}
         }
-        &.yellow {
+    }
+    &.yellow {
+        background-color: $yellow;
+        & .round-background__img {
             .st0{fill:$yellow;}
             .st1{fill:#FED063;}
             .st2{fill:#FFE4B2;}
         }
+    }
+
+    &.shadow {
+        box-shadow: 0 .2rem .5rem $black-shadow;
     }
 
 }

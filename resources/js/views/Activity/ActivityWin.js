@@ -1,23 +1,27 @@
 import React from 'react';
+import RoundBackground from '../../components/RoundBackground';
 
-function ActivityUpload(props) {
+function ActivityWin(props) {
+    let kid = {name:"Jérôme", avatar:"/img/avatar-01.svg"}
+    let activity = {name:"Dessin"}
 
     // récupérer l'input type="file" name="upload-file"
 
     return (
 
-        <div className="container yellow background activity-upload">
-        <a className="container__close" href="/">X</a>
+        <div className="container yellow background activity-win">
             <div className="content">
-                <h1>Ajouter ma création</h1>
+                <h1 className="activity-win__title">Bravo {kid.name}</h1>
+                <p className="activity-win__subtitle">Tu as finis l'activité "{activity.name}" !</p>
             </div>
-            <label for="file-input" className="activity-upload__input-img">
-                <img src="/img/upload-img.svg"/>
-            </label>
+            <div className="activity-win__img">
+                <img src={kid.avatar} alt="Ton avatar"/>
+                <RoundBackground color="yellow" shadow={true}/>
+            </div>
 
-            <input id="file-input" className="activity-upload__input-file" name="upload-file" type="file"/>
+            <a className="btn-common noMargin btn-common__blue__fill" href="/">Retourner à l'accueil</a>
         </div>
     ) 
 }
 
-export default ActivityUpload;
+export default ActivityWin;
