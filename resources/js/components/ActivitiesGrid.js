@@ -17,11 +17,6 @@ function ActivitiesGrid(props) {
         });
     }, []);
 
-    async function getActivities() {
-        let tmp = [];
-
-    }
-
     return (
 
         <section className="activities-grid">
