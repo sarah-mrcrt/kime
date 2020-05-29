@@ -15,6 +15,10 @@ import SetChildrenNumber from '../views/FillChildData/SetChildrenNumber';
 import FillChildData from '../views/FillChildData/FillChildData';
 import Welcome from '../views/Welcome/Welcome';
 import Trophies from '../views/Trophies/Trophies';
+import ActivityChoice from '../views/Activity/ActivityChoice';
+import ActivityStep from '../views/Activity/ActivityStep';
+import ActivityUpload from '../views/Activity/ActivityUpload';
+import ActivityWin from '../views/Activity/ActivityWin';
 
 
 
@@ -41,6 +45,10 @@ const PrivateRoute = ({ component, ...options }) => {
         <Route exact={true} path="/connexion" component={Login} />
         <Route exact={true} path='/inscription' component={Register} />
         <Route exact={true} path="/test" component={Test} />
+        <Route exact={true} path="/activity-choice" component={ActivityChoice} />
+        <Route exact={true} path="/activity-step" component={ActivityStep} />
+        <Route exact={true} path="/activity-upload" component={ActivityUpload} />
+        <Route exact={true} path="/activity-win" component={ActivityWin} />
 
         <Route path="*" component={() => <p>Page Not Found</p>} />
     </Switch>

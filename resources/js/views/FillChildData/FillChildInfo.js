@@ -21,8 +21,8 @@ function FillChildInfo(props) {
         setAge( calculateAge() );
 
         setInfo({
-            'age': age,
-            'name': name
+            age: age,
+            name: name
         });
 
         props.setChildInfo(info);

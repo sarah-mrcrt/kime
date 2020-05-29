@@ -12,7 +12,20 @@ function Login(props) {
 
     const { authData, onLogin } = useContext(AuthDataContext);
 
+    const emailField = useRef(null);
+    const passwordField = useRef(null);
 
+    useEffect(() => {
+        // Fixing autofill problems by deactivating it:
+        let interval = setInterval(() => {
+          if (emailField.current) {
+            setEmail(emailField.current.value)
+            setPassword(passwordField.current.value);
+            //do the same for all autofilled fields
+            clearInterval(interval)
+          }
+        }, 100)
+    })
     
     if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
         return <Redirect to="/welcome"/>;
@@ -63,8 +76,8 @@ function Login(props) {
         e.preventDefault();
 
         let credentials = {
-            'email': email,
-            'password': password
+            'email': emailField.current.value,
+            'password': passwordField.current.value
         }
 
         login(credentials);
@@ -86,6 +99,8 @@ function Login(props) {
                                     className="input"
                                     onChange={(e) => setEmail(e.target.value)}
                                     type="email"
+                                    ref={emailField}
+                                    name="email"
                                     value={email}
                                 />
                             </div>
@@ -100,6 +115,8 @@ function Login(props) {
                                     className="input"
                                     onChange={(e) => setPassword(e.target.value)}
                                     type="password"
+                                    ref={passwordField}
+                                    name="password"
                                     value={password}
                                 />
                             </div>
