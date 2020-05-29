@@ -1,0 +1,40 @@
+/// 
+/// ACTIVITY WIN
+/// 
+
+.activity-win {
+
+    & .content {
+        margin: 0;
+        margin-top: auto;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        
+    }
+    &__subtitle {
+        color: $black;
+        text-align: center;
+        margin: 0;
+        font-size: .8rem;
+        color: $white;
+    }
+    
+    &__img {
+        position: relative;
+        width: 70%;
+        margin: auto;
+
+        & > img {
+            position: absolute;
+            right: 0; 
+            left: -5%; 
+            bottom: 0;
+            width: 110%;
+            margin: auto;
+            height: auto;
+            z-index: 200;
+        }
+    }
+}
