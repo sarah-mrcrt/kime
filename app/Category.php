@@ -14,6 +14,6 @@ class Category extends Model
     }
 
     public function kids() {
-        return $this->belongsToMany('App\Kid');
+        return $this->belongsToMany("App\Kid", 'link_kids_categories','category_id','kid_id');
     }
 }

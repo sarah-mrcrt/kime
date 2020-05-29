@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Kid;
 use App\User;
+use App\Category;
 
 class KidController extends Controller
 {
@@ -77,15 +78,11 @@ class KidController extends Controller
         $k->user_id = Auth::id();
 
         $k->save();
+        $k->categories()->attach($req->categories);
 
         return response()->json([
-            'success' => true,
-            'id' => $k->id,
-            'name' => $k->name,
-            'date_of_birth' => $k->date_of_birth,
-            'avatar' => $k->avatar,
-            'categories' => $k->categories
-        ], 201);
+            "data" => $k
+        ], 200);
     }
 
     public function update(Request $req, $id)
@@ -104,6 +101,8 @@ class KidController extends Controller
         $k->categories = implode(',', $req->categories);
 
         $k->save();
+        // Passage par une table pivot
+        $k->categories()->sync($request->category_id, false);
 
         return response()->json($k, 200);
     }

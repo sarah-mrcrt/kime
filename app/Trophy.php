@@ -11,4 +11,8 @@ class Trophy extends Model
     public function kids() {
         return $this->belongsToMany("App\Kid", 'link_kids_trophies', 'trophy_id', 'kid_id');
     }
+
+    public function activities() {
+        return $this->hasOne("App\Activity", "trophy_id");
+    }
 }

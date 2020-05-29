@@ -23,6 +23,7 @@ class TrophyController extends Controller
         $t = Trophy::findOrFail($id);
         return response()->json([
             'data' => $t,
+            'Activity associate to trophy' => $t->activities,
         ], 201);
     }
 
