@@ -1,0 +1,63 @@
+/// 
+/// FILL CHILD DATE
+///
+
+.fill-child-data {
+    &__header {
+        padding: 0 1rem;
+    }
+    &__title {
+        text-align: left;
+        font-size: 2.5rem;
+    }
+    &__subtitle {
+        text-align: left;
+        font-size: 1rem;
+        color: $white;
+        margin-top: 0;
+    }
+
+    &__body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        .fill-child-info {
+            flex-grow: 1;
+
+            & .form-auth {
+                &__forgot-pwd {
+                    color: $blue;
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+
+                &__input-div {
+                    border-color: $white;
+        
+                    & > div{
+        
+                        & > input{
+                            color: $blue;
+                        }
+                    
+                        & .form__label{
+                            color: $white;
+                            background-color: $yellow;
+                        }
+                    }
+        
+                    &:before, &:after {
+                        background-color: $blue;        
+                    }
+                    &.focus {
+                        & > .i > i{
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

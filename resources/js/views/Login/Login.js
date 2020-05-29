@@ -83,13 +83,15 @@ function Login(props) {
         login(credentials);
     }
 
+    
+
     return (
         <div className="container red background">
             <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img-01.svg"/>
             <div className="container__body">
                 <div className="content">
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  
-                        <div className="form-auth__input-div one">
+                        <div className={email === '' ? ("form-auth__input-div one") : ("form-auth__input-div one focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
@@ -105,7 +107,7 @@ function Login(props) {
                                 />
                             </div>
                         </div>
-                        <div className="form-auth__input-div one">
+                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div one focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
