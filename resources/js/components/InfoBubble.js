@@ -7,6 +7,7 @@ function InfoBubble(props) {
         e.preventDefault();
 
         $('#info-bubble').css('display','none');
+        $('body').css('overflow-y','auto');
     }
 
     return (
@@ -18,7 +19,7 @@ function InfoBubble(props) {
                 <div className="content container__body none">
                     <h1 id="info-bubble__title"></h1>
                     <p id="info-bubble__subtitle"></p>
-                    <Link id="info-bubble__btn" className="btn-common noMargin btn-common__white__fill" to="/"></Link>
+                    <a id="info-bubble__btn" className="btn-common noMargin btn-common__white__fill" href="/"></a>
                 </div>
             </div>
         </div>

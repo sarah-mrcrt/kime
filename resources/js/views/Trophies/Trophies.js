@@ -4,7 +4,7 @@ import TrophiesGrid from '../../components/TrophiesGrid.js';
 import InfoBubble from '../../components/InfoBubble.js';
 import Header from '../../components/Header.js';
 
-function Trophies() {
+function Trophies(props) {
     let kidScore = 0;
     let trophies = [
         {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-11.svg", minScore: 0}, 

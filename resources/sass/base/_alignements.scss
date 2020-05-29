@@ -12,7 +12,11 @@
 }
 
 .flex { 
-    display: flex; 
+  display: flex; 
+}
+.flex-y { 
+    display: flex;
+    flex-direction: column; 
 }
 
 .g2 {
