@@ -105,7 +105,7 @@ class KidController extends Controller
         $k->categories = implode(',', $req->categories);
 
         $k->save();
-        $k->categories()->sync($request->category_id, false);
+        $k->categories()->detach($req->categories);
 
         return response()->json($k, 200);
     }

@@ -15,6 +15,11 @@ class Activity extends Model
 
     public function category() {
         // Plsr activitiés € a une catégory
-        return $this->belongsToMany('App\Category', 'activity_id');
+        return $this->hasOne('App\Category', 'id');
+    }
+
+    public function kids() {
+        // Récuperer les enfants appartenant à la même catégorie
+        return $this->belongsToMany('App\Kids', '');
     }
 }
