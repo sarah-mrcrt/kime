@@ -18,4 +18,6 @@ class Kid extends Model  {
     public function categories() {
         return $this->belongsToMany("App\Category", 'link_kids_categories','kid_id','category_id');
     }
+
+    // Activités
 }
