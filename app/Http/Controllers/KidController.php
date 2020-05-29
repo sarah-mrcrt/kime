@@ -58,7 +58,7 @@ class KidController extends Controller
     {
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
-            'date_of_birth' => 'required|before:3y|date_format:Y-m-d',
+            'birthdate' => 'required',
             'avatar_id' => 'required',
             'categories' => 'required'
         ]);
@@ -75,7 +75,7 @@ class KidController extends Controller
 
         $k = new Kid();
         $k->name = $req->input('name');
-        $k->date_of_birth = $req->input('date_of_birth');
+        $k->date_of_birth = $req->input('birthdate');
         $k->avatar_id = $req->input('avatar_id');
         $k->categories = implode(',', $req->categories);
         $k->user_id = Auth::id();
