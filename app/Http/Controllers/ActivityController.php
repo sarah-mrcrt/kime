@@ -23,14 +23,19 @@ class ActivityController extends Controller
         $a = Activity::findOrFail($id);
     
         return response()->json([
-            'success' => true,
-            'id' => $a->id,
-            'name' => $a->name,
-            'img' => $a->img,
-            'txt_choice' => $a->txt_choice,
-            'txt_win' => $a->txt_win,
-            'category_id' => $a->category_id,
-            'trophie_id' => $a->trophie_id,
+            // 'success' => true,
+            // 'id' => $a->id,
+            // 'name' => $a->name,
+            // 'img' => $a->img,
+            // 'txt_choice' => $a->txt_choice,
+            // 'txt_win' => $a->txt_win,
+            // 'category_id' => $a->category_id,
+            // 'trophie_id' => $a->trophie_id,
+            // "data" => $a,
+            // "Steps from the activity" => $a->steps,
+            "Category from the activity" => $a->category,
+            // "Kids who have access to the activity" => $a->kids
+            
         ], 201);
     }
 

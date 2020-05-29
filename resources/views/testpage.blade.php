@@ -31,8 +31,8 @@
             <input type="text" name="name" value='{{old('name')}}' required />
             <input type="date" name="date_of_birth"  value='{{old('date_of_birth')}}' required />
             <input type="text" name="avatar"  value='{{old('avatar')}}' required />
-            <input type="checkbox" name="categories[]"  value="Cuisine"/> cuisine
-            <input type="checkbox" name="categories[]"  value="Jeux"/> jeux
+            <input type="checkbox" name="categories[]"  value="1"/> cuisine
+            <input type="checkbox" name="categories[]"  value="2"/> jeux
             <input type="submit" value="Submit" />
         </form>
     @endif
