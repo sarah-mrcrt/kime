@@ -10,16 +10,17 @@ function ActivitiesGrid(props) {
             console.log(json.data);
 
             if(json.data.success) {
-                setActivities(json.data.data);
-
-                console.log(json.data.message);
-                console.log(activities);
+                setActivities(json.data.data)
             }
-        })
-        .catch(error => {
+        }).catch(error => {
             console.log(error);
-        })
-    });
+        });
+    }, []);
+
+    async function getActivities() {
+        let tmp = [];
+
+    }
 
     return (
 
