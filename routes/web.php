@@ -25,7 +25,8 @@ Route::post('/api/auth/user', 'API\UserController@details');
 
 // Route::group(['middleware' => 'auth:api'], function () {
     // Parent profile
-    // afficher toutes les créations de tous les enfants + update profile
+    Route::get('/kids/allCreations','UserController@index');
+    Route::get('/user/update/{id}','UserController@update');
 
     // Kids
     Route::get('/kids/all','KidController@index');
@@ -34,7 +35,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
     Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
-    // Kid profile
+    // Kid's creations
     Route::get('/creations/all', 'CreationController@index');
     Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
     Route::post('{idKid}/{idActivity}/creation/create', 'CreationController@create');

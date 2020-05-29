@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(KidSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(SubCategorySeeder::class);
         $this->call(ActivitySeeder::class);
         $this->call(StepSeeder::class);
         $this->call(TrophySeeder::class);
         $this->call(AvatarSeeder::class);
+        $this->call(CreationSeeder::class);
     }
 }

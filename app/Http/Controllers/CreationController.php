@@ -52,7 +52,8 @@ class CreationController extends Controller
 
         if($req->file('img') != null){
             $name = $req->file('img')->hashName();
-            $req->file('img')->move("uploads/".Auth::id()."/".$kid, $name);
+            $req->file('img')->move("uploads/".Auth::id(), $name);
+            //."/".$kid
         }
 
         $c = new Creation();

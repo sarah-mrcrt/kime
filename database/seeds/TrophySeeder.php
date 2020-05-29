@@ -11,14 +11,20 @@ class TrophySeeder extends Seeder
      */
     public function run()
     {
-        $trophy = new \App\Trophy();
-        $trophy->name = "Coloriage";
-        $trophy->img = $trophy->name.".svg";
-        $trophy->save();
+        $trophies = ['Coloriage','Dessin','Musique','Cuisine','Jeux de lancer','Coloriage','Dessin','Musique','Cuisine','Jeux de lancer','Coloriage','Dessin','Musique','Cuisine','Jeux de lancer'];
 
-        $trophy1 = new \App\Trophy();
-        $trophy1->name = "Dessin";
-        $trophy1->img = $trophy->name.".svg";
-        $trophy1->save();
+        for ($item=0; $item < count($trophies); $item++){ 
+            foreach ($trophies as $trophy) {
+                $trophy = new \App\Trophy();
+                $trophy->name = $trophies[$item];
+                if($item<10){
+                    $trophy->img = "trophy-0".$item.".svg";
+                }else{
+                    $trophy->img = "trophy-".$item.".svg";
+                }
+                $trophy->save();
+                $item+=1;
+            }
+        }
     }
 }
