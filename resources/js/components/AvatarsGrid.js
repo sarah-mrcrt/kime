@@ -12,8 +12,8 @@ function AvatarsGrid(props) {
         
         let avatar = e.currentTarget;
         let background = avatar.children[1];
-        let imgUrl = avatar.children[0].src;
         let radio = avatar.children[2];
+        let id = parseInt(avatar.getAttribute('id'));
 
         if($(avatar).hasClass('unlocked')); {
 
@@ -23,15 +23,11 @@ function AvatarsGrid(props) {
                 background.classList.add("selected");
             }
 
-            console.log(imgUrl);
-            setAvatar(imgUrl);
+            setAvatar(id);
         }
     }
 
     const handleSubmit = e => {
-        console.log("Selected avatar: ");
-        console.log(avatar);
-
         props.setAvatar(avatar);
     }
 
@@ -46,10 +42,9 @@ function AvatarsGrid(props) {
                     } else if (props.displayUnlocked == false){
                         unlockedClass = "deleted"
                     }
-                    console.log(unlockedClass);
 
                     return (
-                        <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick}>
+                        <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} id={avatar.id}>
                             <img className="avatars-grid__avatar__img" src={avatar.img} alt={avatar.name} />
                             <div className="avatars-grid__avatar__background">
                                 <RoundBackground color="blue" />
@@ -59,7 +54,7 @@ function AvatarsGrid(props) {
                     );
                 })}
             </section>
-            <button type="submit" className="btn-common btn-common__blue__fill">Sélectionner</button>
+            <button type="submit" className="btn-common btn-common__blue__fill">Valider</button>
         </form>
     ) 
 }
