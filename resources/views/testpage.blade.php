@@ -30,9 +30,17 @@
             @csrf
             <input type="text" name="name" value='{{old('name')}}' required />
             <input type="date" name="date_of_birth"  value='{{old('date_of_birth')}}' required />
-            <input type="text" name="avatar"  value='{{old('avatar')}}' required />
+            <input type="radio" name="avatar_id"  value='1' required /> Avatar
+            <input type="radio" name="avatar_id"  value='2' required /> Avatar2
             <input type="checkbox" name="categories[]"  value="1"/> cuisine
             <input type="checkbox" name="categories[]"  value="2"/> jeux
+            <input type="submit" value="Submit" />
+        </form>
+
+        <h3>Création</h3>
+        <form action="/creation/create" enctype="multipart/form-data" method="post">
+            @csrf
+            <input type="file" name="img" value='{{old('img')}}' required />
             <input type="submit" value="Submit" />
         </form>
     @endif
