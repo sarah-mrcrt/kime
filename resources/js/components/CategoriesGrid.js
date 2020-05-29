@@ -1,8 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function CategoriesGrid(props) {
 
     const [selected, setSelected] = useState([]);
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        axios.get('/activities')
+        .then(response => { return response; })
+        .then(json => {
+            if(json.data.success) {
+                setCategories(json.data.data);
+                console.log(json.data.message);
+                console.log(categories);
+            }
+        }).catch(error => {
+            console.log(error);
+        })
+    });
 
     const handleClick = e => {
         e.preventDefault();
