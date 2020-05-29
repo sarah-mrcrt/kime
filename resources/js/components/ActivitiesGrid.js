@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ActivitiesGrid(props) {
 
-    console.log(props.activities);
+    const [activities, setActivities] = useState([])
+
+    useEffect(() => {
+        axios.get('/activity/all')
+        .then(json => {
+            console.log(json.data);
+
+            if(json.data.success) {
+                setActivities(json.data.data);
+
+                console.log(json.data.message);
+                console.log(activities);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    });
 
     return (
 
