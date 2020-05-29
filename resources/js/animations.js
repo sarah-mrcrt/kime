@@ -53,36 +53,21 @@ function remcl(target){
         }
       })
 
-      // Fonctionnement Categories Grid Checkbox
-      $('body').on('click','.avatars-grid__avatar.unlocked', function (e) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          let avatar = e.currentTarget;
-  
-          let radio = avatar.children[2];
-          let background = avatar.children[1];
-  
-          if (radio.checked === false) {
-              console.log('unchecked -> check ' + radio.checked);
-              radio.checked = true;
-              $('.avatars-grid__avatar__background.selected').removeClass("selected");
-              background.classList.add("selected");
-          }
-        })
+      // Fonctionnement Avatars Grid Checkbox
 
-        // Animation des formulaires d'authentification
-        $('body').on('focus','.input', function (e){
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          addcl(e.currentTarget);
-        })
-        $('body').on('blur','.input', function (e){
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          remcl(e.currentTarget);
-        })
-        
-        // Animation des checkbox simples rouges stylisées
+      // Animation des formulaires d'authentification
+      $('body').on('focus','.input', function (e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        addcl(e.currentTarget);
+      })
+      $('body').on('blur','.input', function (e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        remcl(e.currentTarget);
+      })
+      
+      // Animation des checkbox simples rouges stylisées
         
         
 

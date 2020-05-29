@@ -16,11 +16,13 @@ function FillChildData(props) {
     const [children, setChildren] = useState({});
     const [childrenInfo, setChildrenInfo] = useState([]);
     const [avatars, setAvatars] = useState([]);
+    const [childrenCats, setChildrenCats] = useState([]);
 
     // State vars for current child
     const [currentChild, setCurrentChild] = useState(0);
     const [childInfo, setChildInfo] = useState({});
     const [avatar, setAvatar] = useState('');
+    const [childCat, setChildCat] = useState({});
 
     /*
     *  DATA PROPS 
@@ -57,6 +59,12 @@ function FillChildData(props) {
         setCurrentPage(currentPage+1);
 
         console.log('childrenNumber: ' + childrenNumber + '\n');
+
+        console.log('childrenInfo:');
+        console.log(childrenInfo);
+
+        console.log('avatars:');
+        console.log(avatars);
     }
 
     // Store childInfo in childrenInfo,  go to next page
@@ -64,19 +72,22 @@ function FillChildData(props) {
         let tmp = childrenInfo;
         tmp.push(childInfo);
         nextStep();
-
-        console.log('childrenInfo:');
-        console.log(tmp + '\n');
     }
 
     // Store current avatar in avatars, go to next page
-    const storeAvatar = () => {
+    const storeAvatar = avatar => {
         let tmp = avatars;
         tmp.push(avatar);
         nextStep();
+    }
 
-        console.log('avatars:');
-        console.log(tmp + '\n');
+    // Store categories, increment currentChild, reset currentPage
+    const storeCategories = categories => {
+        let tmp = childrenCats;
+        tmp.push(categories);
+        
+        setCurrentChild(currentChild+1);
+        setCurrentPage(1);
     }
 
     /*
@@ -89,9 +100,9 @@ function FillChildData(props) {
 
         <FillChildInfo setChildInfo={setChildInfo} nextStep={storeChildInfo}/>,
 
-        <AvatarsGrid avatars={availableAvatars} nextStep={storeAvatar}/>,
+        <AvatarsGrid avatars={availableAvatars} score={kidScore} setAvatar={storeAvatar}/>,
 
-        <CategoriesGrid categories={categories}/>
+        <CategoriesGrid categories={categories} />
     ];
 
     // Current page component
@@ -103,7 +114,7 @@ function FillChildData(props) {
     */
     
     // SetChildrenNumber component is rendered separately as layout is different
-    if(currentPage < 1) {
+    if(currentPage < 1 && currentChild < childrenNumber) {
         return (
             <div>
                 {component}
