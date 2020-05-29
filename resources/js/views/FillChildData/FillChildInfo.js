@@ -4,31 +4,26 @@ function FillChildInfo(props) {
 
     const [name, setName] = useState('');
     const [birthdate, setBirthdate] = useState('');
-    const [info, setInfo] = useState({})
     const [age, setAge] = useState(0);
 
     // Get age from birthdate
-    const calculateAge = () => {
-        let tmp = new Date(birthdate);
+    const calculateAge = (date) => {
+        let tmp = new Date(date);
         var ageDifMs = Date.now() - tmp.getTime();
         var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        setAge(Math.abs(ageDate.getUTCFullYear() - 1970));
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
 
     const handleSubmit = e => {
         e.preventDefault();
 
-        setAge( calculateAge() );
-
-        setInfo({
-            age: age,
+        let info = {
+            birthdate: birthdate,
             name: name
-        });
-
-        props.setChildInfo(info);
+        };
 
         // We're all done here, go to next page
-        props.nextStep();
+        props.nextStep(info);
     }
 
     return (

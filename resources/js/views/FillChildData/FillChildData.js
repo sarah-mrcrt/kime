@@ -6,6 +6,7 @@ import AvatarsGrid from '../../components/AvatarsGrid';
 import CategoriesGrid from '../../components/CategoriesGrid';
 import StepBar from '../../components/StepBar';
 import SetChildrenNumber from './SetChildrenNumber';
+import axios from 'axios';
 
 function FillChildData(props) {
     
@@ -13,16 +14,13 @@ function FillChildData(props) {
     const [childrenNumber, setChildrenNumber] = useState(1);
 
     // State vars for all children
-    const [children, setChildren] = useState({});
+    const [children, setChildren] = useState([]);
     const [childrenInfo, setChildrenInfo] = useState([]);
     const [avatars, setAvatars] = useState([]);
     const [childrenCats, setChildrenCats] = useState([]);
 
     // State vars for current child
-    const [currentChild, setCurrentChild] = useState(0);
-    const [childInfo, setChildInfo] = useState({});
-    const [avatar, setAvatar] = useState('');
-    const [childCat, setChildCat] = useState({});
+    const [currentChildIndex, setCurrentChild] = useState(0);
 
     /*
     *  DATA PROPS 
@@ -57,20 +55,15 @@ function FillChildData(props) {
     // Go to next page
     const nextStep = () => {
         setCurrentPage(currentPage+1);
-
-        console.log('childrenNumber: ' + childrenNumber + '\n');
-
-        console.log('childrenInfo:');
-        console.log(childrenInfo);
-
-        console.log('avatars:');
-        console.log(avatars);
     }
 
     // Store childInfo in childrenInfo,  go to next page
-    const storeChildInfo = () => {
+    const storeChildInfo = info => {
         let tmp = childrenInfo;
-        tmp.push(childInfo);
+        tmp.push(info);
+
+        setChildrenInfo(tmp);
+
         nextStep();
     }
 
@@ -78,15 +71,73 @@ function FillChildData(props) {
     const storeAvatar = avatar => {
         let tmp = avatars;
         tmp.push(avatar);
+        setAvatars(tmp);
+
         nextStep();
     }
 
-    // Store categories, increment currentChild, reset currentPage
+    // Store categories, increment currentChildIndex, reset currentPage
     const storeCategories = categories => {
         let tmp = childrenCats;
         tmp.push(categories);
+        setChildrenCats(tmp);
         
-        setCurrentChild(currentChild+1);
+        nextChild();
+    }
+
+    const storeCurrentChild = () => {
+        let child = {
+            name: childrenInfo[currentChildIndex].name,
+            birthdate: childrenInfo[currentChildIndex].birthdate,
+            avatar: avatars[currentChildIndex],
+            categories: childrenCats[currentChildIndex]
+        }
+
+        let tmp = children;
+        tmp.push(child);
+        setChildren(tmp);
+    }
+
+    const storeChildrenData = () => {
+        let data = {
+            count: childrenNumber,
+            children: children
+        }
+
+        // Insert each child in db. Insert children data in localStorage if everything went fine.
+        children.forEach(child => {
+            axios.post("/kid/create", child)
+
+            .then(response => {
+                return response;
+
+            }).then(json => {
+                if(json.data.success) {
+                    localStorage.setItem('childrenData', JSON.stringify(data));
+                } else if (json.data.error) {
+                    console.log(json.data.error);
+                }
+
+            }).catch(error => {
+                console.log(error);
+            });
+        });
+
+        
+    }
+
+    const nextChild = () => {
+
+        // Storing child in children array
+        storeCurrentChild();
+
+        setCurrentChild(currentChildIndex+1);
+
+        // If all children data have been filled
+        if(currentChildIndex == childrenNumber-1) {
+            storeChildrenData();
+        }
+
         setCurrentPage(1);
     }
 
@@ -98,11 +149,11 @@ function FillChildData(props) {
     const pages = [
         <SetChildrenNumber setChildrenNumber={setChildrenNumber} nextStep={nextStep}/>,
 
-        <FillChildInfo setChildInfo={setChildInfo} nextStep={storeChildInfo}/>,
+        <FillChildInfo nextStep={storeChildInfo}/>,
 
         <AvatarsGrid avatars={availableAvatars} score={kidScore} setAvatar={storeAvatar}/>,
 
-        <CategoriesGrid categories={categories} />
+        <CategoriesGrid categories={categories} setCategories={storeCategories} />
     ];
 
     // Current page component
@@ -114,14 +165,14 @@ function FillChildData(props) {
     */
     
     // SetChildrenNumber component is rendered separately as layout is different
-    if(currentPage < 1 && currentChild < childrenNumber) {
+    if(currentPage < 1 && currentChildIndex < childrenNumber) {
         return (
             <div>
                 {component}
             </div>
         );
 
-    } else if (currentChild < childrenNumber) {
+    } else if (currentChildIndex < childrenNumber) {
         return (
             <div className="fill-child-data">
                 <div className="fill-child-data__header">
@@ -136,7 +187,7 @@ function FillChildData(props) {
             </div>
         );
     } else { // When all data is filled, redirect to /accueil
-        return <Redirect to="/accueil" />
+        return <Redirect to="/end-registration" />
     }
 }
 

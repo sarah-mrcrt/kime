@@ -10,8 +10,8 @@ import Profil from '../views/Profil/Profil';
 import Test from '../views/Test/Test';
 import ParentalControl from '../views/ParentalControl/ParentalControl';
 import Conditions from '../views/Conditions/Conditions';
-import LaunchRegistration from '../views/LaunchRegistration/LaunchRegistration';
-import SetChildrenNumber from '../views/FillChildData/SetChildrenNumber';
+import LaunchRegistration from '../views/FillChildData/LaunchRegistration';
+import EndRegistration from '../views/FillChildData/EndRegistration';
 import FillChildData from '../views/FillChildData/FillChildData';
 import Welcome from '../views/Welcome/Welcome';
 import Trophies from '../views/Trophies/Trophies';
@@ -38,6 +38,8 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute exact={true} path="/parental-control" component={ParentalControl} />
         <PrivateRoute exact={true} path="/conditions" component={Conditions} />
         <PrivateRoute exact={true} path="/launch-registration" component={LaunchRegistration} />
+        <PrivateRoute exact={true} path="/end-registration" component={EndRegistration} />
+
         <PrivateRoute path="/register-children" component={FillChildData} />
         <PrivateRoute path="/welcome" component={Welcome} />
         <PrivateRoute path="/trophies" component={Trophies} />

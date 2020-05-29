@@ -13,6 +13,7 @@ function Home() {
         {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
     ];
     let kid = {id:2, name:"Jérôme", avatar:"/img/avatar-07.svg"}
+    console.log(JSON.parse(localStorage.getItem('childrenData')));
 
     return (
         <div className="container yellow background">

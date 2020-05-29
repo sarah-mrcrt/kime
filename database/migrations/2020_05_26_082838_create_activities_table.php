@@ -23,7 +23,7 @@ class CreateActivitiesTable extends Migration
             //->default(1);
             // ->unsigned()
             // $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('trophy_id');
+            $table->integer('trophy_id')->default(1);
             //->default(1);
             //->unsigned()->default(1);
             // $table->foreign('trophy_id')->references('id')->on('trophies');
