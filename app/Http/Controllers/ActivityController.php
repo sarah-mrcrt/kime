@@ -33,8 +33,8 @@ class ActivityController extends Controller
             // 'trophie_id' => $a->trophie_id,
             // "data" => $a,
             // "Steps from the activity" => $a->steps,
-            "Category from the activity" => $a->category,
-            // "Kids who have access to the activity" => $a->kids
+            // "Category from the activity" => $a->category,
+            "Kids who have access to the activity" => $a->kids
             
         ], 201);
     }
