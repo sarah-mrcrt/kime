@@ -36,9 +36,9 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
     // Kid's creations
-    Route::get('/creations/all', 'CreationController@index');
-    Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
-    Route::post('{idKid}/{idActivity}/creation/create', 'CreationController@create');
+    // Route::get('/creations/all', 'CreationController@index');
+    // Route::get('/creation/{id}', 'CreationController@show')->where('id', '[0-9]+');
+    Route::post('{idKid}/{idActivity}/creation/create', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
     // Route::get('/creation/delete/{id}','CreationController@delete')->where('id','[0-9]+')->middleware('auth');
 
     // Activities
@@ -63,7 +63,9 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::get('/categories/all', 'CategoryController@index');
     Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '[a-z]+');
 
-    // Sub catégories
+    // Sub categories
+
+    // Avatars
 
 // });
 

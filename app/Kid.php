@@ -3,8 +3,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Kid extends Model  {
-    
+class Kid extends Model  
+{
     protected $table = 'kids';
 
     public function parent() { 
@@ -27,5 +27,9 @@ class Kid extends Model  {
         return $this->belongsToMany("App\Category", 'link_kids_categories','kid_id','category_id');
     }
 
-    // Activités
+    public function activities() {
+        return $this->belongsToMany('App\Activity', 'activities', 'category_id')
+        ->join('categories', 'categories.id', '=', 'activities.category_id')
+        ->join('link_kids_categories', 'link_kids_categories.category_id', '=', 'categories.id');
+    }
 }

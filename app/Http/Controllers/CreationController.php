@@ -29,7 +29,7 @@ class CreationController extends Controller
     public function show($id)
     {
         $c = Creation::findOrFail($id);
-        $k = Kid::findOrFail($idK);
+        $k = Kid::findOrFail($id);
 
         if($c->kid_id != Auth::id()){
             abort(404);
@@ -41,29 +41,23 @@ class CreationController extends Controller
      */
     public function create(Request $req, $idKid, $idActivity)
     {
-        $kid = Kid::all()->where('id', '=', $idKid);
-        
         $validator = Validator::make($req->all(), [ 
             'img' => 'required|file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
         ]);
 
-        // $kid = Kid::findOrFail($idKid);
+        $kid = Kid::findOrFail($idKid);
         $activity = Activity::findOrFail($idActivity);
-
         if($req->file('img') != null){
             $name = $req->file('img')->hashName();
-            $req->file('img')->move("uploads/".Auth::id(), $name);
-            //."/".$kid
+            $req->file('img')->move("uploads/".Auth::id()."/".$kid->id."/", $name);
         }
 
         $c = new Creation();
         if($req->file('img') != null){
             $c->img = ('/uploads/'.Auth::id().'/'.$name);
         }
-        // $c->img = $req->input('img');
-        // $c->kid_id = $kid;
-        //$comment->project_id = $project->id;
-        // $c->activity_id = $activity;
+        $c->kid_id = $idKid;
+        $c->activity_id = $idActivity;
 
         $c->save();
 
