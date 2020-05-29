@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 28 mai 2020 à 14:54
+-- Généré le :  ven. 29 mai 2020 à 10:47
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `activities` (
 --
 
 INSERT INTO `activities` (`id`, `name`, `img`, `txt_choice`, `txt_win`, `category_id`, `trophy_id`, `created_at`, `updated_at`) VALUES
-(1, 'Cookie', 'Cookie.svg', 'cuisine', 'cuisine', 1, 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(2, 'Muffin', 'Muffin.svg', 'Muffin', 'Muffin', 2, 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 'Cookie', 'Cookie.svg', 'cuisine', 'cuisine', 1, 1, '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(2, 'Muffin', 'Muffin.svg', 'Muffin', 'Muffin', 1, 1, '2020-05-29 07:45:30', '2020-05-29 07:45:30');
 
 -- --------------------------------------------------------
 
@@ -72,10 +72,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `img`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Cuisine', 'cuisine.svg', 'cuisine', '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(2, 'Jardin', 'jardin.svg', 'jardin', '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(3, 'Creativité', 'creativité.svg', 'creativité', '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(4, 'Jeux', 'jeux.svg', 'jeux', '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 'Cuisine', 'cuisine.svg', 'cuisine', '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(2, 'Jardin', 'jardin.svg', 'jardin', '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(3, 'Creativité', 'creativité.svg', 'creativité', '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(4, 'Jeux', 'jeux.svg', 'jeux', '2020-05-29 07:45:30', '2020-05-29 07:45:30');
 
 -- --------------------------------------------------------
 
@@ -107,18 +107,48 @@ CREATE TABLE IF NOT EXISTS `kids` (
   `date_of_birth` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '/avatars/avatar01.svg',
   `categories` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `kids_user_id_foreign` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `kids`
 --
 
 INSERT INTO `kids` (`id`, `name`, `date_of_birth`, `avatar`, `categories`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Stéphane', '2000-05-28', '/avatars/avatar01.svg', 'Cuisine', 1, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 'Stéphane', '2000-05-28', '/avatars/avatar01.svg', 'Cuisine', 1, '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(2, 'ZDEFRG', '1111-11-11', '2ZERF', '2', 1, '2020-05-29 07:45:40', '2020-05-29 07:45:40'),
+(3, 'ZDEFRG', '1111-11-11', '2ZERF', '1,2', 1, '2020-05-29 07:45:43', '2020-05-29 07:45:43'),
+(4, 'ZDEFRG', '1111-11-11', '2ZERF', '1', 1, '2020-05-29 07:45:46', '2020-05-29 07:45:46');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `link_kids_categories`
+--
+
+DROP TABLE IF EXISTS `link_kids_categories`;
+CREATE TABLE IF NOT EXISTS `link_kids_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `kid_id` int(11) NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `link_kids_categories_kid_id_foreign` (`kid_id`),
+  KEY `link_kids_categories_category_id_foreign` (`category_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `link_kids_categories`
+--
+
+INSERT INTO `link_kids_categories` (`id`, `kid_id`, `category_id`) VALUES
+(1, 2, 2),
+(2, 3, 1),
+(3, 3, 2),
+(4, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `migrations`
@@ -168,7 +198,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2020_05_26_105614_create_steps_table', 1),
 (12, '2020_05_26_183034_create_link_kids_trophies_table', 1),
 (13, '2020_05_26_183538_create_trophies_table', 1),
-(14, '2020_05_27_131949_create_categories_table', 1);
+(14, '2020_05_27_131949_create_categories_table', 1),
+(15, '2020_05_28_165232_create_sub_categories_table', 1),
+(16, '2020_05_29_085312_create_link_kids_categories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -190,13 +222,6 @@ CREATE TABLE IF NOT EXISTS `oauth_access_tokens` (
   PRIMARY KEY (`id`),
   KEY `oauth_access_tokens_user_id_index` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `oauth_access_tokens`
---
-
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
-('0052415011002f47451a350c9cd7cdf521775d6db344f529c32e0afa8b5c1462bfc3945544b4b8a0', 1, 1, 'Kime', '[]', 0, '2020-05-28 12:50:48', '2020-05-28 12:50:48', '2021-05-28 14:50:48');
 
 -- --------------------------------------------------------
 
@@ -237,15 +262,7 @@ CREATE TABLE IF NOT EXISTS `oauth_clients` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `oauth_clients_user_id_index` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `oauth_clients`
---
-
-INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Kime Personal Access Client', 'S0byZjKeMCBZDCGM2TaJlyXBMsbOovQHX6efPpoW', NULL, 'http://localhost', 1, 0, 0, '2020-05-28 12:50:13', '2020-05-28 12:50:13'),
-(2, NULL, 'Kime Password Grant Client', 'S7HCbVFzmF0lTsJHWQhUceSAw2MlvmuNPGD8XQ2y', 'users', 'http://localhost', 0, 1, 0, '2020-05-28 12:50:13', '2020-05-28 12:50:13');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -260,14 +277,7 @@ CREATE TABLE IF NOT EXISTS `oauth_personal_access_clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `oauth_personal_access_clients`
---
-
-INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2020-05-28 12:50:13', '2020-05-28 12:50:13');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -312,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `steps` (
   `img` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `text` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `activity_id` int(11) NOT NULL,
+  `activity_id` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -323,7 +333,21 @@ CREATE TABLE IF NOT EXISTS `steps` (
 --
 
 INSERT INTO `steps` (`id`, `position`, `name`, `img`, `title`, `text`, `activity_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Matériaux', 'Loremipsum.svg', 'Lorem ipsum', 'Lorem ipsum', 2, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 1, 'Matériaux', 'Loremipsum.svg', 'Lorem ipsum', 'Lorem ipsum', 1, '2020-05-29 07:45:30', '2020-05-29 07:45:30');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sub_categories`
+--
+
+DROP TABLE IF EXISTS `sub_categories`;
+CREATE TABLE IF NOT EXISTS `sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -346,8 +370,8 @@ CREATE TABLE IF NOT EXISTS `trophies` (
 --
 
 INSERT INTO `trophies` (`id`, `name`, `img`, `created_at`, `updated_at`) VALUES
-(1, 'Coloriage', 'Coloriage.svg', '2020-05-28 11:51:40', '2020-05-28 11:51:40'),
-(2, 'Dessin', 'Coloriage.svg', '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 'Coloriage', 'Coloriage.svg', '2020-05-29 07:45:30', '2020-05-29 07:45:30'),
+(2, 'Dessin', 'Coloriage.svg', '2020-05-29 07:45:30', '2020-05-29 07:45:30');
 
 -- --------------------------------------------------------
 
@@ -375,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin_password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sarah', 'sarah.nawal@live.fr', NULL, '$2y$10$lpb.Z7jxsEBqQ1894WRx8ei5zaRi/XL8jVldWl3j1dAB76847fQ3O', '$2y$10$gIKF/9WGmj2jOQB.4RXxge9BRy5mBtRrx.VL3YD/Ut0S0fXdNjkb.', NULL, '2020-05-28 11:51:40', '2020-05-28 11:51:40');
+(1, 'Sarah', 'sarah.nawal@live.fr', NULL, '$2y$10$x6BYN3rWlR2MRY//nR8/IuyFtni2PSNG3y0h8vmD.ilt//.P6JnFC', '$2y$10$radyyyUcdCLNnHkHgUTSruIO5s9hJ9C6tdF9iiIkMjl6KPa8jRFJy', NULL, '2020-05-29 07:45:30', '2020-05-29 07:45:30');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
