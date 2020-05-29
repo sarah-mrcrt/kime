@@ -151,7 +151,7 @@ function FillChildData(props) {
 
         <FillChildInfo nextStep={storeChildInfo}/>,
 
-        <AvatarsGrid avatars={availableAvatars} score={kidScore} setAvatar={storeAvatar}/>,
+        <AvatarsGrid avatars={availableAvatars} score={kidScore} setAvatar={storeAvatar} displayUnlocked={false}/>,
 
         <CategoriesGrid categories={categories} setCategories={storeCategories} />
     ];

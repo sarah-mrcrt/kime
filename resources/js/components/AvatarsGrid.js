@@ -37,7 +37,7 @@ function AvatarsGrid(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="flex-grow flex-y" onSubmit={handleSubmit}>
             <section className="avatars-grid">
                 {props.avatars.map((avatar,index) => {
 

@@ -5,8 +5,8 @@ function ActivityStep(props) {
 
     let activity = {id:2} // ...
     let choice = {id:5} // ...
-    let etape = {id:2, number:5, name:"Matériaux", text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.", img:"/img/category.jpg"}
-    // etape.number = le numéro de l'étape actuel
+    let etape = {id:2, position:5, name:"Matériaux", text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut proin nunc proin id amet, semper velit. Orci auctor leo nunc, tellus et in. Ridiculus nibh dignissim nulla elementum a non nunc adipiscing mi.", img:"/img/category.jpg"}
+    // etape.position = le numéro de l'étape actuel
 
     let nbEtapesTotales = 5; // Le nombre total d'étape
     let idEtapeSuivante = 4; 
@@ -14,9 +14,9 @@ function ActivityStep(props) {
     let redirectionSuivante = "/activity-step/" + idEtapeSuivante;
     let redirectionPrécédente = "/activity-step/" + idEtapePrecedente;
 
-    if( etape.number === nbEtapesTotales) {
+    if( etape.position === nbEtapesTotales) {
         redirectionSuivante = '/activity-upload';
-    } else if (etape.number === 1) {
+    } else if (etape.position === 1) {
         redirectionPrécédente = '/activity-choice/'+ activity.id;
     }
 
@@ -30,12 +30,12 @@ function ActivityStep(props) {
             <div className="container__body">
                 <div className="flex-y">
                     <div className="activity-step__titles">
-                        <p className="activity-step__subtitle">Etape {etape.number}</p>
+                        <p className="activity-step__subtitle">Etape {etape.position}</p>
                         <h1 className="activity-step__title yellow">{etape.name}</h1>
                     </div>
                     <p className="activity-step__text">{etape.text}</p>
                 </div>
-                <RegisterStepBar nb={nbEtapesTotales} actualStep={etape.number} color="yellow"/>
+                <RegisterStepBar nb={nbEtapesTotales} actualStep={etape.position} color="yellow"/>
                 <a className="activity-step__next" href={redirectionSuivante}>Suivant</a>
                 <a className="activity-step__prev" href={redirectionPrécédente}>Retour</a>
             </div>
