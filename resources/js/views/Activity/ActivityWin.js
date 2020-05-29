@@ -17,7 +17,7 @@ function ActivityWin(props) {
                 <RoundBackground color="yellow" shadow={true}/>
             </div>
 
-            <a className="btn-common noMargin btn-common__blue__fill" href="/">Retourner à l'accueil</a>
+            <a className="btn-common noMargin btn-common__blue__fill" href="/accueil">Retourner à l'accueil</a>
         </div>
     ) 
 }

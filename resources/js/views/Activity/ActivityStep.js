@@ -23,7 +23,7 @@ function ActivityStep(props) {
     return (
 
         <div className="container yellow background activity-step">
-            <a className="container__close" href="/">X</a>
+            <a className="container__close" href="/accueil">X</a>
             <div className="activity-step__img">
                 <img src={etape.img} alt="Image de l'étape actuelle"/>
             </div>

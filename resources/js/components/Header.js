@@ -32,7 +32,7 @@ function Header(props) {
 
             <div className={"page-header__background " + align}>
                 <img className="page-header__img" src={props.imageUrl}/>
-                <RoundBackground color={props.color} />
+                <RoundBackground color={props.color}  shadow={true}/>
             </div>
             
         </div>
