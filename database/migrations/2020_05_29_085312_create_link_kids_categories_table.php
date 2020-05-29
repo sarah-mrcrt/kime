@@ -32,6 +32,7 @@ class CreateLinkKidsCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link_kids_categories');
+        // Schema::dropIfExists('link_kids_categories');
+        Schema::disableForeignKeyConstraints();
     }
 }

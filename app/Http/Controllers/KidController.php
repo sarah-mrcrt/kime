@@ -78,6 +78,7 @@ class KidController extends Controller
         $k->user_id = Auth::id();
 
         $k->save();
+        // Passage par une table pivot
         $k->categories()->attach($req->categories);
 
         return response()->json([
@@ -101,7 +102,6 @@ class KidController extends Controller
         $k->categories = implode(',', $req->categories);
 
         $k->save();
-        // Passage par une table pivot
         $k->categories()->sync($request->category_id, false);
 
         return response()->json($k, 200);
