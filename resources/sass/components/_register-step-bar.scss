@@ -14,9 +14,21 @@
         background-color: $red;
         border-radius: 1rem;
         margin-left: .5rem;
+        opacity: .8;
+
+        &.red {
+            background-color: $red;
+        }
+        &.yellow {
+            background-color: $yellow;
+        }
+        &.blue {
+            background-color: $blue;
+        }
 
         &.selected {
             width: 2rem;
+            opacity: 1;
         }
     }
 }

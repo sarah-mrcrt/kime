@@ -1,0 +1,36 @@
+/// 
+/// 
+/// 
+
+.activity-choice-grid {
+    width: 100%;
+    position: relative;
+    display: grid;
+    padding-top: 1rem;
+    grid-template-columns: repeat(2, calc((100% / 2) - 1.5rem));
+    row-gap: 2rem;
+    column-gap: 3rem;
+    flex-grow: 1;
+    z-index: 0;
+
+    &__choice {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: $yellow;
+        box-shadow: 0 .2rem .5rem $black-shadow;
+
+        &__name {
+            margin: 0 auto;
+            color: $white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        &__btn {
+            display: none;
+        }
+    }
+}

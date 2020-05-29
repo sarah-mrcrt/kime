@@ -18,19 +18,25 @@
 @import 'base/svgs';
 
 // Components
+@import 'components/header';
+@import 'components/header-kid';
+@import 'components/header-activity';
+
+@import 'components/welcome';
+@import 'components/set-children-number';
+@import 'components/activity-step';
+@import 'components/info-bubble';
+
+@import 'components/categories-grid';
+@import 'components/activities-grid';
+@import 'components/activity-choice-grid';
+@import 'components/trophies-grid';
+@import 'components/avatars-grid';
+
 @import 'components/btns';
 @import 'components/round-background';
 @import 'components/step-bar';
-@import 'components/categories-grid';
-@import 'components/activities-grid';
-@import 'components/trophies-grid';
-@import 'components/avatars-grid';
-@import 'components/header';
-@import 'components/header-kid';
 @import 'components/register-step-bar';
-@import 'components/set-children-number';
-@import 'components/welcome';
-@import 'components/info-bubble';
 
 // Layout
 @import 'layout/forms';
