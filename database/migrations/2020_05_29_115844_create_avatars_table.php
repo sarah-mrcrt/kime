@@ -18,6 +18,7 @@ class CreateAvatarsTable extends Migration
             $table->string('name');
             $table->string('img');
             $table->string('color');
+            $table->timestamps();
         });
     }
 

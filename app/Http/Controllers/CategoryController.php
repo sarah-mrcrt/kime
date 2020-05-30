@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
         return response()->json([ 
             // "Category data" => $c,
-            // "Sub categories from the category" => $c->sub_categories ],
+            // "Sub categories from the category" => $c->sub_categories,
             // "Kids who chose this category" => $c->kids,
             // "Activities from the category" => $c->activities
         ], 201);
@@ -50,5 +50,4 @@ class CategoryController extends Controller
             'success' => true
         ]);
     }
-    // Au clic d'une catégorie, j'affiche les activités associées
 }

@@ -14,11 +14,7 @@ class KidController extends Controller
     
     public function index()
     {
-        $k = Kid::all();
-
-        if($k->user_id != Auth::id()){
-            abort(404);
-        }
+        $k = Kid::all()->where('user_id', '=', Auth::id());
         
          return response()->json([
              "message" => "success",
@@ -42,15 +38,10 @@ class KidController extends Controller
         }
 
         return response()->json([
-            'success' => true,
-            'id' => $k->id,
-            'name' => $k->name,
-            'date_of_birth' => $k->date_of_birth,
-            'avatar_id' => $k->avatar_id,
-            'categories' => $k->categories,
-            'created_at' => $k->created_at,
-            'updated_at' => $k->updated_at,
-            'Avatar informations' => $k->avatar
+            // 'success' => true,
+            // 'data' => $k,
+            // 'Avatar informations' => $k->avatar,
+            "Kid's creations informations" => $k->creations
         ], 201);
     }
 
@@ -63,7 +54,6 @@ class KidController extends Controller
             'categories' => 'required'
         ]);
 
-        // dd($req->date_of_birth);
         if ($validator->fails()) { 
             return response()->json([
                 'success' => false,
