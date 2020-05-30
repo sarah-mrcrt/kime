@@ -1,0 +1,80 @@
+/// 
+/// HEADER PROFILE
+/// 
+
+.page-header-profile {
+    width: 100%;
+    padding: 0 2.5rem;
+
+    &__logout {
+        position: relative;
+        width: 100%;
+        display: flex;
+        right: -2.5rem;
+
+        & > span {
+            padding-right: 1rem;
+            padding-top: 1rem;
+            margin-left: auto;
+            & > i {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    &__identity {
+        display: flex;
+        justify-content: flex-start;
+
+        &__background {
+            width: 40%;
+            margin: 0;
+            margin-right: 2rem;
+            align-self: stretch;
+            position: relative;
+            padding-right: 0;
+            z-index: 200;
+        }
+    
+        &__img {
+            position: absolute;
+            right: 0; 
+            left: 0; 
+            bottom: 1rem;
+            width: 100%;
+            margin: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        &__title {
+            margin: auto 0;
+            text-align: left;
+            font-size: 2rem;
+        }
+
+    }
+
+    &__infos {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        &__title {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        &__subtitle {
+            margin: 0;
+            text-align: center;
+            font-size: 1rem;
+            color:white;
+        }
+
+        &__modify{
+            margin: auto 0;
+        }
+    }
+}
