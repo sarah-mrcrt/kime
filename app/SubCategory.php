@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubCategory extends Model
 {
-    protected $table = 'subcategories';
+    protected $table = 'sub_categories';
 
+    public function category() {
+        return $this->belongsTo('App\Category', 'category_id', 'id');
+    }
+
+    public function activities() {
+        return $this->hasmany('App\Activity', 'sub_category_id');
+    }
 }
