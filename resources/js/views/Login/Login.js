@@ -93,7 +93,7 @@ function Login(props) {
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  
                         <div className={email === '' ? ("form-auth__input-div one") : ("form-auth__input-div one focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-at"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
@@ -109,7 +109,7 @@ function Login(props) {
                         </div>
                         <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div one focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-lock"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="password">Mot de passe</label>
