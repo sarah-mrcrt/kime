@@ -28,6 +28,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     // Parent profile
     Route::get('/kids/allCreations','CreationController@parentIndex');
     // Route::get('/user/update/{id}','UserController@update');
+    // Route::get('/user/delete/{id}','UserController@delete');
 
 
     // Kids & Creations
@@ -37,10 +38,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
     Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
-    Route::get('/creations/all', 'CreationController@kidIndex')->where('idKid', '[0-9]+');
-
-
-    Route::get('/creations/all/{$idKid}', 'CreationController@kidIndex')->where('idKid', '[0-9]+');
+    Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
     Route::post('creation/{idKid}/{idActivity}/create', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
     // Route::get('/creation/delete/{id}','CreationController@delete');

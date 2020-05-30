@@ -13,6 +13,6 @@ class Creation extends Model
     // }
 
     // public function parent(){
-    //     return $this->belongsTo("App\Kid", "id");
+    //     return $this->belongsTo("App\User", "id");
     // }
 }

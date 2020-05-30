@@ -14,32 +14,25 @@ class CreationController extends Controller
     public function kidIndex($idKid)
     {
         $k = Kid::findOrFail($idKid);
-        $c = Creation::all();
-        // $c = Creation::all()->where('kid_id', '=', $idKid);
-        dd($c);
-
-        // if($c->kid_id != $idKid){
-        //     abort(404);
-        // }
+        $c = Creation::all()->where('kid_id', '=', $idKid)->sortByDesc('id');
 
         return response()->json([
             "data" => $c
         ], 200);
     }
 
-    // public function parentIndex()
-    // {
-    //     $c = Creation::all();
-    //     // $k = Kid::all();
+    public function parentIndex()
+    {
+        // $c = Creation::all()->sortByDesc('id')
+        //  ->join('kids', function ($join) {
+        //     $join->on('creations.kid_id', '=', 'kids.id')
+        //          ->where('kids.user_id', '=', Auth::id());
+        // });
 
-    //     if($c->parent != Auth::id()){
-    //         abort(404);
-    //     }
-
-    //     return response()->json([
-    //         "data" => $c
-    //     ], 200);
-    // }
+        return response()->json([
+            "data" => $c
+        ], 200);
+    }
 
     public function show($idKid, $idCreation)
     {
