@@ -20,8 +20,7 @@ class CreateStepsTable extends Migration
             $table->string('img')->default(NULL);
             $table->string('title');
             $table->longText('text');
-            $table->integer('activity_id')->default(1);
-            // ->unsigned();
+            $table->integer('activity_id')->default(1)->unsigned();
             // $table->foreign('activity_id')->references('id')->on('activities');
             $table->timestamps();
         });

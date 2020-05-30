@@ -11,34 +11,50 @@ use Illuminate\Support\Facades\Auth;
 
 class CreationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function kidIndex($idKid)
     {
-        $creations = Creation::all();
+        $k = Kid::findOrFail($idKid);
+        $c = Creation::all();
+        // $c = Creation::all()->where('kid_id', '=', $idKid);
+        dd($c);
 
-        if($creations->kid_id != Kid::id() ){
-            abort(404);
-        }
+        // if($c->kid_id != $idKid){
+        //     abort(404);
+        // }
+
+        return response()->json([
+            "data" => $c
+        ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        $c = Creation::findOrFail($id);
-        $k = Kid::findOrFail($id);
+    // public function parentIndex()
+    // {
+    //     $c = Creation::all();
+    //     // $k = Kid::all();
 
-        if($c->kid_id != Auth::id()){
+    //     if($c->parent != Auth::id()){
+    //         abort(404);
+    //     }
+
+    //     return response()->json([
+    //         "data" => $c
+    //     ], 200);
+    // }
+
+    public function show($idKid, $idCreation)
+    {
+        $k = Kid::findOrFail($idKid);
+        $c = Creation::findOrFail($idCreation);
+
+        if($c->kid_id != $idKid){
             abort(404);
         }
+
+        return response()->json([
+            "data" => $c
+        ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function create(Request $req, $idKid, $idActivity)
     {
         $validator = Validator::make($req->all(), [ 
@@ -66,17 +82,11 @@ class CreationController extends Controller
         ], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function delete($id)
     {
         //

@@ -16,7 +16,7 @@ class ActivitySeeder extends Seeder
         $aCookie->img = $aCookie->name.".svg";
         $aCookie->txt_choice = "cuisine";
         $aCookie->txt_win = "cuisine";
-        $aCookie->category_id = 1;
+        $aCookie->sub_category_id = 1;
         $aCookie->save();
 
         $aMuffin = new \App\Activity();
@@ -24,7 +24,7 @@ class ActivitySeeder extends Seeder
         $aMuffin->img = $aMuffin->name.".svg";
         $aMuffin->txt_choice = "Muffin";
         $aMuffin->txt_win = "Muffin";
-        $aMuffin->category_id = 1;
+        $aMuffin->sub_category_id = 1;
         $aMuffin->save();
 
     }
