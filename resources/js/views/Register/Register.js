@@ -20,7 +20,7 @@ function Register(props) {
     }
 
     if(redirect) {
-        return <Redirect to="/launch-registration"/>;
+        return <Redirect to="/parental-control"/>;
     }
 
     function register(formdata) {

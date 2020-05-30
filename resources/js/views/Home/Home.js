@@ -16,7 +16,7 @@ function Home() {
     console.log(JSON.parse(localStorage.getItem('childrenData')));
 
     return (
-        <div className="container yellow background">
+        <div className="container yellow background nav">
             <HeaderKid kid={kid} />
             <div className="container__body">
                 <div className="content">

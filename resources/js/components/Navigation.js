@@ -5,41 +5,34 @@ function Navigation(props) {
     let homeClass = "";
     let tropheeClass = "";
     let profileClass = "";
-    let homeImg = "/icons/icon-home.png";
-    let tropheeImg = "/icons/icon-trophy.png";
-    let profileImg = "/icons/icon-profile.png";
 
 
     switch (props.page) {
         case 'home':
             homeClass = "selected";
-            homeImg = "/icons/icon-home.png";
             break;
         case 'trophies':
             tropheeClass = "selected";
-            tropheeImg = "/icons/icon-trophy.png";
             break;
         case 'profile':
             profileClass = "selected";
-            profileImg = "/icons/icon-profile.png";
             break;
         default:
             homeClass = "selected";
-            homeImg = "/icons/icon-home.png";
     }
 
     return (
         <div className="menu-bar">
             <Link className={"menu-bar__link " + homeClass } to="/accueil">
-                <img className="menu-bar__icon" src={homeImg} alt="Accueil"/>
+            <i className="fas fa-home menu-bar__icon"></i>
                 <p className="menu-bar__text">Accueil</p>
             </Link>
             <Link className={"menu-bar__link " + tropheeClass } to="/trophies">
-                <img className="menu-bar__icon" src={tropheeImg} alt="Trophés"/>
+                <i className="fas fa-trophy menu-bar__icon"></i>
                 <p className="menu-bar__text">Trophés</p>
             </Link>
             <Link className={"menu-bar__link " + profileClass } to="/profil">
-                <img className="menu-bar__icon" src={profileImg} alt="Profil"/>
+                <i className="fas fa-user menu-bar__icon"></i>
                 <p className="menu-bar__text">Profil</p>
             </Link>
         </div>
