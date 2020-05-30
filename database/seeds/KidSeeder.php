@@ -14,7 +14,7 @@ class KidSeeder extends Seeder
         $kid = new \App\Kid();
         $kid->name = "Stéphane";
         $kid->date_of_birth = "2000-05-28";
-        $kid->categories = "Cuisine";
+        $kid->categories = "1";
         $kid->user_id = 1;
         $kid->save();
     }

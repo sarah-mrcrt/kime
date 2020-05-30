@@ -29,7 +29,7 @@ class CreationController extends Controller
     public function show($id)
     {
         $c = Creation::findOrFail($id);
-        $k = Kid::findOrFail($idK);
+        $k = Kid::findOrFail($id);
 
         if($c->kid_id != Auth::id()){
             abort(404);
@@ -39,32 +39,32 @@ class CreationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function create(Request $req, $activity_id, $kid_id)
-    // {
-    //     $kid = Kid::findOrFail($kid_id);
-    //     $activity = Activity::findOrFail($activity_id);
-        
-    //     $validator = Validator::make($req->all(), [ 
-    //         'img' => 'file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
-    //     ]);
+    public function create(Request $req, $idKid, $idActivity)
+    {
+        $validator = Validator::make($req->all(), [ 
+            'img' => 'required|file|mimes:jpg,jpeg,png,bmp,tiff|max:300'
+        ]);
 
-    //     if($req->file('img') != null){
-    //         $name = $req->file('img')->hashName();
-    //         $req->file('img')->move("uploads/".Auth::id()."/".$kid, $name);
-    //     }
+        $kid = Kid::findOrFail($idKid);
+        $activity = Activity::findOrFail($idActivity);
+        if($req->file('img') != null){
+            $name = $req->file('img')->hashName();
+            $req->file('img')->move("uploads/".Auth::id()."/".$kid->id."/", $name);
+        }
 
-    //     $c = new Creation();
-    //     $c->img = $req->input('img');
-    //     $c->user_id = $kid;
-    //     //$comment->project_id = $project->id;
-    //     $c->activity_id = $activity;
+        $c = new Creation();
+        if($req->file('img') != null){
+            $c->img = ('/uploads/'.Auth::id().'/'.$name);
+        }
+        $c->kid_id = $idKid;
+        $c->activity_id = $idActivity;
 
-    //     $c->save();
+        $c->save();
 
-    //     return reponse()->json([
-    //         'data' => $c
-    //     ]);
-    // }
+         return response()->json([
+            "data" => $c
+        ], 200);
+    }
 
     /**
      * Update the specified resource in storage.

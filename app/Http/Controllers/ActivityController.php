@@ -16,8 +16,6 @@ class ActivityController extends Controller
             'success' => true,
             "data" => $a
         ], 201);
-
-
     }
 
     public function show($id)
@@ -25,19 +23,10 @@ class ActivityController extends Controller
         $a = Activity::findOrFail($id);
     
         return response()->json([
-            // 'success' => true,
-            // 'id' => $a->id,
-            // 'name' => $a->name,
-            // 'img' => $a->img,
-            // 'txt_choice' => $a->txt_choice,
-            // 'txt_win' => $a->txt_win,
-            // 'category_id' => $a->category_id,
-            // 'trophie_id' => $a->trophie_id,
-            // "data" => $a,
+            "data" => $a,
             // "Steps from the activity" => $a->steps,
             // "Category from the activity" => $a->category,
-            "Kids who have access to the activity" => $a->kids
-            
+            // "Kids who have access to the activity" => $a->kids            
         ], 201);
     }
 
@@ -71,19 +60,8 @@ class ActivityController extends Controller
 
     public function update(Request $req, $id)
     {
-        // $validator = Validator::make($req->all(), [ 
-        //     'name' => 'required|min:3|max:255',
-        //     'img' => 'required',
-        //     'txt_choice' => 'required',
-        //     'txt_win' => 'required',
-        // ]);
-
         $a = Activity::findOrFail($id);
-        $a->name = $req->input('name');
-        $a->img = $req->input('img');
-        $a->txt_choice = $req->input('txt_choice');
-        $a->txt_win = $req->input('txt_win');
-        $a->save();
+        $a->update($req->all());
 
         return response()->json("Update");
     }

@@ -23,7 +23,6 @@
     <h2>Page de tests</h2>
     @if (Auth::check())
         <h3>L'utilisateur est connecté.</h3>
-        <a href="/deconnexion" class="button">Déconnexion</a>
 
         <h3>Add kid</h3>
         <form action="/kid/create" enctype="multipart/form-data" method="post">
@@ -38,14 +37,14 @@
         </form>
 
         <h3>Création</h3>
-        <form action="/creation/create" enctype="multipart/form-data" method="post">
+        <form action="/1/1/creation/create" enctype="multipart/form-data" method="post">
             @csrf
             <input type="file" name="img" value='{{old('img')}}' required />
             <input type="submit" value="Submit" />
         </form>
     @endif
 
-    <br/>
+    {{-- <br/>
     <h2>Ajout d'une activité</h2>
     <form action="/activity/create" enctype="multipart/form-data" method="post">
         @csrf
@@ -55,9 +54,6 @@
         <input type="text" name="txt_win"  value='{{old('txt_win')}}' required />
         <input type="submit" value="Submit" />
     </form>
-    
-    <h2>Ajout d'une étape</h2>
-
-    
+     --}}
 </body>
 </html>
