@@ -67,13 +67,14 @@ Route::post('/api/auth/user', 'API\UserController@details');
 
     // Categories & Sub categories
     Route::get('/categories/all', 'CategoryController@index');
-    Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '[a-z]+');
+    Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
 
     Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
 
 
     // Avatars
-    //  Route::get('/avatars/all', 'AvatarController@index');
+    Route::get('/avatars/all', 'AvatarController@index');
+    Route::get('/avatar/{id}', 'AvatarController@show')->where('id', '[0-9]+');
 
 // });
 

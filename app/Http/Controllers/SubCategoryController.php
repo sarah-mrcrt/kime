@@ -8,7 +8,6 @@ use App\Category;
 
 class SubCategoryController extends Controller
 {
-    
     public function index()
     {
         //
