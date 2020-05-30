@@ -17,8 +17,8 @@ const Welcome = props => {
                         <a className="page-welcome__section" href='/accueil'>
                             <img className="page-welcome__section__img" src="/img/welcome-child.png" alt="Enfants" />
                         </a>
-                        <a className="page-welcome__section" href='/accueil'>
-                            <img className="page-welcome__section__img" src="/img/welcome-parent.png" alt="Enfants" />
+                        <a className="page-welcome__section" href='/parent-password'>
+                            <img className="page-welcome__section__img" src="/img/welcome-parent.png" alt="Parent" />
                         </a>
                     </div>
                 </div>

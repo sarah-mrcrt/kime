@@ -40,7 +40,7 @@ function FillChildInfo(props) {
                 </div>
                 <div className="form-auth__input-div pass focus">
                     <div className="i">
-                        <i className="fas fa-user"></i>
+                        <i className="fas fa-gift"></i>
                     </div>
                     <div className="div">
                         <label className="form__label">Date de naissance</label>

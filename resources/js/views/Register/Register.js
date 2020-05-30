@@ -20,7 +20,7 @@ function Register(props) {
     }
 
     if(redirect) {
-        return <Redirect to="/launch-registration"/>;
+        return <Redirect to="/parental-control"/>;
     }
 
     function register(formdata) {
@@ -94,7 +94,7 @@ function Register(props) {
                         
                         <div className={email === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-at"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
@@ -103,7 +103,7 @@ function Register(props) {
                         </div>
                         <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-lock"></i>
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Mot de passe</label>
@@ -112,7 +112,7 @@ function Register(props) {
                         </div>
                         <div className={passwordConfirm === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-lock"></i>
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Confirmez le mot de passe</label>
@@ -121,10 +121,10 @@ function Register(props) {
                         </div>
                         <div className={adminPassword === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-user-lock"></i>
                             </div>
                             <div className="div">
-                            <label className="form__label" htmlFor="password">Mot de passe de sécurité</label>
+                            <label className="form__label" htmlFor="password">Mot de passe parental</label>
                             <input className="input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password" value={adminPassword}/>
                             </div>
                         </div>

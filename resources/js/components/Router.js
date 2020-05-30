@@ -19,6 +19,10 @@ import ActivityChoice from '../views/Activity/ActivityChoice';
 import ActivityStep from '../views/Activity/ActivityStep';
 import ActivityUpload from '../views/Activity/ActivityUpload';
 import ActivityWin from '../views/Activity/ActivityWin';
+import ParentPassword from '../views/Parent/ParentPassword';
+import ParentHome from '../views/Parent/ParentHome';
+import ParentSearch from '../views/Parent/ParentSearch';
+import ParentProfil from '../views/Parent/ParentProfil';
 
 
 
@@ -51,6 +55,10 @@ const PrivateRoute = ({ component, ...options }) => {
         <Route exact={true} path="/activity-step" component={ActivityStep} />
         <Route exact={true} path="/activity-upload" component={ActivityUpload} />
         <Route exact={true} path="/activity-win" component={ActivityWin} />
+        <Route exact={true} path="/parent-password" component={ParentPassword} />
+        <Route exact={true} path="/parent-accueil" component={ParentHome} />
+        <Route exact={true} path="/parent-profil" component={ParentProfil} />
+        <Route exact={true} path="/parent-recherche" component={ParentSearch} />
 
         <Route path="*" component={() => <p>Page Not Found</p>} />
     </Switch>
