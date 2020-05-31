@@ -23,6 +23,7 @@ class SubCategorySeeder extends Seeder
                 }else{
                     $subCategory->img = "sub_category-".($item + 1).".svg";
                 }
+                $subCategory->color = 'red';
                 $subCategory->slug = Str::slug($subCategory->name, "-");
                 $subCategory->category_id = 1;
                 $subCategory->category_slug = 'cuisine';

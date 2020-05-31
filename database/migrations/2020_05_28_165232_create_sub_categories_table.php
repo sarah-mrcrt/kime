@@ -17,6 +17,7 @@ class CreateSubCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('img');
+            $table->string('color');
             $table->string('slug')->unique();
             $table->integer('category_id')->unsigned();
             $table->string('category_slug');
