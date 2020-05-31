@@ -30,8 +30,8 @@ Route::group([ // Adding API prefix to all API routes
 // Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
-    Route::get('/user/update/{user}','API\UserController@update');
-    Route::delete('/user/delete/{user}','API\UserController@destroy');
+    Route::get('/userUpdate/{user}','API\UserController@update');
+    Route::delete('/userDelete/{user}','API\UserController@destroy');
     Route::get('/creations/allNews','CreationController@parentIndex');
 
 
@@ -39,13 +39,13 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/kids/all','KidController@index');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
     Route::post('/kid/create','KidController@create');
-    Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
-    Route::delete('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
+    Route::put('/kidUpdate/{id}','KidController@update')->where('id', '[0-9]+');
+    Route::delete('/kidDelete/{id}','KidController@delete')->where('id', '[0-9]+');
 
-    Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
+    Route::get('/creationsAll/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
-    Route::post('creation/{idKid}/{idActivity}/create', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
-    Route::delete('/creation/delete/{id}','CreationController@delete');
+    Route::post('creationCreate/{idKid}/{idActivity}', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
+    Route::delete('/creationDelete/{id}','CreationController@delete');
 
 
     // Activities & Steps
@@ -55,8 +55,8 @@ Route::group([ // Adding API prefix to all API routes
 
     Route::middleware('admin')->group(function () {
         Route::post('/activity/create', 'ActivityController@create');
-        Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
-        Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+        Route::put('/activityUpdate/{id}','ActivityController@update')->where('id', '[0-9]+');
+        Route::delete('/activityDelete/{id}','ActivityController@delete')->where('id', '[0-9]+');
         //modifier, supprimer, ajouter steps
     });
 
@@ -64,7 +64,7 @@ Route::group([ // Adding API prefix to all API routes
     // Trophies
     Route::get('/trophies/all', 'TrophyController@index');
     Route::get('/trophy/{id}','TrophyController@show')->where('id', '[0-9]+');
-    Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['idKid' => '[0-9]+', 'idTrophy' => '[0-9]+']);
+    Route::get('/winTrophy/{idKid}-{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'([\w]+[-]{1}[\w]+)', 'idTrophy'=> '([\w]+[-]{1}[\w]+)']);
 
 
     // Categories & Sub categories
@@ -82,7 +82,7 @@ Route::group([ // Adding API prefix to all API routes
 
 
     // Search
-    Route::get('/recherche/{parameter}','SearchController@search');
+    Route::get('/search/{parameter}','SearchController@search');
 
     // });
 }); // Ending API prefix group
