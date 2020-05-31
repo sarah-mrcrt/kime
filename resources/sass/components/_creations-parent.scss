@@ -1,0 +1,127 @@
+/// 
+/// CREATIONS KID
+///
+
+.content .creations-parent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    &__creation {
+        position: relative;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+
+        &__body {
+            position: relative;
+            border-radius: 1rem;
+            box-shadow: 0 .2rem .5rem $black-shadow;
+
+
+            &__imgs {
+                position: relative;
+                border-radius: 1rem;
+                height: 35vh;
+
+                &__img {
+
+                    & > img {
+                        width: 100%;
+                        max-height: 100%;
+                        object-fit: cover;
+                        height: 35vh;
+                        border-radius: 1rem;
+                    }
+                }
+            }
+            &__infos {
+                position: absolute;
+                padding: .3rem 2rem;
+                padding-left: 3.5rem;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                background-color: $white-shadow;
+                border-radius: 1rem;
+        
+                &__avatar {
+                    position: absolute;
+                    left: -1rem;
+                    bottom: -1rem;
+                    width: 4rem;
+                    margin: 0;
+                    align-self: stretch;
+                    padding-right: 0;
+                    z-index: 200;
+                    
+                    & > img {
+                        position: absolute;
+                        right: 0; 
+                        left: 0; 
+                        width: 100%;
+                        margin: auto;
+                        height: auto;
+                        z-index: 200;
+                    }
+                }
+                &__title {
+                    margin: auto 0;
+                    white-space: nowrap;
+                    font-size: 1rem;
+                    line-height: 1.2rem;
+                }
+                &__subtitle {
+                    margin: auto 0;
+                    white-space: nowrap;
+                    font-size: .6rem;
+                    line-height: .8rem;
+                }
+            }
+        }
+
+        &__infos {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: .5rem;
+            padding: 0 1rem;
+            padding-left: 3rem;
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                &__title {
+                    width: 100%;
+                    margin: 0;
+                    font-size: 1.2rem;
+                    white-space: nowrap;
+                    text-align: center;
+                }
+                &__subtitle {
+                    width: 100%;
+                    margin: 0;
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    font-weight: bold;
+                    white-space: nowrap;
+                    text-align: center;
+                    color: $yellow;
+                }
+            }
+
+
+            &__share {
+                margin: auto 0;
+                margin-left: auto;
+
+                & > i {
+                    font-size: 1.5rem;
+                    color: $yellow;
+                }
+            }
+        }
+    }
+}

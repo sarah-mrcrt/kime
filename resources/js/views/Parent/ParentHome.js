@@ -1,18 +1,25 @@
 import React from 'react';
 import Navigation from '../../components/Navigation';
-import ActivitiesGrid from '../../components/ActivitiesGrid.js';
+import CreationsParent from '../../components/CreationsParent.js';
 import Header from '../../components/Header.js';
 
 
 function ParentHome() {
 
-    let activities = [
-        {id:2, name:"Gâteaux", img:"/icons/icon-activity-01.svg", color:"blue"}, 
-        {id:7, name:"Dessin", img:"/icons/icon-activity-03.svg", color:"yellow"}, 
-        {id:0, name:"Jeux d'équilibres", img:"/icons/icon-activity-02.svg", color:"red"},
-        {id:10, name:"Jeux", img:"/icons/icon-activity-03.svg", color:"blue"}
-    ];
-    let kid = {id:2, name:"Jérôme", avatar:"/img/avatar-07.svg"}
+    let kids = [
+        {id:2, name:"Jérôme", avatar:"/img/avatar-07.svg"},
+        {id:8, name:"Marie", avatar:"/img/avatar-12.svg"}
+    ]
+    
+    // Récupérer les creations (+ rérentes à + anciennes) de tous les "kids"
+    let creations = [ // Regroupement des creations par activité (plus récente à plus ancienne)
+        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
+        {id: 2, kid_id:8, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
+        {id: 2, kid_id:2, activity_id:8, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
+        {id: 2, kid_id:8, activity_id:3, img:"/img/category.jpg", created_at:'2020-04-30 11:08:13'}
+    ]
+    // Récupération des activités/subcats & Fonctionnement du bouton Partage dans le composant CreationsParent.js
+
     console.log(JSON.parse(localStorage.getItem('childrenData')));
 
     return (
@@ -20,7 +27,7 @@ function ParentHome() {
             <Header title="Créations" subtitle="de vos enfants" color="red" imageUrl="/img/parent-home-img-01.svg"/>
             <div className="container__body">
                 <div className="content">
-                    ParentHome
+                    <CreationsParent creations={creations} kids={kids} />
                 </div>
             </div>
             <Navigation page="home" parent={true} />

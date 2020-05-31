@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HeaderProfile(props) {
+function CreationsKid(props) {
     let kid = props.kid
     let gridClass = "";
     let nbCreations = 0;
@@ -35,4 +35,4 @@ function HeaderProfile(props) {
     );
 }
 
-export default HeaderProfile;
+export default CreationsKid;
