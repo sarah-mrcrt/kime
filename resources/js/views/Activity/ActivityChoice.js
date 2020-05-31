@@ -12,8 +12,7 @@ function ActivityChoice(props) {
     let catSlug = props.match.params.catSlug;
     let subCatSlug = props.match.params.subCatSlug;
 
-    // Get subcat from server
-
+    // Get subCat from server
     useEffect(() => {
         axios.get('/api/category/' + catSlug + '/' + subCatSlug)
         .then(json => {
@@ -23,9 +22,7 @@ function ActivityChoice(props) {
         }).catch(error => {
             console.log(error);
         })
-    }, [])
-
-    console.log(subCat);
+    }, []);
 
     if(Object.keys(subCat).length > 0) {
         return (
