@@ -42,7 +42,7 @@ function Register(props) {
                     user: userData
                 }
 
-                localStorage.setItem('authData', JSON.stringify(authData));
+                sessionStorage.setItem('authData', JSON.stringify(authData));
 
                 console.log("succesfully registered user");
 

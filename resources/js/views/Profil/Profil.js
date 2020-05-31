@@ -33,7 +33,7 @@ function Profil(props) {
         axios.post("/api/auth/logout",{})
         .then(json => {
             let authData = {};
-            localStorage.setItem('authData', JSON.stringify(authData));
+            sessionStorage.setItem('authData', JSON.stringify(authData));
             console.log(json.data.message);
 
         }).then(onLogout)

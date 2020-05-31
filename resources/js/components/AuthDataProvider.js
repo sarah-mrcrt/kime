@@ -8,7 +8,7 @@ function AuthDataProvider(props) {
     const [authData, setAuthData] = useState(initialAuthData);
 
     const setData = () => {
-      let currentAuthData = LocalStorageManager.getItem('authData');
+      let currentAuthData = sessionStorage.getItem('authData');
 
       if (currentAuthData) {
         setAuthData(currentAuthData);
