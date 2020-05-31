@@ -14,6 +14,7 @@ class SubCategoryController extends Controller
         return response()->json([ 
             "data" => $subcategory,
         ], 200);
+
     }
 
     public function show($slugCategory, $slugSubCategory)
