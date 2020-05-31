@@ -24,6 +24,7 @@ class AvatarSeeder extends Seeder
                     $avatar->img = "avatar-".($item + 1).".svg";
                 }
                 $avatar->color = "blue";
+                $avatar->minScore = 0;
                 $avatar->save();
                 $item+=1;
             }

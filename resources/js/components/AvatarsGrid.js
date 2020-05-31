@@ -9,8 +9,17 @@ function AvatarsGrid(props) {
     const [avatars, setAvatars] = useState({})
 
     useEffect(() => {
-        
-    });
+        axios.get('/api/avatars/all')
+        .then(json => {
+            if(json.data.success) {
+                setAvatars(json.data.data)
+            }
+        }).catch(error => {
+            console.log(error);
+        });
+    }, []);
+
+    console.log(avatars);
 
     const handleClick = e => {
         e.preventDefault();
@@ -39,7 +48,7 @@ function AvatarsGrid(props) {
     return (
         <form className="flex-grow flex-y" onSubmit={handleSubmit}>
             <section className="avatars-grid">
-                {props.avatars.map((avatar,index) => {
+                {avatars.map((avatar,index) => {
 
                     let unlockedClass = "locked";
                     if(avatar.minScore <= props.score) {
