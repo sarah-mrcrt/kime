@@ -1,4 +1,5 @@
 .form {
+
     &__row {
         margin-bottom: 1rem;
     }
@@ -21,6 +22,10 @@
     }
 
     &-auth {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
         &__forgot-pwd {
             display: block;
             width: 100%;
@@ -42,7 +47,8 @@
     
         &__submit-container {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: auto;
+            padding-top: 2rem;
         }
     
         &__separator {
@@ -92,7 +98,7 @@
                     border: none;
                     outline: none;
                     background: none;
-                    padding: 0 0.7rem;
+                    padding: 0 1rem 0 2rem;
                     font-size: 1.2rem;
                     color: $red;
                     font-family: 'poppins', sans-serif;
@@ -100,7 +106,7 @@
             
                 & .form__label{
                     position: absolute;
-                    left: 10px;
+                    left: 1rem;
                     top: 50%;
                     transform: translateY(-50%);
                     color: $light-gray;
@@ -127,6 +133,15 @@
             &:after{
                 left: 50%;
             }
+
+            & .i {
+                display: flex;
+                padding: 0 1rem;
+
+                & > i {
+                    margin: auto;
+                }
+            }
             &.focus {
                 &:before, &:after{
                     width: 50%;
@@ -137,11 +152,17 @@
                     font-size: 1rem;
                 }
                 
-                & > .i > i{
+                & > .i {
                     color: $red;
                 }
             }
         }
+    }
+}
+
+.fill-child-info {
+    .form-auth .i > i {
+        color: $white;
     }
 }
 

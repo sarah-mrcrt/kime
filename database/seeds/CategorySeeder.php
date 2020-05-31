@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -11,28 +12,21 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-       $category = new \App\Category();
-       $category->name = "Cuisine";
-       $category->img = "category-01.svg";
-       $category->slug = "cuisine";
-       $category->save();
+        $categories = ['Cuisine', 'Jeux','Créativité','Jeux extérieurs', 'Jeux intérieurs'];
 
-       $category1 = new \App\Category();
-       $category1->name = "Jardin";
-       $category1->img = "category-02.svg";
-       $category1->slug = "jardin";
-       $category1->save();
-       
-       $category2 = new \App\Category();
-       $category2->name = "Creativité";
-       $category2->img = "category-03.svg";
-       $category2->slug = "creativité";
-       $category2->save();
-
-       $category3 = new \App\Category();
-       $category3->name = "Jeux";
-       $category3->img = "category-04.svg";
-       $category3->slug = "jeux";
-       $category3->save();
+        for ($item=0; $item < count($categories); $item++){ 
+            foreach ($categories as $category) {
+                $category = new \App\Category();
+                $category->name = $categories[$item];
+                if($item<9){
+                    $category->img = "category-0".($item + 1).".svg";
+                }else{
+                    $category->img = "category-".($item + 1).".svg";
+                }
+                $category->slug = Str::slug($category->name, "-");
+                $category->save();
+                $item+=1;
+            }
+        }
     }
 }

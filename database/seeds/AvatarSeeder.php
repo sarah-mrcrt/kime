@@ -18,10 +18,10 @@ class AvatarSeeder extends Seeder
             foreach ($avatars as $avatar) {
                 $avatar = new \App\Avatar();
                 $avatar->name = $avatars[$item];
-                if($item<10){
-                    $avatar->img = "avatar-0".$item.".svg";
+                if($item<9){
+                    $avatar->img = "avatar-0".($item + 1).".svg";
                 }else{
-                    $avatar->img = "avatar-".$item.".svg";
+                    $avatar->img = "avatar-".($item + 1).".svg";
                 }
                 $avatar->color = "blue";
                 $avatar->save();

@@ -51,3 +51,44 @@
         }
     }
 }
+
+.page-header-parent {
+    color: $white;
+    display: flex;
+    padding: 1rem;
+    padding-top: 2rem;
+
+    &__text {
+        flex-grow: 1;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .form-auth {
+        &__input-div {
+            border-color: $white;
+
+            & > div{
+
+                & > input{
+                    color: $white;
+                }
+            
+                & .form__label{
+                    color: $white;
+                    background-color: $red;
+                }
+            }
+
+            &:before, &:after {
+                background-color: $white;        
+            }
+            &.focus {
+                & > .i > i{
+                    color: $white;
+                }
+            }
+        }
+    }
+}

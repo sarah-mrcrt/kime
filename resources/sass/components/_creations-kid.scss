@@ -1,0 +1,127 @@
+/// 
+/// CREATIONS KID
+///
+
+.creations-kid {
+    display: flex;
+    flex-direction: column;
+
+    &__creation {
+        position: relative;
+        border-radius: 1rem;
+        box-shadow: 0 .2rem .5rem $black-shadow;
+        margin-bottom: 2rem;
+
+        &__imgs {
+            position: relative;
+            border-radius: 1rem;
+            min-height: 20vh;
+            max-height: 30vh;
+
+            &__img {
+
+                & > img {
+                    width: 100%;
+                    max-height: 100%;
+                    object-fit: cover;
+                    height: 20vh;
+                }
+
+                &.img0 {
+                    grid-area: crea0;
+                    & > img {
+                        border-bottom-left-radius: 1rem;
+                        border-top-left-radius: 1rem;
+                    }
+                }
+                &.img1 {
+                    grid-area: crea1;
+                    & > img {
+                        border-bottom-right-radius: 1rem;
+                        border-top-right-radius: 1rem;
+                    }
+                }
+                &.img2 {
+                    grid-area: crea2;
+                    & > img {
+                        border-bottom-right-radius: 1rem;
+                    }
+                }
+            }
+
+            &.g0 {
+                display: none;
+            }
+            &.g1 {
+                grid-template-columns: 100%;
+                grid-template-areas: 'crea0';
+
+                & .creations-kid__creation__imgs__img.img0 > img {
+                    border-radius: 1rem;
+                }
+            }
+            &.g2 {
+                grid-template-columns: 60% 40%;
+                grid-template-areas: 'crea0 crea1';
+            }
+            &.g3 {
+                grid-template-columns: 60% 40%;
+                grid-template-areas: 
+                'crea0 crea1'
+                'crea0 crea2';
+
+                & .creations-kid__creation__imgs__img {
+                    &.img0 > img {
+                        height: 30vh;
+                    }
+                    &.img1 > img, &.img2 > img {
+                        height: 15vh;
+                    }
+                    &.img1 > img {
+                        border-bottom-right-radius: 0;
+                    }
+                }
+            }
+        }
+    }
+    &__infos {
+        padding: .5rem 1rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: flex-start;
+        background-color: $black-shadow;
+        border-bottom-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        &.red {
+            background-color: $red-opacity;
+            & .creations-kid__infos__title {
+                color: $white;
+            }
+        }
+        &.blue {
+            background-color: $blue-opacity;
+            & .creations-kid__infos__title {
+                color: $white;
+            }
+        }
+        &.yellow {
+            background-color: $yellow-opacity;
+            & .creations-kid__infos__title {
+                color: $black;
+            }
+        }
+
+        &__img {
+            height: 2rem;
+            width: auto;
+        }
+        &__title {
+            margin: auto 0;
+            margin-left: 1rem;
+            white-space: nowrap;
+        }
+    }
+}
