@@ -1,0 +1,103 @@
+/// 
+/// CREATIONS KID
+///
+
+.creations-parent {
+    display: flex;
+    flex-direction: column;
+
+    &__creation {
+        position: relative;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+
+        &__body {
+            position: relative;
+            border-radius: 1rem;
+            box-shadow: 0 .2rem .5rem $black-shadow;
+
+
+            &__imgs {
+                position: relative;
+                border-radius: 1rem;
+                min-height: 20vh;
+                max-height: 30vh;
+
+                &__img {
+
+                    & > img {
+                        width: 100%;
+                        max-height: 100%;
+                        object-fit: cover;
+                        height: 20vh;
+                        border-radius: 1rem;
+                    }
+                }
+            }
+            &__infos {
+                padding: .5rem 1rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                justify-content: flex-start;
+                background-color: $white-shadow;
+                border-bottom-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+        
+                &.red {
+                    background-color: $red-opacity;
+                    & .creations-kid__infos__title {
+                        color: $white;
+                    }
+                }
+                &.blue {
+                    background-color: $blue-opacity;
+                    & .creations-kid__infos__title {
+                        color: $white;
+                    }
+                }
+                &.yellow {
+                    background-color: $yellow-opacity;
+                    & .creations-kid__infos__title {
+                        color: $black;
+                    }
+                }
+        
+                &__img {
+                    height: 2rem;
+                    width: auto;
+                }
+                &__title {
+                    margin: auto 0;
+                    margin-left: 1rem;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        &__infos {
+            display: flex;
+            justify-content: flex-start;
+
+            & > * {
+                margin: auto 0;
+            }
+
+            &__title {
+                flex-grow: 1;
+                margin-left: 1rem;
+                font-size: 2rem;
+            }
+            &__subtitle {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            &__share {
+                margin-left: auto;
+            }
+        }
+    }
+}
