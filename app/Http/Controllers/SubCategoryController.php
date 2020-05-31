@@ -10,7 +10,10 @@ class SubCategoryController extends Controller
 {
     public function index()
     {
-        //
+        $subcategory = SubCategory::all();
+        return response()->json([ 
+            "data" => $subcategory,
+        ], 201);
     }
 
     public function show($slugCategory, $slugSubCategory)

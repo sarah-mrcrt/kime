@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
         return response()->json([ 
             // "Category data" => $c,
-            // "Sub categories from the category" => $c->subcategories,
+            "Sub categories from the category" => $c->subcategories,
             // "Kids who chose this category" => $c->kids,
             // "Find activities from the category" => $c->activities
         ], 201);

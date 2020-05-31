@@ -17,10 +17,10 @@ class TrophySeeder extends Seeder
             foreach ($trophies as $trophy) {
                 $trophy = new \App\Trophy();
                 $trophy->name = $trophies[$item];
-                if($item<10){
-                    $trophy->img = "trophy-0".$item.".svg";
+                if($item<9){
+                    $trophy->img = "trophy-0".($item + 1).".svg";
                 }else{
-                    $trophy->img = "trophy-".$item.".svg";
+                    $trophy->img = "trophy-".($item + 1).".svg";
                 }
                 $trophy->save();
                 $item+=1;

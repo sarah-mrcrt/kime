@@ -36,7 +36,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
     Route::post('/kid/create','KidController@create')->where('id', '[0-9]+');
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
-    Route::get('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
+    Route::delete('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
     Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
@@ -67,6 +67,8 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::get('/categories/all', 'CategoryController@index');
     Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
 
+
+    Route::get('/subcategories/all', 'SubCategoryController@index');
     Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
 
 
