@@ -38,7 +38,7 @@ Route::group([ // Adding API prefix to all API routes
     // Kids & Creations
     Route::get('/kids/all','KidController@index');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
-    Route::post('/kid/create','KidController@create')->where('id', '[0-9]+');
+    Route::post('/kid/create','KidController@create');
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
     Route::delete('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
@@ -69,7 +69,7 @@ Route::group([ // Adding API prefix to all API routes
 
     // Categories & Sub categories
     Route::get('/categories/all', 'CategoryController@index');
-    Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
+    Route::get('/category/{id}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
 
 
     Route::get('/subcategories/all', 'SubCategoryController@index');
@@ -79,6 +79,10 @@ Route::group([ // Adding API prefix to all API routes
     // Avatars
     Route::get('/avatars/all', 'AvatarController@index');
     Route::get('/avatar/{id}', 'AvatarController@show')->where('id', '[0-9]+');
+
+
+    // Search
+    Route::get('/recherche/{parameter}','SearchController@search');
 
     // });
 }); // Ending API prefix group
