@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function ActivitiesGrid(props) {
 
-    const [activities, setActivities] = useState([])
+    const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        axios.get('/activity/all')
+        axios.get('/activities/all')
         .then(json => {
-            console.log(json.data);
-
             if(json.data.success) {
                 setActivities(json.data.data)
             }
