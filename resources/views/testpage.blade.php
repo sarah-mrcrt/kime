@@ -42,6 +42,8 @@
             <input type="file" name="img" value='{{old('img')}}' required />
             <input type="submit" value="Submit" />
         </form>
+
+        <button></button>
     @endif
 
     {{-- <br/>
