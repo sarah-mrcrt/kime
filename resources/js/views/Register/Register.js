@@ -82,7 +82,7 @@ function Register(props) {
 
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">
                         
-                        <div className={name === '' ? ("form-auth__input-div one") : ("form-auth__input-div one focus")}>
+                        <div className={name === '' ? ("form-auth__input-div pass") : ("form-auth__input-div one focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
