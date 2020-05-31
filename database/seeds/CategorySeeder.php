@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['Cuisine', 'Jeux','Créativité','Jeux extérieurs', 'Jeux intérieurs'];
+        $categories = ['Cuisine', 'Créativité', "Jeux d'extérieurs", "Jeux d'intérieurs"];
 
         for ($item=0; $item < count($categories); $item++){ 
             foreach ($categories as $category) {

@@ -23,10 +23,10 @@ class SubCategoryController extends Controller
         $subcategory = SubCategory::where('slug', '=', $slugSubCategory) ->firstOrFail();
 
         return response()->json([ 
-            // "data" => $subcategory,
-            //  "Category of the subcategory" => $subcategory->category,
-            "Activities from the subcategory" => $subcategory->activities
-        ], 201);
+            'name' => $subcategory->name,
+            'img' => $subcategory->img,
+            'activities' => $subcategory->activities
+        ], 200);
     }
 
     public function create()

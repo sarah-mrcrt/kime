@@ -15,9 +15,8 @@ class KidController extends Controller
     public function index()
     {
         $k = Kid::all()->where('user_id', '=', Auth::id());
-        
          return response()->json([
-             "message" => "success",
+             "success" => true,
              "data" => $k
          ]);
     }
@@ -50,7 +49,7 @@ class KidController extends Controller
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255',
             'birthdate' => 'required',
-            'avatar_id' => 'required',
+            'avatar' => 'required',
             'categories' => 'required'
         ]);
 
@@ -66,7 +65,7 @@ class KidController extends Controller
         $k = new Kid();
         $k->name = $req->input('name');
         $k->date_of_birth = $req->input('birthdate');
-        $k->avatar_id = $req->input('avatar_id');
+        $k->avatar_id = $req->input('avatar');
         $k->categories = implode(',', $req->categories);
         $k->user_id = Auth::id();
 

@@ -13,16 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/{path?}', 'app');
-Route::view('/{path1?}/{path2?}', 'app');
-
+Route::view('/{path?}', 'app')->where('path', '.*');
 Route::view('/test/test', 'testpage');
 
-// User
 Route::group([ // Adding API prefix to all API routes
     'prefix' => 'api',
-
 ], function () {
+
+    // User
     Route::post('auth/login', 'API\UserController@login');
     Route::post('auth/register', 'API\UserController@register');
     Route::post('auth/logout', 'API\UserController@logout');
@@ -31,8 +29,8 @@ Route::group([ // Adding API prefix to all API routes
 // Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
-    Route::get('/userUpdate/{user}','API\UserController@update');
-    Route::delete('/userDelete/{user}','API\UserController@destroy');
+    Route::get('/user/update/{user}','API\UserController@update');
+    Route::delete('/user/delete/{user}','API\UserController@destroy');
     Route::get('/creations/allNews','CreationController@parentIndex');
 
 
@@ -40,13 +38,13 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/kids/all','KidController@index');
     Route::get('/kid/{id}','KidController@show')->where('id', '[0-9]+');
     Route::post('/kid/create','KidController@create');
-    Route::put('/kidUpdate/{id}','KidController@update')->where('id', '[0-9]+');
-    Route::delete('/kidDelete/{id}','KidController@delete')->where('id', '[0-9]+');
+    Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
+    Route::delete('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
-    Route::get('/creationsAll/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
+    Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
     Route::post('creationCreate/{idKid}/{idActivity}', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
-    Route::delete('/creationDelete/{id}','CreationController@delete');
+    Route::delete('/creation/delete/{id}','CreationController@delete');
 
 
     // Activities & Steps
@@ -56,8 +54,8 @@ Route::group([ // Adding API prefix to all API routes
 
     Route::middleware('admin')->group(function () {
         Route::post('/activity/create', 'ActivityController@create');
-        Route::put('/activityUpdate/{id}','ActivityController@update')->where('id', '[0-9]+');
-        Route::delete('/activityDelete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+        Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
+        Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
         //modifier, supprimer, ajouter steps
     });
 
@@ -65,14 +63,12 @@ Route::group([ // Adding API prefix to all API routes
     // Trophies
     Route::get('/trophies/all', 'TrophyController@index');
     Route::get('/trophy/{id}','TrophyController@show')->where('id', '[0-9]+');
-    Route::get('/winTrophy/{idKid}-{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'([\w]+[-]{1}[\w]+)', 'idTrophy'=> '([\w]+[-]{1}[\w]+)']);
+    Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'[0-9]+', 'idTrophy'=> '[0-9]+']);
 
 
     // Categories & Sub categories
     Route::get('/categories/all', 'CategoryController@index');
     Route::get('/category/{id}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
-
-
     Route::get('/subcategories/all', 'SubCategoryController@index');
     Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
 
@@ -83,7 +79,7 @@ Route::group([ // Adding API prefix to all API routes
 
 
     // Search
-    Route::get('/search/{parameter}','SearchController@search');
+    Route::get('/search/{parameter}','SearchController@search')->where('parameter', '^(?!.*dashboard).*$');
 
     // });
 }); // Ending API prefix group
