@@ -11,6 +11,10 @@ class CreationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $creation = new \App\Creation();
+        $creation->img = "toto.svg";
+        $creation->kid_id = 1;
+        $creation->activity_id = 1;
+        $creation->save();
     }
 }

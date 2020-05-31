@@ -30,9 +30,9 @@ Route::group([ // Adding API prefix to all API routes
 // Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
-    Route::get('/kids/allCreations','CreationController@parentIndex');
-    // Route::get('/user/update/{id}','UserController@update');
-    // Route::get('/user/delete/{id}','UserController@delete');
+    Route::get('/user/update/{user}','API\UserController@update');
+    Route::delete('/user/delete/{user}','API\UserController@destroy');
+    Route::get('/creations/allNews','CreationController@parentIndex');
 
 
     // Kids & Creations
@@ -45,7 +45,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
     Route::post('creation/{idKid}/{idActivity}/create', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
-    // Route::get('/creation/delete/{id}','CreationController@delete');
+    Route::delete('/creation/delete/{id}','CreationController@delete');
 
 
     // Activities & Steps
@@ -56,7 +56,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::middleware('admin')->group(function () {
         Route::post('/activity/create', 'ActivityController@create');
         Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
-        Route::get('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+        Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
         //modifier, supprimer, ajouter steps
     });
 
@@ -80,7 +80,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/avatars/all', 'AvatarController@index');
     Route::get('/avatar/{id}', 'AvatarController@show')->where('id', '[0-9]+');
 
+    // });
 }); // Ending API prefix group
-// });
 
 Auth::routes();

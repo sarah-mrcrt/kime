@@ -88,4 +88,26 @@ class UserController extends Controller
             'message' => 'Successfully logged out'
         ]);
     }
+
+    public function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+
+        return response()->json([
+            'success' => true
+        ], 201);
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        if($user->id != Auth::id()){
+            abort(404);
+        }
+
+        return response()->json([
+            'success' => true
+        ], 201);
+    }
 }

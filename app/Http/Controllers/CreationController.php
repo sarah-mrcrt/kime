@@ -82,6 +82,11 @@ class CreationController extends Controller
 
     public function delete($id)
     {
-        //
+        $c = Creation::findOrFail($id);
+        $c->delete();
+
+        return response()->json([
+            'success' => true
+        ], 201);
     }
 }
