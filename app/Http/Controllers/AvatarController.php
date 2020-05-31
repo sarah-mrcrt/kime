@@ -11,9 +11,10 @@ class AvatarController extends Controller
     {
         $a = Avatar::all();
 
-        return response()->json([ 
+        return response()->json([
+            'success' => true, 
             "data" => $a,
-        ], 201);
+        ], 200);
     }
 
     public function show($id)
@@ -22,7 +23,7 @@ class AvatarController extends Controller
 
         return response()->json([ 
             "data" => $a,
-        ], 201);
+        ], 200);
     }
 
     public function create()
