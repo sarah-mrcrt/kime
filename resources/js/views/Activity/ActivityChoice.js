@@ -15,10 +15,10 @@ function ActivityChoice(props) {
     // Get subcat from server
 
     useEffect(() => {
-        axios.get('/subcategory/' + catSlug + '/' + subCatSlug)
+        axios.get('/api/category/' + catSlug + '/' + subCatSlug)
         .then(json => {
-            if(json.data.data) {
-                setSubCat(json.data.data);
+            if(json.data.name) {
+                setSubCat(json.data);
             }
         }).catch(error => {
             console.log(error);
@@ -27,34 +27,25 @@ function ActivityChoice(props) {
 
     console.log(subCat);
 
-    // Récupération des infos et choix de l'activité selon l'id
-    let subcat = {
-        id:2, name: "Dessin", img: "/icons/icon-activity-03.svg", color: "blue", activities: [
-            {id:1, name:"Lion", img:"/img/avatar-02.svg"},
-            {id:3, name:"Grenouille", img:"/img/avatar-04.svg"},
-            {id:4, name:"Paresseux", img:"/img/avatar-06.svg"},
-            {id:6, name:"Chien", img:"/img/avatar-08.svg"},
-            {id:8, name:"Chat", img:"/img/avatar-10.svg"},
-            {id:3, name:"Grenouille", img:"/img/avatar-12.svg"},
-            {id:4, name:"Paresseux", img:"/img/avatar-14.svg"},
-            {id:6, name:"Chien", img:"/img/avatar-03.svg"},
-            {id:8, name:"Chat", img:"/img/avatar-11.svg"}  
-        ]
-    };
+    if(Object.keys(subCat).length > 0) {
+        return (
 
-
-    return (
-
-        <div className="container yellow background">
-            <div className="container__body none">
-                <HeaderActivity img={subcat.img} name={subcat.name} color={subcat.color} />
-                <div className="content">
-                    <ActivitiesGrid choices={subcat.activities} />
+            <div className="container yellow background">
+                <div className="container__body none">
+                    <HeaderActivity img={'/img/'+subCat.img} name={subCat.name} color="blue" />
+                    <div className="content">
+                        <ActivitiesGrid choices={subCat.activities} />
+                    </div>
                 </div>
+                <InfoBubble />
             </div>
-            <InfoBubble />
-        </div>
-    ) 
+        ) 
+    } else {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
 }
 
 export default ActivityChoice;

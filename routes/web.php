@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/{path?}', 'app');
-Route::view('/{path1?}/{path2?}', 'app');
+Route::view('/{path?}', 'app')->where('path', '.*');
 
-Route::view('/test/test/test', 'testpage');
+Route::view('/test/test', 'testpage');
 
 // User
 Route::group([ // Adding API prefix to all API routes
@@ -74,8 +73,7 @@ Route::group([ // Adding API prefix to all API routes
 
 
     Route::get('/subcategories/all', 'SubCategoryController@index');
-    // PB, la route ne veux pas récuperer le '-'
-    Route::get('/category/{slugCategory}-{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
+    Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show');
 
 
     // Avatars
