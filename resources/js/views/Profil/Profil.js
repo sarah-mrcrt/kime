@@ -1,6 +1,4 @@
-import React, {useState, useContext} from 'react';
-import axios from 'axios';
-import { AuthDataContext } from '../../components/AuthDataProvider';
+import React from 'react';
 import Navigation from '../../components/Navigation';
 import HeaderProfile from '../../components/HeaderProfile';
 import CreationsKid from '../../components/CreationsKid';
@@ -26,27 +24,9 @@ function Profil(props) {
         ]}
     ]
 
-    const [redirect, setRedirect] = useState(false);
-    const { onLogout } = useContext(AuthDataContext);
-
-    function logout() {
-        axios.post("/api/auth/logout",{})
-        .then(json => {
-            let authData = {};
-            sessionStorage.setItem('authData', JSON.stringify(authData));
-            console.log(json.data.message);
-
-        }).then(onLogout)
-        .catch(error => {
-            console.log(error);
-        });
-
-        setRedirect(true);
-    }
-
     return (
         <div className="container yellow background page-profile nav">                        
-        <HeaderProfile kid={kid} nb_trophies={nb_trophies} nb_activities={nb_activities} logout={logout} />
+        <HeaderProfile kid={kid} nb_trophies={nb_trophies} nb_activities={nb_activities}/>
             <div className="container__body">
                 <div className="content">
                         <CreationsKid activities={activities} />

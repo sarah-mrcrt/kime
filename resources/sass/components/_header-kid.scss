@@ -127,4 +127,14 @@
         background-color: $red;
         box-shadow: 0 .2rem .5rem $black-shadow;
     }
+    
+    & .container__logout {
+        position: absolute;
+        width: fit-content;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        text-align: right;
+        font-size: 1.5rem;
+      }
 }
