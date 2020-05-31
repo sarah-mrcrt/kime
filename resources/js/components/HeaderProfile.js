@@ -6,9 +6,7 @@ function HeaderProfile(props) {
     let kid = props.kid
     return (
         <div className="page-header-profile">
-            <div className="page-header-profile__logout">
-                <span onClick={props.logout}><i className="fas fa-power-off"></i></span>
-            </div>
+            <a className="container__logout" href="/"><i className="fas fa-power-off"></i></a>
             <div className="page-header-profile__identity">
                 <div className="page-header-profile__identity__background ">
                     <img className="page-header-profile__identity__img" src={kid.avatar}/>

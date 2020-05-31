@@ -19,7 +19,9 @@ function ParentHome() {
         <div className="container red background nav">
             <Header title="Créations" subtitle="de vos enfants" color="red" imageUrl="/img/parent-home-img-01.svg"/>
             <div className="container__body">
-                ParentHome
+                <div className="content">
+                    ParentHome
+                </div>
             </div>
             <Navigation page="home" parent={true} />
         </div>
