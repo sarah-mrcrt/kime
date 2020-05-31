@@ -2,13 +2,14 @@
 /// CREATIONS KID
 ///
 
-.creations-parent {
+.content .creations-parent {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 
     &__creation {
         position: relative;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         display: flex;
         flex-direction: column;
 
@@ -21,8 +22,7 @@
             &__imgs {
                 position: relative;
                 border-radius: 1rem;
-                min-height: 20vh;
-                max-height: 30vh;
+                height: 35vh;
 
                 &__img {
 
@@ -30,49 +30,53 @@
                         width: 100%;
                         max-height: 100%;
                         object-fit: cover;
-                        height: 20vh;
+                        height: 35vh;
                         border-radius: 1rem;
                     }
                 }
             }
             &__infos {
-                padding: .5rem 1rem;
                 position: absolute;
+                padding: .3rem 2rem;
+                padding-left: 3.5rem;
                 bottom: 0;
                 left: 0;
                 display: flex;
-                justify-content: flex-start;
+                flex-direction: column;
                 background-color: $white-shadow;
-                border-bottom-left-radius: 1rem;
-                border-top-right-radius: 1rem;
+                border-radius: 1rem;
         
-                &.red {
-                    background-color: $red-opacity;
-                    & .creations-kid__infos__title {
-                        color: $white;
+                &__avatar {
+                    position: absolute;
+                    left: -1rem;
+                    bottom: -1rem;
+                    width: 4rem;
+                    margin: 0;
+                    align-self: stretch;
+                    padding-right: 0;
+                    z-index: 200;
+                    
+                    & > img {
+                        position: absolute;
+                        right: 0; 
+                        left: 0; 
+                        width: 100%;
+                        margin: auto;
+                        height: auto;
+                        z-index: 200;
                     }
-                }
-                &.blue {
-                    background-color: $blue-opacity;
-                    & .creations-kid__infos__title {
-                        color: $white;
-                    }
-                }
-                &.yellow {
-                    background-color: $yellow-opacity;
-                    & .creations-kid__infos__title {
-                        color: $black;
-                    }
-                }
-        
-                &__img {
-                    height: 2rem;
-                    width: auto;
                 }
                 &__title {
                     margin: auto 0;
-                    margin-left: 1rem;
                     white-space: nowrap;
+                    font-size: 1rem;
+                    line-height: 1.2rem;
+                }
+                &__subtitle {
+                    margin: auto 0;
+                    white-space: nowrap;
+                    font-size: .6rem;
+                    line-height: .8rem;
                 }
             }
         }
@@ -80,23 +84,43 @@
         &__infos {
             display: flex;
             justify-content: flex-start;
+            margin-top: .5rem;
+            padding: 0 1rem;
+            padding-left: 3rem;
 
-            & > * {
-                margin: auto 0;
-            }
-
-            &__title {
+            &__text {
+                display: flex;
+                flex-direction: column;
                 flex-grow: 1;
-                margin-left: 1rem;
-                font-size: 2rem;
+
+                &__title {
+                    width: 100%;
+                    margin: 0;
+                    font-size: 1.2rem;
+                    white-space: nowrap;
+                    text-align: center;
+                }
+                &__subtitle {
+                    width: 100%;
+                    margin: 0;
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    font-weight: bold;
+                    white-space: nowrap;
+                    text-align: center;
+                    color: $yellow;
+                }
             }
-            &__subtitle {
-                font-size: 1rem;
-                font-weight: bold;
-            }
+
 
             &__share {
+                margin: auto 0;
                 margin-left: auto;
+
+                & > i {
+                    font-size: 1.5rem;
+                    color: $yellow;
+                }
             }
         }
     }

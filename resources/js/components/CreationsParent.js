@@ -1,4 +1,5 @@
 import React from 'react';
+import RoundBackground from './RoundBackground.js';
 
 function CreationsParent(props) {
     let kids = props.kids
@@ -68,6 +69,8 @@ function CreationsParent(props) {
 
                 let date = convertirDate(creation.created_at);
 
+                // Gestion du Bouton Partage L.114 className="creations-parent__creation__infos__share"
+
                 // Récupérer l'activité de la dernière création
                 let activity = {id:3, name:"Grenouille",};
                 
@@ -90,22 +93,27 @@ function CreationsParent(props) {
                     <div className="creations-parent__creation" key={index}>
 
                         <div className={"creations-parent__creation__body"}>
-                            <div className={"creations-kid__creation__imgs"}>
+                            <div className={"creations-parent__creation__imgs"}>
                                 <div className={"creations-parent__creation__body__imgs__img"}>
                                     <img src={creation.img} key={index} />
                                 </div>
                             </div>
                             <div className="creations-parent__creation__body__infos">
-                                <img className="creations-parent__creation__body__infos__img" src={kid.avatar} />
+                                <div className="creations-parent__creation__body__infos__avatar">
+                                    <img src={kid.avatar} />
+                                    <RoundBackground color="yellow" shadow={true}/>
+                                </div>
                                 <p className="creations-parent__creation__body__infos__title">{kid.name}</p>
                                 <p className="creations-parent__creation__body__infos__subtitle">{date}</p>
                             </div>
                         </div>
 
                         <div className="creations-parent__creation__infos">
-                            <p className="creations-parent__creation__infos__subtitle">{sub_category.name}</p>
-                            <p className="creations-parent__creation__infos__title">{activity.name}</p>
-                            <span className="creations-parent__creation__infos__share">Share</span>
+                            <div className="creations-parent__creation__infos__text">
+                                <p className="creations-parent__creation__infos__text__title">{activity.name}</p>
+                                <p className="creations-parent__creation__infos__text__subtitle">{sub_category.name}</p>
+                            </div>
+                            <span className="creations-parent__creation__infos__share"><i class="fas fa-share-alt"></i></span>
                         </div>
 
                     </div>

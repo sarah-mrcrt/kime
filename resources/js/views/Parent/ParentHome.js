@@ -14,9 +14,9 @@ function ParentHome() {
     // Récupérer les creations (+ rérentes à + anciennes) de tous les "kids"
     let creations = [ // Regroupement des creations par activité (plus récente à plus ancienne)
         {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
-        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
+        {id: 2, kid_id:8, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
         {id: 2, kid_id:2, activity_id:8, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
-        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'}
+        {id: 2, kid_id:8, activity_id:3, img:"/img/category.jpg", created_at:'2020-04-30 11:08:13'}
     ]
     // Récupération des activités/subcats & Fonctionnement du bouton Partage dans le composant CreationsParent.js
 
