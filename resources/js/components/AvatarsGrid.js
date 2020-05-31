@@ -19,8 +19,6 @@ function AvatarsGrid(props) {
         });
     }, []);
 
-    console.log(avatars);
-
     const handleClick = e => {
         e.preventDefault();
         
@@ -42,35 +40,48 @@ function AvatarsGrid(props) {
     }
 
     const handleSubmit = e => {
-        props.setAvatar(avatar);
+        e.preventDefault();
+        console.log("handling submit");
+        if(props.setAvatar) {
+            props.setAvatar(avatar);
+        } else {
+            console.log('you need to add setAvatar prop for avatar selection to work');
+        }
+        
     }
 
-    return (
-        <form className="flex-grow flex-y" onSubmit={handleSubmit}>
-            <section className="avatars-grid">
-                {avatars.map((avatar,index) => {
-
-                    let unlockedClass = "locked";
-                    if(avatar.minScore <= props.score) {
-                        unlockedClass = "unlocked";
-                    } else if (props.displayUnlocked == false){
-                        unlockedClass = "deleted"
-                    }
-
-                    return (
-                        <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} id={avatar.id}>
-                            <img className="avatars-grid__avatar__img" src={avatar.img} alt={avatar.name} />
-                            <div className="avatars-grid__avatar__background">
-                                <RoundBackground color="blue" />
+    if(Object.keys(avatars).length > 0) {
+        return (
+            <form className="flex-grow flex-y" onSubmit={handleSubmit}>
+                <section className="avatars-grid">
+                    {avatars.map((avatar,index) => {
+    
+                        let unlockedClass = "locked";
+                        if(avatar.minScore <= props.score) {
+                            unlockedClass = "unlocked";
+                        } else if (props.displayUnlocked == false){
+                            unlockedClass = "deleted"
+                        }
+    
+                        return (
+                            <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} id={avatar.id}>
+                                <img className="avatars-grid__avatar__img" src={'/img/'+avatar.img} alt={avatar.name} />
+                                <div className="avatars-grid__avatar__background">
+                                    <RoundBackground color="blue" />
+                                </div>
+                                <input className="avatars-grid__avatar__radio" type="radio" name="avatars[]" id={"avatar" + avatar.id} value={avatar.id}/>
                             </div>
-                            <input className="avatars-grid__avatar__radio" type="radio" name="avatars[]" id={"avatar" + avatar.id} value={avatar.id}/>
-                        </div>
-                    );
-                })}
-            </section>
-            <button type="submit" className="btn-common btn-common__blue__fill">Valider</button>
-        </form>
-    ) 
+                        );
+                    })}
+                </section>
+                <button type="submit" className="btn-common btn-common__blue__fill">Valider</button>
+            </form>
+        ) 
+    } else {
+        return (<div></div>);
+    }
+
+
 }
 
 export default AvatarsGrid;

@@ -17,24 +17,31 @@ function ActivitiesGrid(props) {
 
     console.log(activities);
 
-    return (
-
-        <section className="activities-grid">
-            {props.activities.map((activity,index) => {
-                
-                return (
-                    <a className="activities-grid__activity" href={"/activity-choice/" + activity.id} key={index}>
-                        <p className="activities-grid__activity__name">{activity.name}</p>
-                        <img className="activities-grid__activity__img" src={activity.img} alt={activity.name} />
-                        <div className={"activities-grid__activity__background "/* + activity.color */}></div>
-                    </a>
-
+    if(Object.keys(activities).length > 0) {
+        return (
+            <section className="activities-grid">
+                {activities.map((activity,index) => {
                     
-                )
-            })
-            }
-        </section>
-    ) 
+                    return (
+                        <a className="activities-grid__activity" href={"/activity-choice/" + activity.id} key={index}>
+                            <p className="activities-grid__activity__name">{activity.name}</p>
+                            <img className="activities-grid__activity__img" src={'/img/'+activity.img} alt={activity.name} />
+                            <div className={"activities-grid__activity__background "/* + activity.color */}></div>
+                        </a>
+    
+                        
+                    )
+                })
+                }
+            </section>
+        ) 
+    } else {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
+
 }
 
 export default ActivitiesGrid;
