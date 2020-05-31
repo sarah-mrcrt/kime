@@ -5,11 +5,10 @@ function ActivitiesGrid(props) {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        axios.get('/activities/all')
+        axios.get('/api/activities/all')
         .then(json => {
             if(json.data.success) {
                 setActivities(json.data.data)
-                
             }
         }).catch(error => {
             console.log(error);

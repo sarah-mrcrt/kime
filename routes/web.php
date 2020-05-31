@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/{path?}', 'app');
+Route::view('/{path1?}/{path2?}', 'app');
 Route::view('/test/test', 'testpage');
-Route::get('/deconnexion', 'API\UserController@deconnexion');
 
 // User
-Route::post('/api/auth/login', 'API\UserController@login');
-Route::post('/api/auth/register', 'API\UserController@register');
-Route::post('/api/auth/logout', 'API\UserController@logout');
-Route::post('/api/auth/user', 'API\UserController@details');
+Route::group([ // Adding API prefix to all API routes
+    'prefix' => 'api',
+
+], function () {
+    Route::post('auth/login', 'API\UserController@login');
+    Route::post('auth/register', 'API\UserController@register');
+    Route::post('auth/logout', 'API\UserController@logout');
+    Route::post('auth/user', 'API\UserController@details');
 
 // Route::group(['middleware' => 'auth:api'], function () {
 
@@ -74,6 +78,7 @@ Route::post('/api/auth/user', 'API\UserController@details');
     Route::get('/avatars/all', 'AvatarController@index');
     Route::get('/avatar/{id}', 'AvatarController@show')->where('id', '[0-9]+');
 
+}); // Ending API prefix group
 // });
 
 Auth::routes();
