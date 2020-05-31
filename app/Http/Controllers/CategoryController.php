@@ -26,9 +26,7 @@ class CategoryController extends Controller
             "kids" =>  $c->kids,
             "activities" => $c->activities
         ], 200);
-    }
 
-    public function create(Request $request) {
         $validator = Validator::make($req->all(), [ 
             'name' => 'required|min:3|max:255|unique',
             'img' => 'required',
