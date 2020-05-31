@@ -1,0 +1,43 @@
+/// 
+/// PARENT PROFIL MENU
+/// 
+
+.menu-parent-profil {
+    padding: 0 1rem;
+    padding-right: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        &__option {
+            position: relative;
+            display: flex;
+            margin-bottom: auto;
+
+            &__img {
+                width: 2rem;
+            }
+
+            &__title {
+                padding: 0 1rem;
+                flex-grow: 1;
+                font-size: 1.2rem;
+                margin: auto 0;
+                color: $black;
+            }
+
+            &__arrow {
+                margin: auto 0;
+
+                & > i {
+                    font-size: 1.2rem;
+                    color: $light-gray;
+                }
+            }
+        }
+    }
+}
