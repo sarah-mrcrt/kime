@@ -9,6 +9,7 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [kids, setKids] = useState([]);
 
     const { authData, onLogin } = useContext(AuthDataContext);
 
@@ -60,8 +61,6 @@ function Login(props) {
                 sessionStorage.setItem('authData', JSON.stringify(newAuthData));
 
                 console.log("succesfully logged in");
-
-                setRedirect(true);
             } else {
                 alert(`Connexion impossible: identifiants erronés`);
             }
@@ -69,6 +68,17 @@ function Login(props) {
         .catch(error => {
             console.log(error);
         });
+
+        axios.get('/api/kids/all')
+        .then(json => {
+            if(json.data.data) {
+                setKids(json.data.data);
+                console.log(json.data.data);
+                
+            }
+        }).catch(error => {
+            console.log(error)
+        })
         
     }
 
@@ -82,8 +92,6 @@ function Login(props) {
 
         login(credentials);
     }
-
-    
 
     return (
         <div className="container red background">

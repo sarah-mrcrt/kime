@@ -17,7 +17,7 @@ class KidController extends Controller
         $k = Kid::all()->where('user_id', '=', Auth::id());
         
          return response()->json([
-             "message" => "success",
+             "success" => true,
              "data" => $k
          ]);
     }
