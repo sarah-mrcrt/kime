@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{path?}', 'app');
 Route::view('/{path1?}/{path2?}', 'app');
 
-Route::view('/test/test', 'testpage');
+Route::view('/test/test/test', 'testpage');
 
 // User
 Route::group([ // Adding API prefix to all API routes

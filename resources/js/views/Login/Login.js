@@ -9,7 +9,6 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
-    const [kids, setKids] = useState([]);
 
     const { authData, onLogin } = useContext(AuthDataContext);
 
@@ -61,6 +60,8 @@ function Login(props) {
                 sessionStorage.setItem('authData', JSON.stringify(newAuthData));
 
                 console.log("succesfully logged in");
+
+                setRedirect(true);
             } else {
                 alert(`Connexion impossible: identifiants erronés`);
             }
@@ -68,17 +69,6 @@ function Login(props) {
         .catch(error => {
             console.log(error);
         });
-
-        axios.get('/api/kids/all')
-        .then(json => {
-            if(json.data.data) {
-                setKids(json.data.data);
-                console.log(json.data.data);
-                
-            }
-        }).catch(error => {
-            console.log(error)
-        })
         
     }
 
@@ -97,11 +87,11 @@ function Login(props) {
         <div className="container red background">
             <Header title="Bienvenue" subtitle="Content de vous revoir" color="red" imageUrl="/img/login-img-01.svg"/>
             <div className="container__body">
-                <div className="content flex-grow">
+                <div className="content">
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  
-                        <div className={email === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
+                        <div className="form-auth__input-div one">
                             <div className="i">
-                                <i className="fas fa-at"></i>
+                                <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="email">Adresse e-mail</label>
@@ -115,9 +105,9 @@ function Login(props) {
                                 />
                             </div>
                         </div>
-                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
+                        <div className="form-auth__input-div one">
                             <div className="i">
-                                <i className="fas fa-lock"></i>
+                                <i className="fas fa-user"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="password">Mot de passe</label>

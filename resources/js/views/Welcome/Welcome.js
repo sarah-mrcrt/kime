@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthDataContext } from '../../components/AuthDataProvider';
 import {Redirect} from 'react-router-dom';
@@ -8,7 +8,20 @@ const Welcome = props => {
     let familyName = "Kidzou";
 
     const [redirect, setRedirect] = useState(false);
+    const [kids, setKids] = useState({})
     const { onLogout } = useContext(AuthDataContext);
+
+    useEffect(() => {
+        axios.get('/api/kids/all')
+        .then(json => {
+            if(json.data.data) {
+                setKids(json.data.data);
+                console.log(json.data.data);
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }, []);
 
     function logout() {
         axios.post("/api/auth/logout",{})

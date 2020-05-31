@@ -13,7 +13,6 @@ function AvatarsGrid(props) {
         .then(json => {
             if(json.data.success) {
                 setAvatars(json.data.data);
-                console.log(json.data.data);
             }
         }).catch(error => {
             console.log(error);
@@ -44,11 +43,10 @@ function AvatarsGrid(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("handling submit");
         if(props.setAvatar) {
             props.setAvatar(avatar);
         } else {
-            console.log('you need to add setAvatar prop for avatar selection to work');
+            console.log('you need to add setAvatar prop for avatar store to work');
         }
         
     }

@@ -86,6 +86,7 @@ function FillChildData(props) {
     }
 
     const storeCurrentChild = () => {
+        console.log('Storing avatar: '+avatars[currentChildIndex]);
         let child = {
             name: childrenInfo[currentChildIndex].name,
             birthdate: childrenInfo[currentChildIndex].birthdate,
@@ -106,7 +107,7 @@ function FillChildData(props) {
 
         // Insert each child in db. Insert children data in localStorage if everything went fine.
         children.forEach(child => {
-            axios.post("/kid/create", child)
+            axios.post("/api/kid/create", child)
 
             .then(response => {
                 return response;
@@ -158,7 +159,6 @@ function FillChildData(props) {
 
     // Current page component
     let component = pages[currentPage];
-    console.log("currentPage: " + currentPage);
 
     /*
     *  RENDER
