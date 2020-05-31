@@ -23,8 +23,6 @@ function AuthDataProvider(props) {
   
     const onLogin = () => setData();
 
-    console.log(authData);
-
     return <AuthDataContext.Provider value={{ authData, onLogin, onLogout }} {...props} />;
   };
   
