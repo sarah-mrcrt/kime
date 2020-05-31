@@ -9,11 +9,14 @@ function ActivitiesGrid(props) {
         .then(json => {
             if(json.data.success) {
                 setActivities(json.data.data)
+                
             }
         }).catch(error => {
             console.log(error);
         });
     }, []);
+
+    console.log(activities);
 
     return (
 

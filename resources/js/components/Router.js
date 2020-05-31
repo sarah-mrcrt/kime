@@ -23,6 +23,7 @@ import ParentPassword from '../views/Parent/ParentPassword';
 import ParentHome from '../views/Parent/ParentHome';
 import ParentSearch from '../views/Parent/ParentSearch';
 import ParentProfil from '../views/Parent/ParentProfil';
+import NotFound from '../views/NotFound/NotFound';
 
 
 
@@ -36,6 +37,10 @@ const PrivateRoute = ({ component, ...options }) => {
   
   const Router = () => (
     <Switch>
+        <Route exact={true} path="/connexion" component={Login} />
+        <Route exact={true} path='/inscription' component={Register} />
+        <Route exact={true} path='/NotFound' component={NotFound} />
+
         <Redirect exact={true} from="/" to="/welcome"/>
         <PrivateRoute exact={true} path="/accueil" component={Home} />
         <PrivateRoute exact={true} path="/profil" component={Profil} />
@@ -48,10 +53,8 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute path="/welcome" component={Welcome} />
         <PrivateRoute path="/trophies" component={Trophies} />
 
-        <Route exact={true} path="/connexion" component={Login} />
-        <Route exact={true} path='/inscription' component={Register} />
         <Route exact={true} path="/test" component={Test} />
-        <Route exact={true} path="/activity-choice" component={ActivityChoice} />
+        <PrivateRoute exact={true} path="/activity-choice/:id" component={ActivityChoice} />
         <Route exact={true} path="/activity-step" component={ActivityStep} />
         <Route exact={true} path="/activity-upload" component={ActivityUpload} />
         <Route exact={true} path="/activity-win" component={ActivityWin} />
