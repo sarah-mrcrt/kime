@@ -5,14 +5,26 @@ function ActivitiesGrid(props) {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/activities/all')
-        .then(json => {
-            if(json.data.success) {
-                setActivities(json.data.data)
-            }
-        }).catch(error => {
-            console.log(error);
-        });
+        if(props.categoryId) {
+            axios.get('/api/category/'+props.categoryId)
+            .then(json => {
+                if(json.data.success) {
+                    setActivities(json.data.data)
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        } else {
+            axios.get('/api/activities/all')
+            .then(json => {
+                if(json.data.success) {
+                    setActivities(json.data.data)
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+
     }, []);
 
     console.log(activities);

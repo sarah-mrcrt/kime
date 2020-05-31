@@ -10,6 +10,11 @@ class CategoryController extends Controller
 {
     public function index(){
         $c = Category::all();
+
+        return response()->json([ 
+            "success" => true,
+            "cats" => $c,
+        ], 200);
     }
 
     public function show($slug){
@@ -17,10 +22,10 @@ class CategoryController extends Controller
 
         return response()->json([ 
             "data" => $c,
-            "Sub categories from the category" => $c->subcategories,
-            // "Kids who chose this category" => $c->kids,
-            // "Find activities from the category" => $c->activities
-        ], 201);
+            "subcats" => $c->subcategories,
+            "kids" =>  $c->kids,
+            "activities" => $c->activities
+        ], 200);
     }
 
     public function create(Request $request) {
