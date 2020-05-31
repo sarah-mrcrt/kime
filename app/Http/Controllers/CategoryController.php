@@ -20,9 +20,9 @@ class CategoryController extends Controller
 
         return response()->json([ 
             // "Category data" => $c,
-            // "Sub categories from the category" => $c->sub_categories,
+            // "Sub categories from the category" => $c->subcategories,
             // "Kids who chose this category" => $c->kids,
-            // "Activities from the category" => $c->activities
+            // "Find activities from the category" => $c->activities
         ], 201);
     }
 
@@ -42,8 +42,7 @@ class CategoryController extends Controller
 
         $c->name = $request->name;
         $c->img = $request->img;
-        $str = strtolower($request->name);
-        $c->slug = preg_replace('/\s+/', '-', $str);
+        $c->slug = Str::slug($c->name, "-");
         $c->save();
 
         return reponse()->json([

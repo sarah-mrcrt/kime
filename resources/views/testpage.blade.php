@@ -37,7 +37,7 @@
         </form>
 
         <h3>Création</h3>
-        <form action="/1/1/creation/create" enctype="multipart/form-data" method="post">
+        <form action="/creation/1/1/create" enctype="multipart/form-data" method="post">
             @csrf
             <input type="file" name="img" value='{{old('img')}}' required />
             <input type="submit" value="Submit" />

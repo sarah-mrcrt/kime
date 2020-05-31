@@ -1,4 +1,5 @@
 import React from 'react';
+
 import HeaderActivity from '../../components/HeaderActivity.js';
 import ActivityChoiceGrid from '../../components/ActivityChoiceGrid.js';
 import InfoBubble from '../../components/InfoBubble.js';
@@ -6,7 +7,8 @@ import InfoBubble from '../../components/InfoBubble.js';
 function ActivityChoice(props) {
 
     // Récupération de l'id dans l'URL
-    let id = 2;
+    let id = props.match.params;
+    console.log(id);
 
     // Récupération des infos et choix de l'activité selon l'id
     let activity = {id:2, name: "Dessin", img: "/icons/icon-activity-03.svg", color: "blue", choices: [

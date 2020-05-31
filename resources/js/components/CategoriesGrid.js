@@ -7,7 +7,7 @@ function CategoriesGrid(props) {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        axios.get('/activities')
+        axios.get('/categories/all')
         .then(response => { return response; })
         .then(json => {
             if(json.data.success) {

@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function ActivitiesGrid(props) {
 
-    const [activities, setActivities] = useState([])
+    const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        axios.get('/activity/all')
+        axios.get('/api/activities/all')
         .then(json => {
-            console.log(json.data);
-
             if(json.data.success) {
                 setActivities(json.data.data)
             }
@@ -16,6 +14,8 @@ function ActivitiesGrid(props) {
             console.log(error);
         });
     }, []);
+
+    console.log(activities);
 
     return (
 

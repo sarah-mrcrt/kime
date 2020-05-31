@@ -57,7 +57,7 @@ function Login(props) {
                 }
 
                 // Storing authData in Local Storage
-                localStorage.setItem('authData', JSON.stringify(newAuthData));
+                sessionStorage.setItem('authData', JSON.stringify(newAuthData));
 
                 console.log("succesfully logged in");
 

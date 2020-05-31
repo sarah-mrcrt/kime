@@ -11,34 +11,43 @@ use Illuminate\Support\Facades\Auth;
 
 class CreationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function kidIndex($idKid)
     {
-        $creations = Creation::all();
+        $k = Kid::findOrFail($idKid);
+        $c = Creation::all()->where('kid_id', '=', $idKid)->sortByDesc('id');
 
-        if($creations->kid_id != Kid::id() ){
-            abort(404);
-        }
+        return response()->json([
+            "data" => $c
+        ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
+    public function parentIndex()
     {
-        $c = Creation::findOrFail($id);
-        $k = Kid::findOrFail($id);
+        // $c = Creation::all()->sortByDesc('id')
+        //  ->join('kids', function ($join) {
+        //     $join->on('creations.kid_id', '=', 'kids.id')
+        //          ->where('kids.user_id', '=', Auth::id());
+        // });
 
-        if($c->kid_id != Auth::id()){
-            abort(404);
-        }
+        return response()->json([
+            "data" => $c
+        ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function show($idKid, $idCreation)
+    {
+        $k = Kid::findOrFail($idKid);
+        $c = Creation::findOrFail($idCreation);
+
+        if($c->kid_id != $idKid){
+            abort(404);
+        }
+
+        return response()->json([
+            "data" => $c
+        ], 200);
+    }
+
     public function create(Request $req, $idKid, $idActivity)
     {
         $validator = Validator::make($req->all(), [ 
@@ -66,17 +75,11 @@ class CreationController extends Controller
         ], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function delete($id)
     {
         //
