@@ -91,7 +91,7 @@ function Login(props) {
             <div className="container__body">
                 <div className="content flex-grow">
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  
-                        <div className={email === '' ? ("form-auth__input-div one") : ("form-auth__input-div one focus")}>
+                        <div className={email === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-at"></i>
                             </div>
@@ -107,7 +107,7 @@ function Login(props) {
                                 />
                             </div>
                         </div>
-                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div one focus")}>
+                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-lock"></i>
                             </div>

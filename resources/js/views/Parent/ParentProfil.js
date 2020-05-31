@@ -33,7 +33,7 @@ function ParentProfil(props) {
                 <div className="content">
                     <div className="menu-parent">
                         <div className="menu-parent__options">
-                            ParentProfil
+                            ParentProfil : paramétrage
                         </div>
                     </div>
                         <Navigation page="profile" parent={true} />
