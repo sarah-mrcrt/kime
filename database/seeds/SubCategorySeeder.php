@@ -25,6 +25,7 @@ class SubCategorySeeder extends Seeder
                 }
                 $subCategory->slug = Str::slug($subCategory->name, "-");
                 $subCategory->category_id = 1;
+                $subCategory->category_slug = 'cuisine';
                 $subCategory->save();
                 $item+=1;
             }
