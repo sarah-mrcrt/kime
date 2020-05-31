@@ -12,12 +12,15 @@ function AvatarsGrid(props) {
         axios.get('/api/avatars/all')
         .then(json => {
             if(json.data.success) {
-                setAvatars(json.data.data)
+                setAvatars(json.data.data);
+                console.log(json.data.data);
             }
         }).catch(error => {
             console.log(error);
         });
     }, []);
+
+    console.log(avatars);
 
     const handleClick = e => {
         e.preventDefault();

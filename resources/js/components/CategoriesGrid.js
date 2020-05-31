@@ -9,10 +9,6 @@ function CategoriesGrid(props) {
     const [enableMultiSelect, setEnableMultiSelect] = useState(false);
     const [redirect, setRedirect] = useState(false);
 
-    if(redirect) {
-        return <Redirect to="/"/>
-    }
-
     useEffect(() => {
         // Getting data
         axios.get('/api/categories/all')
