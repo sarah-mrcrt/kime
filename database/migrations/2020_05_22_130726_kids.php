@@ -19,7 +19,7 @@ class Kids extends Migration
             $table->string('date_of_birth');
             $table->string('avatar_id')->default('/avatars/avatar-01.svg');
             $table->string('categories');
-            $table->string('score')->nullable();
+            $table->string('score')->default(0);
             $table->integer('user_id')->unsigned();
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
