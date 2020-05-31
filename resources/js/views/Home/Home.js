@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../../components/Navigation';
-import ActivitiesGrid from '../../components/ActivitiesGrid.js';
+import ActivitiesGrid from '../../components/ActivitiesGrid';
 import HeaderKid from '../../components/HeaderKid.js';
 
 
@@ -20,7 +20,7 @@ function Home() {
             <HeaderKid kid={kid} />
             <div className="container__body">
                 <div className="content">
-                    <ActivitiesGrid activities={activities} />
+                    <ActivitiesGrid />
                 </div>
             </div>
             <Navigation page="home" />
