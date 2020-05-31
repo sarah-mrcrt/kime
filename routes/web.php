@@ -44,15 +44,15 @@ Route::group([ // Adding API prefix to all API routes
     Route::delete('/kidDelete/{id}','KidController@delete')->where('id', '[0-9]+');
 
     Route::get('/creationsAll/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
-    Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
-    Route::post('creationCreate/{idKid}/{idActivity}', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
+    Route::get('/creation/{idKid}+{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
+    Route::post('creationCreate/{idKid}+{idActivity}', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
     Route::delete('/creationDelete/{id}','CreationController@delete');
 
 
     // Activities & Steps
     Route::get('/activities/all', 'ActivityController@index');
     Route::get('/activity/{id}', 'ActivityController@show')->where('id', '[0-9]+');
-    Route::get('/activity/{idActivity}/{position}', 'StepController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
+    Route::get('/activity/{idActivity}+{position}', 'StepController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
 
     Route::middleware('admin')->group(function () {
         Route::post('/activity/create', 'ActivityController@create');
@@ -65,7 +65,7 @@ Route::group([ // Adding API prefix to all API routes
     // Trophies
     Route::get('/trophies/all', 'TrophyController@index');
     Route::get('/trophy/{id}','TrophyController@show')->where('id', '[0-9]+');
-    Route::get('/winTrophy/{idKid}-{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'([\w]+[-]{1}[\w]+)', 'idTrophy'=> '([\w]+[-]{1}[\w]+)']);
+    Route::get('/winTrophy/{idKid}-{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'[0-9]+', 'idTrophy'=> '[0-9]+']);
 
 
     // Categories & Sub categories
@@ -74,7 +74,8 @@ Route::group([ // Adding API prefix to all API routes
 
 
     Route::get('/subcategories/all', 'SubCategoryController@index');
-    Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
+    // PB, la route ne veux pas récuperer le '-'
+    Route::get('/category/{slugCategory}-{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
 
 
     // Avatars
