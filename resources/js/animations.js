@@ -48,3 +48,9 @@ function remcl(target){
         
 
   })
+
+// Search
+$('#search').submit(function(e) {
+  e.preventDefault();
+  document.location.href = "/search/"+e.target.elements[0].value;
+})
