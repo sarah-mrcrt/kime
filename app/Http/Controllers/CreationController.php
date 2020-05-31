@@ -8,6 +8,7 @@ use App\Kid;
 use App\Activity;
 use App\Creation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CreationController extends Controller
 {
@@ -23,11 +24,28 @@ class CreationController extends Controller
 
     public function parentIndex()
     {
-        // $c = Creation::all()->sortByDesc('id')
-        //  ->join('kids', function ($join) {
-        //     $join->on('creations.kid_id', '=', 'kids.id')
-        //          ->where('kids.user_id', '=', Auth::id());
-        // });
+        // Afficher toutes les créations des enfants qui appartiennent à l'utilisateur connecté
+        // $c = DB::table('creations')
+        //     ->join('kids', 'creations.kid_id', '=',  'kids.id')
+        //     ->join('users', 'kids.user_id', '=', 'users.id')
+        //     ->select('creations.*', 'kids.*', 'users.*')
+        //     ->orderby('creations.id', 'desc')
+        //     ->get();
+
+        // $c = DB::table('users')
+        //     ->join('kids', 'users.id', '=',  'kids.user_id')
+        //     ->join('creations', 'kids.id', '=', 'creations.kid_id')
+        //     ->select('kids.*', 'users.*','creations.*')
+        //     ->orderby('creations.id', 'desc')
+        //     ->get();
+        
+        $c = Creation::all();
+        // ->join('kids', 'creations.kid_id', '=',  'kids.id')
+        // ->where('kids.user_id', '=', Auth::id());
+
+        if($c ){
+            abort(404);
+        }
 
         return response()->json([
             "data" => $c
