@@ -54,8 +54,8 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute path="/trophies" component={Trophies} />
 
         <Route exact={true} path="/test" component={Test} />
-        <PrivateRoute exact={true} path="/activity-choice/:id" component={ActivityChoice} />
-        <Route exact={true} path="/activity-step" component={ActivityStep} />
+        <PrivateRoute exact={true} path="/activity-choice/:catSlug/:subCatSlug" component={ActivityChoice} />
+        <Route exact={true} path="/activity-step/:activityId/:stepId" component={ActivityStep} />
         <Route exact={true} path="/activity-upload" component={ActivityUpload} />
         <Route exact={true} path="/activity-win" component={ActivityWin} />
         <Route exact={true} path="/parent-password" component={ParentPassword} />

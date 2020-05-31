@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RegisterStepBar from '../../components/RegisterStepBar';
+import axios from 'axios';
 
 function ActivityStep(props) {
+
+        // get activityId & stepId from url
+        let activityId = props.match.params.activityid;
+        let stepId = 1; // Default: 1
+        if(props.match.params.stepId) {
+            stepId = props.match.params.stepId;
+        }
+    
+        useEffect(() => {
+            axios.get('/api/activity/' + activityId + '/' + stepId)
+            .then(json => {
+                if(json.data.data) {
+                    console.log(json.data.data);
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        }, []);
 
     let activity = {id:2} // ...
     let choice = {id:5} // ...
