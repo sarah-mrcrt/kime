@@ -36,6 +36,13 @@ function FillChildData(props) {
 
     // AvatarsGrid props
     let kidScore = 0;
+    const availableAvatars = [
+        {id:2, img:"/img/avatar-11.svg", minScore: 0}, 
+        {id:7, img:"/img/avatar-10.svg", minScore: 0}, 
+        {id:0, img:"/img/avatar-08.svg", minScore: 0},
+        {id:7, img:"/img/avatar-03.svg", minScore: 2}, 
+        {id:10, img:"/img/avatar-07.svg", minScore: 0}
+    ];
 
     // StepBar props
     const steps = ["Informations", "Compagnon", "Activités"];
@@ -144,9 +151,9 @@ function FillChildData(props) {
 
         <FillChildInfo nextStep={storeChildInfo}/>,
 
-        <AvatarsGrid score={kidScore} setAvatar={storeAvatar} displayUnlocked={false}/>,
+        <AvatarsGrid avatars={availableAvatars} score={kidScore} setAvatar={storeAvatar} displayUnlocked={false}/>,
 
-        <CategoriesGrid categories={categories} setCategories={storeCategories} enableMultiSelect={true} />
+        <CategoriesGrid categories={categories} setCategories={storeCategories} />
     ];
 
     // Current page component
