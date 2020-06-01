@@ -19,9 +19,9 @@ class CategorySeeder extends Seeder
                 $category = new \App\Category();
                 $category->name = $categories[$item];
                 if($item<9){
-                    $category->img = "category-0".($item + 1).".svg";
+                    $category->img = "/categories/category-0".($item + 1).".svg";
                 }else{
-                    $category->img = "category-".($item + 1).".svg";
+                    $category->img = "/categories/category-".($item + 1).".svg";
                 }
                 $category->slug = Str::slug($category->name, "-");
                 $category->save();
