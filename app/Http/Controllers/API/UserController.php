@@ -6,8 +6,6 @@ use App\User;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Hash; 
-use App\Mail\DiscoverApp_Newsletter;
 
 class UserController extends Controller 
 {
@@ -17,9 +15,6 @@ class UserController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             $tokenResult = $user->createToken('Kime'); 
-
-            //$sendmail = Auth::user()->where('email', '=', request('email'))->firstOrFail()->email;
-            //\Mail::to($sendmail)->send(New DiscoverApp_Newsletter);
 
             return response()->json([
                 'success' => true,
@@ -84,7 +79,7 @@ class UserController extends Controller
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
-        ], 201);
+        ], 200);
     }
 
     public function details()
@@ -112,7 +107,7 @@ class UserController extends Controller
 
         return response()->json([
             'success' => true
-        ], 201);
+        ], 200);
     }
 
     public function destroy(User $user)
@@ -125,6 +120,6 @@ class UserController extends Controller
 
         return response()->json([
             'success' => true
-        ], 201);
+        ], 200);
     }
 }
