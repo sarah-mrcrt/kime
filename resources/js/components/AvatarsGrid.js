@@ -66,7 +66,7 @@ function AvatarsGrid(props) {
     
                         return (
                             <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} id={avatar.id}>
-                                <img className="avatars-grid__avatar__img" src={'/img/'+avatar.img} alt={avatar.name} />
+                                <img className="avatars-grid__avatar__img" src={'/img/avatars/'+avatar.img} alt={avatar.name} />
                                 <div className="avatars-grid__avatar__background">
                                     <RoundBackground color="blue" />
                                 </div>
