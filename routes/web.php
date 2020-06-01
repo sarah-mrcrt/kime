@@ -29,7 +29,8 @@ Route::group([ // Adding API prefix to all API routes
 
 // Route::group(['middleware' => 'auth:api'], function () {
 
-    // Parent profilephp artisan routes
+    // Parent profile
+    Route::get('/user', 'API\UserController@details');
     Route::get('/user/update/{user}','API\UserController@update');
     Route::delete('/user/delete/{user}','API\UserController@destroy');
     Route::get('/creations/allNews/{idParent}','CreationController@parentIndex')->where('idParent', '[0-9]+');
