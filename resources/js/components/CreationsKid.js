@@ -23,6 +23,7 @@ function CreationsKid(props) {
                             }
                             <div className={"creations-kid__infos " + activity.color}>
                                 <img className="creations-kid__infos__img" src={"/img/sub_categories/"+activity.img} />
+                                <RoundBackground color="yellow" shadow={true}/>
                                 <p className="creations-kid__infos__title">{activity.name}</p>
                             </div>
                         </div>
