@@ -7,25 +7,11 @@ import Header from '../../components/Header.js';
 function Trophies(props) {
     let kidScore = 0;
     let trophies = [
-        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-11.svg", minScore: 0}, 
-        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-10.svg", minScore: 0}, 
-        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-08.svg", minScore: 0},
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
-        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
-        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
-        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
-        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
-        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
-        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-03.svg", minScore: 2}, 
-        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-15.svg", minScore: 0}, 
-        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-12.svg", minScore: 0}, 
-        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-06.svg", minScore: 0},
-        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-01.svg", minScore: 2}, 
-        {id:10, name:"Aventurier", text:"Lorem aventurier ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"/img/avatar-07.svg", minScore: 0}
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"trophy-01.svg", color:"blue"}, 
+        {id:7, name:"Cuisinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"trophy-02.svg", color:"red"}, 
+        {id:0, name:"Jardinier", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"trophy-03.svg", color:"blue"},
+        {id:7, name:"Stratège", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"trophy-04.svg", color:"yellow"}, 
+        {id:2, name:"Créateur", text:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ", img:"trophy-05.svg", color:"yellow"}, 
     ];
 
     return (
