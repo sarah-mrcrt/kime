@@ -43,10 +43,13 @@ function TrophiesGrid(props) {
         return (
             <section className="trophies-grid">
                 {trophies.map((trophy,index) => {
-    
+                    let lockedClass = "unlocked"
+                    if(index % 4 == 3) {
+                        lockedClass = "locked";
+                    }
     
                     return (
-                        <div className={"trophies-grid__trophy unlocked info-bubble__info"} key={index} onClick={handleClick}>
+                        <div className={"trophies-grid__trophy " +lockedClass+ " info-bubble__info " + trophy.color} key={index} onClick={handleClick}>
                             <img className="trophies-grid__trophy__img info-bubble__img" src={'/img/trophies/'+trophy.img} alt={trophy.name} />
                             <div className="trophies-grid__trophy__background"></div>
     
