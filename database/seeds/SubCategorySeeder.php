@@ -15,16 +15,16 @@ class SubCategorySeeder extends Seeder
         $subCategories = [
            /* 1 */ ['name' => 'Gâteaux','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'], 
            /* 2 */ ['name' => 'Jeux d\'équilibre','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
-           /* 3 */ ['name' => 'Dessin','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'blue'],
-           /* 4 */ ['name' => 'Pains','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
-           /* 5 */ ['name' => 'Glaces','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'yellow'],
-           /* 6 */ ['name' => 'Décos','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
-           /* 7 */ ['name' => 'Nature & Découverte','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
+           /* 3 */ ['name' => 'Dessin','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'red'],
+           /* 4 */ ['name' => 'Pains','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'red'],
+           /* 5 */ ['name' => 'Glaces','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
+           /* 6 */ ['name' => 'Décos','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'yellow'],
+           /* 7 */ ['name' => 'Nature & Découverte','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'yellow'],
            /* 8 */ ['name' => 'Jeux d\'eau','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
-           /* 9 */ ['name' => 'Faire pousser','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
-           /* 10 */ ['name' => 'Jeux de cartes','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
-           /* 11 */ ['name' => 'Jeux de tirs','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
-           /* 12 */ ['name' => 'Coloriage','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'red']
+           /* 9 */ ['name' => 'Faire pousser','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'blue'],
+           /* 10 */ ['name' => 'Jeux de cartes','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'yellow'],
+           /* 11 */ ['name' => 'Jeux de tirs','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'yellow'],
+           /* 12 */ ['name' => 'Coloriage','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'blue']
         ];
 
         for ($item=0; $item < count($subCategories); $item++){ 

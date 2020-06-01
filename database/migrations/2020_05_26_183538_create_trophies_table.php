@@ -17,6 +17,7 @@ class CreateTrophiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('img');
+            $table->string('color')->default('red');;
             $table->timestamps();
         });
     }

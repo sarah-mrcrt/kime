@@ -11,12 +11,26 @@ class TrophySeeder extends Seeder
      */
     public function run()
     {
-        $trophies = ['Coloriage','Dessin','Musique','Cuisine','Jeux de lancer','Coloriage','Dessin','Musique','Cuisine','Jeux de lancer','Coloriage','Dessin','Musique','Cuisine','Jeux de lancer'];
+        $trophies = [
+            ['name' => 'Gâteaux', 'color' => 'blue'],
+            ['name' => 'Jeux d\'équilibre', 'color' => 'red'],
+            ['name' => 'Dessin', 'color' => 'red'],
+            ['name' => 'Pains', 'color' => 'red'],
+            ['name' => 'Glaces', 'color' => 'blue'],
+            ['name' => 'Décos', 'color' => 'yellow'],
+            ['name' => 'Nature & Découverte', 'color' => 'yellow'],
+            ['name' => 'Jeux d\'eau', 'color' => 'red'],
+            ['name' => 'Faire pousser', 'color' => 'blue'],
+            ['name' => 'Jeux de cartes', 'color' => 'yellow'],
+            ['name' => 'Jeux de tirs', 'color' => 'yellow'],
+            ['name' => 'Coloriage', 'color' => 'blue']
+        ];
 
         for ($item=0; $item < count($trophies); $item++){ 
             foreach ($trophies as $trophy) {
                 $trophy = new \App\Trophy();
-                $trophy->name = $trophies[$item];
+                $trophy->name = $trophies[$item]['name'];
+                $trophy->color = $trophies[$item]['color'];
                 if($item<9){
                     $trophy->img = "trophy-0".($item + 1).".svg";
                 }else{
