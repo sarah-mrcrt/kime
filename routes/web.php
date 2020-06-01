@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/{path?}', 'app');
 Route::view('/test/test', 'testpage');
-
 Auth::routes();

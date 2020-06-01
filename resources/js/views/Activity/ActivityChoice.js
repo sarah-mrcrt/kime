@@ -36,7 +36,7 @@ function ActivityChoice(props) {
 
             <div className="container yellow background">
                 <div className="container__body none">
-                    <HeaderActivity img={'/img/'+subCat.img} name={subCat.name} color="blue" />
+                    <HeaderActivity img={'/img/sub_categories/'+subCat.img} name={subCat.name} />
                     <div className="content">
                         <ActivitiesGrid choices={activities} />
                     </div>

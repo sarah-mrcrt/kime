@@ -37,15 +37,15 @@ class UserController extends Controller
         } 
     }
 
-    public function adminpassword(Request $request, $password)
+    public function adminpassword(Request $request)
     {
         $user = Auth::user();
         $hashedPassword = $user->admin_password; 
 
-        if(Hash::check($request->admin_password, $hashedPassword)) {
+        if(Hash::check($request->password, $hashedPassword)) {
             return response()->json([
                 'success' => true
-            ], 201);
+            ], 200);
         } 
     }
 
