@@ -12,11 +12,21 @@
     z-index: 0;
 
     &__trophy {
-        display: block;
+        display: flex;
         border-radius: 50%;
         background-color: $blue;
         border: .5rem solid $white;
         box-shadow: 0 .2rem .2rem $black-shadow;
+
+        &.red {
+            background-color: $red;
+        }
+        &.yellow {
+            background-color: $yellow;
+        }
+        &.blue {
+            background-color: $blue;
+        }
 
         &.deleted {
             display: none;
@@ -27,6 +37,11 @@
             
         &__infos {
             display: none;
+        }
+
+        &__img {
+            width: 80%;
+            margin: 10% auto;
         }
 
     }

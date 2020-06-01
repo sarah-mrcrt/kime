@@ -30,18 +30,17 @@ function TrophiesGrid(props) {
     return (
         <section className="trophies-grid">
             {props.trophies.map((trophy,index) => {
-
+                /*
                 let unlockedClass = "locked";
                 if(trophy.minScore <= props.score) {
                     unlockedClass = "unlocked";
                 } else if (props.displayUnlocked == false){
                     unlockedClass = "deleted"
-                }
-                console.log(unlockedClass);
+                }*/
 
                 return (
-                    <div className={"trophies-grid__trophy " + unlockedClass + " info-bubble__info"} key={index} onClick={handleClick}>
-                        <img className="trophies-grid__trophy__img info-bubble__img" src={trophy.img} alt={trophy.name} />
+                    <div className={"trophies-grid__trophy unlocked info-bubble__info "+ trophy.color} key={index} onClick={handleClick}>
+                        <img className="trophies-grid__trophy__img info-bubble__img" src={"/img/trophies/"+trophy.img} alt={trophy.name} />
                         <div className="trophies-grid__trophy__background"></div>
 
                         <div className="trophies-grid__trophy__infos">
