@@ -13,6 +13,7 @@ import Conditions from '../views/Conditions/Conditions';
 import LaunchRegistration from '../views/FillChildData/LaunchRegistration';
 import EndRegistration from '../views/FillChildData/EndRegistration';
 import FillChildData from '../views/FillChildData/FillChildData';
+import KidChoice from '../views/KidChoice/KidChoice';
 import Welcome from '../views/Welcome/Welcome';
 import Trophies from '../views/Trophies/Trophies';
 import ActivityChoice from '../views/Activity/ActivityChoice';
@@ -50,6 +51,7 @@ const PrivateRoute = ({ component, ...options }) => {
         <PrivateRoute exact={true} path="/end-registration" component={EndRegistration} />
 
         <PrivateRoute path="/register-children" component={FillChildData} />
+        <PrivateRoute path="/kid-choice" component={KidChoice} />
         <PrivateRoute path="/welcome" component={Welcome} />
         <PrivateRoute path="/trophies" component={Trophies} />
 

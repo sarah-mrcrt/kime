@@ -1,4 +1,5 @@
 import React from 'react';
+import RoundBackground from './RoundBackground.js';
 
 function CreationsKid(props) {
     let kid = props.kid
@@ -15,8 +16,8 @@ function CreationsKid(props) {
                         <div className={"creations-kid__creation__imgs " + gridClass}>
                             {activity.creations.map((creation,index) => {
                                 return (
-                                    <div className={"creations-kid__creation__imgs__img img" + index}>
-                                        <img src={"/img/creations/"+creation.img} key={index} />
+                                    <div className={"creations-kid__creation__imgs__img img" + index}  key={index}>
+                                        <img src={"/img/creations/"+creation.img} />
                                     </div>
                                 )
                             })

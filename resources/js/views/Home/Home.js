@@ -14,9 +14,9 @@ function Home(props) {
             <div className="container__body">
                 <div className="content">
                     <SubCategoriesGrid />
+                    <Navigation page="home" />
                 </div>
             </div>
-            <Navigation page="home" />
         </div>
     )
 }
