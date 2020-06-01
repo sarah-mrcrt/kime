@@ -32,7 +32,7 @@ class TrophyController extends Controller
         $kid->trophies()->syncWithoutDetaching($idTrophy);
         
         return response()->json([
-            'success' => "Kid win a trophy"
-        ], 201);
+            'success' => true
+        ], 200);
     }
 }
