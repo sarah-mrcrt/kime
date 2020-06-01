@@ -3,20 +3,6 @@ import RoundBackground from './RoundBackground.js';
 
 function CreationsParent(props) {
     let kids = props.kids
-    /*
-    let kids = [
-        {id:2, name:"Jérôme", avatar:"/img/avatar-07.svg"},
-        {id:8, name:"Marie", avatar:"/img/avatar-12.svg"}
-    ]
-    
-    // Récupérer les creations (+ rérentes à + anciennes) de tous les "kids"
-    let creations = [ // Regroupement des creations par activité (plus récente à plus ancienne)
-        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
-        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
-        {id: 2, kid_id:2, activity_id:8, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'},
-        {id: 2, kid_id:2, activity_id:3, img:"/img/category.jpg", created_at:'2020-05-30 11:08:13'}
-    ]
-    */
 
     const convertirDate = (date) => {
         let tmp = date.split(' ');
@@ -72,20 +58,44 @@ function CreationsParent(props) {
                 // Gestion du Bouton Partage L.114 className="creations-parent__creation__infos__share"
 
                 // Récupérer l'activité de la dernière création
-                let activity = {id:3, name:"Grenouille",};
+                let activity = {id:null, name:"",};
+                switch (creation.id) {
+                    case 1:
+                        activity = {name:"Galet de mer"};
+                        break;
+                    case 2:
+                        activity = {name:"Baguette classique"};
+                        break;
+                    case 3:
+                        activity = {name:"Hotel à insectes"};
+                        break;
+                    case 4:
+                        activity = {name:"Pâte à sel"};
+                        break;
+            
+                }
                 
                 // Récupérer la subcats de la dernière création
-                let sub_category = {id:1, name:"Dessin"};
+                let sub_category = {id:null, name:"",};
+                switch (creation.sub_category) {
+                    case 2:
+                        sub_category = {id:2, name:"Peinture"};
+                        break;
+                    case 4:
+                        sub_category = {id:4, name:"Pains"};
+                        break;
+                    case 7:
+                        sub_category = {id:7, name:"Nature & Découverte"};
+                        break;
+
+                }
 
                 let kid = {id:0, name:"", avatar:''};
                 kids.map((k) => {
                     if(k.id == creation.kid_id) {
-            
-                        //Récupérer l'avatar selon k.avatar_id
-                        let avatar = {id:k.id, img:"img/avatar-01.svg"};
 
                         kid.name = k.name;
-                        kid.avatar = avatar.img;
+                        kid.avatar = k.avatar;
                     }
                 })
 
@@ -95,12 +105,12 @@ function CreationsParent(props) {
                         <div className={"creations-parent__creation__body"}>
                             <div className={"creations-parent__creation__imgs"}>
                                 <div className={"creations-parent__creation__body__imgs__img"}>
-                                    <img src={creation.img} key={index} />
+                                    <img src={"/img/creations/"+creation.img} key={index} />
                                 </div>
                             </div>
                             <div className="creations-parent__creation__body__infos">
                                 <div className="creations-parent__creation__body__infos__avatar">
-                                    <img src={kid.avatar} />
+                                    <img src={"/img/avatars/"+kid.avatar} />
                                     <RoundBackground color="yellow" shadow={true}/>
                                 </div>
                                 <p className="creations-parent__creation__body__infos__title">{kid.name}</p>
@@ -113,7 +123,7 @@ function CreationsParent(props) {
                                 <p className="creations-parent__creation__infos__text__title">{activity.name}</p>
                                 <p className="creations-parent__creation__infos__text__subtitle">{sub_category.name}</p>
                             </div>
-                            <span className="creations-parent__creation__infos__share"><i class="fas fa-share-alt"></i></span>
+                            <span className="creations-parent__creation__infos__share"><i className="fas fa-share-alt"></i></span>
                         </div>
 
                     </div>
