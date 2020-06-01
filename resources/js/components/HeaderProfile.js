@@ -9,7 +9,7 @@ function HeaderProfile(props) {
             <a className="container__logout" href="/"><i className="fas fa-power-off"></i></a>
             <div className="page-header-profile__identity">
                 <div className="page-header-profile__identity__background ">
-                    <img className="page-header-profile__identity__img" src={kid.avatar}/>
+                    <img className="page-header-profile__identity__img" src={"/img/avatars/"+kid.avatar}/>
                     <RoundBackground color="yellow" shadow={true}/>
                 </div>         
                 <h1 className="page-header-profile__identity__title">{kid.name}</h1>

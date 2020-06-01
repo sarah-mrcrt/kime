@@ -44,10 +44,9 @@ function TrophiesGrid(props) {
             <section className="trophies-grid">
                 {trophies.map((trophy,index) => {
     
-                    let unlockedClass = "unlocked";
     
                     return (
-                        <div className={"trophies-grid__trophy " + unlockedClass + " info-bubble__info"} key={index} onClick={handleClick}>
+                        <div className={"trophies-grid__trophy unlocked info-bubble__info"} key={index} onClick={handleClick}>
                             <img className="trophies-grid__trophy__img info-bubble__img" src={'/img/trophies/'+trophy.img} alt={trophy.name} />
                             <div className="trophies-grid__trophy__background"></div>
     
@@ -66,7 +65,6 @@ function TrophiesGrid(props) {
             <div>Chargement...</div>
         )
     }
-
 }
 
 export default TrophiesGrid;
