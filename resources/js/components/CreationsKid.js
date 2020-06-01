@@ -1,4 +1,5 @@
 import React from 'react';
+import RoundBackground from './RoundBackground.js';
 
 function CreationsKid(props) {
     let kid = props.kid
@@ -15,15 +16,14 @@ function CreationsKid(props) {
                         <div className={"creations-kid__creation__imgs " + gridClass}>
                             {activity.creations.map((creation,index) => {
                                 return (
-                                    <div className={"creations-kid__creation__imgs__img img" + index}>
-                                        <img src={"/img/creations/"+creation.img} key={index} />
+                                    <div className={"creations-kid__creation__imgs__img img" + index}  key={index}>
+                                        <img src={"/img/creations/"+creation.img} />
                                     </div>
                                 )
                             })
                             }
                             <div className={"creations-kid__infos " + activity.color}>
                                 <img className="creations-kid__infos__img" src={"/img/sub_categories/"+activity.img} />
-                                <RoundBackground color="yellow" shadow={true}/>
                                 <p className="creations-kid__infos__title">{activity.name}</p>
                             </div>
                         </div>
