@@ -10,17 +10,17 @@ function Profil(props) {
     let nb_activities = 10;  // nb_activities = nombre d'activités réalisées
 
     let subcats = [ // Regroupement des creations par activité (plus récente à plus ancienne)
-        {id: 2, name:"Dessin", img:"sub_category-03.svg", color:"blue", creations: [
-            {id:1, img:"creation.jpg"},
-            {id:3, img:"creation.jpg"}, // MAX 3 créations / catégorie -> seulement un aperçu
-            {id:10, img:"creation.jpg"}
+        {id: 2, name:"Peinture", img:"sub_category-13.svg", color:"blue", creations: [
+            {id:1, img:"creation-04.jpg"},
+            {id:3, img:"creation-05.jpg"}, // MAX 3 créations / catégorie -> seulement un aperçu
+            {id:10, img:"creation-06.jpg"}
         ]},
-        {id: 5, name:"Cuisine", img:"sub_category-01.svg", color:"red", creations: [
-            {id:1, img:"creation.jpg"},
-            {id:3, img:"creation.jpg"}
+        {id: 4, name:"Pains", img:"sub_category-04.svg", color:"red", creations: [
+            {id:1, img:"creation-01.jpg"},
+            {id:3, img:"creation-02.jpg"}
         ]},
-        {id: 5, name:"Jeux d'équilibre", img:"sub_category-02.svg", color:"red", creations: [
-            {id:1, img:"creation.jpg"}
+        {id: 7, name:"Nature & Découverte", img:"sub_category-07.svg", color:"yellow", creations: [
+            {id:1, img:"creation-03.jpg"}
         ]}
     ]
 
