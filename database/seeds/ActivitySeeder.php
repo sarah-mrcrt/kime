@@ -11,28 +11,10 @@ class ActivitySeeder extends Seeder
      */
     public function run()
     {
-        /*
-        $aCookie = new \App\Activity();
-        $aCookie->name = "Cookie";
-        $aCookie->img = $aCookie->name.".svg";
-        $aCookie->txt_choice = "cuisine";
-        $aCookie->txt_win = "cuisine";
-        $aCookie->sub_category_id = 1;
-        $aCookie->save();
-
-        $aMuffin = new \App\Activity();
-        $aMuffin->name = "Muffin";
-        $aMuffin->img = $aMuffin->name.".svg";
-        $aMuffin->txt_choice = "Muffin";
-        $aMuffin->txt_win = "Muffin";
-        $aMuffin->sub_category_id = 1;
-        $aMuffin->save();
-        */
-
         $activities = [
             [//1
-                'name' => 'Langues de chat',
-                'txt_choice' => 'Langues de chat', 
+                'name' => 'Macarons',
+                'txt_choice' => 'Macarons', 
                 'txt_win' => 'Tu as fait de belles langues de chat !', 
                 'sub_category_id' => 1, 
                 'trophy_id' => 1
@@ -170,6 +152,13 @@ class ActivitySeeder extends Seeder
                 'sub_category_id' => 11, 
                 'trophy_id' => 11
             ],
+            [ //21
+                'name' => 'Dessin de lion',
+                'txt_choice' => 'Dessin de lion', 
+                'txt_win' => 'Comment dessiner un lion ?', 
+                'sub_category_id' => 3, 
+                'trophy_id' => 3
+            ],
         ];
 
         for ($item=0; $item < count($activities); $item++){ 
@@ -177,9 +166,9 @@ class ActivitySeeder extends Seeder
                 $activity = new \App\Activity();
                 $activity->name = $activities[$item]['name'];
                 if($item<9){
-                    $activity->img = "activity-0".($item + 1).".jpg";
+                    $activity->img = "activity-0".($item + 1).".png";
                 }else{
-                    $activity->img = "activity-".($item + 1).".jpg";
+                    $activity->img = "activity-".($item + 1).".png";
                 }
                 $activity->txt_choice = $activities[$item]['txt_choice'];
                 $activity->txt_win = $activities[$item]['txt_win'];
@@ -189,6 +178,5 @@ class ActivitySeeder extends Seeder
                 $item+=1;
             }
         }
-
     }
 }
