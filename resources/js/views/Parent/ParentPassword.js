@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { AuthDataContext } from '../../components/AuthDataProvider';
+const bcrypt = require('bcrypt');
 
 import Header from '../../components/Header';
 

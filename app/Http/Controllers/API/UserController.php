@@ -74,7 +74,7 @@ class UserController extends Controller
     { 
         if(Auth::check()) {
             $user = Auth::user();
-            return response()->json(['success' => $user]); 
+            return response()->json(['success' => true, 'user' => $user]); 
         } else {
             return response()->json(['error' => "L'utilisateur n'est pas connecté"]);
         }
