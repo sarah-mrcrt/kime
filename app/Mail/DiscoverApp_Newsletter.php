@@ -11,23 +11,18 @@ class DiscoverApp_Newsletter extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+    public $contact;
+
     public function __construct()
     {
-        //
+        $this->contact = $contact;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->view('mails.DiscoverApp_Newsletter');
+        return $this
+        ->subject('La nouvelle application')
+        ->from('noreply@kimeapp.com')
+        ->view('mails.DiscoverApp_Newsletter');
     }
 }

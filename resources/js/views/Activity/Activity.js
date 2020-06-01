@@ -25,7 +25,6 @@ const Activity = props => {
             if(json.data.success) {
                 setActivity(json.data.activity);
                 setStepsCount(json.data.steps.length);
-
                 // Sort steps by position
                 let tmp = json.data.steps.sort((a, b) => (a.position > b.position) ? 1 : -1 );
                 setSteps(tmp);
@@ -38,7 +37,6 @@ const Activity = props => {
 
     }, [])
 
-    
     //console.log(activity);
 
     const prevStep = e => {
@@ -47,7 +45,7 @@ const Activity = props => {
         if(currentStepIndex - 1 < 0) {
             setCurrentStepIndex(0);
         } else {
-            setCurrentStepIndex(currentPageIndex + 1);
+            setCurrentStepIndex(currentStepIndex - 1);
         }
     }
 
@@ -57,7 +55,7 @@ const Activity = props => {
         if(currentStepIndex + 1 > Object.keys(steps).length - 1) { // If last step
             nextPage();
         } else {
-            setCurrentStepIndex(currentPageIndex + 1);
+            setCurrentStepIndex(currentStepIndex + 1);
         }
     }
 
