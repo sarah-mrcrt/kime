@@ -12,8 +12,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new \App\User();
-        $user->name = "Sarah";
-        $user->email = "sarah.nawal@live.fr";
+        $user->name = "Kime";
+        $user->role = "admin";
+        $user->email = "kimeapplens@gmail.com";
         $user->password = bcrypt("12345678");
         $user->admin_password = bcrypt("12345678");
         $user->save();
