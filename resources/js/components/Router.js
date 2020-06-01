@@ -25,6 +25,7 @@ import ParentHome from '../views/Parent/ParentHome';
 import ParentSearch from '../views/Parent/ParentSearch';
 import ParentProfil from '../views/Parent/ParentProfil';
 import NotFound from '../views/NotFound/NotFound';
+import Loading from '../views/Loading/Loading';
 
 
 
@@ -41,6 +42,7 @@ const PrivateRoute = ({ component, ...options }) => {
         <Route exact={true} path="/connexion" component={Login} />
         <Route exact={true} path='/inscription' component={Register} />
         <Route exact={true} path='/NotFound' component={NotFound} />
+        <Route exact={true} path='/loading' component={Loading} />
 
         <Redirect exact={true} from="/" to="/welcome"/>
         <PrivateRoute exact={true} path="/accueil" component={Home} />

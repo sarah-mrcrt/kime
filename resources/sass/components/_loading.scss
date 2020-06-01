@@ -1,0 +1,21 @@
+// 
+/// LOADING
+/// 
+
+.loading-container{
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 70%;
+    }
+    .logotypo{
+        font-family: $font-family-logo;
+        font-size: 5rem;
+        font-weight: 100;
+    }
+    p{
+        margin: 0;
+    }
+}
