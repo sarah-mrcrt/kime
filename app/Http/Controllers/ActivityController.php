@@ -23,13 +23,14 @@ class ActivityController extends Controller
         $a = Activity::findOrFail($id);
     
         return response()->json([
-            // "data" => $a,
-            // "Steps from the activity" => $a->steps,
-            // "SubCategory from the activity" => $a->subcategory,
-            "Find the category from the activity" => $a->category,
-            // "Trophy from the activity" => $a->trophy,
-            // "Kids who have access to the activity" => $a->kids            
-        ], 201);
+            'success' => true,
+            'activity' => $a,
+            "steps" => $a->steps,
+            //'category' => $a->category,
+            //"subCategory" => $a->subcategory,
+            "trophy" => $a->trophy,
+            //"kids" => $a->kids
+        ], 200);
     }
 
     public function create(Request $req) 

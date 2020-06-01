@@ -8,6 +8,7 @@ import InfoBubble from '../../components/InfoBubble.js';
 function ActivityChoice(props) {
 
     const [subCat, setSubCat] = useState({})
+    const [activities, setActivities] = useState([]);
     // Récupération de l'id dans l'URL
     let catSlug = props.match.params.catSlug;
     let subCatSlug = props.match.params.subCatSlug;
@@ -17,12 +18,18 @@ function ActivityChoice(props) {
         axios.get('/api/category/' + catSlug + '/' + subCatSlug)
         .then(json => {
             if(json.data.name) {
-                setSubCat(json.data);
+                setSubCat({
+                    name: json.data.name,
+                    img: json.data.img,
+                });
+                setActivities(json.data.activities);
             }
         }).catch(error => {
             console.log(error);
         })
     }, []);
+
+    console.log(activities);
 
     if(Object.keys(subCat).length > 0) {
         return (
@@ -31,7 +38,7 @@ function ActivityChoice(props) {
                 <div className="container__body none">
                     <HeaderActivity img={'/img/'+subCat.img} name={subCat.name} color="blue" />
                     <div className="content">
-                        <ActivitiesGrid choices={subCat.activities} />
+                        <ActivitiesGrid choices={activities} />
                     </div>
                 </div>
                 <InfoBubble />
