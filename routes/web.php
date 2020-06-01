@@ -25,7 +25,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::post('auth/register', 'API\UserController@register');
     Route::post('auth/logout', 'API\UserController@logout');
     Route::post('auth/user', 'API\UserController@details');
-    Route::post('adminpassword/{password}', 'API\UserController@adminpassword');
+    Route::post('/adminpassword', 'API\UserController@adminpassword');
 
 // Route::group(['middleware' => 'auth:api'], function () {
 
