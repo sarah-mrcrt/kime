@@ -34,7 +34,7 @@ function Activities(props) {
                 return (
                     <div className="activity-choice-grid__choice info-bubble__info" key={index} onClick={handleClick}>
                         <p className="activity-choice-grid__choice__name info-bubble__title">{choice.name}</p>
-                        <img className="activity-choice-grid__choice__img info-bubble__img" src={choice.img} alt={choice.name} />
+                        <img className="activity-choice-grid__choice__img info-bubble__img" src={'/img/activities/'+choice.img} alt={choice.name} />
                         <a className="activity-choice-grid__choice__btn info-bubble__btn" href={"/activity/" + choice.id}>Sélectionner</a>
                     </div>
                 )
