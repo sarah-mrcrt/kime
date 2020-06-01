@@ -18,7 +18,7 @@ class SubCategorySeeder extends Seeder
            /* 3 */ ['name' => 'Dessin','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'blue'],
            /* 4 */ ['name' => 'Pains','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
            /* 5 */ ['name' => 'Glaces','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'yellow'],
-           /* 6 */ ['name' => 'Décorations','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
+           /* 6 */ ['name' => 'Décos','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
            /* 7 */ ['name' => 'Nature & Découverte','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
            /* 8 */ ['name' => 'Jeux d\'eau','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
            /* 9 */ ['name' => 'Faire pousser','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],

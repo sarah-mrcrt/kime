@@ -11,18 +11,8 @@ class StepSeeder extends Seeder
      */
     public function run()
     {
-        /*
-        $aCookieStep1 = new \App\Step();
-        $aCookieStep1->position = 1;
-        $aCookieStep1->name = "Matériaux";
-        $aCookieStep1->img = "Loremipsum.svg";
-        $aCookieStep1->title = "Lorem ipsum";
-        $aCookieStep1->text = "Lorem ipsum";
-        $aCookieStep1->activity_id = 1;
-        $aCookieStep1->save();
-        */
-
         $steps = [
+            // Activity 2
             [
                 'position' => 1,
                 'name' => 'Les ingrédients',
@@ -71,7 +61,50 @@ class StepSeeder extends Seeder
                 'title' => '',
                 'text' => 'La cuisson est parfaite lorsque le dessus du fard breton devient dorée. Tu peux le manger tiède ou froid, bon appétit !',
                 'activity_id' => 2, 
-            ]
+            ],
+            // Activity 21
+            [
+                'position' => 1,
+                'name' => 'Son corps',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
+            [
+                'position' => 2,
+                'name' => 'Ses pattes',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
+            [
+                'position' => 3,
+                'name' => 'Ses oreilles et sa queue',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
+            [
+                'position' => 4,
+                'name' => 'Sa crinière',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
+            [
+                'position' => 5,
+                'name' => 'Sa bouche et ses sourcil',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
+            [
+                'position' => 6,
+                'name' => 'Résultat final',
+                'title' => '',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'activity_id' => 21, 
+            ],
         ];
 
         for ($item=0; $item < count($steps); $item++){ 
