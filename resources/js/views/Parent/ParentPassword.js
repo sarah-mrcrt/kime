@@ -1,94 +1,21 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { AuthDataContext } from '../../components/AuthDataProvider';
+const bcrypt = require('bcrypt');
 
 import Header from '../../components/Header';
 
 function ParentPassword(props) {
 
-    // Fonctions à adapter à cette page
-    let adminPassword = '';
-
-    
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
 
-    const { authData, onLogin } = useContext(AuthDataContext);
-
-    const emailField = useRef(null);
-    const passwordField = useRef(null);
-   
-    useEffect(() => {
-        // Fixing autofill problems by deactivating it:
-        let interval = setInterval(() => {
-          if (emailField.current) {
-            setEmail(emailField.current.value)
-            setPassword(passwordField.current.value);
-            //do the same for all autofilled fields
-            clearInterval(interval)
-          }
-        }, 100)
-    })
-    /*
-    if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
-        return <Redirect to="/welcome"/>;
-    }
-
-    if(redirect) {
-        return <Redirect to="/welcome"/>;
-    }
-      */
-
-    function login(values) {
-
-        axios.post("/api/auth/login", values)
-        .then(response => {
-            return response;
-        }).then(json => {
-            if (json.data.success) {
-
-                let userData = {
-                    id: json.data.id,
-                    name: json.data.name,
-                    email: json.data.email,
-                    activation_token: json.data.activation_token
-                };
-
-                let newAuthData = {
-                    isLoggedIn: true,
-                    user: userData
-                }
-
-                // Storing authData in Local Storage
-                localStorage.setItem('authData', JSON.stringify(newAuthData));
-
-                console.log("succesfully logged in");
-
-                setRedirect(true);
-            } else {
-                alert(`Connexion impossible: identifiants erronés`);
-            }
-        }).then(onLogin)
-        .catch(error => {
-            console.log(error);
-        });
-        
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // check password
+
         return <Redirect to="/parent-home" />
-
-        /*
-        let credentials = {
-            'email': emailField.current.value,
-            'password': passwordField.current.value
-        }
-
-        login(credentials);
-        */
-        
     }
 
     
@@ -106,7 +33,7 @@ function ParentPassword(props) {
                             </div>
                             <div className="div">
                             <label className="form__label" htmlFor="password">Mot de passe parental</label>
-                            <input className="input" onChange={(e) => setAdminPassword(e.target.value)} type="password" name="admin_password" value={adminPassword}/>
+                            <input className="input" onChange={(e) => setPassword(e.target.value)} type="password" name="admin_password" value={adminPassword}/>
                             </div>
                         </div>
                         <div className="form__row">

@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Activities(props) {
-
-    console.log(props.choices);
 
     const handleClick = e => {
         e.preventDefault();
@@ -11,7 +9,6 @@ function Activities(props) {
         let title = $('.info-bubble__title', info).text();
         let btnValue = $('.info-bubble__btn', info).text();
         let btnHref = $('.info-bubble__btn', info).attr('href');
-        console.log(title)
 
         $('#info-bubble__img').attr('src', img);
         $('#info-bubble__title').text(title);
@@ -34,17 +31,11 @@ function Activities(props) {
     return (
         <section className="activity-choice-grid">
             {props.choices.map((choice,index) => {
-                
-
-                // à retirer quand la route /activity-step comprendre les ids
-                choice.id = "";
-                
-
                 return (
                     <div className="activity-choice-grid__choice info-bubble__info" key={index} onClick={handleClick}>
                         <p className="activity-choice-grid__choice__name info-bubble__title">{choice.name}</p>
                         <img className="activity-choice-grid__choice__img info-bubble__img" src={choice.img} alt={choice.name} />
-                        <a className="activity-choice-grid__choice__btn info-bubble__btn" href={"/activity-step/" + choice.id}>Sélectionner</a>
+                        <a className="activity-choice-grid__choice__btn info-bubble__btn" href={"/activity/" + choice.id}>Sélectionner</a>
                     </div>
                 )
             })

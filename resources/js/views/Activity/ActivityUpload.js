@@ -6,7 +6,7 @@ function ActivityUpload(props) {
 
     const handleSubmit = evt => {
         
-        
+        props.next();
     }
 
     return (

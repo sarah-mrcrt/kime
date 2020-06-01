@@ -16,7 +16,7 @@ import FillChildData from '../views/FillChildData/FillChildData';
 import Welcome from '../views/Welcome/Welcome';
 import Trophies from '../views/Trophies/Trophies';
 import ActivityChoice from '../views/Activity/ActivityChoice';
-import ActivityStep from '../views/Activity/ActivityStep';
+import Activity from '../views/Activity/Activity';
 import ActivityUpload from '../views/Activity/ActivityUpload';
 import ActivityWin from '../views/Activity/ActivityWin';
 import ParentPassword from '../views/Parent/ParentPassword';
@@ -55,7 +55,7 @@ const PrivateRoute = ({ component, ...options }) => {
 
         <Route exact={true} path="/test" component={Test} />
         <PrivateRoute exact={true} path="/activity-choice/:catSlug/:subCatSlug" component={ActivityChoice} />
-        <Route exact={true} path="/activity-step/:activityId/:stepId" component={ActivityStep} />
+        <Route exact={true} path="/activity/:activityId" component={Activity} />
         <Route exact={true} path="/activity-upload" component={ActivityUpload} />
         <Route exact={true} path="/activity-win" component={ActivityWin} />
         <Route exact={true} path="/parent-password" component={ParentPassword} />
