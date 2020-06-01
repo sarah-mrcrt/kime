@@ -21,7 +21,7 @@ class StepSeeder extends Seeder
         $aCookieStep1->activity_id = 1;
         $aCookieStep1->save();
         */
-        
+
         $steps = [
             [
                 'position' => 1,
@@ -81,9 +81,9 @@ class StepSeeder extends Seeder
                 $step->name = $steps[$item]['name'];
                 $step->title = $steps[$item]['title'];
                 if($item<9){
-                    $step->img = "/steps/step-0".($item + 1).".svg";
+                    $step->img = "step-0".($item + 1).".jpg";
                 }else{
-                    $step->img = "/step/step-".($item + 1).".svg";
+                    $step->img = "step-".($item + 1).".jpg";
                 }
                 $step->text = $steps[$item]['text'];
                 $step->activity_id = $steps[$item]['activity_id'];

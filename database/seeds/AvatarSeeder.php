@@ -27,9 +27,9 @@ class AvatarSeeder extends Seeder
                 $avatar = new \App\Avatar();
                 $avatar->name = $avatars[$item];
                 if($item<9){
-                    $avatar->img = "/avatars/avatar-0".($item + 1).".svg";
+                    $avatar->img = "avatar-0".($item + 1).".svg";
                 } else{
-                    $avatar->img = "/avatars/avatar-".($item + 1).".svg";
+                    $avatar->img = "avatar-".($item + 1).".svg";
                 }
                 $avatar->color = "blue";
                 $avatar->minScore = $minScore;

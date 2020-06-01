@@ -13,18 +13,24 @@ class SubCategorySeeder extends Seeder
     public function run()
     {
         $subCategories = [
-            ['name' => 'Gâteaux','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'red'],
-            ['name' => 'Coloriage','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'red'],
-            ['name' => 'Dessin','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'blue'],
-            ['name' => 'Musique','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'red'],
-            ['name' => 'Jeux d\'équilibre','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red']
+           /* 1 */ ['name' => 'Gâteaux','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'], 
+           /* 2 */ ['name' => 'Jeux d\'équilibre','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
+           /* 3 */ ['name' => 'Dessin','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'blue'],
+           /* 4 */ ['name' => 'Pains','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
+           /* 5 */ ['name' => 'Glaces','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'yellow'],
+           /* 6 */ ['name' => 'Décorations','category_slug' => 'cuisine', 'category_id' => 2, 'color' => 'blue'],
+           /* 7 */ ['name' => 'Nature & Découverte','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
+           /* 8 */ ['name' => 'Jeux d\'eau','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
+           /* 9 */ ['name' => 'Faire pousser','category_slug' => 'jeux-dexterieurs', 'category_id' => 3, 'color' => 'red'],
+           /* 10 */ ['name' => 'Jeux de cartes','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
+           /* 11 */ ['name' => 'Jeux de tirs','category_slug' => 'jeux-dinterieurs', 'category_id' => 4, 'color' => 'red'],
+           /* 12 */ ['name' => 'Coloriage','category_slug' => 'creativite', 'category_id' => 2, 'color' => 'red']
         ];
 
         for ($item=0; $item < count($subCategories); $item++){ 
             foreach ($subCategories as $subCategory) {
                 $subCategory = new \App\SubCategory();
                 $subCategory->name = $subCategories[$item]['name'];
-                print_r($subCategory);
                 if($item<9){
                     $subCategory->img = "sub_category-0".($item + 1).".svg";
                 }else{
