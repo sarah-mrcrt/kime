@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash; 
 
 class UserController extends Controller 
 {
@@ -30,6 +31,18 @@ class UserController extends Controller
 
         } else { 
             return response()->json(['error'=>'Wrong credentials']); 
+        } 
+    }
+
+    public function adminpassword(Request $request, $password)
+    {
+        $user = Auth::user();
+        $hashedPassword = $user->admin_password; 
+
+        if(Hash::check($request->admin_password, $hashedPassword)) {
+            return response()->json([
+                'success' => true
+            ], 201);
         } 
     }
 

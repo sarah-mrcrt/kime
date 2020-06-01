@@ -25,13 +25,14 @@ Route::group([ // Adding API prefix to all API routes
     Route::post('auth/register', 'API\UserController@register');
     Route::post('auth/logout', 'API\UserController@logout');
     Route::post('auth/user', 'API\UserController@details');
+    Route::post('adminpassword/{password}', 'API\UserController@adminpassword');
 
 // Route::group(['middleware' => 'auth:api'], function () {
 
-    // Parent profile
+    // Parent profilephp artisan routes
     Route::get('/user/update/{user}','API\UserController@update');
     Route::delete('/user/delete/{user}','API\UserController@destroy');
-    Route::get('/creations/allNews','CreationController@parentIndex');
+    Route::get('/creations/allNews/{idParent}','CreationController@parentIndex')->where('idParent', '[0-9]+');
 
 
     // Kids & Creations
