@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Kid;
 use App\Activity;
+use App\User;
 use App\Creation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,45 +23,43 @@ class CreationController extends Controller
         ], 200);
     }
 
-    public function parentIndex()
+    public function parentIndex($idParent)
     {
-        // Afficher toutes les créations des enfants qui appartiennent à l'utilisateur connecté
-        
-        $c = DB::table('creations')
-            ->where('kids.user_id', '=', Auth::id())
-            ->join('kids', 'creations.kid_id', '=',  'kids.id')
-            ->join('users', 'kids.user_id', '=', 'users.id')
-            ->select('creations.*', 'kids.*', 'users.*')
-            ->orderby('creations.id', 'desc')
-            ->get();
-        
-        // $c = DB::table('users')
-        //     ->join('kids', 'users.id', '=',  'kids.user_id')
-        //     ->join('creations', 'kids.id', '=', 'creations.kid_id')
-        //     ->select('kids.*', 'users.*','creations.*')
-        //     ->orderby('creations.id', 'desc')
-        //     ->get();
-        
-        // Je récupère tous les utilisa
-        // $c = DB::table('creations')
+        // // Afficher toutes les créations des enfants qui appartiennent à l'utilisateur connecté
+        $u = User::findOrFail($idParent);
+        $k = Kid::all()
+        ->join('creations', 'kid.id', '=',  'creations.kid_id');
+        // ->where('user_id', '=', $idParent);
+
+        if($k->user_id != Auth::id()){
+            abort(404);
+        }
+
+        // // Je récupère tous les enfants de chaque créations qui appartiennent à l'utilisateur connecté
+        // $kids = DB::table('creations')
         // ->join('kids', function ($join) {
         //     $join->on('creations.kid_id', '=', 'kids.id')
         //          ->where('kids.user_id', '=', Auth::id());
-        // })
+        // }) 
+        // ->orderby('creations.id', 'desc')
         // ->get();
 
-        // $c = DB::table('users')
+        // // Je récupère tous les utilisateurs de chaque créations d'un enfant qui appartiennent à cet utilisateur connecté
+        // $users = DB::table('users')
         // ->join('kids', function ($join) {
         //     $join->on('users.id', '=', 'kids.user_id')
         //          ->where('kids.user_id', '=', Auth::id());
         // })
         // ->get();
 
-        // ->join('kids', 'kids.id', '=', 'creations.kid_id')
-        // ->where('kids.user_id', '=', Auth::id());
-
+        // // Afficher toutes les créations
+        // $c = Creation::all();
+        
         return response()->json([
-            "data" => $c
+            // "data" => $c,
+            // "All kids" => $kids,
+            // "All users" => $users,
+            "All creations" => $k
         ], 200);
     }
 
@@ -93,7 +92,7 @@ class CreationController extends Controller
 
         $c = new Creation();
         if($req->file('img') != null){
-            $c->img = ('/uploads/'.Auth::id().'/'.$name);
+            $c->img = ('/uploads/'.Auth::id()."/".$kid->id."/".$name);
         }
         $c->kid_id = $idKid;
         $c->activity_id = $idActivity;

@@ -25,6 +25,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::post('auth/register', 'API\UserController@register');
     Route::post('auth/logout', 'API\UserController@logout');
     Route::post('auth/user', 'API\UserController@details');
+    Route::post('adminpassword/{password}', 'API\UserController@adminpassword');
 
 // Route::group(['middleware' => 'auth:api'], function () {
 
@@ -32,7 +33,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/user', 'API\UserController@details');
     Route::get('/user/update/{user}','API\UserController@update');
     Route::delete('/user/delete/{user}','API\UserController@destroy');
-    Route::get('/creations/allNews','CreationController@parentIndex');
+    Route::get('/creations/allNews/{idParent}','CreationController@parentIndex')->where('idParent', '[0-9]+');
 
 
     // Kids & Creations
@@ -57,7 +58,9 @@ Route::group([ // Adding API prefix to all API routes
         Route::post('/activity/create', 'ActivityController@create');
         Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
         Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
-        //modifier, supprimer, ajouter steps
+
+        Route::post('/step/{idActivity}/create', 'StepController@create');
+        //modifier, supprimer steps
     });
 
 
