@@ -8,6 +8,7 @@ use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash; 
 use App\Mail\DiscoverApp_Newsletter;
+
 class UserController extends Controller 
 {
 
@@ -17,8 +18,8 @@ class UserController extends Controller
             $user = Auth::user(); 
             $tokenResult = $user->createToken('Kime'); 
 
-            $sendmail = Auth::where('email', request('email'))->firsOrFail();
-            Mail::to($sendmail)->send(New DiscoverApp_Newsletter);
+            //$sendmail = Auth::user()->where('email', '=', request('email'))->firstOrFail()->email;
+            //\Mail::to($sendmail)->send(New DiscoverApp_Newsletter);
 
             return response()->json([
                 'success' => true,
