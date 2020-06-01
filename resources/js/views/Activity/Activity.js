@@ -44,17 +44,21 @@ const Activity = props => {
     const prevStep = e => {
         e.preventDefault();
 
-        currentStepIndex - 1 < 0 ?
-        setCurrentStepIndex(0) : 
-        setCurrentStepIndex(currentStepIndex-1);
+        if(currentStepIndex - 1 < 0) {
+            setCurrentStepIndex(0);
+        } else {
+            setCurrentStepIndex(currentPageIndex + 1);
+        }
     }
 
     const nextStep = e => {
         e.preventDefault();
 
-        currentStepIndex + 1 > stepsCount - 1 ?
-        setCurrentStepIndex(stepsCount) : 
-        setCurrentStepIndex(currentStepIndex+1);
+        if(currentStepIndex + 1 > Object.keys(steps).length - 1) { // If last step
+            nextPage();
+        } else {
+            setCurrentStepIndex(currentPageIndex + 1);
+        }
     }
 
     const prevPage = () => {
@@ -64,9 +68,10 @@ const Activity = props => {
     }
 
     const nextPage = () => {
+
         currentPageIndex + 1 > pages.length - 1 ?
-        setCurrentStepIndex(pages.length-1) : 
-        setCurrentStepIndex(currentPageIndex + 1);
+        setCurrentPageIndex(pages.length-1) : 
+        setCurrentPageIndex(currentPageIndex + 1);
     }
 
     const pages = [
@@ -76,7 +81,7 @@ const Activity = props => {
             previous = {prevStep}
             next = {nextStep}
         />,
-        <ActivityUpload/>,
+        <ActivityUpload next={nextPage}/>,
         <ActivityWin/>
     ];
 

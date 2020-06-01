@@ -22,8 +22,11 @@ function ActivityStep(props) {
                         <p className="activity-step__text">{etape.text}</p>
                     </div>
                     <RegisterStepBar nb={nbEtapesTotales} actualStep={etape.position} color="yellow"/>
-                    <a className="activity-step__next" onClick={props.previous}>Suivant</a>
-                    <a className="activity-step__prev" onClick={props.next}>Retour</a>
+                    <a className="activity-step__next" onClick={props.next}>Suivant</a>
+                    {etape.position > 1 &&
+                        <a className="activity-step__prev" onClick={props.previous}>Précédent</a>
+                    }
+                    
                 </div>
             </div>
         )
