@@ -16,12 +16,13 @@ function SubCategoriesGrid(props) {
 
     }, []);
 
-    const filters = (e,category_slug) => {
+    const filtrer = (e,category_slug) => {
         e.preventDefault();
         
         // Recherche des activités selon category_slug
 
         // Changement de l'affichage
+        console.log('categ')
         let categ = e.currentTarget;
         categ.classList.add('selected');
         $('.categories-filters__option.filter.selected').removeClass('selected');
@@ -34,11 +35,11 @@ function SubCategoriesGrid(props) {
             <>
                 <section className="categories-filters">
                     <p className="categories-filters__option">Choisis une <br />catégorie</p>
-                    <p className="categories-filters__option filter selected" onClick={(e) => {() => filters(e,'tout')}}>Tout</p>
-                    <p className="categories-filters__option filter" onClick={(e) => {() => filters(e,'cuisine')}}>Cuisine</p>
-                    <p className="categories-filters__option filter" onClick={(e) => {() => filters(e,'creativite')}}>Créativité</p>
-                    <p className="categories-filters__option filter" onClick={(e) => {() => filters(e,'jeux-dexterieurs')}}>Jeux d'extérieurs</p>
-                    <p className="categories-filters__option filter" onClick={(e) => {() => filters(e,'jeux-dinterieurs')}}>Jeux d'intérieurs</p>
+                    <p className="categories-filters__option filtrer selected" onClick={(e) => {() => filters(e,'tout')}}>Tout</p>
+                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'cuisine')}}>Cuisine</p>
+                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'creativite')}}>Créativité</p>
+                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'jeux-dexterieurs')}}>Jeux d'extérieurs</p>
+                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'jeux-dinterieurs')}}>Jeux d'intérieurs</p>
                 </section>
                 <section className="activities-grid">
                     {subCats.map((subCat,index) => {
