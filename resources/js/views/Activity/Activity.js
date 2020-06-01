@@ -45,7 +45,7 @@ const Activity = props => {
         if(currentStepIndex - 1 < 0) {
             setCurrentStepIndex(0);
         } else {
-            setCurrentStepIndex(currentPageIndex + 1);
+            setCurrentStepIndex(currentStepIndex - 1);
         }
     }
 
@@ -55,7 +55,8 @@ const Activity = props => {
         if(currentStepIndex + 1 > Object.keys(steps).length - 1) { // If last step
             nextPage();
         } else {
-            setCurrentStepIndex(currentPageIndex + 1);
+            console.log(currentStepIndex);
+            setCurrentStepIndex(currentStepIndex + 1);
         }
     }
 
