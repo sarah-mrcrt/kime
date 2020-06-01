@@ -29,7 +29,7 @@ Route::group([ // Adding API prefix to all API routes
 // Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
-    Route::get('/user/{id}', 'API\UserController@details');
+    Route::get('/user', 'API\UserController@details');
     Route::get('/user/update/{user}','API\UserController@update');
     Route::delete('/user/delete/{user}','API\UserController@destroy');
     Route::get('/creations/allNews','CreationController@parentIndex');

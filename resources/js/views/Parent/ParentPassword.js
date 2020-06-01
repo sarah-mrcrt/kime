@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-const bcrypt = require('bcrypt');
 
 import Header from '../../components/Header';
+import axios from 'axios';
 
 function ParentPassword(props) {
 
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [user, setUser] = useState({});
 
+    useEffect(() => {
+
+    }, []);
+
+    console.log(user);
 
     const handleSubmit = (e) => {
         e.preventDefault();
