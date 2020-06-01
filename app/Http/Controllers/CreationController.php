@@ -92,7 +92,7 @@ class CreationController extends Controller
 
         $c = new Creation();
         if($req->file('img') != null){
-            $c->img = ('/uploads/'.Auth::id().'/'.$name);
+            $c->img = ('/uploads/'.Auth::id()."/".$kid->id."/".$name);
         }
         $c->kid_id = $idKid;
         $c->activity_id = $idActivity;

@@ -58,7 +58,9 @@ Route::group([ // Adding API prefix to all API routes
         Route::post('/activity/create', 'ActivityController@create');
         Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
         Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
-        //modifier, supprimer, ajouter steps
+
+        Route::post('/step/{idActivity}/create', 'StepController@create');
+        //modifier, supprimer steps
     });
 
 
