@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RoundBackground from './RoundBackground.js';
+import axios from 'axios';
 
 function TrophiesGrid(props) {
+
+    const [trophies, setTrophies] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/trophies/all')
+        .then(json => {
+            if(json.data.data) {
+                setTrophies(json.data.data);
+            }
+        })
+    }, [])
 
     const handleClick = e => {
         e.preventDefault();
@@ -27,33 +39,32 @@ function TrophiesGrid(props) {
         $('#info-bubble').css('display','flex');
     }
 
-    return (
-        <section className="trophies-grid">
-            {props.trophies.map((trophy,index) => {
-
-                let unlockedClass = "locked";
-                if(trophy.minScore <= props.score) {
-                    unlockedClass = "unlocked";
-                } else if (props.displayUnlocked == false){
-                    unlockedClass = "deleted"
-                }
-                console.log(unlockedClass);
-
-                return (
-                    <div className={"trophies-grid__trophy " + unlockedClass + " info-bubble__info"} key={index} onClick={handleClick}>
-                        <img className="trophies-grid__trophy__img info-bubble__img" src={trophy.img} alt={trophy.name} />
-                        <div className="trophies-grid__trophy__background"></div>
-
-                        <div className="trophies-grid__trophy__infos">
-                            <h1 className="trophies-grid__trophy__title info-bubble__title">{trophy.name}</h1>
-                            <p className="trophies-grid__trophy__subtitle info-bubble__subtitle">{trophy.text}</p>
+    if(Object.keys(trophies).length > 0) {
+        return (
+            <section className="trophies-grid">
+                {trophies.map((trophy,index) => {
+    
+    
+                    return (
+                        <div className={"trophies-grid__trophy unlocked info-bubble__info"} key={index} onClick={handleClick}>
+                            <img className="trophies-grid__trophy__img info-bubble__img" src={'/img/trophies/'+trophy.img} alt={trophy.name} />
+                            <div className="trophies-grid__trophy__background"></div>
+    
+                            <div className="trophies-grid__trophy__infos">
+                                <h1 className="trophies-grid__trophy__title info-bubble__title">{trophy.name}</h1>
+                                <p className="trophies-grid__trophy__subtitle info-bubble__subtitle">{trophy.text}</p>
+                            </div>
                         </div>
-                    </div>
-                )
-            })
-            }
-        </section>
-    ) 
+                    )
+                })
+                }
+            </section>
+        ) 
+    } else {
+        return (
+            <div>Chargement...</div>
+        )
+    }
 }
 
 export default TrophiesGrid;
