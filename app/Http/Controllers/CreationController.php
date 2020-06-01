@@ -25,13 +25,15 @@ class CreationController extends Controller
     public function parentIndex()
     {
         // Afficher toutes les créations des enfants qui appartiennent à l'utilisateur connecté
-        // $c = DB::table('creations')
-        //     ->join('kids', 'creations.kid_id', '=',  'kids.id')
-        //     ->join('users', 'kids.user_id', '=', 'users.id')
-        //     ->select('creations.*', 'kids.*', 'users.*')
-        //     ->orderby('creations.id', 'desc')
-        //     ->get();
-
+        
+        $c = DB::table('creations')
+            ->where('kids.user_id', '=', Auth::id())
+            ->join('kids', 'creations.kid_id', '=',  'kids.id')
+            ->join('users', 'kids.user_id', '=', 'users.id')
+            ->select('creations.*', 'kids.*', 'users.*')
+            ->orderby('creations.id', 'desc')
+            ->get();
+        
         // $c = DB::table('users')
         //     ->join('kids', 'users.id', '=',  'kids.user_id')
         //     ->join('creations', 'kids.id', '=', 'creations.kid_id')
@@ -39,13 +41,23 @@ class CreationController extends Controller
         //     ->orderby('creations.id', 'desc')
         //     ->get();
         
-        $c = Creation::all();
-        // ->join('kids', 'creations.kid_id', '=',  'kids.id')
-        // ->where('kids.user_id', '=', Auth::id());
+        // Je récupère tous les utilisa
+        // $c = DB::table('creations')
+        // ->join('kids', function ($join) {
+        //     $join->on('creations.kid_id', '=', 'kids.id')
+        //          ->where('kids.user_id', '=', Auth::id());
+        // })
+        // ->get();
 
-        if($c ){
-            abort(404);
-        }
+        // $c = DB::table('users')
+        // ->join('kids', function ($join) {
+        //     $join->on('users.id', '=', 'kids.user_id')
+        //          ->where('kids.user_id', '=', Auth::id());
+        // })
+        // ->get();
+
+        // ->join('kids', 'kids.id', '=', 'creations.kid_id')
+        // ->where('kids.user_id', '=', Auth::id());
 
         return response()->json([
             "data" => $c
