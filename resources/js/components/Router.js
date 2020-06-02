@@ -63,7 +63,7 @@ const PrivateRoute = ({ component, ...options }) => {
         <Route exact={true} path="/parent-profil" component={ParentProfil} />
         <Route exact={true} path="/parent-recherche" component={ParentSearch} />
 
-        <Route path="*" component={() => <p>Page Not Found</p>} />
+        <Route path="*" component={NotFound} /> 
     </Switch>
   );
 
