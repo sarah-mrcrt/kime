@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/{path?}', 'app')->where('path', '.*');
+Route::view('/{path?}', 'app');
 Route::view('/test/test', 'testpage');
 
 Route::group([ // Adding API prefix to all API routes
-'prefix' => 'api',
+    'prefix' => 'api',
 ], function () {
 
     // User
@@ -27,6 +26,7 @@ Route::group([ // Adding API prefix to all API routes
     Route::post('auth/user', 'API\UserController@details');
     Route::post('/adminpassword', 'API\UserController@adminpassword');
 
+// Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
     Route::get('/user', 'API\UserController@details');
@@ -54,12 +54,12 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/activity/{idActivity}/{position}', 'StepController@show')->where(['idActivity' => '[0-9]+', 'position' => '[0-9]+']);
 
     Route::middleware('admin')->group(function () {
-    Route::post('/activity/create', 'ActivityController@create');
-    Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
-    Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
+        Route::post('/activity/create', 'ActivityController@create');
+        Route::put('/activity/update/{id}','ActivityController@update')->where('id', '[0-9]+');
+        Route::delete('/activity/delete/{id}','ActivityController@delete')->where('id', '[0-9]+');
 
-    Route::post('/step/{idActivity}/create', 'StepController@create');
-    //modifier, supprimer steps
+        Route::post('/step/{idActivity}/create', 'StepController@create');
+        //modifier, supprimer steps
     });
 
 
@@ -84,9 +84,11 @@ Route::group([ // Adding API prefix to all API routes
     // Search
     Route::get('/search/{parameter}','SearchController@search')->where('parameter', '^(?!.*dashboard).*$');
 
+
+    // Mail
     Route::get('/email', 'MailController@store');
 
-
+    // });
 }); // Ending API prefix group
 
 Auth::routes();
