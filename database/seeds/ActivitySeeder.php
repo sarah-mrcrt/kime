@@ -159,6 +159,27 @@ class ActivitySeeder extends Seeder
                 'sub_category_id' => 3, 
                 'trophy_id' => 3
             ],
+            [ //22
+                'name' => 'Dessin de chat',
+                'txt_choice' => 'Dessin de chat', 
+                'txt_win' => 'Comment dessiner un chat ?', 
+                'sub_category_id' => 3, 
+                'trophy_id' => 3
+            ],
+            [ //23
+                'name' => 'Dessin de cheval',
+                'txt_choice' => 'Dessin de cheval', 
+                'txt_win' => 'Comment dessiner un cheval ?', 
+                'sub_category_id' => 3, 
+                'trophy_id' => 3
+            ],
+            [ //24
+                'name' => 'Dessin de protection',
+                'txt_choice' => 'Dessin de protection', 
+                'txt_win' => 'Protégeons-nous face au covid-19 !', 
+                'sub_category_id' => 3, 
+                'trophy_id' => 3
+            ],
         ];
 
         for ($item=0; $item < count($activities); $item++){ 

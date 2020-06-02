@@ -22,6 +22,8 @@ const Welcome = props => {
         })
     }, []);
 
+    console.log(kids);
+
     const storeKids = () => {
         let childrenData = JSON.parse(localStorage.getItem('childrenData'));
         childrenData.currentKid = 1;
@@ -56,7 +58,7 @@ const Welcome = props => {
                         <p className="page-welcome__subtitle">la famille {familyName}</p>
                     </div>
                     <div className="page-welcome__choix">
-                        <a className="page-welcome__section" href='/accueil'>
+                        <a className="page-welcome__section" href='/kid-choice'>
                             <img className="page-welcome__section__img" src="/img/welcome-child.png" alt="Enfants" />
                         </a>
                         <a className="page-welcome__section" href='/parent-password'>

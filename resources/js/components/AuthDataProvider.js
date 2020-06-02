@@ -13,9 +13,6 @@ function AuthDataProvider(props) {
 
       if (currentAuthData) {
         setAuthData(currentAuthData);
-
-        console.log('setting authData: ');
-        console.log(currentAuthData);
       }
 
     }
