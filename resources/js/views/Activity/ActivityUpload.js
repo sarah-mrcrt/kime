@@ -28,6 +28,10 @@ function ActivityUpload(props) {
     
     }
 
+    const handleNotSubmit = evt => {
+        // Passage à la suite ?
+    }
+
    
 
     return (
@@ -42,6 +46,7 @@ function ActivityUpload(props) {
 
             <input onChange={(e) => setFile(e.target.files[0])} id="file-input" className="activity-upload__input-file" name="upload-file" type="file"/>
             <button onClick={handleSubmit} className="btn-common noMargin btn-common__blue__fill">Envoyer ma création</button>
+            <button onClick={handleNotSubmit} className="btn-common noMargin btn-common__blue__stroke">Ne pas envoyer de création</button>
         </div>
     ) 
 }

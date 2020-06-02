@@ -35,6 +35,7 @@ function ActivityChoice(props) {
         return (
 
             <div className="container yellow background">
+                <a className="container__return" href="/accueil"><i className="fas fa-chevron-left"></i></a>
                 <div className="container__body none">
                     <HeaderActivity img={'/img/sub_categories/'+subCat.img} name={subCat.name} />
                     <div className="content">
