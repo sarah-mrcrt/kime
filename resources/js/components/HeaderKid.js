@@ -6,7 +6,7 @@ function HeaderKid(props) {
     return (
         <div className="page-header-kid g2">
             <div className="page-header-kid__background ">
-                <img className="page-header-kid__img" src={kid.avatar}/>
+                <img className="page-header-kid__img" src={'/img/avatars/'+kid.avatar_id}/>
                 <RoundBackground color="yellow" shadow={true}/>
             </div>
             <div className="page-header-kid__text">

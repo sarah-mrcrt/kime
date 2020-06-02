@@ -14,6 +14,7 @@ const Activity = props => {
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [currentStep, setCurrentStep] = useState({});
+    const [kid, setKid] = useState({});
 
     let activityId = parseInt(props.match.params.activityId);
 
@@ -35,9 +36,20 @@ const Activity = props => {
             console.log(error);
         })
 
-    }, [])
+        let currentKid = JSON.parse(sessionStorage.getItem('currentKid'));
+        let kidId = 0;
+        if(currentKid) {
+            kidId = currentKid.id;
+        }
+        
+        axios.get('/api/kid/' + kidId)
+        .then(json => {
+            if(json.data.success) {
+                setKid(json.data.kid);
+            }
+        })
 
-    //console.log(activity);
+    }, [])
 
     const prevStep = e => {
         e.preventDefault();
@@ -79,8 +91,15 @@ const Activity = props => {
             previous = {prevStep}
             next = {nextStep}
         />,
-        <ActivityUpload next={nextPage}/>,
-        <ActivityWin/>
+        <ActivityUpload
+            next={nextPage}
+            kid={kid}
+            activityId={activity.id}
+        />,
+        <ActivityWin
+            kid={kid}
+            trophy_id={activity.trophy_id}
+        />
     ];
 
     let component = pages[currentPageIndex];

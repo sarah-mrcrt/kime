@@ -5,12 +5,28 @@ import axios from 'axios';
 function TrophiesGrid(props) {
 
     const [trophies, setTrophies] = useState([])
+    const [kidTrophies, setKidTrophies] = useState([]);
 
     useEffect(() => {
+        // Get all trophies
         axios.get('/api/trophies/all')
         .then(json => {
             if(json.data.data) {
                 setTrophies(json.data.data);
+            }
+        })
+
+        // Get unlocked trophies
+        let currentKid = JSON.parse(sessionStorage.getItem('currentKid'));
+        let kidId = 0;
+        if(currentKid) {
+            kidId = currentKid.id;
+        }
+        
+        axios.get('/api/kid/trophies/' + kidId)
+        .then(json => {
+            if(json.data.success) {
+                setKidTrophies(json.data.trophies);
             }
         })
     }, [])
@@ -39,14 +55,17 @@ function TrophiesGrid(props) {
         $('#info-bubble').css('display','flex');
     }
 
+    
+
     if(Object.keys(trophies).length > 0) {
         return (
             <section className="trophies-grid">
                 {trophies.map((trophy,index) => {
-                    let lockedClass = "unlocked"
-                    if(index % 4 == 3) {
-                        lockedClass = "locked";
+                    let lockedClass = "locked"
+                    if(kidTrophies[index] && trophy.id == kidTrophies[index].id)  {
+                        lockedClass = "unlocked";
                     }
+
     
                     return (
                         <div className={"trophies-grid__trophy " +lockedClass+ " info-bubble__info " + trophy.color} key={index} onClick={handleClick}>
