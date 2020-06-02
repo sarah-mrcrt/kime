@@ -5,6 +5,7 @@ import ActivityUpload from './ActivityUpload';
 import ActivityWin from './ActivityWin';
 
 import axios from 'axios';
+import Loading from '../../components/Loading';
 
 const Activity = props => {
 
@@ -111,11 +112,7 @@ const Activity = props => {
             </div>
         );
     } else {
-        return (
-            <div>
-                Chargement...
-            </div>
-        )
+        return <Loading />;
     }
 
 }

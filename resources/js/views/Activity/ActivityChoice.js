@@ -4,6 +4,7 @@ import axios from 'axios';
 import HeaderActivity from '../../components/HeaderActivity.js';
 import ActivitiesGrid from '../../components/ActivitiesGrid.js';
 import InfoBubble from '../../components/InfoBubble.js';
+import Loading from '../../components/Loading';
 
 function ActivityChoice(props) {
 
@@ -45,9 +46,7 @@ function ActivityChoice(props) {
             </div>
         ) 
     } else {
-        return (
-            <div>Loading...</div>
-        )
+        return <Loading />;
     }
 
 }
