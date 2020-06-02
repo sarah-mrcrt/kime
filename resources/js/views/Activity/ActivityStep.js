@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RegisterStepBar from '../../components/RegisterStepBar';
+import Loading from '../../components/Loading';
 
 function ActivityStep(props) {
 
@@ -31,9 +32,7 @@ function ActivityStep(props) {
             </div>
         )
     } else {
-        return (
-            <div>Chargement...</div>
-        )
+        return <Loading />;
     }
 
 }

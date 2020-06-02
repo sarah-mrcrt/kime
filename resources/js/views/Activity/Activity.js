@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ActivityStep from './ActivityStep';
 import ActivityUpload from './ActivityUpload';
 import ActivityWin from './ActivityWin';
+import Loading from '../../components/Loading';
 
 import axios from 'axios';
 
@@ -111,11 +112,7 @@ const Activity = props => {
             </div>
         );
     } else {
-        return (
-            <div>
-                Chargement...
-            </div>
-        )
+        return <Loading />;
     }
 
 }

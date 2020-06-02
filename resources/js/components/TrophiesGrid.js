@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RoundBackground from './RoundBackground.js';
+import Loading from '../components/Loading';
 import axios from 'axios';
 
 function TrophiesGrid(props) {
@@ -83,9 +84,7 @@ function TrophiesGrid(props) {
             </section>
         ) 
     } else {
-        return (
-            <div>Chargement...</div>
-        )
+        return <Loading />;
     }
 }
 
