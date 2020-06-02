@@ -18,16 +18,16 @@ const CategoriesFilters = props => {
         })
     }, [])
 
-    console.log(cats);
-
     let jsxFilters = cats.map((cat, index) => {
-        return <p className="categories-filters__option filtrer" onClick={(e) => props.filtrer(e, cat.slug)}>{cat.name}</p>;
+        return <p className="categories-filters__option filtrer" key={cat.id} onClick={(e) => props.filtrer(e, cat.slug)}>{cat.name}</p>;
     });
+
+    //add for all cats: <p className="categories-filters__option filtrer selected" onClick={(e) => props.filtrer(e,'tout')}>Tout</p>
+
 
     return (
         <section className="categories-filters">
             <p className="categories-filters__option">Choisis une <br />catégorie</p>
-            <p className="categories-filters__option filtrer selected" onClick={(e) => props.filtrer(e,'tout')}>Tout</p>
             {jsxFilters}
         </section>
     );
