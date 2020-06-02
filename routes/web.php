@@ -17,5 +17,7 @@ Route::view('/{path?}', 'app')->where('path', '.*');
 Route::view('/test/test', 'testpage');
 
 Route::get('/email', 'MailController@store');
+Route::get('/api/creations/allNews/{idParent}','CreationController@parentIndex')->where('idParent', '[0-9]+');
+
 
 Auth::routes();
