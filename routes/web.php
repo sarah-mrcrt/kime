@@ -84,6 +84,10 @@ Route::group([ // Adding API prefix to all API routes
     // Search
     Route::get('/search/{parameter}','SearchController@search')->where('parameter', '^(?!.*dashboard).*$');
 
+
+    // Mail
+    Route::get('/email', 'MailController@store');
+
     // });
 }); // Ending API prefix group
 

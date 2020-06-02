@@ -31,7 +31,7 @@ class CreationController extends Controller
         ->join('creations', 'kid.id', '=',  'creations.kid_id');
         // ->where('user_id', '=', $idParent);
 
-        if($k->user_id != Auth::id()){
+        if($u != Auth::id()){
             abort(404);
         }
 
