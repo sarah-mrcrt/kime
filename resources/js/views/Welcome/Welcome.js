@@ -5,31 +5,45 @@ import {Redirect} from 'react-router-dom';
 
 
 const Welcome = props => {
-    let familyName = "Kidzou";
 
-    const [redirect, setRedirect] = useState(false);
     const [kids, setKids] = useState({})
+    const [avatar, setAvatar] = useState(0);
     const { onLogout } = useContext(AuthDataContext);
 
+    let familyName = "Kidzou";
+
     useEffect(() => {
+
+        // Storing childrenData in localStorage
+
         axios.get('/api/kids/all')
         .then(json => {
-            if(json.data.data) {
-                setKids(json.data.data);
+            if(json.data.data) { 
+                const childrenData = {
+                    count: Object.keys(json.data.data).length,
+                    children: json.data.data
+                }
+
+                // Get avatar
+                
+                for (let [index, child] of Object.entries(childrenData.children)) {
+                    
+                    axios.get('/api/avatar/' + parseInt(child.avatar_id))
+                    .then(json => {
+                        if(json.data.data)
+                            child.avatar = json.data.data.img
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                    
+                }
+                localStorage.setItem('childrenData', JSON.stringify(childrenData));
             }
         }).catch(error => {
             console.log(error)
         })
     }, []);
 
-    console.log(kids);
-
-    const storeKids = () => {
-        let childrenData = JSON.parse(localStorage.getItem('childrenData'));
-        childrenData.currentKid = 1;
-        localStorage.setItem('childrenData', JSON.stringify(childrenData));
-        console.log(JSON.parse(localStorage.getItem(childrenData)));
-    }
 
     function logout() {
         axios.post("/api/auth/logout",{})
@@ -42,10 +56,7 @@ const Welcome = props => {
         .catch(error => {
             console.log(error);
         });
-
-        setRedirect(true);
     }
-
 
     return (
         <div className="container background page-welcome">

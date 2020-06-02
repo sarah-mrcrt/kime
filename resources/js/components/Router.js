@@ -28,7 +28,6 @@ import NotFound from '../views/NotFound/NotFound';
 
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
-    console.log(authData);
     
     const finalComponent = Object.keys(authData).length > 1 ? component : Login;
   

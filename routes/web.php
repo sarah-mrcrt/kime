@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/{path?}', 'app');
+Route::view('/{path?}', 'app')->where('path', '.*');
 Route::view('/test/test', 'testpage');
 
 Route::group([ // Adding API prefix to all API routes
