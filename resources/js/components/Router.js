@@ -24,6 +24,7 @@ import ParentPassword from '../views/Parent/ParentPassword';
 import ParentHome from '../views/Parent/ParentHome';
 import ParentSearch from '../views/Parent/ParentSearch';
 import ParentProfil from '../views/Parent/ParentProfil';
+import Newsletter from '../views/Newsletter/Newsletter';
 import NotFound from '../views/NotFound/NotFound';
 
 const PrivateRoute = ({ component, ...options }) => {
@@ -62,6 +63,8 @@ const PrivateRoute = ({ component, ...options }) => {
         <Route exact={true} path="/parent-accueil" component={ParentHome} />
         <Route exact={true} path="/parent-profil" component={ParentProfil} />
         <Route exact={true} path="/parent-recherche" component={ParentSearch} />
+
+        <Route exact={true} path="/newsletter" component={Newsletter} />
 
         <Route path="*" component={NotFound} /> 
     </Switch>
