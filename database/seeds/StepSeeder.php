@@ -66,8 +66,8 @@ class StepSeeder extends Seeder
             [
                 'position' => 1,
                 'name' => 'Son corps',
-                'title' => 'Tout d\'abord, tu dois dessiner un rond pour sa tête. Ensuite, tu dois dessiner un ovale pour son corps.',
-                'text' => '',
+                'title' => '',
+                'text' => 'Tout d\'abord, tu dois dessiner un rond pour sa tête. Ensuite, tu dois dessiner un ovale pour son corps.',
                 'activity_id' => 21, 
             ],
             [
@@ -80,8 +80,8 @@ class StepSeeder extends Seeder
             [
                 'position' => 3,
                 'name' => 'Ses oreilles et sa queue',
-                'title' => 'rien de plus simple que des oreilles ! De chaque côté de la tête du lion, fais deux demi-cercles. Pour la queue, il suffit de faire une vague vers le haut en partant de ses fesses. Pour le bout de la queue, tu peux faire une goutte d\'eau à l\'envers.',
-                'text' => '',
+                'title' => '',
+                'text' => 'Rien de plus simple que des oreilles ! De chaque côté de la tête du lion, fais deux demi-cercles. Pour la queue, il suffit de faire une vague vers le haut en partant de ses fesses. Pour le bout de la queue, tu peux faire une goutte d\'eau à l\'envers.',
                 'activity_id' => 21, 
             ],
             [
