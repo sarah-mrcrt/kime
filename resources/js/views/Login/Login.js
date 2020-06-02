@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import CheckboxSimple from '../../components/CheckboxSimple';
 import { AuthDataContext } from '../../components/AuthDataProvider';
 
 import Header from '../../components/Header';
@@ -89,7 +90,7 @@ function Login(props) {
             <div className="container__body">
                 <div className="content">
                     <form method="post" onSubmit={handleSubmit} className="form form-auth">  
-                        <div className="form-auth__input-div one">
+                        <div className={email === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
                                 <i className="fas fa-user"></i>
                             </div>
@@ -105,9 +106,9 @@ function Login(props) {
                                 />
                             </div>
                         </div>
-                        <div className="form-auth__input-div one">
+                        <div className={password === '' ? ("form-auth__input-div pass") : ("form-auth__input-div pass focus")}>
                             <div className="i">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-at"></i>
                             </div>
                             <div className="div">
                                 <label className="form__label" htmlFor="password">Mot de passe</label>
@@ -125,8 +126,7 @@ function Login(props) {
                             <Link to="/forgot-password" className="form-auth__forgot-pwd">Mot de passe oublié ?</Link>
                         </div>
                         <div className="form__row form-auth__remember">
-                            <input className="form__checkbox" type="checkbox" name="remember_me" defaultChecked/>
-                            <label className="form__label" htmlFor="remember_me">Se souvenir de moi</label>
+                            <CheckboxSimple checkBoxName="remember_me" text="Se souvenir de moi"/>
                         </div>
                         <div className="form-auth__submit-container">
                             <input className="btn-common btn-common__red__fill" type="submit" value="Connexion"/>
