@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CategoriesFilters from './CategoriesFilters';
+import Loading from '../components/Loading';
 
 function SubCategoriesGrid(props) {
 
@@ -62,9 +63,7 @@ function SubCategoriesGrid(props) {
             </>
         ) 
     } else {
-        return (
-            <div>Loading...</div>
-        )
+       return <Loading />;
     }
 
 

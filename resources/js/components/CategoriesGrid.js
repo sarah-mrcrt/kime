@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
+import Loading from '../components/Loading';
+
+
 function CategoriesGrid(props) {
 
     const [selected, setSelected] = useState([]);
@@ -96,7 +99,7 @@ function CategoriesGrid(props) {
             </form>
         ) 
     } else {
-        return <div>Loading...</div>
+        return <Loading />;
     }
 
 }

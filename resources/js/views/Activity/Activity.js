@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import ActivityStep from './ActivityStep';
 import ActivityUpload from './ActivityUpload';
 import ActivityWin from './ActivityWin';
+import Loading from '../../components/Loading';
 
 import axios from 'axios';
-import Loading from '../../components/Loading';
 
 const Activity = props => {
 
