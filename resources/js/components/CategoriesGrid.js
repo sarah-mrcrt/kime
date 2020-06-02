@@ -78,7 +78,7 @@ function CategoriesGrid(props) {
                         return (
                             <div className="categories-grid__category" key={index} onClick={handleClick} id={category.id}>
                                 <p className="categories-grid__category__name">{category.name}</p>
-                                <img className="categories-grid__category__img" src={'/img/'+category.img} alt={category.name} />
+                                <img className="categories-grid__category__img" src={'/img/categories/'+category.img} alt={category.name} />
                                 
                                 <svg id={"step" + index} className="categories-grid__category__check svg__blue-check" enableBackground="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg">
                                     <path className="st0" d="M32,16c0,8.8-7.2,16-16,16S0,24.8,0,16S7.2,0,16,0S32,7.2,32,16z"/>

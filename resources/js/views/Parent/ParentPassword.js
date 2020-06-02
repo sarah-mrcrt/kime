@@ -49,7 +49,7 @@ function ParentPassword(props) {
                             <Link to="/forgot-password" className="form-auth__forgot-pwd">Mot de passe oublié ?</Link>
                         </div>
                         <div className="form-auth__submit-container">
-                            <input className="btn-common btn-common__red__fill" type="submit" value="Connexion"/>
+                            <a className="btn-common btn-common__red__fill" href="/parent-accueil">Connexion</a>
                         </div>
                     </form>
                 </div>
