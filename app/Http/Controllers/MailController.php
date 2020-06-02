@@ -13,10 +13,11 @@ class MailController extends Controller
         $user = Auth::user(); 
         Mail::to($user)
             ->queue(new DiscoverApp_Newsletter($request->except('_token')));
-
-            return new DiscoverApp_Newsletter([
-            // 'nom' => Auth::user()->name,
-            // 'email' => Auth::user()->email,
-      ]);
+            
+            // Return la bonne page disan ! hey, vous êtes ajoutés à la newsletter
+    //         return new DiscoverApp_Newsletter([
+    //         // 'nom' => Auth::user()->name,
+    //         // 'email' => Auth::user()->email,
+    //   ]);
     }
 }
