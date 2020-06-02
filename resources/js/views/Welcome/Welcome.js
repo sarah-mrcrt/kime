@@ -16,12 +16,18 @@ const Welcome = props => {
         .then(json => {
             if(json.data.data) {
                 setKids(json.data.data);
-                console.log(json.data.data);
             }
         }).catch(error => {
             console.log(error)
         })
     }, []);
+
+    const storeKids = () => {
+        let childrenData = JSON.parse(localStorage.getItem('childrenData'));
+        childrenData.currentKid = 1;
+        localStorage.setItem('childrenData', JSON.stringify(childrenData));
+        console.log(JSON.parse(localStorage.getItem(childrenData)));
+    }
 
     function logout() {
         axios.post("/api/auth/logout",{})
@@ -50,7 +56,7 @@ const Welcome = props => {
                         <p className="page-welcome__subtitle">la famille {familyName}</p>
                     </div>
                     <div className="page-welcome__choix">
-                        <a className="page-welcome__section" href='/kid-choice'>
+                        <a className="page-welcome__section" href='/accueil'>
                             <img className="page-welcome__section__img" src="/img/welcome-child.png" alt="Enfants" />
                         </a>
                         <a className="page-welcome__section" href='/parent-password'>

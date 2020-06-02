@@ -27,7 +27,7 @@ function Login(props) {
         }, 100)
     })
     
-    if(Object.keys(authData).length != 0 || authData.isLoggedIn == true) {
+    if(Object.keys(authData).length > 1 || authData.isLoggedIn == true) {
         return <Redirect to="/welcome"/>;
     }
 

@@ -26,12 +26,11 @@ import ParentSearch from '../views/Parent/ParentSearch';
 import ParentProfil from '../views/Parent/ParentProfil';
 import NotFound from '../views/NotFound/NotFound';
 
-
-
 const PrivateRoute = ({ component, ...options }) => {
     const { authData } = useAuthDataContext();
-
-    const finalComponent = Object.keys(authData).length > 0 ? component : Login;
+    console.log(authData);
+    
+    const finalComponent = Object.keys(authData).length > 1 ? component : Login;
   
     return <Route {...options} component={finalComponent} />;
   };

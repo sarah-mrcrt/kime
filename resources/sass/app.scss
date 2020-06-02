@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell');
 
 // Variables
 @import 'variables';
@@ -47,6 +48,8 @@
 @import 'components/round-background';
 @import 'components/step-bar';
 @import 'components/register-step-bar';
+
+@import 'components/_loading_&_error';
 
 // Layout
 @import 'layout/forms';
