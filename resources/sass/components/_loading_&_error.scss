@@ -1,0 +1,26 @@
+// 
+/// LOADING
+/// 
+
+.loading-container, .notfound-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    img{
+        width: 70%;
+    }
+    .logotypo{
+        font-family: $font-family-logo;
+        font-size: 5rem;
+        font-weight: 100;
+    }
+}
+
+.loading-container{
+    color: $white;
+    p{
+        margin: 0;
+    }
+}
