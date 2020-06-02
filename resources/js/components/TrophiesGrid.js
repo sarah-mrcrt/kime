@@ -5,12 +5,28 @@ import axios from 'axios';
 function TrophiesGrid(props) {
 
     const [trophies, setTrophies] = useState([])
+    const [kidTrophies, setKidTrophies] = useState([]);
 
     useEffect(() => {
+        // Get all trophies
         axios.get('/api/trophies/all')
         .then(json => {
             if(json.data.data) {
                 setTrophies(json.data.data);
+            }
+        })
+
+        // Get unlocked trophies
+        let currentKid = JSON.parse(sessionStorage.getItem('currentKid'));
+        let kidId = 0;
+        if(currentKid) {
+            kidId = currentKid.id;
+        }
+        
+        axios.get('/api/kid/trophies/' + kidId)
+        .then(json => {
+            if(json.data.success) {
+                console.log(json.data.trophies);
             }
         })
     }, [])

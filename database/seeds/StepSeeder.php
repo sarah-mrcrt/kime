@@ -88,7 +88,7 @@ class StepSeeder extends Seeder
                 'position' => 4,
                 'name' => 'Sa crinière',
                 'title' => '',
-                'text' => 'La crinière du lion, c\'est comme un gros nuage autour de sa tête ! Pour les yeux, tu dois déjà savoir les faire, il faut dessiner un cercle, puis un petit cercle dedans',
+                'text' => 'La crinière du lion, c\'est comme un gros nuage autour de sa tête ! Pour les yeux, tu dois déjà savoir les faire, il faut dessiner un cercle, puis un petit cercle dedans.',
                 'activity_id' => 21, 
             ],
             [
