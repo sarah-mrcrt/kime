@@ -3,6 +3,7 @@ import RoundBackground from './RoundBackground.js';
 
 function HeaderKid(props) {
     let kid = props.kid
+
     return (
         <div className="page-header-kid g2">
             <div className="page-header-kid__background ">

@@ -18,7 +18,7 @@ function ActivityUpload(props) {
             
         axios.post('/api/creationCreate/' + kidId + '/' + activityId, data)
         .then(json => {
-            if(json.data.success) {
+            if(json.data.data) {
                 props.next();
                 console.log('Creation uploaded successfully');
             }

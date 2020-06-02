@@ -5,7 +5,8 @@ import CreationsKid from '../../components/CreationsKid';
 
 function Profil(props) {
 
-    let kid = {id:2, name:"Jérôme", avatar:"avatar-07.svg"}
+    let kid = JSON.parse(sessionStorage.getItem('currentKid'));
+
     let nb_trophies = 3;  // nb_trophies = nombre de trophée débloqué
     let nb_activities = 10;  // nb_activities = nombre d'activités réalisées
 
