@@ -4,10 +4,9 @@
     <meta charset="utf-8">
   </head>
   <body>
-    {{-- <ul>
-      <li><strong>Nom</strong> : {{ $contact['nom'] }}</li>
-      <li><strong>Email</strong> : {{ $contact['email'] }}</li>
-    </ul>
-  </body> --}}
-  <img src="/mails/newsletter.jpg"/>
+      {{-- <h1><strong>Bonjour, </strong> : {{ $informations['nom'] }}</h1> --}}
+      {{--<strong>Email</strong> : {{ $informations['email'] }}--}}
+    {{-- <img src="/mails/newsletter.jpg" alt='newsletter'/> --}}
+    <img style='max-width: 100%; height: auto;' src='https://sarahmauriaucourt.fr/public/assets/newsletter.jpg' alt="newsletter"/>
+  </body>
 </html>

@@ -26,7 +26,6 @@ Route::group([ // Adding API prefix to all API routes
     Route::post('auth/user', 'API\UserController@details');
     Route::post('/adminpassword', 'API\UserController@adminpassword');
 
-// Route::group(['middleware' => 'auth:api'], function () {
 
     // Parent profile
     Route::get('/user', 'API\UserController@details');
@@ -89,7 +88,6 @@ Route::group([ // Adding API prefix to all API routes
     // Mail
     Route::get('/email', 'MailController@store');
 
-    // });
 }); // Ending API prefix group
 
 Auth::routes();

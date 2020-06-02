@@ -11,11 +11,11 @@ class DiscoverApp_Newsletter extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact;
+    public $informations;
 
-    public function __construct()
+    public function __construct(Array $informations)
     {
-        $this->contact = $contact;
+        $this->informations = $informations;
     }
 
     public function build()
