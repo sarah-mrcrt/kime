@@ -4,9 +4,10 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <ul>
+    {{-- <ul>
       <li><strong>Nom</strong> : {{ $contact['nom'] }}</li>
       <li><strong>Email</strong> : {{ $contact['email'] }}</li>
     </ul>
-  </body>
+  </body> --}}
+  <img src="/mails/newsletter.jpg"/>
 </html>
