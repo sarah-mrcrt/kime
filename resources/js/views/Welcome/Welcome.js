@@ -52,6 +52,7 @@ const Welcome = props => {
             <div className="container__logout" onClick={logout}><i className="fas fa-power-off"></i></div>
             <div className="container__body none">
                 <div className="content  flex-grow">
+                    <img className="page-welcome__logo" src="/img/logo.svg" alt="Kime"/>
                     <img className="page-welcome__img" src="/img/welcome-img.svg" alt="Welcome"/>
                     <div className="page-welcome__text">
                         <h1 className="page-welcome__title black">Bonjour,</h1>

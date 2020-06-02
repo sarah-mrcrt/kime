@@ -53,7 +53,7 @@ const KidChoice = props => {
     if(Object.keys(kids).length > 0) {
         return (
             <div className="container yellow background page-kid-choice">
-                <Header title="Qui es-tu ?" subtitle="Choisis ton compagnon !" color="yellow" imageUrl="/img/kid-choice-img-01.svg"/>
+                <Header title="Qui es-tu ?" subtitle="Choisis ton compte !" color="yellow" imageUrl="/img/kid-choice-img-01.svg"/>
                 <div className="container__body">
                     <div className="content flex-grow">
                         <div className="page-kid-choice__choix">
