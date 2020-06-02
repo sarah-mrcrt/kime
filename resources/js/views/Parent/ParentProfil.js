@@ -11,7 +11,7 @@ function ParentProfil(props) {
         {name:"Informations personnelles", img:"/icons/icon-option-infos-perso.svg", href:"/parent-profil/"},
         {name:"Mes enfants", img:"/icons/icon-option-mes-enfants.svg", href:"/parent-profil/"},
         {name:"Notifications", img:"/icons/icon-option-notifications.svg", href:"/parent-profil/"},
-        //{name:"Paiements", img:"/icons/icon-option-mes-paiements.svg", href:"/parent-profil/"},
+        {name:"Newsletter", img:"/icons/icon-option-mes-paiements.svg", href:"/newsletter"},
         {name:"Contrôle Parental", img:"/icons/icon-option-controle-parental.svg", href:"/parent-profil/"},
         {name:"À propos de nous", img:"/icons/icon-option-a-propos.svg", href:"/parent-profil/"}
     ]
