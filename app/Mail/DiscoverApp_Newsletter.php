@@ -21,7 +21,7 @@ class DiscoverApp_Newsletter extends Mailable
     public function build()
     {
         return $this
-        ->subject('La nouvelle application')
+        ->subject('Kime, la nouvelle application pour enfants !')
         ->from('noreply@kimeapp.com')
         ->view('mails.DiscoverApp_Newsletter');
     }
