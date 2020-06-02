@@ -15,7 +15,7 @@ class CreateCreationsTable extends Migration
     {
         Schema::create('creations', function (Blueprint $table) {
             $table->id();
-            $table->string('img');
+            $table->string('img')->default(null);
             $table->unsignedInteger('kid_id')->default(1);
             $table->unsignedInteger('activity_id')->default(1);
             $table->timestamps();
