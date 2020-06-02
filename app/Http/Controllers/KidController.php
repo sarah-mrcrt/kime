@@ -49,11 +49,10 @@ class KidController extends Controller
         }
 
         return response()->json([
-            // 'success' => true,
-            // 'data' => $k,
-            // 'Avatar informations' => $k->avatar,
-            "Kid's creations informations" => $k->creations
-        ], 201);
+            'success' => true,
+            'kid' => $k,
+            "creations" => $k->creations
+        ], 200);
     }
 
     public function create(Request $req) 

@@ -37,8 +37,6 @@ const Activity = props => {
 
     }, [])
 
-    //console.log(activity);
-
     const prevStep = e => {
         e.preventDefault();
 
@@ -80,7 +78,7 @@ const Activity = props => {
             next = {nextStep}
         />,
         <ActivityUpload next={nextPage}/>,
-        <ActivityWin/>
+        <ActivityWin trophy_id={activity.trophy_id}/>
     ];
 
     let component = pages[currentPageIndex];
