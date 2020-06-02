@@ -48,7 +48,7 @@ function SubCategoriesGrid(props) {
                             <a className="activities-grid__activity" href={"/activity-choice/" + subCat.category_slug + '/' + subCat.slug} key={index}>
                                 <p className="activities-grid__activity__name">{subCat.name}</p>
                                 <img className="activities-grid__activity__img" src={'/img/sub_categories/'+subCat.img} alt={subCat.name} />
-                                <div className={"activities-grid__activity__background "/* + activity.color */}></div>
+                                <div className={"activities-grid__activity__background " + subCat.color}></div>
                             </a>
         
                             
