@@ -5,8 +5,7 @@ import HeaderKid from '../../components/HeaderKid.js';
 
 function Home(props) {
 
-    let kid = {id:2, name:"Jérôme", avatar:"/img/avatars/avatar-07.svg"}
-    //console.log(JSON.parse(localStorage.getItem('childrenData')));
+    let kid = JSON.parse(sessionStorage.getItem('currentKid'))
 
     return (
         <div className="container yellow background nav">

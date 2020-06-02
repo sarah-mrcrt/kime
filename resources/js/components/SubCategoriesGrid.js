@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CategoriesFilters from './CategoriesFilters';
 
 function SubCategoriesGrid(props) {
 
@@ -22,25 +23,26 @@ function SubCategoriesGrid(props) {
         // Recherche des activités selon category_slug
 
         // Changement de l'affichage
-        console.log('categ')
-        let categ = e.currentTarget;
-        categ.classList.add('selected');
-        $('.categories-filters__option.filter.selected').removeClass('selected');
-    }
+        console.log(category_slug);
 
-    console.log(subCats);
+        let categ = e.currentTarget;
+        axios.get('/api/subcategory/'+categ)
+        .then(json => {
+            if(json.data.data) {
+                setSubCats(json.data.data);
+            }
+        }).catch(error => {
+            console.log(error);
+        });
+
+        $('.categories-filters__option').removeClass('selected');
+        categ.classList.add('selected');
+    }
 
     if(Object.keys(subCats).length > 0) {
         return (
             <>
-                <section className="categories-filters">
-                    <p className="categories-filters__option">Choisis une <br />catégorie</p>
-                    <p className="categories-filters__option filtrer selected" onClick={(e) => {() => filters(e,'tout')}}>Tout</p>
-                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'cuisine')}}>Cuisine</p>
-                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'creativite')}}>Créativité</p>
-                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'jeux-dexterieurs')}}>Jeux d'extérieurs</p>
-                    <p className="categories-filters__option filtrer" onClick={(e) => {() => filtrer(e,'jeux-dinterieurs')}}>Jeux d'intérieurs</p>
-                </section>
+                <CategoriesFilters filtrer={filtrer}/>
                 <section className="activities-grid">
                     {subCats.map((subCat,index) => {
                         
