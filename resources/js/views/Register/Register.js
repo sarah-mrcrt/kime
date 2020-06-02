@@ -38,7 +38,7 @@ function Register(props) {
                 };
 
                 let authData = {
-                    isRegistered: true,
+                    isLoggedIn: true,
                     user: userData
                 }
 
