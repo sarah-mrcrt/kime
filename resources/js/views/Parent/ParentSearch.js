@@ -35,7 +35,7 @@ function ParentSearch() {
             </div>
             <div className="container__body">
                 <div className="content">
-                    ParentSearch
+                    Veuillez saisir une recherche..
                 </div>
             </div>
             <Navigation page="search" parent={true} />
