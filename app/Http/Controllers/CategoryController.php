@@ -20,32 +20,12 @@ class CategoryController extends Controller
     public function show($slug){
         $c = Category::where('slug', '=', $slug) ->firstOrFail();
 
-        return response()->json([ 
+        return response()->json([
+            'success' => true,
             "data" => $c,
             "subcats" => $c->subcategories,
             "kids" =>  $c->kids,
             "activities" => $c->activities
         ], 200);
-
-        $validator = Validator::make($req->all(), [ 
-            'name' => 'required|min:3|max:255|unique',
-            'img' => 'required',
-        ]);
-
-        if ($validator->fails()) { 
-            return response()->json([
-                'success' => false,
-                'error' => $validator->errors()
-            ]);            
-        }
-
-        $c->name = $request->name;
-        $c->img = $request->img;
-        $c->slug = Str::slug($c->name, "-");
-        $c->save();
-
-        return reponse()->json([
-            'success' => true
-        ]);
     }
 }

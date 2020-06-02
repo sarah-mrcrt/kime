@@ -71,7 +71,7 @@ Route::group([ // Adding API prefix to all API routes
 
     // Categories & Sub categories
     Route::get('/categories/all', 'CategoryController@index');
-    Route::get('/category/{id}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
+    Route::get('/category/{slug}', 'CategoryController@show')->where('slug', '^(?!.*dashboard).*$');
     Route::get('/subcategories/all', 'SubCategoryController@index');
     Route::get('/category/{slugCategory}/{slugSubCategory}', 'SubCategoryController@show')->where(['slugCategory' => '^(?!.*dashboard).*$', 'slugSubCategory' => '^[a-zA-Z0-9]+([\-]?[a-zA-Z0-9]+)*$']);
 

@@ -4,6 +4,7 @@ import CategoriesFilters from './CategoriesFilters';
 function SubCategoriesGrid(props) {
 
     const [subCats, setSubCats] = useState([]);
+    const [selectedCat, setSelectedCat] = useState('');
 
     useEffect(() => {
         axios.get('/api/subcategories/all')
@@ -19,25 +20,25 @@ function SubCategoriesGrid(props) {
 
     const filtrer = (e,category_slug) => {
         e.preventDefault();
-        
-        // Recherche des activités selon category_slug
 
-        // Changement de l'affichage
-        console.log(category_slug);
-
-        let categ = e.currentTarget;
-        axios.get('/api/subcategory/'+categ)
+        axios.get('/api/category/'+category_slug)
         .then(json => {
-            if(json.data.data) {
-                setSubCats(json.data.data);
+            if(json.data.success) {
+                setSubCats(json.data.subcats);
             }
         }).catch(error => {
             console.log(error);
         });
 
+        // css
+
+        let categ = e.currentTarget;
+
         $('.categories-filters__option').removeClass('selected');
         categ.classList.add('selected');
     }
+
+    console.log(subCats);
 
     if(Object.keys(subCats).length > 0) {
         return (
