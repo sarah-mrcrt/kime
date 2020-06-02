@@ -27,7 +27,7 @@ function AvatarsGrid(props) {
         let avatar = e.currentTarget;
         let background = avatar.children[1];
         let radio = avatar.children[2];
-        let id = parseInt(avatar.getAttribute('id'));
+        let avatarImg = avatar.getAttribute('avatar');
 
         if($(avatar).hasClass('unlocked')); {
 
@@ -37,7 +37,7 @@ function AvatarsGrid(props) {
                 background.classList.add("selected");
             }
 
-            setAvatar(id);
+            setAvatar(avatarImg);
         }
     }
 
@@ -65,7 +65,7 @@ function AvatarsGrid(props) {
                         }
     
                         return (
-                            <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} id={avatar.id}>
+                            <div className={"avatars-grid__avatar " + unlockedClass} key={index} onClick={handleClick} avatar={avatar.img}>
                                 <img className="avatars-grid__avatar__img" src={'/img/avatars/'+avatar.img} alt={avatar.name} />
                                 <div className="avatars-grid__avatar__background">
                                     <RoundBackground color="blue" />

@@ -21,6 +21,18 @@ class KidController extends Controller
          ]);
     }
 
+    public function trophies($id) {
+        $k = Kid::findOrFail($id);
+        if($k->user_id != Auth::id()){
+            abort(404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'trophies' => $k->trophies
+        ], 200);
+    }
+
     public function show($id)
     {
         // if( !$req->validate(['id' => 'required|integer']) ) {

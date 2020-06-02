@@ -6,50 +6,33 @@ import {Redirect} from 'react-router-dom';
 
 const Welcome = props => {
 
-    const [kids, setKids] = useState({})
-    const [avatar, setAvatar] = useState(0);
     const [childrenData, setChildrenData] = useState({});
     const { onLogout } = useContext(AuthDataContext);
 
     let familyName = "Kidzou";
 
     useEffect(() => {
+        getChildrenData()
+    }, []);
 
-        // Storing childrenData in localStorage
-
+    function getChildrenData() {
         axios.get('/api/kids/all')
         .then(json => {
             if(json.data.data) { 
-    
-                setChildrenData({
+
+                let data = {
                     count: Object.keys(json.data.data).length,
                     children: json.data.data
-                });
-            
+                };
+
+                localStorage.setItem('childrenData', JSON.stringify(data));
             }
         }).catch(error => {
-            console.log(error)
-        }).then(() => {
-            
-            let tmp = childrenData;
-            for (let [index, child] of Object.entries(tmp.children)) {
-                axios.get('/api/avatar/' + parseInt(child.avatar_id))
-                .then(json => {
-                    if(json.data.data)
-                        child.avatar = json.data.data.img
-                }).catch(error => {
-                    console.log(error);
-                })
-            }
-            setChildrenData(tmp);
-
-        }).then(() => {
-            console.log(childrenData);
-            localStorage.setItem('childrenData', JSON.stringify(childrenData));
-            console.log(JSON.parse(localStorage.getItem('childrenData')));
+            console.log(error);
         })
-    }, []);
+    }
 
+    console.log(childrenData);
 
     function logout() {
         axios.post("/api/auth/logout",{})

@@ -42,6 +42,8 @@ Route::group([ // Adding API prefix to all API routes
     Route::put('/kid/update/{id}','KidController@update')->where('id', '[0-9]+');
     Route::delete('/kid/delete/{id}','KidController@delete')->where('id', '[0-9]+');
 
+    Route::get('/kids/trophies/{id}', 'KidController@trophies')->where('id', '[0-9]+');
+
     Route::get('/creations/all/{idkid}', 'CreationController@kidIndex')->where('idkid', '[0-9]+');
     Route::get('/creation/{idKid}/{idCreation}', 'CreationController@show')->where(['idKid' => '[0-9]+', 'idCreation' => '[0-9]+']);
     Route::post('creationCreate/{idKid}/{idActivity}', 'CreationController@create')->where(['idKid' => '[0-9]+', 'idActivity' => '[0-9]+']);
@@ -67,7 +69,6 @@ Route::group([ // Adding API prefix to all API routes
     Route::get('/trophies/all', 'TrophyController@index');
     Route::get('/trophy/{id}','TrophyController@show')->where('id', '[0-9]+');
     Route::get('/winTrophy/{idKid}/{idTrophy}', 'TrophyController@unlock')->where(['idKid'=>'[0-9]+', 'idTrophy'=> '[0-9]+']);
-
 
     // Categories & Sub categories
     Route::get('/categories/all', 'CategoryController@index');
