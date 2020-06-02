@@ -4,30 +4,13 @@ import Loading from '../../components/Loading';
 
 function ActivityWin(props) {
 
-    const [kid, setKid] = useState({});
+    const kid = props.kid;
 
     let hardcoded_kid = {name:"Jérôme", avatar:"avatar-01.svg"}
     let activity = {name:"Dessin"}
-
-    useEffect(() => {
-        // current Kid
-        let currentKid = JSON.parse(sessionStorage.getItem('currentKid'));
-        let kidId = 0;
-        if(currentKid) {
-            kidId = currentKid.id;
-        }
-        
-        axios.get('/api/kid/' + kidId)
-        .then(json => {
-            if(json.data.success) {
-                setKid(json.data.kid);
-            }
-        })
-    }, []);
-
-
+    console.log(props.kid);
     if(Object.keys(kid).length > 0) {
-
+        
         axios.get('/api/winTrophy/'+ kid.id + '/' + props.trophy_id)
         .then(json => {
             if(json.data.success)
