@@ -26,10 +26,7 @@ class CreationController extends Controller
     public function parentIndex($idParent)
     {
         // // Afficher toutes les créations des enfants qui appartiennent à l'utilisateur connecté
-
-        $k = Kid::all()->where('kids.user_id', '=', Auth::id());
-        $c = Creation::all();
-        
+        $c = DB::select("SELECT creations.* FROM creation FROM creations JOIN kids on kid_id=kids.id WHERE user_id=?", [$idParent]);
         
         if($idParent != Auth::id()){
             abort(404);
@@ -57,7 +54,6 @@ class CreationController extends Controller
             // "All kids" => $kids,
             // "All users" => $users,
             "All creations" => $c,
-            // "ptn" => $c
         ], 200);
     }
 
@@ -114,6 +110,6 @@ class CreationController extends Controller
 
         return response()->json([
             'success' => true
-        ], 201);
+        ], 200);
     }
 }
