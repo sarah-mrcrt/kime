@@ -90,8 +90,9 @@
             background-color: #EEE;
             border-radius: 2rem;
             margin-left: 1.2rem;
+            line-height: 1.6;
 
-            &:last-of-type{
+            &p:last-of-type{
                 margin-right: 3rem;
             }
         }

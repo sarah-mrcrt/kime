@@ -28,6 +28,7 @@ const CategoriesFilters = props => {
     return (
         <section className="categories-filters">
             <p className="categories-filters__option">Choisis une <br />catégorie</p>
+            <a href="/accueil" className="categories-filters__option filtrer">Tout</a>
             {jsxFilters}
         </section>
     );
