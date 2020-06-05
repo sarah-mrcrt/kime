@@ -7,7 +7,7 @@ Kime is a free application, offering fun activities for children aged 3 to 12. T
 * [Getting Started](#getting-started)
 * [Authors](#authors)
 * [Sources](#sources)
-* [Project status] (#project-status)
+* [Project status](#project-status)
 
 ## Context
 Following the events of COVID-19, the world came to a temporary halt and a new way of life was imposed. During 3 days, as an international team, we participated in a hackathon, the BUSIT, where we had to "Design and create an innovative mobile application useful during a massive virus outbreak. During these 3 days, we looked for the impacts of containment to propose a relevant application, answering a social need, and that's how Amélie Chambon's group got the idea of **Kime**.
