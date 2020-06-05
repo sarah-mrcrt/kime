@@ -2,11 +2,11 @@
 Kime is a free application, offering fun activities for children aged 3 to 12. The child is accompanied step by step throughout the activity and once the activity is over, he receives a trophy to reward him and he can add a photo of his creation as a memory.
 
 ## Table of contents
-* [Context] (#context)
-* [Built With] (#built-with)
-* [Getting Started] (#getting-started)
-* [Authors] (#authors)
-* [Sources] (#sources)
+* [Context](#context)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Authors](#authors)
+* [Sources](#sources)
 * [Project status] (#project-status)
 
 ## Context
